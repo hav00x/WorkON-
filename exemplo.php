@@ -51,7 +51,7 @@
       </div>
     </div>
 
-          <div class="row">
+      <div class="row section">
         <div class="col-md-4">
           <img src="img/eu-e-o-caminhao.jpg" style="width: 300px;">
         </div>
@@ -65,12 +65,12 @@
           <h4>Rede social 2:</h4>
         </div>
       </div>
-      <div class="row">
+      <div class="row section">
         <div class="col-md-12">
           <h2>PROJETOS</h2>
         </div>
       </div>
-      <div class="row">
+      <div class="row section">
         <div class="col-md-4">
           <div id="div-projetos">
             <h4>Titulo:</h4>
@@ -99,7 +99,7 @@
         </div>
       </div>  
     </div>
-    <div class="row">
+    <div class="row section">
       <div class="col-md-12">
         <h2>Pedidos</h2>
       </div>
