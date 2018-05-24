@@ -27,30 +27,101 @@
 
     <!-- Page Content Holder -->
     <div id="content">
-
       <div class="section row">
+        <div class="container">
         <div class="col-md-12">
-          <div class="col-md-1">
+          <div class="container">
+          <div class="col-md-4">
               <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
               <i class="glyphicon glyphicon-align-left"></i>
               <span>Menu</span>
           </button>
+          </div> 
+          <div class="col-md-4">
+            <img style="width: 25px; margin: 5px;" src="img/notification.png">
           </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-1">
-              <span style="font-size: 15px;" class="glyphicon glyphicon-bell"></span>
-          </div>
-
-            <button type="button" class="btn btn-info navbar-btn">
+          <div class="col-md-4">
+              <button type="button" class="btn btn-info navbar-btn">
               <i class="glyphicon glyphicon-log-out"></i>
               <span>Sair</span>
             </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+          <div class="row">
+        <div class="col-md-4">
+          <img src="img/eu-e-o-caminhao.jpg" style="width: 300px;">
+        </div>
+        <div class="col-md-8 info-perfil">
+          <!--INFO-PERFIL AINDA NÃO CRIADA E ESTILIZADA-->
+          <h4>Nome:</h4>
+          <h4>Perfil:</h4>
+          <h4>Descrição:</h4>
+          <h4>Site:</h4>
+          <h4>Rede Social 1:</h4>
+          <h4>Rede social 2:</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>PROJETOS</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div id="div-projetos">
+            <h4>Titulo:</h4>
+            <p>Descrição:</p>
+            <p>Cliente:</p>
+            <p>Tipo:</p>
+            <p>Data de entrega:</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+        <div id="div-projetos">
+          <h4>Titulo:</h4>
+          <p>Descrição:</p>
+          <p>Cliente:</p>
+          <p>Tipo:</p>
+          <p>Data de entrega:</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div id="div-projetos">
+          <h4>Titulo:</h4>
+          <p>Descrição:</p>
+          <p>Cliente:</p>
+          <p>Tipo:</p>
+          <p>Data de entrega:</p>
+        </div>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Pedidos</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
+      <div class="col-md-4">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
+      <div class="col-md-4">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
+    </div>
+  </div>
 
 
 
