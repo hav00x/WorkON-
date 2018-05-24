@@ -45,4 +45,9 @@
             </ul>
           </li>
         </ul>
-      </nav>
+        <div id="btnMenu">
+        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+        <p></p>
+        </button>
+        </div>
+        </nav>

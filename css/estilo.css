@@ -307,6 +307,11 @@ a, a:hover, a:focus {
     font-size: 0.85em;
 }
 
+#sidebar.active2 ul li ul li a {
+    text-align: center;
+    font-size: 0.85em;
+}
+
 #sidebar ul form input[type=text]{
     width: calc(100% - 10px);
     border: none;
@@ -407,12 +412,6 @@ a, a:hover, a:focus {
     color: white;
 }
 
-#sidebar ul ul a{
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: white;
-}
-
 #sidebar.active2 ul ul a {
     padding: 10px !important;
 }
@@ -463,6 +462,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
    display: block;
    position: absolute;
    right: 20px;
+   top: 25px;
    font-family: 'Glyphicons Halflings';
    font-size: 0.6em;
 }
@@ -507,7 +507,36 @@ CONTENT STYLE
 #content.active2 {
  width: calc(100% - 80px);
 }
+#btnMenu{
+    position: fixed;
+    top: 30px;
+    left: 212px;
+    transition: all 0.3s;
+}
 
+#btnMenu.active2{
+    left: 72px;
+    transition: all 0.3s;
+}
+
+
+#btnMenu #sidebarCollapse{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#btnMenu #sidebarCollapse p::before{
+    color: grey;
+    content:"\f104";
+    font-family: FontAwesome;
+}
+
+#btnMenu.active2 #sidebarCollapse p::before{
+    content: "\f105"; 
+}
 
 /* ---------------------------------------------------
 MEDIAQUERIES
