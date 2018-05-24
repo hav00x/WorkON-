@@ -679,12 +679,45 @@ MEDIAQUERIES
 
 /* - Fim formatações específicas - */
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/*homepage*/
+
+.btn-details{
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid black
+
 }
 
-.align-list-nav li{
-     display: inline;
+.btn-details:hover{
+    background-color: #FF7F50;
+    color: white;
+    transition: 0.5s;
 }
+
+.info-perfil h4{
+    color: #000000;
+}
+
+#div-projetos{
+    background-color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+
+}
+
+
+#projetos h2{
+   color: #FF7F50;
+}
+
+#pedidos h2{
+    color: #FF7F50;
+}
+
+.div-pedidos{
+    background-color: white;
+    padding: 5px 7px 5px 15px;
+    border-radius: 10px;
+
+}
+

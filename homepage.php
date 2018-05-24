@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?$$REVISION$$" rel="stylesheet">
+  <link href="css/estilo.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -38,7 +38,7 @@
           </button>
           </div> 
           <div class="col-md-4">
-            <img style="width: 25px; margin: 5px;" src="img/notification.png">
+            <a href=""><img style="width: 25px; margin-top: 10px;" src="img/notification.png"><span class="badge">1</span></a>
           </div>
           <div class="col-md-4">
               <button type="button" class="btn btn-info navbar-btn">
@@ -51,26 +51,26 @@
       </div>
     </div>
 
-      <div class="row section">
+      <div class="row section" id="div-perfil">
         <div class="col-md-4">
           <img src="img/eu-e-o-caminhao.jpg" style="width: 300px;">
         </div>
         <div class="col-md-8 info-perfil">
           <!--INFO-PERFIL AINDA NÃO CRIADA E ESTILIZADA-->
+          <div id="perfil-data">
           <h4>Nome:</h4>
           <h4>Perfil:</h4>
           <h4>Descrição:</h4>
           <h4>Site:</h4>
           <h4>Rede Social 1:</h4>
           <h4>Rede social 2:</h4>
+          </div>
         </div>
       </div>
-      <div class="row section">
-        <div class="col-md-12">
+      <div class="row section" id="projetos">
+         <div class="col-md-12">
           <h2>PROJETOS</h2>
         </div>
-      </div>
-      <div class="row section">
         <div class="col-md-4">
           <div id="div-projetos">
             <h4>Titulo:</h4>
@@ -78,6 +78,7 @@
             <p>Cliente:</p>
             <p>Tipo:</p>
             <p>Data de entrega:</p>
+            <button class="btn btn-details">Ver detalhes</button>
           </div>
         </div>
         <div class="col-md-4">
@@ -87,6 +88,7 @@
           <p>Cliente:</p>
           <p>Tipo:</p>
           <p>Data de entrega:</p>
+          <button class="btn btn-details">Ver detalhes</button>
         </div>
       </div>
       <div class="col-md-4">
@@ -96,31 +98,38 @@
           <p>Cliente:</p>
           <p>Tipo:</p>
           <p>Data de entrega:</p>
+          <button class="btn btn-details">Ver detalhes</button>
         </div>
       </div>  
     </div>
-    <div class="row section">
+    <div class="row section" id="pedidos">
       <div class="col-md-12">
-        <h2>Pedidos</h2>
+        <h2>PEDIDOS</h2>
+      </div>
+      <div class="col-md-4">
+        <div class="div-pedidos">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="div-pedidos">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="div-pedidos">
+        <h4>Pedido</h4>
+        <p>Tipo:</p>
+        <button class="btn btn-details">Ver detalhes</button>
+      </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-      <div class="col-md-4">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-      <div class="col-md-4">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
+
+    <p style="font-size: 10px; text-align: center;">ROOT | sua plataforma de projetos - 2018</p>
   </div>
 
 
