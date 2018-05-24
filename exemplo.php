@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?$$REVISION$$" rel="stylesheet">
+  <link href="css/estilo.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -32,10 +32,7 @@
         <div class="col-md-12">
           <div class="container">
           <div class="col-md-4">
-              <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-              <i class="glyphicon glyphicon-align-left"></i>
-              <span>Menu</span>
-          </button>
+              
           </div> 
           <div class="col-md-4">
             <img style="width: 25px; margin: 5px;" src="img/notification.png">
@@ -139,7 +136,7 @@
         });
 
         $('#sidebarCollapse').on('click', function () {
-          $('#sidebar, #content').toggleClass('active2');
+          $('#sidebar, #content, #btnMenu').toggleClass('active2');
           $('.collapse.in').toggleClass('in');
           $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
