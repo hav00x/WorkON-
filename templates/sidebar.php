@@ -5,9 +5,6 @@
         </div>
 
         <ul class="list-unstyled components">
-          <form>
-            <input type="text" placeholder="Procurar">
-          </form>
           <p>Qualquer coisa pq aqui vai codigo dps</p>
           <li class="home active2">
             <a href="homepage.php" id="home">Página Principal</a>
@@ -46,8 +43,8 @@
           </li>
         </ul>
         <div id="btnMenu">
-        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-        <p></p>
+        <button type="button" id="sidebarCollapse" class="btn navbar-btn img-responsive">
+        <img class="img-responsive" src="img/001-back.png">
         </button>
         </div>
         </nav>

@@ -21,7 +21,7 @@
   <body>
 
    <?php
-   include('templates/navbar.php')
+   include('templates/navbar.php');
    ?>
 
   <div class="capa" >
