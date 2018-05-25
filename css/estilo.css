@@ -38,11 +38,10 @@ fieldset{
 	border: none;
 	border-radius: 4px;
 	color: white;
-	font-family: 'Droid Serif', serif;
 }
 
 
-p{
+p, span, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -52,7 +51,7 @@ html, body, .capa {
 	overflow-x: hidden;
 }
 
-body {
+body{
 	font-family: 'Abel';
 }
 
@@ -74,7 +73,6 @@ textarea{
 	padding:5px;
 	border: 3px solid #ff926a;
 	border-radius: 4px;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 input[type=text]:focus,
@@ -92,7 +90,6 @@ select:focus{
 
 label{
 	font-weight: 500;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* ---------------------------------------------------
@@ -242,6 +239,15 @@ a, a:hover, a:focus {
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
+    margin-left: -14px;
+    margin-right: -14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background: #f7f7f7;
+}
+
+.sectiontabs {
+    padding: 15px 10px;
+    background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     background: #f7f7f7;
 }
@@ -261,9 +267,9 @@ a, a:hover, a:focus {
 
 /* ---------------------------------------------------
 ESTILO SIDEBAR
- ----------------------------------------------------- */
+----------------------------------------------------- */
 
- #sidebar {
+#sidebar {
     min-width: 220px;
     max-width: 220px;
     position: fixed;
@@ -279,14 +285,14 @@ ESTILO SIDEBAR
 }
 
 #sidebar.active2 {
-   min-width: 80px;
-   max-width: 80px;
-   text-align: center;
+ min-width: 80px;
+ max-width: 80px;
+ text-align: center;
 }
 
 #sidebar .sidebar-header {
-   text-align: center;
-   color: #FF7F50;
+ text-align: center;
+ color: #FF7F50;
 }
 
 #sidebar ul.components {
@@ -357,13 +363,13 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul p{
-   color: black;
-   padding: 10px;
-   font-family: Abel, sans-serif;
+ color: black;
+ padding: 10px;
+ font-family: Abel, sans-serif;
 }
 
 #sidebar.active2 ul p{
-   font-size: 0.85em;
+ font-size: 0.85em;
 }
 
 #sidebar ul li a#definition:hover, #sidebar ul li a#definition[aria-expanded="true"], #sidebar ul li.active2.definition{
@@ -456,41 +462,41 @@ ESTILO SIDEBAR
 }
 
 a[data-toggle="collapse"] {
-   position: relative;
+ position: relative;
 }
 
-a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-   content: '\e259';
-   display: block;
-   position: absolute;
-   right: 20px;
-   top: 25px;
-   font-family: 'Glyphicons Halflings';
-   font-size: 0.6em;
+#sidebar a[aria-expanded="false"]::before, #sidebar a[aria-expanded="true"]::before {
+ content: '\e259';
+ display: block;
+ position: absolute;
+ right: 20px;
+ top: 25px;
+ font-family: 'Glyphicons Halflings';
+ font-size: 0.6em;
 }
 
-a[aria-expanded="true"]::before {
-   content: '\e260';
+#sidebar a[aria-expanded="true"]::before {
+ content: '\e260';
 }
 
 ul.CTAs {
-   padding: 20px;
+ padding: 20px;
 }
 
 ul.CTAs a {
-   text-align: center;
-   font-size: 0.9em !important;
-   display: block;
-   border-radius: 5px;
-   margin-bottom: 5px;
+ text-align: center;
+ font-size: 0.9em !important;
+ display: block;
+ border-radius: 5px;
+ margin-bottom: 5px;
 }
 a.download {
-   background: #fff;
-   color: #7386D5;
+ background: #fff;
+ color: #7386D5;
 }
 a.article, a.article:hover {
-   background: #6d7fcc !important;
-   color: #fff !important;
+ background: #6d7fcc !important;
+ color: #fff !important;
 }
 
 
@@ -498,16 +504,16 @@ a.article, a.article:hover {
 ESTILO CONTEUDO
 ----------------------------------------------------- */
 #content {
- width: calc(100% - 220px);
- padding: 3px 40px 40px 40px;
- min-height: 100vh;
- transition: all 0.3s;
- position: absolute;
- top: 0;
- right: 0;
+   width: calc(100% - 220px);
+   padding: 3px 40px 40px 40px;
+   min-height: 100vh;
+   transition: all 0.3s;
+   position: absolute;
+   top: 0;
+   right: 0;
 }
 #content.active2 {
- width: calc(100% - 80px);
+   width: calc(100% - 80px);
 }
 #btnMenu{
     position: fixed;
@@ -603,109 +609,109 @@ MEDIAQUERIES
 FORMATAÇÕES ESPECIFICAS
 ----------------------------------------------------- */
 .img-cd{
- width: 50px;
- margin: 0 auto;
+   width: 50px;
+   margin: 0 auto;
 }
 
 #WELCOME-SIGNIN{
- margin-top: 10px;
- margin-bottom: 10px;
- color: black;
- text-align: center;
- font-family: 'Abel';
- font-size: 50px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   color: black;
+   text-align: center;
+   font-family: 'Abel';
+   font-size: 50px;
 }
 
 .cadaChoice{
- background-color: white;
- border: 1px solid #ffa500;
- border-radius: 25px;
- padding: 20px;
- text-align: center;
- margin-top: 30px;
+   background-color: white;
+   border: 1px solid #ffa500;
+   border-radius: 25px;
+   padding: 20px;
+   text-align: center;
+   margin-top: 30px;
 }
 
 .hide{
- display: none;
+   display: none;
 }
 
 
 .ptxt{
- font-size: 19px;
+   font-size: 19px;
 }
 
 .h3txt{
- font-size: 30px;
- font-weight: 800;
+   font-size: 30px;
+   font-weight: 800;
 }
 .col-txt{
- text-align: right;
+   text-align: right;
 }
 
 .col-margin{
- margin-top: 120px;
- margin-bottom: 120px;
+   margin-top: 120px;
+   margin-bottom: 120px;
 }
 
 .container-margin{
- margin-top: 70px;
- margin-bottom: 70px;
+   margin-top: 70px;
+   margin-bottom: 70px;
 }
 
 .img-conteudo{
- width: 400px;
- border: 1px solid black;
+   width: 400px;
+   border: 1px solid black;
 
 }
 
 @font-face{
- font-family: 'Abel';
+   font-family: 'Abel';
 }
 
 .espaco{
- height: 50px;
+   height: 50px;
 }
 
 .capa {
- display: table;
- width: 100%;
- padding-top: 40px;
+   display: table;
+   width: 100%;
+   padding-top: 40px;
 }
 
 .apresentacao{
- text-align: center;
- overflow: auto;
- background-color: white;
- text-align: center;
- padding: 100px 0 30px 0;
- height: 50px;
+   text-align: center;
+   overflow: auto;
+   background-color: white;
+   text-align: center;
+   padding: 100px 0 30px 0;
+   height: 50px;
 }
 
 .texto-capa{
- font-family: 'Abel';
- font-size: 60px;
- padding-left: 15px;
- padding-right: 5px;
+   font-family: 'Abel';
+   font-size: 60px;
+   padding-left: 15px;
+   padding-right: 5px;
 }
 
 .paragrafo-capa{
- padding-left: 15px;
- padding-right: 15px;
- text-align: center;
- width: 100%;
+   padding-left: 15px;
+   padding-right: 15px;
+   text-align: center;
+   width: 100%;
 }
 
 #descri{
- resize: none;
- height: 100px;
+   resize: none;
+   height: 100px;
 }
 
 .footerStyle{
- color: white;
+   color: white;
 }
 
 .footerLI:hover{
- background-color: transparent;
+   background-color: transparent;
 }
 
 .col-half-margin{
@@ -716,8 +722,12 @@ FORMATAÇÕES ESPECIFICAS
     padding: 0;
     text-align: center;
     font-size: 20px;
+    content: none;
 }
-/* - Fim formatações específicas - */
+
+.tab-descri{
+    border-bottom: none;
+}
 
 /*homepage*/
 
@@ -747,7 +757,7 @@ FORMATAÇÕES ESPECIFICAS
 
 
 #projetos h2{
-   color: #FF7F50;
+ color: #FF7F50;
 }
 
 #pedidos h2{
@@ -761,3 +771,31 @@ FORMATAÇÕES ESPECIFICAS
 
 }
 
+/* ---------------------------------------------------
+PROJETO
+----------------------------------------------------- */
+
+#andamento, #concluido{
+    text-align: center;
+}
+
+#andamento h2, #concluido h2{
+    font-size: 30px;
+    margin: 50px 0;
+}
+
+.imgholder{
+    margin: 0 auto 30px auto;
+    width: 400px;
+    height: 400px;
+}
+
+.rmvback{
+    background: none !important;
+}
+
+.tabcustom{
+    background: white;
+    border: 1px solid #dedede;
+    border-top: none;
+}
