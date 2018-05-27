@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css" rel="stylesheet">
+  <link href="css/estilo.css?=ver5" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -28,27 +28,15 @@
     <!-- Page Content Holder -->
     <div id="content">
       <div class="section row">
-        <div class="container">
-        <div class="col-md-12">
-          <div class="container">
-          <div class="col-md-4">
-              <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-              <i class="glyphicon glyphicon-align-left"></i>
-              <span>Menu</span>
-          </button>
-          </div> 
-          <div class="col-md-4">
-            <a href=""><img style="width: 25px; margin-top: 10px;" src="img/notification.png"><span class="badge">1</span></a>
-          </div>
-          <div class="col-md-4">
-              <button type="button" class="btn btn-info navbar-btn">
-              <i class="glyphicon glyphicon-log-out"></i>
-              <span>Sair</span>
-            </button>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-8">
+        <form action="" method="">
+          <input type="submit" name="OK" value="OK" class="button-hp" placeholder="Pesquisar. . .">
+          <div class="input"><input id="input-homepage" type="text" name="search"></div>
+        </form>
       </div>
+      <div class="col-md-4">
+         <button style="margin: 13px;" class="button-hp">SAIR</button>
+        </div>
     </div>
 
       <div class="row section" id="div-perfil">
@@ -148,7 +136,7 @@
         });
 
         $('#sidebarCollapse').on('click', function () {
-          $('#sidebar, #content').toggleClass('active2');
+          $('#sidebar, #content, #btnMenu').toggleClass('active2');
           $('.collapse.in').toggleClass('in');
           $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
