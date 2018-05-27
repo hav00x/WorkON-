@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver31232133334" rel="stylesheet">
+  <link href="css/estilo.css?=ver31232133335454 " rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -197,17 +197,29 @@
           </div>
           <div class="modal-body">
             <form>
-              <div class="col-50">
-                <label for="email-cliente">Email</label>
-                <input type="text" class="text_field" id="email-cliente" name="">
+              <div class="col-left">
+                <label for="nomecli">Nome do Cliente/Empresa</label>
+                <input type="text" class="text_field" id="nomecli" name="">
               </div>
-              <div class="col-50" style="float: right;">
-                <label for="email-cliente">Email</label>
-                <input type="text" class="text_field" id="email-cliente" name="">
+              <div class="col-right">
+                <label for="tipopro">Tipo de Projeto</label>
+                <input type="text" class="text_field" id="tipopro" name="">
+              </div>
+              <div class="col-cent">
+                <label for="descri">Descrição do Projeto</label>
+                <textarea id="descri" maxlength="254" class="text_field"></textarea>
+              </div>
+              <div class="col-left">
+                <label for="dataini">Data Início</label>
+                <input type="text" class="text_field" id="danaini" name="">
+              </div>
+              <div class="col-right">
+                <label for="dataent">Data Entrega</label>
+                <input type="text" class="text_field" id="dataent" name="">
               </div>
             </form>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="clear: both;">
             <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
             <button type="button" class="button -regular">Criar</button>
           </div>
