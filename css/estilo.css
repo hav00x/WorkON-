@@ -223,6 +223,10 @@ BOTÕES
 	background: rgba(255, 250, 205, 0.6);
 }
 
+.backcolr{
+    background-color: #d9d9d9;
+}
+
 /* ---------------------------------------------------
 AREA SIDEBAR/CONTEUDO
 ----------------------------------------------------- */
@@ -504,7 +508,7 @@ a.article, a.article:hover {
 ESTILO CONTEUDO 
 ----------------------------------------------------- */
 #content {
-<<<<<<< HEAD
+
  width: calc(100% - 220px);
  padding: 3px 40px 40px 40px;
  min-height: 100vh;
@@ -513,7 +517,7 @@ ESTILO CONTEUDO
  top: 0;
  right: 0;
  margin-top: 10px;
-=======
+
    width: calc(100% - 220px);
    padding: 3px 40px 40px 40px;
    min-height: 100vh;
@@ -521,7 +525,7 @@ ESTILO CONTEUDO
    position: absolute;
    top: 0;
    right: 0;
->>>>>>> 765a89f1a3a6ce65609449f29867a789a23f2c29
+
 }
 #content.active2 {
    width: calc(100% - 80px);
@@ -782,7 +786,6 @@ FORMATAÇÕES ESPECIFICAS
 
 }
 
-<<<<<<< HEAD
 #input-homepage{
     background-color: #fff;
     border: solid 1px #fff;
@@ -842,8 +845,7 @@ FORMATAÇÕES ESPECIFICAS
 
 .btn-pedidos{
     margin-right: 0px auto;
-    margin-left: 0px auto; 
-=======
+    margin-left: 0px auto;
 /* ---------------------------------------------------
 PROJETO
 ----------------------------------------------------- */
@@ -871,5 +873,12 @@ PROJETO
     background: white;
     border: 1px solid #dedede;
     border-top: none;
->>>>>>> 765a89f1a3a6ce65609449f29867a789a23f2c29
+}
+
+#modalCadastro .modal-dialog{
+    width: 70%;
+}
+
+.col-50{
+    width: 45%;
 }
