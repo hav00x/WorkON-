@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver3123213333" rel="stylesheet">
+  <link href="css/estilo.css?=ver31232133334" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -177,10 +177,43 @@
               </div>
 
             </div>
+
+            <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">+ Novo Projeto</button>
+
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title">Novo Projeto</h3>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="col-50">
+                <label for="email-cliente">Email</label>
+                <input type="text" class="text_field" id="email-cliente" name="">
+              </div>
+              <div class="col-50" style="float: right;">
+                <label for="email-cliente">Email</label>
+                <input type="text" class="text_field" id="email-cliente" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
+            <button type="button" class="button -regular">Criar</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- Fim Modal -->
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
