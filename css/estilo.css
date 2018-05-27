@@ -846,6 +846,7 @@ FORMATAÇÕES ESPECIFICAS
 .btn-pedidos{
     margin-right: 0px auto;
     margin-left: 0px auto;
+}
 /* ---------------------------------------------------
 PROJETO
 ----------------------------------------------------- */
@@ -879,6 +880,12 @@ PROJETO
     width: 70%;
 }
 
-.col-50{
+.col-left{
     width: 45%;
+    float: left;
+}
+
+.col-right{
+    width: 45%;
+    float: right;
 }

@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver31232133334" rel="stylesheet">
+  <link href="css/estilo.css?=ver31232133335454 " rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -197,11 +197,11 @@
           </div>
           <div class="modal-body">
             <form>
-              <div class="col-50">
+              <div class="col-left">
                 <label for="email-cliente">Email</label>
                 <input type="text" class="text_field" id="email-cliente" name="">
               </div>
-              <div class="col-50" style="float: right;">
+              <div class="col-right">
                 <label for="email-cliente">Email</label>
                 <input type="text" class="text_field" id="email-cliente" name="">
               </div>
