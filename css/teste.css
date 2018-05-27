@@ -545,7 +545,7 @@ MEDIAQUERIES
 .capa {
  display: table;
  width: 100%;
- padding-top: 40px;
+ padding-top: 60px;
 }
 
 .apresentacao{
@@ -581,7 +581,7 @@ MEDIAQUERIES
 }
 
 .footerLI:hover{
- background-color: transparent;
+ background-color: #FF7F50;
 }
 
 /* - Fim formatações específicas - */
@@ -592,6 +592,7 @@ MEDIAQUERIES
 .capa {
     height: 100%;
     overflow: auto;
+    margin-top: 60px;
 }
 
 
@@ -617,6 +618,7 @@ MEDIAQUERIES
     background: #fff;
     padding-top: 20px;
     padding-bottom: 20px;
+
 }
 
 #sobre h2{

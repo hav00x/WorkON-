@@ -24,10 +24,10 @@
    include('templates/navbar.php');
    ?>
 
-  <div class="capa" >
+  <div style="margin-top: 80px; margin-bottom: -30px;" class="capa" >
     <div class="container">
         <div class="texto-capa">
-            <img src="img/capaa.png">
+            <img class="" src="img/capaaa.png">
             <h3 class="lead txt-capa">Sua plataforma de projetos</h3>
           </div>
       </div>
