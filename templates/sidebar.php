@@ -15,8 +15,8 @@
           <li class="project">
             <a href="#pageSubmenu" id="project" data-toggle="collapse" aria-expanded="false">Projetos</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="#">Em andamento</a></li>
-              <li><a href="#">Concluidos</a></li>
+              <li><a href="projetos.php#andamento">Em andamento</a></li>
+              <li><a href="projetos.php#concluido">Concluidos</a></li>
             </ul>
           </li>
           <li class="request">
