@@ -1,7 +1,7 @@
       <!-- Sidebar Holder -->
       <nav id="sidebar">
         <div class="sidebar-header">
-          <h3>ROOT</h3>
+          <h3>WORKON</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -10,27 +10,27 @@
             <a href="homepage.php" id="home">Página Principal</a>
           </li>
           <li class="chat">
-            <a href="#" id="chat">Chat</a>
+            <a href="chat.php" id="chat">Chat</a>
           </li>
           <li class="project">
             <a href="#pageSubmenu" id="project" data-toggle="collapse" aria-expanded="false">Projetos</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="#">Em andamento</a></li>
-              <li><a href="#">Concluidos</a></li>
+              <li><a href="projetos.php">Em andamento</a></li>
+              <li><a href="projetos.php">Concluidos</a></li>
             </ul>
           </li>
           <li class="request">
             <a href="#pageSubMenu2" id="request" data-toggle="collapse" aria-expanded="false">Pedidos</a>
             <ul class="collapse list-unstyled" id="pageSubMenu2">
-              <li><a href="#">Recebidos</a></li>
-              <li><a href="#">Enviados</a></li>
+              <li><a href="pedidos.php">Recebidos</a></li>
+              <li><a href="pedidos.php">Enviados</a></li>
             </ul>
           </li>
           <li class="payment">
             <a href="#pageSubMenu3" id="payment" data-toggle="collapse" aria-expanded="false">Pagamentos</a>
             <ul class="collapse list-unstyled" id="pageSubMenu3">
-              <li><a href="#">A Receber</a></li>
-              <li><a href="#">A Enviar</a></li>
+              <li><a href="pagamentos.php">A Receber</a></li>
+              <li><a href="pagamentos.php">A Enviar</a></li>
             </ul>
           </li>
           <li class="definition">

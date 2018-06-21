@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON. | abcde</title>
+  <title>root. | abcde</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
@@ -29,86 +29,54 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h1>PEDIDOS</h1>
+              <h1>CHAT</h1>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span> Fazer novo pedido</button>
+            <div class="col-md-6">
+              <button class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-plus"></span> Iniciar nova conversa</button>
             </div>
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg "><span class="glyphicon glyphicon-trash"></span> Rejeitar pedido</button>
-            </div>
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg "><span class="glyphicon glyphicon-ok"></span> Aceitar pedido</button>
+            <div class="col-md-6">
+              <button class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-trash"></span> Apagar conversa</button>
             </div>
           </div>
         </div>
       </div>
       <div class="section row">
       <div class="col-md-4">
-        <h3>Pedido 1</h3>
+        <h3>USER1</h3>
         <div class="div-pedidos">
-        <h4>Restaurante</h4>
-        <p>Tipo: Site</p>
-        <p>Solicitante: User1</p>
-        <p>Data de entrega: 31/12/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
+        <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-circle" style="width: 20%; margin-right: auto; margin-left: auto;">
+        <p style="text-align: center; margin-top: 2px;">Projeto: Site-Restaurante</p>
+        <br>
+       <p style="text-align: center;"> <button class="btn btn-details" type="button">
+            Mensagens <span class="badge">4</span>
+        </button> </p>
       </div>
       </div>
       <div class="col-md-4">
-        <h3>Pedido 2</h3>
+        <h3>USER2</h3>
         <div class="div-pedidos">
-        <h4>Mercado</h4>
-        <p>Tipo: Software</p>
-        <p>Solicitante: User2</p>
-        <p>Data de entrega: 12/08/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-     <div class="col-md-4">
-        <h3>Pedido 3</h3>
-        <div class="div-pedidos">
-        <h4>Tic-tac-toe</h4>
-        <p>Tipo: Jogo</p>
-        <p>Solicitante: User3</p>
-        <p>Data de entrega: 16/09/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-
-      <div class=" sectionrow">
-      <div class="col-md-4">
-        <h3>Pedido 4</h3>
-        <div class="div-pedidos">
-        <h4>Loja de roupas</h4>
-        <p>Tipo: Aplicativo</p>
-        <p>Solicitante: User1</p>
-        <p>Data de entrega: 31/12/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
+        <img src="img/kylo-ren.jpg" class="img-responsive img-circle" style="width: 20%; margin-right: auto; margin-left: auto;">
+        <p style="text-align: center; margin-top: 2px;">Projeto: Software-Mercado</p>
+        <br>
+       <p style="text-align: center;"> <button class="btn btn-details" type="button">
+            Mensagens <span class="badge">5</span>
+        </button> </p>
       </div>
       </div>
       <div class="col-md-4">
-        <h3>Pedido 5</h3>
+        <h3>USER3</h3>
         <div class="div-pedidos">
-        <h4>Escola</h4>
-        <p>Tipo: Site</p>
-        <p>Solicitante: User2</p>
-        <p>Data de entrega: 12/08/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
+        <img src="img/hog.jpg" class="img-responsive img-circle" style="width: 20%; margin-right: auto; margin-left: auto;">
+        <p style="text-align: center; margin-top: 2px;">Projeto: Jogo-Tic-tac-toe</p>
+        <br>
+       <p style="text-align: center;"> <button class="btn btn-details" type="button">
+            Mensagens <span class="badge">6</span>
+        </button> </p>
       </div>
       </div>
-     <div class="col-md-4">
-        <h3>Pedido 6</h3>
-        <div class="div-pedidos">
-        <h4>Hospital</h4>
-        <p>Tipo: Software</p>
-        <p>Solicitante: User3</p>
-        <p>Data de entrega: 16/09/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-      </div>
+ 
         </div>
 
       </div>

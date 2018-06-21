@@ -27,7 +27,7 @@
   <div style="margin-top: 80px; margin-bottom: -30px;" class="capa" >
     <div class="container">
         <div class="texto-capa">
-            <img class="" src="img/capaaa.png">
+            <img src="img/capaaa.png">
             <h3 class="lead txt-capa">Sua plataforma de projetos</h3>
           </div>
       </div>
@@ -44,7 +44,7 @@
           </div>
           <!-- sobre -->
           <div class="col-md-6">
-          <h3 class="h3txt">O que é o root?</h3>
+          <h3 class="h3txt">O que é o WORKON?</h3>
           <p class="ptxt">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam</p>
           </div>
         </div>
@@ -63,7 +63,7 @@
       <div class="col-md-6">
         <h4 class="ptxt"><img style="width: 10%; margin: 10px;" src="img/userico.png">Clientes</h4>
         <ul>
-          <p style="text-align: center;">Aqui no ROOT você pode:</p>
+          <p style="text-align: center;">Aqui no WORKON você pode:</p>
           <li>Acompanhar o andamento de seus projetos;</li>
           <li>Enviar feedbacks ao desenvolvedor;</li>
           <li>Encontrar desenvolvedores;</li>
@@ -71,7 +71,7 @@
         </div>
           <div class="col-md-6">
             <h4><img style="width: 10%; margin: 10px;" src="img/devico.png">Desenvolvedor</h4>
-            <p style="text-align: center;">Aqui no ROOT você pode:</p>
+            <p style="text-align: center;">Aqui no WORKON você pode:</p>
             <ul>
               <li>Atualizar o seu cliente sobre o andamento do projeto;</li>
               <li>Utilizar um chat e coletar feedback do seu cliente sem precisar utilizar redes socias pessoais;</li>
