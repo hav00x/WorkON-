@@ -36,17 +36,18 @@ Pagina inicial finalizada (falta estilizar), cadastro finalizado (falta estiliza
 
 Barra lateral mudada
 
+   23/05 - 27/05
+
+Várias telas
+
+   28/05/2018
+
+Mexendo na sidebar DENOVO
+
    /-Sendo Feito-/
 
-: Homepage {
-	. layout geral !
-	. profundidade na sidebar
-}
-
-. Cadastro, Index {
-	. estilização
-}
+   ???
 
    /-Para Arrumar-/
 
-Nada atualmente, só coisas a fazer.
+Os redirecionamentos da sidebar

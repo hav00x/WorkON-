@@ -15,8 +15,13 @@
           <li class="project">
             <a href="#pageSubmenu" id="project" data-toggle="collapse" aria-expanded="false">Projetos</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
+<<<<<<< HEAD
               <li><a href="projetos.php">Em andamento</a></li>
               <li><a href="projetos.php">Concluidos</a></li>
+=======
+              <li><a href="projetos.php#andamento">Em andamento</a></li>
+              <li><a href="projetos.php#concluido">Concluidos</a></li>
+>>>>>>> ee9a6354a8c38a098ea209afb34260a64bd61641
             </ul>
           </li>
           <li class="request">
