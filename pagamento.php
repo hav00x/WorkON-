@@ -53,33 +53,27 @@
         <div class="row">
           <div class="col-md-12">
             <div class="tab-content">
-
-              <div role="tabpanel" class="tab-pane active" id="andamento">
-
-                <div class="col-md-12">
+              <div style="background: white; border:1px solid black;">
+                <div role="tabpanel" class="tab-pane active" id="andamento">
+                  <div class="col-md-12">
                   <h2>PROJETOS</h2>
                 </div>
-
-                <div class="col-md-4">
-                  <div id="div-projetos">
-                    <h4>Titulo:</h4>
-                    <p>Descrição:</p>
-                    <p>Cliente:</p>
-                    <p>Valor:</p>
-                    <p>Entregue:</p>
-                    <button class="btn btn-details">Ver detalhes</button>
+                  <div class="col-md-4">
+                    <div id="div-projetos">
+                      <h4>Titulo:</h4>
+                      <p>Descrição:</p>
+                      <p>Cliente:</p>
+                      <p>Valor:</p>
+                      <p>Entregue:</p>
+                      <button class="btn btn-details">Ver detalhes</button>
+                    </div>
                   </div>
                 </div>
               </div>
-              
-
               <div role="tabpanel" class="tab-pane" id="concluido">
 
               </div>
-
-
             </div>
-
           </div>
 
           <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">+ Novo Projeto</button>
@@ -87,71 +81,70 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title">Novo Projeto</h3>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="col-left">
-              <label for="nomecli">Nome do Cliente/Empresa</label>
-              <input type="text" class="text_field" id="nomecli" name="">
-            </div>
-            <div class="col-right">
-              <label for="tipopro">Tipo de Projeto</label>
-              <input type="text" class="text_field" id="tipopro" name="">
-            </div>
-            <div class="col-cent">
-              <label for="descri">Descrição do Projeto</label>
-              <textarea id="descri" maxlength="254" class="text_field"></textarea>
-            </div>
-            <div class="col-left">
-              <label for="dataini">Data Início</label>
-              <input type="text" class="text_field" id="danaini" name="">
-            </div>
-            <div class="col-right">
-              <label for="dataent">Data Entrega</label>
-              <input type="text" class="text_field" id="dataent" name="">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer" style="clear: both;">
-          <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-          <button type="button" class="button -regular">Criar</button>
+    <!-- Modal -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title">Novo Projeto</h3>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="col-left">
+                <label for="nomecli">Nome do Cliente/Empresa</label>
+                <input type="text" class="text_field" id="nomecli" name="">
+              </div>
+              <div class="col-right">
+                <label for="tipopro">Tipo de Projeto</label>
+                <input type="text" class="text_field" id="tipopro" name="">
+              </div>
+              <div class="col-cent">
+                <label for="descri">Descrição do Projeto</label>
+                <textarea id="descri" maxlength="254" class="text_field"></textarea>
+              </div>
+              <div class="col-left">
+                <label for="dataini">Data Início</label>
+                <input type="text" class="text_field" id="danaini" name="">
+              </div>
+              <div class="col-right">
+                <label for="dataent">Data Entrega</label>
+                <input type="text" class="text_field" id="dataent" name="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" style="clear: both;">
+            <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
+            <button type="button" class="button -regular">Criar</button>
+          </div>
         </div>
       </div>
-    </div>
-  </div><!-- Fim Modal -->
+    </div><!-- Fim Modal -->
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <!-- jQuery Custom Scroller CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#sidebar").mCustomScrollbar({
-        theme: "minimal"
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+          theme: "minimal"
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+          $('#sidebar, #content, #btnMenu').toggleClass('active2');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
       });
-
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar, #content, #btnMenu').toggleClass('active2');
-        $('.collapse.in').toggleClass('in');
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-      });
-    });
-  </script>
+    </script>
 
 
 
-</body>
-</html>
+  </body>
+  </html>
