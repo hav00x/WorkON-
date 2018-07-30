@@ -47,35 +47,35 @@
           <div class="row">
             <div class="col-md-5 col-md-offset-1">
               <label for="email-cliente">Email</label>
-              <input type="text" class="text_field" id="email-cliente" name="">
+              <input type="text" class="text_field" id="email-cliente" name="email">
               <label for="senha">Senha</label>
-              <input type="password" class="text_field" id="senha" name="">
+              <input type="password" class="text_field" id="senha" name="senha">
             </div>
             <div class="col-md-5">
               <label for="conf-email">Confirme o email</label>
-              <input type="text" class="text_field" id="conf-email" name="">
+              <input type="text" class="text_field" id="conf-email" name="email-conf">
               <label for="conf-senha">Confirme sua senha</label>
-              <input type="password" class="text_field" id="conf-senha" name="">
+              <input type="password" class="text_field" id="conf-senha" name="senha-conf">
             </div>
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
               <label for="nome">Nome</label>
-              <input type="text" id="nome" class="text_field" name="">
+              <input type="text" id="nome" class="text_field" name="nome">
               <label for="tel">Telefone fixo</label>
-              <input class="text_field" id="tel" type="tel" name="" maxlength="10">
+              <input class="text_field" id="tel" type="tel" name="tel-fixo" maxlength="10">
             </div>
             <div class="col-md-3 col-half-margin">
               <label for="sobrenome">Sobrenome</label>
-              <input type="text" id="sobrenome" class="text_field" name="">
+              <input type="text" id="sobrenome" class="text_field" name="sobrenome">
               <label for="cel">Telefone celular</label>
-              <input class="text_field" id="cel" type="tel" name="" maxlength="11">
+              <input class="text_field" id="cel" type="tel" name="tel-cel" maxlength="11">
             </div>
             <div class="col-md-3">
               <label for="cpf">CPF</label>
-              <input class="text_field" id="cpf" type="text" name="">
+              <input class="text_field" id="cpf" type="text" name="cpf">
               <label for="telcom">Telefone comercial</label>
-              <input class="text_field" id="telcom" type="tel" name="" maxlength="11">
+              <input class="text_field" id="telcom" type="tel" name="tel-com" maxlength="11">
             </div>
           </div>
           <div class="row">
@@ -98,7 +98,7 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <label for="segmento">Qual é o segmento do seu negócio?</label>
-              <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="">
+              <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="res-negocio">
             </div>
           </div>
           <div class="row">
@@ -109,15 +109,15 @@
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
               <label for="fb">Facebook</label>
-              <input class="text_field" id="fb" type="text" name="">
+              <input class="text_field" id="fb" type="text" name="social-face">
             </div>
             <div class="col-md-3 col-half-margin">
               <label for="insta">Instagram</label>
-              <input class="text_field" id="insta" type="text" name="">
+              <input class="text_field" id="insta" type="text" name="social-insta">
             </div>
             <div class="col-md-3">
               <label for="site">Site</label>
-              <input class="text_field" id="site" type="text" name="">
+              <input class="text_field" id="site" type="text" name="social-site">
             </div>     
           </div>
           <div class="row">

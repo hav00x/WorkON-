@@ -921,3 +921,14 @@ body.modal-open {
         width: 100%;
     }
 }
+
+.projdiv{
+    text-align: justify;
+    border: 1px solid black;
+}
+
+.subproj{
+    background-color: white;
+    margin: 5px;
+    padding: 15px;
+}

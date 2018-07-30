@@ -31,6 +31,7 @@
         <div class="row">
           <div class="col-md-6">
             <img style="width: 25px; margin: 5px;" src="img/notification.png">
+             <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">+ Novo Projeto</button>
           </div>
           <div class="col-md-6">
             <button type="button" style="float: right;" class="btn btn-info navbar-btn">
@@ -55,131 +56,33 @@
             <div class="tab-content">
 
               <div role="tabpanel" class="tab-pane active" id="andamento">
-
-                <div id="slide1" class="carousel slide tabcustom" data-ride="carousel">
-                  <!-- Indicators -->
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control rmvback" href="#slide1" data-slide="prev">
-                    <span style="color: black;" class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="right carousel-control rmvback" href="#slide1" data-slide="next">
-                    <span style="color: black;" class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
+                <div class="col-md-6 projdiv">
+                  <h2>Nome projeto</h2>
+                  <div class="subproj">
+                    <p>Tipo:</p>
+                    <p>Solicitante:</p>
+                    <p>Data de entrega:</p>
+                    <p>Progresso:</p>
+                    <button class="btn btn-info">Atualizar</button>
+                 </div>
                 </div>
-
+                <div class="col-md-6 projdiv">
+                  <h2>Nome projeto</h2>
+                  <div class="subproj">
+                    <p>Tipo:</p>
+                    <p>Solicitante:</p>
+                    <p>Data de entrega:</p>
+                    <p>Progresso:</p>
+                    <button class="btn btn-info">Atualizar</button>
+                 </div>
+                </div>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="concluido">
 
-                <div id="slide2" class="carousel slide tabcustom" data-ride="carousel">
-                  <!-- Indicators -->
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="col-md-4 col-md-offset-4">
-                        <h2>Titulo</h2>
-                        <p style="text-align: left;">Cliente:</p>
-                        <img class="img-responsive imgholder" src="img/capa2.png">
-                        <p>Descrição:</p>
-                        <p>Tipo de projeto:</p>
-                        <p>Data de início:</p>
-                        <p>Data de entrega:</p>
-                        <p>Preço Estabelecido:</p>
-                        <p>Arquivos Anexados:</p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control rmvback" href="#slide2" data-slide="prev">
-                    <span style="color: black;" class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="right carousel-control rmvback" href="#slide2" data-slide="next">
-                    <span style="color: black;" class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
-
               </div>
 
             </div>
-
-            <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">+ Novo Projeto</button>
-
           </div>
         </div>
       </div>
@@ -216,6 +119,57 @@
               <div class="col-right">
                 <label for="dataent">Data Entrega</label>
                 <input type="text" class="text_field" id="dataent" name="">
+              </div>
+              <div class="col-md-12">
+                <h3>O que vai ser feito?</h3>
+                <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
+              </div>
+              <div class="col-md-12">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Etapa #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <form>
+        <label>Atividade:</label>
+        <input type="text" name="">
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
               </div>
             </form>
           </div>
