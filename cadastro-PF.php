@@ -31,7 +31,7 @@
 
     <div class="container conn">
       <!-- Multistep Form -->
-      <form action="" class="regform" method="get">
+      <form action="" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table">
