@@ -31,7 +31,7 @@
 
     <div class="container conn">
       <!-- Multistep Form -->
-      <form action="" class="regform" method="post">
+      <form action="cadastrarpf_bd.php" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table">
@@ -117,19 +117,20 @@
             </div>
             <div class="col-md-3">
               <label for="site">Site</label>
-              <input class="text_field" id="site" type="text" name="social-site">
+              <input class="text_field" id="site" type="text" name="site1">
             </div>     
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
-              <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field"></textarea>
+              <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
               <input style="float: right; margin-right: 0;" class="next_btn" name="next" type="button" value="Próximo">
-              <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">    
+              <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">
+              <button type="submit" id="cadastropf">Enviar</button>
             </div>
           </div>
         </fieldset>
-        <fieldset>
+        <!--// <fieldset>
           <div class="row">
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
@@ -140,7 +141,7 @@
               <input class="submit_btn" type="submit" value="Concluir">
             </div>
           </div>
-        </fieldset>
+        </fieldset>  //-->
       </form>
     </div>
 

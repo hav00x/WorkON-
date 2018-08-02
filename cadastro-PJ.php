@@ -1,6 +1,14 @@
+<?php
+
+$erro_cnpj = isset($_GET['erro_cnpj']) ? $_GET['erro_cnpj'] : 0;
+$erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +30,7 @@
   <body>
 
     <?php  
-    include('templates/navbar.php')
+    include('templates/navbar.php');
     ?>
 
     <div class="container">
@@ -31,7 +39,7 @@
 
     <div class="container conn">
       <!-- Multistep Form -->
-      <form action="" class="regform" method="get">
+      <form action="cadastrarpj_bd.php" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table">
@@ -47,9 +55,9 @@
           <div class="row">
             <div class="col-md-5 col-md-offset-1">
               <label for="email-cliente">Email</label>
-              <input type="text" class="text_field" id="email-cliente" name="">
+              <input type="text" class="text_field" id="email-cliente" name="email">
               <label for="senha">Senha</label>
-              <input type="password" class="text_field" id="senha" name="">
+              <input type="password" class="text_field" id="senha" name="senha">
             </div>
             <div class="col-md-5">
               <label for="conf-email">Confirme o email</label>
@@ -60,22 +68,22 @@
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" class="text_field" name="">
+              <label for="nome">Razão Social</label>
+              <input type="text" id="nome" class="text_field" name="razaos">
               <label for="tel">Telefone fixo</label>
-              <input class="text_field" id="tel" type="tel" name="" maxlength="10">
+              <input class="text_field" id="tel" type="tel" name="tel-fixo" maxlength="10">
             </div>
             <div class="col-md-3 col-half-margin">
-              <label for="sobrenome">Sobrenome</label>
-              <input type="text" id="sobrenome" class="text_field" name="">
+              <label for="sobrenome">Nome Fantasia</label>
+              <input type="text" id="sobrenome" class="text_field" name="nomef">
               <label for="cel">Telefone celular</label>
-              <input class="text_field" id="cel" type="tel" name="" maxlength="11">
+              <input class="text_field" id="cel" type="tel" name="tel-cel" maxlength="11">
             </div>
             <div class="col-md-3">
               <label for="cpf">CNPJ</label>
-              <input class="text_field" id="cnpj" type="text" name="">
+              <input class="text_field" id="cnpj" type="text" name="cnpj">
               <label for="telcom">Telefone comercial</label>
-              <input class="text_field" id="telcom" type="tel" name="" maxlength="11">
+              <input class="text_field" id="telcom" type="tel" name="tel-com" maxlength="11">
             </div>
           </div>
           <div class="row">
@@ -98,7 +106,7 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <label for="segmento">Qual é o segmento do seu negócio?</label>
-              <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="">
+              <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="res-negocio">
             </div>
           </div>
           <div class="row">
@@ -117,19 +125,20 @@
             </div>
             <div class="col-md-3">
               <label for="site">Site</label>
-              <input class="text_field" id="site" type="text" name="">
+              <input class="text_field" id="site" type="text" name="site1">
             </div>     
           </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
-              <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field"></textarea>
+              <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
               <input style="float: right; margin-right: 0;" class="next_btn" name="next" type="button" value="Próximo">
               <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">    
+              <button type="submit" id="cadastropf">Enviar</button>
             </div>
           </div>
         </fieldset>
-        <fieldset>
+        <!--// <fieldset>
           <div class="row">
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
@@ -140,7 +149,7 @@
               <input class="submit_btn" type="submit" value="Concluir">
             </div>
           </div>
-        </fieldset>
+        </fieldset>  //-->
       </form>
     </div>
   </div>
