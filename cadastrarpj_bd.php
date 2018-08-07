@@ -18,7 +18,7 @@ $segmento = $_POST['res-negocio'];
 $descricao = $_POST['descricao'];
 $site = $_POST['site1'];
 $email_existe = false;
-$cnpj_existee = false;
+$cnpj_existe = false;
 
 $sql = "select cnpj from usuariopj where cnpj = '$cnpj'";
 

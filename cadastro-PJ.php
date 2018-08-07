@@ -19,6 +19,11 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilo.css?$$REVISION$$" rel="stylesheet">
+
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
   
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,6 +31,34 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var erro_email = '<?= $erro_email ?>';
+        var erro_cnpj = '<?= $erro_cnpj ?>';
+        var vazio = false;
+
+        if(erro_email == 1){
+          $('#email').css({'background-color': '#fbc7ce'});
+          $('#email').attr("placeholder", "Esse email já está em uso");
+        } if(erro_cnpj == 1){
+          $('#cnpj').css({'background-color': '#fbc7ce'});
+          $('#cnpj').attr("placeholder", "Esse cnpj já está em uso");
+        }
+        
+          $('.regform input').each(function(){
+            if ($(this).val() == ''){
+              
+              $(this).css({'background-color': '#fbc7ce'
+               });
+              $(this).attr('placeholder', 'Por favor, preencha este campo');
+              $('#cadastropj').hide();
+            }
+            
+          });       
+      });
+    </script>
+
   </head>
   <body>
 
@@ -39,7 +72,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 
     <div class="container conn">
       <!-- Multistep Form -->
-      <form action="cadastrarpj_bd.php" class="regform" method="post">
+      <form action="" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table">
@@ -55,7 +88,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
           <div class="row">
             <div class="col-md-5 col-md-offset-1">
               <label for="email-cliente">Email</label>
-              <input type="text" class="text_field" id="email-cliente" name="email">
+              <input type="text" class="text_field" id="email" name="email">
               <label for="senha">Senha</label>
               <input type="password" class="text_field" id="senha" name="senha">
             </div>
@@ -134,7 +167,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
               <input style="float: right; margin-right: 0;" class="next_btn" name="next" type="button" value="Próximo">
               <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">    
-              <button type="submit" id="cadastropf">Enviar</button>
+              <button type="submit" id="cadastropj" disabled>Enviar</button>
             </div>
           </div>
         </fieldset>
@@ -154,7 +187,6 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="js/script1.js?$$REVISION$$"></script>
   <script src="js/form.js?$$REVISION$$"></script>
