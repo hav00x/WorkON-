@@ -15,7 +15,7 @@
       </button>
 
       <a href="index.php" class="navbar-brand" style="position: relative;">
-        <span style="position: absolute; bottom: 33%;">ROOT</span>
+        <span style="position: absolute; bottom: 33%;">WORKON!</span>
       </a>
     </div>
     <!-- navbar -->

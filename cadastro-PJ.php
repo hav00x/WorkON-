@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>root. | abcde</title>
+  <title>wORKON. | abcde</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->

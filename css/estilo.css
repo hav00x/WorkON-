@@ -642,12 +642,16 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .cadaChoice{
-   background-color: white;
-   border: 1px solid #ffa500;
-   border-radius: 25px;
+   background: rgba(255, 165, 0, 0.5)
+   border: 1px solid #d9d9d9;
+   border-radius: 5px;
    padding: 20px;
    text-align: center;
    margin-top: 30px;
+   width: 500px;
+   box-shadow: 0 1px 3px rgba(255, 69, 0, 0.7);
+   margin-left: 70px;
+
 }
 
 .hide{
