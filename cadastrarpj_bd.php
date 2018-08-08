@@ -5,7 +5,9 @@ require_once('db.class.php');
 $objdb = new db();
 $link = $objdb->connect();
 $email = $_POST['email'];
-$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+$senha = $_POST['senha'], PASSWORD_DEFAULT);
+$confirmaEmail = $_POST['confirma-email'];
+$confirmaSenha = $_POST['confirma-senha'];
 $razao_social = $_POST['razaos'];
 $fixo = $_POST['tel-fixo'];
 $nome_fantasia = $_POST['nomef'];
@@ -19,8 +21,18 @@ $descricao = $_POST['descricao'];
 $site = $_POST['site1'];
 $email_existe = false;
 $cnpj_existe = false;
+$senha_diferente = false;
+$email_diferente = false;
 
 $sql = "select cnpj from usuariopj where cnpj = '$cnpj'";
+
+	if($email != $confirmaEmail){
+		$email_diferente = true;
+	}
+
+	if($_POST['senha'] != $confirmaSenha){
+		$senha_diferente = true;
+	}
 
 	if ($resultado = mysqli_query($link, $sql)){
 
@@ -49,7 +61,7 @@ $sql = "select cnpj from usuariopj where cnpj = '$cnpj'";
 		echo 'Erro ao executar a busca por email';
 	}
 
-	if($cnpj_existe || $email_existe){
+	if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente){
 
 		$retorno_get = '';
 
@@ -59,6 +71,14 @@ $sql = "select cnpj from usuariopj where cnpj = '$cnpj'";
 
 		if($email_existe){
 			$retorno_get.= "erro_email=1&"; 
+		}
+
+		if($email_diferente){
+			$retorno_get.="erro_emaildif=1&";
+		}
+
+		if($senha_diferente){
+			$retorno_get.="erro_senhadif=1&";
 		}
 
 		header('Location: cadastro-PJ.php?'.$retorno_get);

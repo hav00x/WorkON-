@@ -2,6 +2,8 @@
 
 $erro_cnpj = isset($_GET['erro_cnpj']) ? $_GET['erro_cnpj'] : 0;
 $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
+$erro_email_diferente = isset($_GET['erro_emaildif']) ? $_GET['erro_emaildif'] : 0;
+$erro_senha_diferente = isset($_GET['erro_senhadif']) ? $_GET['erro_senhadif'] : 0;
 
 ?>
 
@@ -18,7 +20,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?$$REVISION$$" rel="stylesheet">
+  <link href="css/estilo.css" rel="stylesheet">
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -36,8 +38,10 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
       $(document).ready(function(){
         var erro_email = '<?= $erro_email ?>';
         var erro_cnpj = '<?= $erro_cnpj ?>';
-        var vazio = false;
+        var erro_senha_diferente = '<?= $erro_senha_diferente ?>';
+        var erro_email_diferente = '<?= $erro_email_diferente ?>';
 
+        //se email/cnpj já estão cadastrados, o erro é mostrado
         if(erro_email == 1){
           $('#email').css({'background-color': '#fbc7ce'});
           $('#email').attr("placeholder", "Esse email já está em uso");
@@ -46,16 +50,6 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
           $('#cnpj').attr("placeholder", "Esse cnpj já está em uso");
         }
         
-          $('.regform input').each(function(){
-            if ($(this).val() == ''){
-              
-              $(this).css({'background-color': '#fbc7ce'
-               });
-              $(this).attr('placeholder', 'Por favor, preencha este campo');
-              $('#cadastropj').hide();
-            }
-            
-          });       
       });
     </script>
 
@@ -65,6 +59,23 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
     <?php  
     include('templates/navbar.php');
     ?>
+
+    <div id="modalErro" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Erro</h4>
+          </div>
+          <div class="modal-body">
+            <p style="margin-left: 10px;">Preencha todos os campos<br>OBS: Todos os campos com * são opcionais</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <div class="container">
       <h2 style="text-align: center; margin-bottom: 40px;">Pessoa Jurídica</h2>
@@ -88,22 +99,22 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
           <div class="row">
             <div class="col-md-5 col-md-offset-1">
               <label for="email-cliente">Email</label>
-              <input type="text" class="text_field" id="email" name="email">
+              <input type="text" class="text_field" id="email" name="email" required>
               <label for="senha">Senha</label>
               <input type="password" class="text_field" id="senha" name="senha">
             </div>
             <div class="col-md-5">
               <label for="conf-email">Confirme o email</label>
-              <input type="text" class="text_field" id="conf-email" name="">
+              <input type="text" class="text_field" id="conf-email" name="confirma-email">
               <label for="conf-senha">Confirme sua senha</label>
-              <input type="password" class="text_field" id="conf-senha" name="">
+              <input type="password" class="text_field" id="conf-senha" name="confirma-senha">
             </div>
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
               <label for="nome">Razão Social</label>
               <input type="text" id="nome" class="text_field" name="razaos">
-              <label for="tel">Telefone fixo</label>
+              <label for="tel">Telefone fixo *</label>
               <input class="text_field" id="tel" type="tel" name="tel-fixo" maxlength="10">
             </div>
             <div class="col-md-3 col-half-margin">
@@ -115,7 +126,7 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
             <div class="col-md-3">
               <label for="cpf">CNPJ</label>
               <input class="text_field" id="cnpj" type="text" name="cnpj">
-              <label for="telcom">Telefone comercial</label>
+              <label for="telcom">Telefone comercial *</label>
               <input class="text_field" id="telcom" type="tel" name="tel-com" maxlength="11">
             </div>
           </div>
@@ -131,11 +142,11 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
               <input class="text_field" name="bairro" type="text" id="bairro" size="40" />
               <label for="uf">Estado</label>
               <input class="text_field" name="uf" type="text" id="uf" size="2" />
-              <input class="next_btn" name="next" type="button" value="Próximo" style="float: right; margin-right: 0;">
+              <input class="next_btn btn-alinha-direita" id="primeiro_next" name="next" type="button" value="Próximo">
             </div>
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset id="second">
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <label for="segmento">Qual é o segmento do seu negócio?</label>
@@ -149,15 +160,15 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
-              <label for="fb">Facebook</label>
+              <label for="fb">Facebook *</label>
               <input class="text_field" id="fb" type="text" name="">
             </div>
             <div class="col-md-3 col-half-margin">
-              <label for="insta">Instagram</label>
+              <label for="insta">Instagram *</label>
               <input class="text_field" id="insta" type="text" name="">
             </div>
             <div class="col-md-3">
-              <label for="site">Site</label>
+              <label for="site">Site *</label>
               <input class="text_field" id="site" type="text" name="site1">
             </div>     
           </div>
@@ -165,31 +176,32 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
             <div class="col-md-10 col-md-offset-1">
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
-              <input style="float: right; margin-right: 0;" class="next_btn" name="next" type="button" value="Próximo">
-              <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">    
-              <button type="submit" id="cadastropj" disabled>Enviar</button>
+              <input class="next_btn btn-alinha-direita" id="segundo_next" name="next" type="button" value="Próximo">
+              <input class="pre_btn btn-alinha-direita" name="previous" type="button" value="Anterior">    
             </div>
           </div>
         </fieldset>
-        <!--// <fieldset>
+        <fieldset>
           <div class="row">
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
               <input type='file' id="imgInp" /><br>
-              <img style="border:1px solid black;" id="blah" src="#" alt="your image" />
+              <img style="border:1px solid black; width: 500px; margin: 0 auto; display: block;" class="img-responsive" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
-              <input class="pre_btn" type="button" value="Anterior">
-              <input class="submit_btn" type="submit" value="Concluir">
+              <input class="submit_btn btn-alinha-direita" type="submit" value="Concluir">
+              <input class="pre_btn btn-alinha-direita" type="button" value="Anterior">
             </div>
           </div>
-        </fieldset>  //-->
+        </fieldset>
+
       </form>
+
     </div>
   </div>
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/script1.js?$$REVISION$$"></script>
-  <script src="js/form.js?$$REVISION$$"></script>
+  <script src="js/script1.js"></script>
+  <script src="js/form.js"></script>
   <script src="js/cep.js"></script>
   
 </body>
