@@ -8,8 +8,9 @@ $('.regform input').each(function(){
 	if ($(this).val() == ''){
 		var id = $(this).attr('id');
 
-		if(id != 'tel'){ //falta fazer os outros 4 campos, não consegui fazer não sei pq
-			console.log(id);
+		if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb'){
+			contador = contador;
+		} else{
 			vazio = true;
 			contador = contador +1;
 		}
@@ -17,7 +18,6 @@ $('.regform input').each(function(){
 
 	if (contador == 0){
 		vazio = false;
-
 	}
 
 });
@@ -33,7 +33,7 @@ $('.regform textarea').each(function(){
 	}
 
 });
-alert(contador + ' ' + vazio);
+
 contador = 0;
 
 if(vazio == true){
