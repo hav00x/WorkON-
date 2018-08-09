@@ -929,10 +929,18 @@ body.modal-open {
 .projdiv{
     text-align: justify;
     border: 1px solid black;
+    margin: 15px 0px 15px 0px;
+
 }
 
 .subproj{
     background-color: white;
     margin: 5px;
     padding: 15px;
+}
+
+
+.acordion-st{
+    margin: 2px;
+    padding: 5px;
 }

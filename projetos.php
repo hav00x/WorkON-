@@ -9,7 +9,7 @@
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver31232133335454 " rel="stylesheet">
+  <link href="css/estilo.css?=ver31232133335455 " rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <!-- IE 9 ou menor -->
@@ -27,21 +27,10 @@
 
     <!-- Page Content Holder -->
     <div id="content">
-      <div class="section">
-        <div class="row">
-          <div class="col-md-6">
-            <img style="width: 25px; margin: 5px;" src="img/notification.png">
-             <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">+ Novo Projeto</button>
-          </div>
-          <div class="col-md-6">
-            <button type="button" style="float: right;" class="btn btn-info navbar-btn">
-              <span class="glyphicon glyphicon-log-out"></span>
-              <span>Sair</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
+         <?php
+    include('templates/navbarinterna.php');
+          ?>
+          <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
       <div class="section">
         <div class="row">
           <div class="col-md-12">
@@ -54,7 +43,6 @@
         <div class="row">
           <div class="col-md-12">
             <div class="tab-content">
-
               <div role="tabpanel" class="tab-pane active" id="andamento">
                 <div class="col-md-6 projdiv">
                   <h2>Nome projeto</h2>
@@ -136,8 +124,26 @@
               </div>
               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <form>
-                  <label>Atividade:</label>
-                  <input type="text" name="">
+                  <div class="acordion-st row">
+                    <div class="col-md-4">
+                      <label>Atividade #1 </label>
+                      <input type="text" name="" > 
+                       <label>Atividade #1 </label>
+                      <input type="text" name="" >
+                    </div>
+                      <div class="col-md-4">
+                      <label>Atividade #1 </label>
+                      <input type="text" name="" > 
+                       <label>Atividade #1 </label>
+                      <input type="text" name="" >
+                    </div>
+                      <div class="col-md-4">
+                      <label>Atividade #1 </label>
+                      <input type="text" name="" > 
+                       <label>Atividade #1 </label>
+                      <input type="text" name="" >
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -145,7 +151,7 @@
               <div class="panel-heading" role="tab" id="headingTwo">
                 <h4 class="panel-title">
                   <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
+                    Etapa #2
                   </a>
                 </h4>
               </div>

@@ -27,17 +27,9 @@
 
     <!-- Page Content Holder -->
     <div id="content">
-      <div class="section row">
-      <div class="col-md-8">
-        <form action="" method="">
-          <input type="submit" name="OK" value="OK" class="button-hp" placeholder="Pesquisar. . .">
-          <div class="input"><input id="input-homepage" type="text" name="search"></div>
-        </form>
-      </div>
-      <div class="col-md-4">
-         <button style="margin: 13px;" class="button-hp">SAIR</button>
-        </div>
-    </div>
+   <?php
+    include('templates/navbarinterna.php');
+   ?>
 
       <div class="row section" id="div-perfil">
         <div class="col-md-4">
