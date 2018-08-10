@@ -43,11 +43,11 @@
           <div>
             <form>
               <label for="email">E-mail</label>
-              <input type="text" id="email" name="">
+              <input type="text" id="email-login" name="">
             </form>
             <form>
               <label for="senha">Senha</label>
-              <input type="password" id="senha1" name="">
+              <input type="password" id="senha-login" name="">
             </form>
           </div>
         </div>

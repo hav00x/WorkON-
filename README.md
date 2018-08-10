@@ -51,3 +51,4 @@ Mexendo na sidebar DENOVO
    /-Para Arrumar-/
 
 Os redirecionamentos da sidebar
+Regras de cadastro

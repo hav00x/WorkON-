@@ -115,7 +115,7 @@
   <div class="row">
     <div class="col-md-12">
         <label for="descri">Mensagem:</label>
-        <textarea id="mensagem" placeholder="Sua mensagem auqi. . ." maxlength="254" class="text_field"></textarea>
+        <textarea id="mensagem" placeholder="Sua mensagem aqui" maxlength="254" class="text_field"></textarea>
       <br>
       <button class="btn btn-cada" type="submit" name="submit" value="submit">Enviar</button>
     </div>
