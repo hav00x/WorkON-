@@ -102,11 +102,11 @@
               </div>
               <div class="col-left">
                 <label for="dataini">Data Início</label>
-                <input type="text" class="text_field" id="danaini" name="">
+                <input type="date" class="text_field" id="danaini" name="">
               </div>
               <div class="col-right">
                 <label for="dataent">Data Entrega</label>
-                <input type="text" class="text_field" id="dataent" name="">
+                <input type="date" class="text_field" id="dataent" name="">
               </div>
               <div class="col-md-12">
                 <h3>O que vai ser feito?</h3>
