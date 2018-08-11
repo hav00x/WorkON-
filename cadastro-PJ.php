@@ -21,7 +21,7 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css" rel="stylesheet">
+  <link href="css/estilo.css?ver=1" rel="stylesheet">
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"

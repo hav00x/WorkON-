@@ -38,10 +38,11 @@ fieldset{
     border: none;
     border-radius: 4px;
     color: white;
+    font-family: 'Droid Serif', serif;
 }
  
 
-p, span, input, label, select, textarea, label{
+p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -51,13 +52,17 @@ textarea{
 }
 
 html, body, .capa {
-	height: 100%;
-	overflow-x: hidden;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: 'Abel';
 }
 
-body{
-	font-family: 'Abel';
+.indexback{
+    background-image: url('../img/pat6.png'),
+    url('../img/ruido.png');
 }
+
 
 footer {
 	background: #000;
@@ -68,12 +73,9 @@ footer {
 input[type=text],
 input[type=password],
 input[type=tel],
-<<<<<<< HEAD
 input[type=date],
-=======
 input[type=email],
 input[type=number],
->>>>>>> eb94f71c4e5843efed5bc8637c8b3396934a386e
 select,
 textarea{
 	width:100%;
@@ -86,13 +88,10 @@ textarea{
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=tel]:focus,
-<<<<<<< HEAD
 input[type=date]:focus,
 textarea:focus,
-=======
 input[type=email]:focus,
 input[type=number]:focus,
->>>>>>> eb94f71c4e5843efed5bc8637c8b3396934a386e
 select:focus{
 	border-style: 0.5px solid black;
 	border-width: 0 0 0 5px;
@@ -104,44 +103,44 @@ select:focus{
 
 label{
 	font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* ---------------------------------------------------
 BARRA NAVEGAÇÃO TOPO
 ----------------------------------------------------- */
-
 .modal-title{
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 .img-logo {
-	height: 40px;
-	width: 110px;
-	display: block;
-	background: url('../img/logonav.png') no-repeat;
-	background-size: contain;
-	color: transparent;
+    height: 40px;
+    width: 110px;
+    display: block;
+    background: url('../img/logonav.png') no-repeat;
+    background-size: contain;
+    color: transparent;
 }
 
 .navbar-brand{
-	padding: 5px 15px;
+    padding: 5px 15px;
 }
 
 .navbar-custom {
-	background-color:white;
-	color: #FF7F50;
-	border-radius: 0;
-	padding: 10px 0;
+    background-color:white;
+    color: #FF7F50;
+    border-radius: 0;
+    padding: 10px 0;
 }
 
 .navbar-custom .navbar-nav > li > a {
-	color:#FF7F50;
-	transition: 0.5s;
+    color:#FF7F50;
+    transition: 0.5s;
 }
 
 .navbar-custom .navbar-nav > .active > a {
-	color: #ffffff;
-	background-color: transparent;
+    color: #ffffff;
+    background-color: transparent;
 }
 
 .navbar-custom .navbar-nav > li > a:hover,
@@ -149,20 +148,29 @@ BARRA NAVEGAÇÃO TOPO
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus,
 .navbar-custom .navbar-nav > .open >a {
-	text-decoration: none;
-	background-color: white;
-	color: black;
-	transition: color 1s;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    transition: color 1s;
 }
 
 .navbar-custom .navbar-brand {
-	color:#FF7F50;
+    color:#FF7F50;
 }
 .navbar-custom .navbar-toggle {
-	background-color:#eeeeee;
+    background-color:#eeeeee;
 }
 .navbar-custom .icon-bar {
-	background-color:#33aa33;
+    background-color:#33aa33;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------------------------------------------------
@@ -531,7 +539,6 @@ ESTILO CONTEUDO
    top: 0;
    right: 0;
    margin-top: 10px;
-
    width: calc(100% - 220px);
    padding: 3px 40px 40px 40px;
    min-height: 100vh;
@@ -652,25 +659,21 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .cadaChoice{
-<<<<<<< HEAD
    background: rgba(255, 165, 0, 0.5)
    border: 1px solid #d9d9d9;
-   border-radius: 5px;
+   border-radius: 2px;
    padding: 20px;
    text-align: center;
    margin-top: 30px;
    width: 500px;
    box-shadow: 0 1px 3px rgba(255, 69, 0, 0.7);
    margin-left: 70px;
-
-=======
- background-color: white;
- border: 1px solid #ffa500;
- border-radius: 25px;
- padding: 20px;
- text-align: center;
- margin-top: 30px;
->>>>>>> eb94f71c4e5843efed5bc8637c8b3396934a386e
+   background-color: white;
+   border: 1px solid #ffa500;
+   border-radius: 25px;
+   padding: 20px;
+   text-align: center;
+   margin-top: 30px;
 }
 
 .hide{
@@ -715,9 +718,11 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .capa {
- display: table;
  width: 100%;
- padding-top: 60px;
+ padding-right: 200px;
+ display: table;
+ margin-top: 10px;
+
 }
 
 .apresentacao{
@@ -731,17 +736,11 @@ FORMATAÇÕES ESPECIFICAS
 
 .texto-capa{
  font-family: 'Abel';
- font-size: 60px;
- padding-left: 15px;
- padding-right: 5px;
+ font-size: 100px;
+ margin-top: -100px;
+ margin-left: 240px;
 }
 
-.paragrafo-capa{
- padding-left: 15px;
- padding-right: 15px;
- text-align: center;
- width: 100%;
-}
 
 #descri{
  resize: none;
