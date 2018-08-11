@@ -29,6 +29,7 @@ $campo_vazio = false;
 $num_errado = false;
 $cnpj_errado = false;
 $senha_insegura = false;
+$email_invalido = false;
 
 //verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
 
@@ -46,9 +47,9 @@ if(strlen($_POST['senha']) < 8){
 	$senha_insegura = true;
 }
 
-if(isset($comercial) && strlen($comercial) != 11){
+if(!empty($comercial) && strlen($comercial) != 11){
 	$num_errado = true;
-}elseif(!is_numeric($comercial)){
+}elseif(!empty($comercial) && !is_numeric($comercial)){
 	$num_errado = true;
 }
 
@@ -58,9 +59,9 @@ if(strlen($cnpj) != 14){
 	$cnpj_errado = true;
 }
 
-if(isset($fixo) && strlen($fixo) != 10){
+if(!empty($fixo) && strlen($fixo) != 10){
 	$num_errado = true;
-}elseif(!is_numeric($cel)){
+}elseif(!empty($fixo) && !is_numeric($fixo)){
 	$num_errado = true;
 }
 
@@ -68,34 +69,40 @@ if($email != $confirmaEmail){
 	$email_diferente = true;
 }
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $email_invalido = true;
+}
+
 if($_POST['senha'] != $confirmaSenha){
 	$senha_diferente = true;
 }
 
-$stmt = $link->prepare("select cnpj from usuariopj where cnpj = ?");
+$stmt = $link->prepare("SELECT cnpj FROM usuariopj WHERE cnpj = ?");
 $stmt->bind_param("i", $cnpj);
 
 if($stmt->execute()){
 	$stmt->bind_result($buscacnpj);
-
-	if(isset($buscacnpj)){
-		$cnpj_existe = true;
+	while($stmt->fetch()) {
+		if(isset($buscacnpj)){
+			$cnpj_existe = true;
+		}
+	}else{
+		echo 'Erro ao executar a busca por usuario';
 	}
-}else{
-	echo 'Erro ao executar a busca por usuario';
 }
 
 $stmt->close();
 
 	//verifica se o email já existe no bd
 
-$stmt = $link->prepare("select email from usuariopj where email = ?");
-$stmt->bind_param("s", $email);
+$stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
+$stmt->bind_param("ss", $email, $email);
 if($stmt->execute()){
 	$stmt->bind_result($buscaEmail);
-
-	if(isset($buscaEmail)){
-		$email_existe = true;
+	while($stmt->fetch()){
+		if(isset($buscaEmail)){
+			$email_existe = true;
+		}
 	}
 }else{
 	echo 'Erro ao executar a busca por email';
@@ -103,7 +110,7 @@ if($stmt->execute()){
 
 $stmt->close();
 
-if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cnpj_errado || $senha_insegura){
+if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cnpj_errado || $senha_insegura || $email_invalido){
 
 	$retorno_get = '';
 
@@ -139,12 +146,16 @@ if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $cam
 		$retorno_get.="erro_senhainseg=1&";
 	}
 
+	if($email_invalido){
+		$retorno_get.="erro_emailinval=1&";
+	}
+
 	header('Location: cadastro-PJ.php?'.$retorno_get);
 
 	die();
 }
 
-$stmt = $link->prepare("insert into usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 $stmt->bind_param("sssiisssssiisss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram);
 

@@ -1,3 +1,9 @@
+<?php 
+
+$erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
+
+?>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -18,13 +24,24 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var erro_login = '<?= $erro_login ?>';
+      if(erro_login == 1){
+        $('#loginModal p').html('Login e/ou senha incorretos');
+        $('#loginModal').modal('show');
+      }
+    });
+  </script>
+
   <body class="indexback">
 
    <?php
    include('templates/navbar.php');
    ?>
 
-  <div  class="capa" >
+   <div  class="capa" >
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -53,5 +70,5 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="js/script1.js?$$REVISION$$"></script>
 
-  </body>
-  </html>
+</body>
+</html>

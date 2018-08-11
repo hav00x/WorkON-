@@ -39,15 +39,11 @@ fieldset{
     border-radius: 4px;
     color: white;
     font-family: 'Droid Serif', serif;
-}
-<<<<<<< HEAD
- 
+} 
 
 p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-=======
->>>>>>> c562c4ac16fadc4fe897cd8decce692dd55e931d
 
 textarea{
     resize: none;
@@ -66,8 +62,6 @@ html, body, .capa {
     url('../img/ruido.png');
 }
 
-<<<<<<< HEAD
-=======
 p, .modspan{
     font-family: 'Abel';
 }
@@ -75,7 +69,6 @@ p, .modspan{
 span, input, label, select, textarea, label{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
->>>>>>> c562c4ac16fadc4fe897cd8decce692dd55e931d
 
 footer {
 	background: #000;
@@ -672,7 +665,6 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .cadaChoice{
-<<<<<<< HEAD
    background: rgba(255, 165, 0, 0.5)
    border: 1px solid #d9d9d9;
    border-radius: 2px;
@@ -688,8 +680,6 @@ FORMATAÇÕES ESPECIFICAS
    padding: 20px;
    text-align: center;
    margin-top: 30px;
-=======
-    <<<<<<< HEAD
     background: rgba(255, 165, 0, 0.5)
     border: 1px solid #d9d9d9;
     border-radius: 5px;
@@ -705,7 +695,6 @@ FORMATAÇÕES ESPECIFICAS
     padding: 20px;
     text-align: center;
     margin-top: 30px;
->>>>>>> c562c4ac16fadc4fe897cd8decce692dd55e931d
 }
 
 .hide{

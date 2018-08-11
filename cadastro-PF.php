@@ -8,6 +8,7 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
 $erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] : 0;
 $erro_cpf_errado = isset($_GET['erro_cpferrado']) ? $_GET['erro_cpferrado'] : 0;
 $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
+$erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'] : 0;
 
 ?>
 
@@ -23,7 +24,7 @@ $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/estilo.css?ver=3" rel="stylesheet">
+  <link href="css/estilo.css?ver=3" rel="stylesheet">
 
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -45,6 +46,7 @@ $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'
         var erro_numero_errado = '<?= $erro_numero_errado ?>';
         var erro_cpf_errado = '<?= $erro_cpf_errado ?>';
         var erro_senha_insegura = '<?= $erro_senha_insegura ?>'
+        var erro_email_invalido = '<?= $erro_email_invalido ?>'
 
         //tratativa de erros do usuário
 
@@ -83,6 +85,11 @@ $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'
 
         if(erro_senha_insegura == 1){
           $('#modalErro .modal-body p').append("- A senha deve ter pelo menos 8 dígitos<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_email_invalido == 1){
+          $('#modalErro .modal-body p').append("- Digite um email válido<br>");
           $('#modalErro').modal('show');
         }
       });
