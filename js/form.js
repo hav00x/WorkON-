@@ -37,6 +37,7 @@ $('.regform textarea').each(function(){
 contador = 0;
 
 if(vazio == true){
+	$('#modalErro .modal-body p').append('Preencha todos os campos');
 	$('#modalErro').modal('show');
 	event.preventDefault();
 }
