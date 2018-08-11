@@ -11,17 +11,17 @@ class db{
 	public function connect(){
 
 	//cria a conexão	
-		$con = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
+		$conn = new mysqli($this->host, $this->usuario, $this->senha, $this->database);
 
 	//ajustar o charset de comunicação entre a aplicação e o banco de dados
-		mysqli_set_charset($con, 'utf8');
+		mysqli_set_charset($conn, 'utf8');
 
 	//verificar se houve erro de conexão
 		if(mysqli_connect_errno()){
 			echo 'houve um erro ao tentar se conectar com o banco de dados MYSQL: '.mysqli_connect_error();
 		}
 
-		return $con;
+		return $conn;
 	}
 
 }

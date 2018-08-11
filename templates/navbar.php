@@ -39,22 +39,20 @@
           </button>
           <h3 class="modal-title">Login</h3>
         </div>
-        <div class="modal-body">
-          <div>
-            <form>
+        <form method="post" action="login_bd.php">
+          <div class="modal-body">
+            <div>
               <label for="email">E-mail</label>
-              <input type="text" id="email-login" name="">
-            </form>
-            <form>
+              <input type="text" id="email-login" name="email-login">
               <label for="senha">Senha</label>
-              <input type="password" id="senha-login" name="">
-            </form>
+              <input type="password" id="senha-login" name="senha-login">
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-          <button type="button" class="button -regular">Entrar</button>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
+            <button type="submit" class="button -regular">Entrar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div><!-- Fim Modal -->

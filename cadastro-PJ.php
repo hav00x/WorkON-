@@ -5,6 +5,9 @@ $erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
 $erro_email_diferente = isset($_GET['erro_emaildif']) ? $_GET['erro_emaildif'] : 0;
 $erro_senha_diferente = isset($_GET['erro_senhadif']) ? $_GET['erro_senhadif'] : 0;
 $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
+$erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] : 0;
+$erro_cnpj_errado = isset($_GET['erro_cnpjerrado']) ? $_GET['erro_cnpjerrado'] : 0;
+$erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
 
 ?>
 
@@ -36,41 +39,54 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
     <![endif]-->
 
     <script type="text/javascript">
-      $(document).ready(function()
-      {
+      $(document).ready(function(){
         var erro_email = '<?= $erro_email ?>';
         var erro_cnpj = '<?= $erro_cnpj ?>';
         var erro_senha_diferente = '<?= $erro_senha_diferente ?>';
         var erro_email_diferente = '<?= $erro_email_diferente ?>';
         var erro_campo_vazio = '<?= $erro_campo_vazio ?>'
+        var erro_numero_errado = '<?= $erro_numero_errado ?>';
+        var erro_cnpj_errado = '<?= $erro_cnpj_errado ?>';
+        var erro_senha_insegura = '<?= $erro_senha_insegura ?>'
 
         //se email/cnpj já estão cadastrados, o erro é mostrado
         if(erro_email == 1){
-          $('#email').css({'background-color': '#fbc7ce'});
-          $('#email').attr("placeholder", "Esse email já está em uso");
+          $('#modalErro .modal-body p').append("- Esse email já está em uso<br>");
+          $('#modalErro').modal('show');
         }
-         if(erro_cnpj == 1){
-          $('#cnpj').css({'background-color': '#fbc7ce'});
-          $('#cnpj').attr("placeholder", "Esse cnpj já está em uso");
+        if(erro_cnpj == 1){
+          $('#modalErro .modal-body p').append("- Esse cnpj já está em uso<br>");
+          $('#modalErro').modal('show');
         }
         if (erro_senha_diferente == 1){
-          $('#senha').css({'background-color': '#fbc7ce'});
-          $('#senha').attr("placeholder", "Coloque senhas iguais");
-          $('#conf-senha').css({'background-color': '#fbc7ce'});
-          $('#conf-senha').attr("placeholder", "Coloque senhas iguais");
+          $('#modalErro .modal-body p').append("- Coloque as senhas iguais<br>");
+          $('#modalErro').modal('show');
         }
 
         if(erro_email_diferente == 1){
-          $('#email').css({'background-color': '#fbc7ce'});
-          $('#email').attr("placeholder", "Coloque emails iguais");
-          $('#conf-email').css({'background-color': '#fbc7ce'});
-          $('#conf-email').attr("placeholder", "Coloque emails iguais");
+          $('#modalErro .modal-body p').append("- Coloque os emails iguais<br>");
+          $('#modalErro').modal('show');
         }
 
         if(erro_campo_vazio == 1){
+          $('#modalErro .modal-body p').append("- Preencha todos os campos");
           $('#modalErro').modal('show');
         }
-        
+
+        if(erro_numero_errado == 1){
+          $('#modalErro .modal-body p').append("- Preencha os números de telefone corretamente<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_cnpj_errado == 1){
+          $('#modalErro .modal-body p').append("- Preencha o cnpj corretamente<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_senha_insegura == 1){
+          $('#modalErro .modal-body p').append("- A senha deve ter pelo menos 8 dígitos<br>");
+          $('#modalErro').modal('show');
+        } 
       });
     </script>
 
@@ -82,14 +98,15 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
     ?>
 
     <div id="modalErro" class="modal fade" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="margin: 0 auto;">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Erro</h4>
           </div>
           <div class="modal-body">
-            <p style="margin-left: 10px;">Preencha todos os campos<br>OBS: Todos os campos com * são opcionais</p>
+            <p></p>
+            <span class="modspan"><br>Os campos com * são opcionais</span>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
@@ -146,7 +163,7 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
             </div>
             <div class="col-md-3">
               <label for="cpf">CNPJ</label>
-              <input class="text_field" id="cnpj" type="text" name="cnpj">
+              <input class="text_field" id="cnpj" type="text" name="cnpj" maxlength="14">
               <label for="telcom">Telefone comercial *</label>
               <input class="text_field" id="telcom" type="tel" name="tel-com" maxlength="11">
             </div>
@@ -156,13 +173,13 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
               <label for="cep">Cep</label>
               <input class="text_field" name="cep" type="text" id="cep" value="" size="10" maxlength="9" />      
               <label for="cidade">Cidade</label>
-              <input class="text_field" name="cidade" type="text" id="cidade" size="40" />
+              <input class="text_field" name="cidade" type="text" id="cidade" size="40" readonly="readonly" />
             </div>
             <div class="col-md-5">
               <label for="bairro">Bairro</label>
-              <input class="text_field" name="bairro" type="text" id="bairro" size="40" />
+              <input class="text_field" name="bairro" type="text" id="bairro" size="40" readonly="readonly"/>
               <label for="uf">Estado</label>
-              <input class="text_field" name="uf" type="text" id="uf" size="2" />
+              <input class="text_field" name="uf" type="text" id="uf" size="2" readonly="readonly"/>
               <input class="next_btn btn-alinha-direita" id="primeiro_next" name="next" type="button" value="Próximo">
             </div>
           </div>
@@ -207,7 +224,7 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
               <input type='file' id="imgInp" /><br>
-              <img style="border:1px solid black; width: 500px; margin: 0 auto; display: block;" class="img-responsive" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
+              <img class="img-responsive img-cadastro" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
               <input class="submit_btn btn-alinha-direita" type="submit" value="Concluir">
               <input class="pre_btn btn-alinha-direita" type="button" value="Anterior">

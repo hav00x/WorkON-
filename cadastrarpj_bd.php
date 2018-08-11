@@ -26,9 +26,42 @@ $cnpj_existe = false;
 $senha_diferente = false;
 $email_diferente = false;
 $campo_vazio = false;
+$num_errado = false;
+$cnpj_errado = false;
+$senha_insegura = false;
+
+//verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
 
 if(!isset($email, $senha, $razao_social, $cel, $nome_fantasia, $cnpj, $cidade, $estado, $segmento, $descricao)){
 	$campo_vazio = true;
+}
+
+if(strlen($cel) != 11){
+	$num_errado = true;
+} elseif(!is_numeric($cel)){
+	$num_errado = true;
+}
+
+if(strlen($_POST['senha']) < 8){
+	$senha_insegura = true;
+}
+
+if(isset($comercial) && strlen($comercial) != 11){
+	$num_errado = true;
+}elseif(!is_numeric($comercial)){
+	$num_errado = true;
+}
+
+if(strlen($cnpj) != 14){
+	$cnpj_errado = true;
+} elseif(!is_numeric($cnpj)){
+	$cnpj_errado = true;
+}
+
+if(isset($fixo) && strlen($fixo) != 10){
+	$num_errado = true;
+}elseif(!is_numeric($cel)){
+	$num_errado = true;
 }
 
 if($email != $confirmaEmail){
@@ -39,36 +72,38 @@ if($_POST['senha'] != $confirmaSenha){
 	$senha_diferente = true;
 }
 
-$stmt = "select cnpj from usuariopj where cnpj = '$cnpj'";
+$stmt = $link->prepare("select cnpj from usuariopj where cnpj = ?");
+$stmt->bind_param("i", $cnpj);
 
-if ($resultado = mysqli_query($link, $stmt)){
+if($stmt->execute()){
+	$stmt->bind_result($buscacnpj);
 
-	$dadosUsuario = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
-	if(isset($dadosUsuario['cnpj'])){
+	if(isset($buscacnpj)){
 		$cnpj_existe = true;
 	}
-
 }else{
 	echo 'Erro ao executar a busca por usuario';
 }
 
+$stmt->close();
+
 	//verifica se o email já existe no bd
 
-$stmt = "select email from usuariopj where email = '$email'";
+$stmt = $link->prepare("select email from usuariopj where email = ?");
+$stmt->bind_param("s", $email);
+if($stmt->execute()){
+	$stmt->bind_result($buscaEmail);
 
-if ($resultado = mysqli_query($link, $stmt)){
-
-	$dadosEmail = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
-
-	if(isset($dadosEmail['email'])){
+	if(isset($buscaEmail)){
 		$email_existe = true;
 	}
-
 }else{
 	echo 'Erro ao executar a busca por email';
 }
 
-if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio){
+$stmt->close();
+
+if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cnpj_errado || $senha_insegura){
 
 	$retorno_get = '';
 
@@ -92,12 +127,24 @@ if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $cam
 		$retorno_get.="erro_camvazio=1&";
 	}
 
+	if($num_errado){
+		$retorno_get.="erro_numerrado=1&";
+	}
+
+	if($cnpj_errado){
+		$retorno_get.="erro_cnpjerrado=1&";
+	}
+
+	if($senha_insegura){
+		$retorno_get.="erro_senhainseg=1&";
+	}
+
 	header('Location: cadastro-PJ.php?'.$retorno_get);
 
 	die();
 }
 
-$stmt->prepare("insert into usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $link->prepare("insert into usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 $stmt->bind_param("sssiisssssiisss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram);
 
@@ -108,13 +155,5 @@ if($stmt->execute()){
 }
 
 $stmt->close();
-
-/* $stmt = "insert into usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) values('$senha', '$razao_social', '$nome_fantasia', '$cnpj', '$cel', '$descricao', '$site', '$estado', '$cidade', '$email', '$fixo', '$comercial', '$segmento', '$facebook', '$instagram')";
-
-if(mysqli_query($link, $stmt)){
-	echo 'Usuário registrado com sucesso';
-}else{
-	echo 'Erro ao cadastrar usuário';
-}*/
 
 ?>

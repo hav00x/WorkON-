@@ -1,3 +1,16 @@
+<?php
+
+$erro_cpf = isset($_GET['erro_cpf']) ? $_GET['erro_cpf'] : 0;
+$erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
+$erro_email_diferente = isset($_GET['erro_emaildif']) ? $_GET['erro_emaildif'] : 0;
+$erro_senha_diferente = isset($_GET['erro_senhadif']) ? $_GET['erro_senhadif'] : 0;
+$erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
+$erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] : 0;
+$erro_cpf_errado = isset($_GET['erro_cpferrado']) ? $_GET['erro_cpferrado'] : 0;
+$erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +26,93 @@
 <link href="css/estilo.css?ver=3" rel="stylesheet">
 
 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var erro_email = '<?= $erro_email ?>';
+        var erro_cpf = '<?= $erro_cpf ?>';
+        var erro_senha_diferente = '<?= $erro_senha_diferente ?>';
+        var erro_email_diferente = '<?= $erro_email_diferente ?>';
+        var erro_campo_vazio = '<?= $erro_campo_vazio ?>'
+        var erro_numero_errado = '<?= $erro_numero_errado ?>';
+        var erro_cpf_errado = '<?= $erro_cpf_errado ?>';
+        var erro_senha_insegura = '<?= $erro_senha_insegura ?>'
+
+        //tratativa de erros do usuário
+
+        if(erro_email == 1){
+          $('#modalErro .modal-body p').append("- Esse email já está em uso<br>");
+          $('#modalErro').modal('show');
+        }
+        if(erro_cpf == 1){
+          $('#modalErro .modal-body p').append("- Esse cpf já está em uso<br>");
+          $('#modalErro').modal('show');
+        }
+        if (erro_senha_diferente == 1){
+          $('#modalErro .modal-body p').append("- Coloque as senhas iguais<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_email_diferente == 1){
+          $('#modalErro .modal-body p').append("- Coloque os emails iguais<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_campo_vazio == 1){
+          $('#modalErro .modal-body p').append("- Preencha todos os campos");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_numero_errado == 1){
+          $('#modalErro .modal-body p').append("- Preencha os números de telefone corretamente<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_cpf_errado == 1){
+          $('#modalErro .modal-body p').append("- Preencha o cpf corretamente<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_senha_insegura == 1){
+          $('#modalErro .modal-body p').append("- A senha deve ter pelo menos 8 dígitos<br>");
+          $('#modalErro').modal('show');
+        }
+      });
+
+    </script>
+
   </head>
   <body>
-    
+
     <?php 
     include('templates/navbar.php');
     ?>
+
+    <div id="modalErro" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="margin: 0 auto;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Erro</h4>
+          </div>
+          <div class="modal-body">
+            <p></p>
+            <span class="modspan"><br>Os campos com * são opcionais</span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <div class="container">
       <h2 style="text-align: center; margin-bottom: 40px;">Pessoa Física</h2>
@@ -48,22 +136,22 @@
           <div class="row">
             <div class="col-md-5 col-md-offset-1">
               <label for="email-cliente">Email</label>
-              <input type="text" class="text_field" id="email-cliente" name="email">
+              <input type="text" class="text_field" id="email-cliente" name="email" placeholder="Digite seu email (ele será seu login)">
               <label for="senha">Senha</label>
-              <input type="password" class="text_field" id="senha" name="senha">
+              <input type="password" class="text_field" id="senha" name="senha" placeholder="Senha com no mínimo 8 caractéres">
             </div>
             <div class="col-md-5">
               <label for="conf-email">Confirme o email</label>
-              <input type="text" class="text_field" id="conf-email" name="email-conf">
+              <input type="text" class="text_field" id="conf-email" name="confirma-email" placeholder="Repita o email">
               <label for="conf-senha">Confirme sua senha</label>
-              <input type="password" class="text_field" id="conf-senha" name="senha-conf">
+              <input type="password" class="text_field" id="conf-senha" name="confirma-senha" placeholder="Repita a senha">
             </div>
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
               <label for="nome">Nome</label>
               <input type="text" id="nome" class="text_field" name="nome">
-              <label for="tel">Telefone fixo</label>
+              <label for="tel">Telefone fixo *</label>
               <input class="text_field" id="tel" type="tel" name="tel-fixo" maxlength="10">
             </div>
             <div class="col-md-3 col-half-margin">
@@ -74,8 +162,8 @@
             </div>
             <div class="col-md-3">
               <label for="cpf">CPF</label>
-              <input class="text_field" id="cpf" type="text" name="cpf">
-              <label for="telcom">Telefone comercial</label>
+              <input class="text_field" id="cpf" type="text" name="cpf" maxlength="11">
+              <label for="telcom">Telefone comercial *</label>
               <input class="text_field" id="telcom" type="tel" name="tel-com" maxlength="11">
             </div>
           </div>
@@ -84,14 +172,14 @@
               <label for="cep">Cep</label>
               <input class="text_field" name="cep" type="text" id="cep" value="" size="10" maxlength="9" />      
               <label for="cidade">Cidade</label>
-              <input class="text_field" name="cidade" type="text" id="cidade" size="40" />
+              <input class="text_field" name="cidade" type="text" id="cidade" size="40" readonly="readonly"/>
             </div>
             <div class="col-md-5">
               <label for="bairro">Bairro</label>
-              <input class="text_field" name="bairro" type="text" id="bairro" size="40" />
+              <input class="text_field" name="bairro" type="text" id="bairro" size="40" readonly="readonly"/>
               <label for="uf">Estado</label>
-              <input class="text_field" name="uf" type="text" id="uf" size="2" />
-              <input class="next_btn" name="next" type="button" value="Próximo" style="float: right; margin-right: 0;">
+              <input class="text_field" name="uf" type="text" id="uf" size="2" readonly="readonly"/>
+              <input class="next_btn btn-alinha-direita" name="next" type="button" value="Próximo" style="float: right; margin-right: 0;">
             </div>
           </div>
         </fieldset>
@@ -109,15 +197,15 @@
           </div>
           <div class="row">
             <div class="col-md-3 col-md-offset-1 col-half-margin">
-              <label for="fb">Facebook</label>
-              <input class="text_field" id="fb" type="text" name="social-face">
+              <label for="fb">Facebook *</label>
+              <input class="text_field" id="fb" type="text" name="facebook">
             </div>
             <div class="col-md-3 col-half-margin">
-              <label for="insta">Instagram</label>
-              <input class="text_field" id="insta" type="text" name="social-insta">
+              <label for="insta">Instagram *</label>
+              <input class="text_field" id="insta" type="text" name="instagram">
             </div>
             <div class="col-md-3">
-              <label for="site">Site</label>
+              <label for="site">Site *</label>
               <input class="text_field" id="site" type="text" name="site1">
             </div>     
           </div>
@@ -125,31 +213,29 @@
             <div class="col-md-10 col-md-offset-1">
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
-              <input style="float: right; margin-right: 0;" class="next_btn" name="next" type="button" value="Próximo">
-              <input style="float: right; margin-right: 0;" class="pre_btn" name="previous" type="button" value="Anterior">
-              <button type="submit" id="cadastropf">Enviar</button>
+              <input style="float: right; margin-right: 0;" class="next_btn btn-alinha-direita" name="next" type="button" value="Próximo">
+              <input style="float: right; margin-right: 0;" class="pre_btn btn-alinha-direita" name="previous" type="button" value="Anterior">
             </div>
           </div>
         </fieldset>
-        <!--// <fieldset>
+        <fieldset>
           <div class="row">
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
               <input type='file' id="imgInp" /><br>
-              <img style="border:1px solid black;" id="blah" src="#" alt="your image" />
+              <img class="img-cadastro img-responsive" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
-              <input class="pre_btn" type="button" value="Anterior">
-              <input class="submit_btn" type="submit" value="Concluir">
+              <input class="submit_btn btn-alinha-direita" type="submit" value="Concluir">
+              <input class="pre_btn btn-alinha-direita" type="button" value="Anterior">
             </div>
           </div>
-        </fieldset>  //-->
+        </fieldset>
       </form>
     </div>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/script1.js?$$REVISION$$"></script>
-  <script src="js/form.js?$$REVISION$$"></script>
-  <script src="js/cep.js"></script>
-</body>
-</html>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/script1.js?ver=1"></script>
+    <script src="js/form.js?ver=1"></script>
+    <script src="js/cep.js?ver=1"></script>
+  </body>
+  </html>
