@@ -42,6 +42,7 @@
         <form method="post" action="login_bd.php">
           <div class="modal-body">
             <div>
+              <p></p>
               <label for="email">E-mail</label>
               <input type="text" id="email-login" name="email-login">
               <label for="senha">Senha</label>

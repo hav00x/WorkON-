@@ -8,13 +8,13 @@ $erro_campo_vazio = isset($_GET['erro_camvazio']) ? $_GET['erro_camvazio'] : 0;
 $erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] : 0;
 $erro_cnpj_errado = isset($_GET['erro_cnpjerrado']) ? $_GET['erro_cnpjerrado'] : 0;
 $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
+$erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'] : 0;
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,6 +87,11 @@ $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'
           $('#modalErro .modal-body p').append("- A senha deve ter pelo menos 8 dígitos<br>");
           $('#modalErro').modal('show');
         } 
+
+        if(erro_email_invalido == 1){
+          $('#modalErro .modal-body p').append("- Digite um email válido<br>");
+          $('#modalErro').modal('show');
+        }
       });
     </script>
 
