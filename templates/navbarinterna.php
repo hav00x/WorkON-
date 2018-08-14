@@ -1,5 +1,4 @@
-  <!-- BARRA DE NAVEGAÇÃO -->
-<nav class="navbar navbar-custom">
+<!-- BARRA DE NAVEGAÇÃO -->
   <div class="container">
     <!-- header -->
     
@@ -16,7 +15,6 @@
       </div>
 
       <div class="col-md-4">
-         <button style="margin: 13px;" class="button-hp">SAIR</button>
+         <button style="margin: 13px;" class="button-hp" href="sair.php">SAIR</button>
         </div>
     </div>
-</nav>

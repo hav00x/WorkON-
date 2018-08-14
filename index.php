@@ -17,34 +17,26 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilo.css?ver=9" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var erro_login = '<?= $erro_login ?>';
+      if(erro_login == 1){
+        $('#loginModal .modal-body p').html('Login e/ou senha incorretos');
+        $('#loginModal .modal-body p').css({'color':'red'});
+        $('#loginModal').modal('show');
+      }
+    });
+  </script>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<<<<<<< HEAD
-</head>
-<body class="indexback">
-  <?php
-    include('templates/navbar.php');
-  ?>
-
-  <div class="container container-margin">
-    <div class="capa">
-      <div class="row" style="display: flex; overflow: hidden;">
-=======
   </head>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      var erro_login = '<?= $erro_login ?>';
-      if(erro_login == 1){
-        $('#loginModal p').html('Login e/ou senha incorretos');
-        $('#loginModal').modal('show');
-      }
-    });
-  </script>
 
   <body class="indexback">
 
@@ -52,10 +44,9 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
    include('templates/navbar.php');
    ?>
 
-   <div  class="capa" >
+   <div class="capa" >
     <div class="container">
       <div class="row">
->>>>>>> c851ffc6014f619decf468d9edd003a06f45a48e
         <div class="col-md-6">
           <img class="img-responsive" src="img/CAPAAA.png">
           <div class="texto-capa">
@@ -67,7 +58,7 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
           <button class="btn btn-lg btn-index" type="button"> quem somos </button>
           <button class="btn btn-lg btn-index" type="button"> como funciona </button>
           <button class="btn btn-lg btn-index"> contato </button>    
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -75,38 +66,35 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
     <div class="row">
       <div class="col-md-6">
         <div class="row">
-      <div class="col-md-6">
-        <img class="img-responsive img-index img-circle" src="img/capa2.png">
+          <div class="col-md-6">
+            <img class="img-responsive img-index img-circle" src="img/capa2.png">
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive img-index img-circle" src="img/capa2.png">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img class="img-responsive img-index img-circle" src="img/capa2.png">
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive img-index img-circle" src="img/capa2.png">
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
-        <img class="img-responsive img-index img-circle" src="img/capa2.png">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <img class="img-responsive img-index img-circle" src="img/capa2.png">
-      </div>
-      <div class="col-md-6">
-        <img class="img-responsive img-index img-circle" src="img/capa2.png">
-      </div>
-    </div>
-    </div>
-    <div class="col-md-6">
-      <div class="container-margin">
-        <h2>O que é o WorkOn!</h2>
-        <p>O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente pensada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
+        <div class="container-margin">
+          <h2>O que é o WorkOn!</h2>
+          <p>O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente pensada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
+        </div>
       </div>
     </div>
   </div>
-    </div>
-    
-
 
   <?php 
   include('templates/footer.php');
   ?>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="js/script1.js?ver=1"></script>
 
