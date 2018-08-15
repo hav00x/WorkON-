@@ -11,6 +11,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilo.css?ver=7" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,7 +63,6 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="js/script1.js?$$REVISION$$"></script>
 

@@ -15,6 +15,6 @@
       </div>
 
       <div class="col-md-4">
-         <button style="margin: 13px;" class="button-hp" href="sair.php">SAIR</button>
+         <a style="margin: 13px;" class="button-hp" href="sair.php">SAIR</a>
         </div>
     </div>
