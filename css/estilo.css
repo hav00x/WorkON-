@@ -39,13 +39,8 @@ fieldset{
     border-radius: 4px;
     color: white;
     font-family: 'Droid Serif', serif;
-<<<<<<< HEAD
 }
- 
-=======
->>>>>>> 4961a0813a7bea8a1d740f73f8923c404fe23ce8
 
-}
 p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -702,10 +697,6 @@ FORMATAÇÕES ESPECIFICAS
     padding: 20px;
     text-align: center;
     margin-top: 30px;
-<<<<<<< HEAD
-
-=======
->>>>>>> 4961a0813a7bea8a1d740f73f8923c404fe23ce8
 }
 
 .hide{

@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=3" rel="stylesheet">
+  <link href="css/estilo.css?ver=5" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -31,38 +31,72 @@ if(!isset($_SESSION['email'])){
     <![endif]-->
 
     <script type="text/javascript">
+      var check;
       var count = 1;
+      var atividadeCount = 1;
       $(document).ready( function(){
+
         $('#edita-projeto').on('click', function(){
           $('#nome-projeto').attr('contenteditable', 'true');
           $('#nome-projeto').focus();
         });
+
         $('#nome-projeto').on('blur', function(){
           $('#nome-projeto').attr('contenteditable', 'false');
         });
-        $('#nome-projeto, #nome-etapa').on('keydown', function(e){
+
+        $('#accordion').on('click', '.edita-txt', function(){
+          $(this).prev().attr('contenteditable', 'true');
+          $(this).prev().focus();
+          $(this).prev().attr('data-toggle', '');
+        });      
+
+        $('#nome-projeto').on('keydown', function(e){
           if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
           }
         });
-        $('#edita-etapa').on('click', function(){
-          $('#nome-etapa').attr('contenteditable', 'true');
-          $('#nome-etapa').focus();
-          $('#nome-etapa').attr('data-toggle', '');  
+
+        $('#accordion').on('keydown', '.nome-etapa', function(e){
+         if(e.which === 13){
+            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
+            return false;
+          }
         });
-        $('#nome-etapa').on('blur', function(){
-          $('#nome-etapa').attr('contenteditable', 'false');
-          $('#nome-etapa').attr('data-toggle', 'collapse');
+
+        $('#accordion').on('blur', '.nome-etapa', function(){
+          $(this).attr('contenteditable', 'false');
+          $(this).attr('data-toggle', 'collapse');
         });
+        
         $('#add-etapa').on('click', function(){
           count = count + 1;
-          $('#accordion').append("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse"+count+"' aria-expanded='true' aria-controls='collapse"+count+"' id='nome-etapa'> <span>Etapa #"+count+"</span> </a> <button type='button' id='edita-etapa' class='btn-edicao'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapse"+count+"' class='panel-collapse collapsein' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-strow'> <div class='col-md-4'> <label>Atividade #"+count+"</label> <input type='text'name=''> </div> </div> </div> </div>");
+          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse"+count+"' aria-expanded='false' aria-controls='collapse"+count+"' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapse"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row'> <div class='col-md-4'> <label data-value='1'>Atividade #1</label> <input type='text'name=''> </div> <button type='button' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'></button> </div> </div> </div>"
+            );
         });
-      });
-    </script>
-  </head>
-  <body>
+
+        $('#accordion').on('click', '.nome-etapa', function(){
+            check = $(this).attr('aria-expanded');
+            alert(check);
+            if(check == false){
+              var pegaCollapse = $(this).attr('aria-controls');
+              alert(pegaCollapse);
+            }
+            setTimeout(function(){
+              alert(check);
+            }, 3000);
+        });
+
+         $('#accordion').on('click', '.add-passo', function(){
+          atividadeCount = atividadeCount +1;
+          $(this).before("<div class='col-md-4'> <label data-value='"+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name=''> </div>");
+        });
+
+       });
+     </script>
+   </head>
+   <body>
 
     <?php
     include('templates/sidebar.php');
@@ -167,54 +201,27 @@ if(!isset($_SESSION['email'])){
             <div class="col-md-12">
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingOne">
+                  <div class="panel-heading" role="tab" id="heading1">
                     <h4 class="panel-title">
                       <div>
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="nome-etapa">
-                          <span>Etapa #1</span>
+                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1" id="nome-etapa1">
+                          Etapa #1
                         </a>
-                        <button type="button" id="edita-etapa" class="btn-edicao">
+                        <button type="button" id="edita-etapa1" class="btn-edicao edita-txt">
                           <img class="img-etapa-edicao" src="img/edit-file.png">
                         </button>
                       </div>
                     </h4>
                   </div>
-                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <form>
-                      <div class="acordion-st row">
-                        <div class="col-md-4">
-                          <label>Atividade #1 </label>
-                          <input type="text" name="">
-                        </div>
+                  <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                    <div class="acordion-st row">
+                      <div class="col-md-4">
+                        <label data-value='1'>Atividade #1 </label>
+                        <input type="text" name="">
                       </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Etapa #2
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                    <h4 class="panel-title">
-                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      <button type="button" class="btn-edicao add-passo" style="float: right;">
+                        <img class="img-edicao" src="img/add-circular-button.png">
+                      </button>
                     </div>
                   </div>
                 </div>
