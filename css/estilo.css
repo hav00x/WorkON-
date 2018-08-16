@@ -39,20 +39,12 @@ fieldset{
     border-radius: 4px;
     color: white;
     font-family: 'Droid Serif', serif;
-<<<<<<< HEAD
 }
  
-=======
-} 
->>>>>>> c851ffc6014f619decf468d9edd003a06f45a48e
 
 p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> c851ffc6014f619decf468d9edd003a06f45a48e
 
 textarea{
     resize: none;
@@ -71,10 +63,6 @@ html, body, .capa {
     url('../img/ruido.png');
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c851ffc6014f619decf468d9edd003a06f45a48e
 p, .modspan{
     font-family: 'Abel';
 }
@@ -115,7 +103,7 @@ input[type=number]:focus,
 select:focus{
 	border-style: 0.5px solid black;
 	border-width: 0 0 0 5px;
-	border-color: #FF0000;
+	border-color: #FFA500;
 	transition: all 0.15s;
 	outline: none;
 	font-weight: 500;
@@ -695,8 +683,6 @@ FORMATAÇÕES ESPECIFICAS
    padding: 20px;
    text-align: center;
    margin-top: 30px;
-<<<<<<< HEAD
-=======
     background: rgba(255, 165, 0, 0.5)
     border: 1px solid #d9d9d9;
     border-radius: 5px;
@@ -712,7 +698,7 @@ FORMATAÇÕES ESPECIFICAS
     padding: 20px;
     text-align: center;
     margin-top: 30px;
->>>>>>> c851ffc6014f619decf468d9edd003a06f45a48e
+
 }
 
 .hide{
