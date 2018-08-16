@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['email'])){
+  header('Location: index.php?acessoinval=1&');
+}
+
+?>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,6 +21,8 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilo.css?=ver5" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
@@ -111,11 +123,6 @@
 
   <p style="font-size: 10px; text-align: center;">ROOT | sua plataforma de projetos - 2018</p>
 </div>
-
-
-
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- jQuery Custom Scroller CDN -->

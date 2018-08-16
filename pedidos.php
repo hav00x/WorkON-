@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['email'])){
+  header('Location: index.php?acessoinval=1&');
+}
+
+?>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -12,6 +22,8 @@
   <link href="css/estilo.css?=VER19" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
   <!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -25,114 +37,94 @@
     include('templates/sidebar.php');
     ?>
     <div ID="content">
+      <?php
+      include('templates/navbarinterna.php');
+      ?>
       <div class="section row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1>PEDIDOS</h1>
+        <div class="col-md-4">
+          <h3>Pedido 1</h3>
+          <div class="div-pedidos">
+            <h4>Restaurante</h4>
+            <p>Tipo: Site</p>
+            <p>Solicitante: User1</p>
+            <p>Data de entrega: 31/12/2018</p>
+            <button class="btn btn-details">Enviar mensagem</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>Pedido 2</h3>
+          <div class="div-pedidos">
+            <h4>Mercado</h4>
+            <p>Tipo: Software</p>
+            <p>Solicitante: User2</p>
+            <p>Data de entrega: 12/08/2018</p>
+            <button class="btn btn-details">Enviar mensagem</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>Pedido 3</h3>
+          <div class="div-pedidos">
+            <h4>Tic-tac-toe</h4>
+            <p>Tipo: Jogo</p>
+            <p>Solicitante: User3</p>
+            <p>Data de entrega: 16/09/2018</p>
+            <button class="btn btn-details">Enviar mensagem</button>
+          </div>
+        </div>
+
+        <div class=" sectionrow">
+          <div class="col-md-4">
+            <h3>Pedido 4</h3>
+            <div class="div-pedidos">
+              <h4>Loja de roupas</h4>
+              <p>Tipo: Aplicativo</p>
+              <p>Solicitante: User1</p>
+              <p>Data de entrega: 31/12/2018</p>
+              <button class="btn btn-details">Enviar mensagem</button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span> Fazer novo pedido</button>
+          <div class="col-md-4">
+            <h3>Pedido 5</h3>
+            <div class="div-pedidos">
+              <h4>Escola</h4>
+              <p>Tipo: Site</p>
+              <p>Solicitante: User2</p>
+              <p>Data de entrega: 12/08/2018</p>
+              <button class="btn btn-details">Enviar mensagem</button>
             </div>
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg "><span class="glyphicon glyphicon-trash"></span> Rejeitar pedido</button>
-            </div>
-            <div class="col-md-4">
-              <button class="btn btn-info btn-lg "><span class="glyphicon glyphicon-ok"></span> Aceitar pedido</button>
+          </div>
+          <div class="col-md-4">
+            <h3>Pedido 6</h3>
+            <div class="div-pedidos">
+              <h4>Hospital</h4>
+              <p>Tipo: Software</p>
+              <p>Solicitante: User3</p>
+              <p>Data de entrega: 16/09/2018</p>
+              <button class="btn btn-details">Enviar mensagem</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="section row">
-      <div class="col-md-4">
-        <h3>Pedido 1</h3>
-        <div class="div-pedidos">
-        <h4>Restaurante</h4>
-        <p>Tipo: Site</p>
-        <p>Solicitante: User1</p>
-        <p>Data de entrega: 31/12/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <h3>Pedido 2</h3>
-        <div class="div-pedidos">
-        <h4>Mercado</h4>
-        <p>Tipo: Software</p>
-        <p>Solicitante: User2</p>
-        <p>Data de entrega: 12/08/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-     <div class="col-md-4">
-        <h3>Pedido 3</h3>
-        <div class="div-pedidos">
-        <h4>Tic-tac-toe</h4>
-        <p>Tipo: Jogo</p>
-        <p>Solicitante: User3</p>
-        <p>Data de entrega: 16/09/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
 
-      <div class=" sectionrow">
-      <div class="col-md-4">
-        <h3>Pedido 4</h3>
-        <div class="div-pedidos">
-        <h4>Loja de roupas</h4>
-        <p>Tipo: Aplicativo</p>
-        <p>Solicitante: User1</p>
-        <p>Data de entrega: 31/12/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <h3>Pedido 5</h3>
-        <div class="div-pedidos">
-        <h4>Escola</h4>
-        <p>Tipo: Site</p>
-        <p>Solicitante: User2</p>
-        <p>Data de entrega: 12/08/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-     <div class="col-md-4">
-        <h3>Pedido 6</h3>
-        <div class="div-pedidos">
-        <h4>Hospital</h4>
-        <p>Tipo: Software</p>
-        <p>Solicitante: User3</p>
-        <p>Data de entrega: 16/09/2018</p>
-        <button class="btn btn-details">Enviar mensagem</button>
-      </div>
-      </div>
-      </div>
-        </div>
-
-      </div>
     </div>
+  </div>
 
-    
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-          theme: "minimal"
-        });
-
-        $('#sidebarCollapse').on('click', function () {
-          $('#sidebar, #content, #btnMenu').toggleClass('active2');
-          $('.collapse.in').toggleClass('in');
-          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
       });
-    </script>
-  </body>
-  </html>
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content, #btnMenu').toggleClass('active2');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>

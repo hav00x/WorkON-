@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once('db.class.php');
 
 $objdb = new db();
@@ -14,22 +16,24 @@ $retorna_erro = '';
 $stmt = $link->prepare("SELECT email, senha, id_pjusu, nomefant FROM usuariopj WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($emailusu, $senhausu, $idusu, $nomeFantasia);
-	while($stmt->fetch()){
-		if(isset($emailusu)){
-			if(password_verify($senha, $senhausu)){
-				$_SESSION['email'] = $emailusu;
-				$_SESSION['id_usuario'] = $idusu;
-				$_SESSION['nome_fantasia'] = $nomeFantasia;
-				header('Location: homepage.php');
-				echo '3';
-			} else{
-				$erro = true;
-			}
+	$stmt->bind_result($jemailusu, $jsenhausu, $jidusu, $nomeFantasia);
+	$stmt->fetch();
+	if(isset($jemailusu)){
+		if(password_verify($senha, $jsenhausu)){
+			$_SESSION['email'] = $jemailusu;
+			$_SESSION['id_usuario'] = $jidusu;
+			$_SESSION['nome_fantasia'] = $nomeFantasia;
+			
+			header('Location: homepage.php');
+
+			die();
 		} else{
 			$erro = true;
 		}
+	} else{
+		$erro = true;
 	}
+
 } else{
 	echo 'Erro na conexão';
 }
@@ -39,22 +43,29 @@ $stmt->close();
 $stmt = $link->prepare("SELECT email, senha, id_pfusu, nome FROM usuariopf WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($emailusu, $senhausu, $idusu, $nome);
-	while($stmt->fetch()){
-		if(isset($emailusu)){
-			if(password_verify($senha, $senhausu)){
-				$_SESSION['email'] = $emailusu;
-				$_SESSION['id_usuario'] = $idusu;
-				$_SESSION['nome_fantasia'] = $nomeFantasia;
-				header('Location: homepage.php');
-			} else{
-				$erro = true;
-			}
+	$stmt->bind_result($femailusu, $fsenhausu, $fidusu, $nome);
+	$stmt->fetch();
+	if(isset($femailusu)){
+		if(password_verify($senha, $fsenhausu)){
+			$_SESSION['email'] = $femailusu;
+			$_SESSION['id_usuario'] = $fidusu;
+			$_SESSION['nome'] = $nome;
+
+			header('Location: homepage.php');
+
+			die();
 		} else{
 			$erro = true;
 		}
+	} else{
+		$erro = true;
 	}
+	
+} else{
+	echo 'Erro na conexão';
 }
+
+$stmt->close();
 
 if($erro){
 	$retorna_erro = 'errologin=1&';
