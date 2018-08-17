@@ -15,7 +15,7 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=9" rel="stylesheet">
+  <link href="css/estilo.css?ver=17" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,14 +35,23 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       }
     });
   </script>
+<<<<<<< HEAD
 
 </head>
+=======
+</head>
+
+>>>>>>> f9afc34b3faf7793dfb529ef2f5f617fe9ba8844
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<<<<<<< HEAD
+=======
+  </head>
+>>>>>>> f9afc34b3faf7793dfb529ef2f5f617fe9ba8844
 
   <body class="indexback">
     <?php
@@ -67,34 +76,56 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       </div>
     </div>
   </div>
-  <div>
+  <div id="conteudo">
     <div class="row">
       <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-6">
-            <img class="img-responsive img-index img-circle" src="img/capa2.png">
-          </div>
-          <div class="col-md-6">
-            <img class="img-responsive img-index img-circle" src="img/capa2.png">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img class="img-responsive img-index img-circle" src="img/capa2.png">
-          </div>
-          <div class="col-md-6">
-            <img class="img-responsive img-index img-circle" src="img/capa2.png">
-          </div>
+        <div class="container-margin">
+          <h1 id="header-index1">O que é o WorkOn!</h1>
+          <p id="description">O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente pensada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
         </div>
       </div>
+      <div class="col-md-6" id="img-index">
+        <img src="img/index2.jpeg" class="img-responsive img-thumbnail" >
+      </div>
+    </div>
+  </div>
+
+  <div class="container-margin">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="header-index2">Como funciona?</h1>
+      </div>
       <div class="col-md-6">
-        <div class="container-margin">
-          <h2>O que é o WorkOn!</h2>
-          <p>O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente pensada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
+      <div class="box">
+        <h4 class="h4index"><img src="img/devico.png" class="img-cd"/> Desenvolvedores</h4>
+        <p class="pindex">O WorkOn! foi pensado para facilitar sua rotina de comunicação com o cliente no decorrer do projeto, aqui você pode manter seu cliente informado sobre etapas e atividades implementadas através da plataforma de maneira simples e intuitiva.</p>
+        <p class="pindex">Com o WorkOn! você pode:</p>
+        <ul>
+          <li>Preencher seu currículo e receber propostas de projetos</li>
+          <li>Colocar as informações do projeto de maneira fácil e intuitiva para o usuário</li>
+          <li>Atualizar o projeto informando quais etapas foram concluidas</li>
+          <li>Manter contato com o cliente através da plataforma</li>
+          <li>E muito mais!</li>
+        </ul>
+      </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box">
+            <h4 class="h4index"><img src="img/userico.png" class="img-cd"> Clientes</h4>
+            <p class="pindex">Para você que apenas quer um projeto, mas não entende as rotinas de desenvolvimento e os termos utilizados, essa plataforma tem o intuito de te ajudar a compreender de maneira simples as etapas feitas no seu projeto.</p>
+            <p class="pindex">Com o WorkOn! você pode:</p>
+            <ul>
+              <li>Procurar desenvolvedores para fazer o seu projeto</li>
+              <li>Receber os relatórios de etapas e atividades concluídas</li>
+              <li>Enviar feedbacks sobre o projeto para ajudar o desenvolverdor</li>
+              <li>Conversar com os desenvolvedores atrvés da plataforma</li>
+              <li>E muito mais!</li>
+            </ul>  
         </div>
       </div>
     </div>
   </div>
+
 
   <?php 
   include('templates/footer.php');

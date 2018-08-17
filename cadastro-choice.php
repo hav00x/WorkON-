@@ -34,7 +34,7 @@
    </div>
    <div class="container conn">
     <div class="row">
-      <div class="col-md-12 cadaChoice">
+      <div class="col-md-12 box">
         <div id="btn-profile">
           <div class="row">
             <div class="col-md-12">
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12 cadaChoice">
+      <div class="col-md-12 box">
         <div id="btn-profile">
           <div class="row">
             <div class="col-md-12">
