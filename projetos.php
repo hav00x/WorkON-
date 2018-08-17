@@ -31,7 +31,7 @@ if(!isset($_SESSION['email'])){
     <![endif]-->
 
     <script type="text/javascript">
-      var check;
+      var etapaCount = 1;
       var count = 1;
       var atividadeCount = 1;
       $(document).ready( function(){
@@ -72,31 +72,65 @@ if(!isset($_SESSION['email'])){
         
         $('#add-etapa').on('click', function(){
           count = count + 1;
-          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse"+count+"' aria-expanded='false' aria-controls='collapse"+count+"' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapse"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row'> <div class='col-md-4'> <label data-value='1'>Atividade #1</label> <input type='text'name=''> </div> <button type='button' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'></button> </div> </div> </div>"
-            );
+          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseZ"+count+"' aria-expanded='false' aria-controls='collapseZ"+count+"' data-value='0' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapseZ"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row' id='acordion"+count+"'> <div class='col-md-4'> <label data-value='"+count+".1'>Atividade #1</label> <input type='text' name='campo["+count+"][1]'> </div> <button type='button' id='btnc"+count+"' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'> </button> <button type='button' id='btnr"+count+"' class='btn-edicao rmv-passo' style='float: right;'> <img class='img-edicao' src='img/minus.png'> </button> </div> </div> </div>");
+        });
+
+        $('#rmv-etapa').on('click', function(){
+          if(count <= 1){
+            return false;
+          }else{
+            count = count -1;
+            $(this).prev().prev().remove();
+          }
         });
 
         $('#accordion').on('click', '.nome-etapa', function(){
-            check = $(this).attr('aria-expanded');
-            alert(check);
-            if(check == false){
-              var pegaCollapse = $(this).attr('aria-controls');
-              alert(pegaCollapse);
-            }
-            setTimeout(function(){
-              alert(check);
-            }, 3000);
+          setTimeout(function(){
+            $('.nome-etapa').each(function(){ //checando se as etapas estão com o data-value certo pela classe collapsed, e se não, arruma eles, pois o codigo abaixo não funciona quando a etapa é fechada automaticamente
+              if($(this).hasClass('collapsed')){
+                $(this).attr('data-value', 0);
+              }
+            });
+          }, 350);
+          if($(this).attr('data-value') == 1){ //reseta o contador toda vez que uma etapa é fechada manualmente
+            $(this).attr('data-value', 0);
+            atividadeCount = 1;
+          } else{ //grava o numero da atividade pelo data-value da ultima etapa
+            $(this).attr('data-value', 1);
+            var pegaId = $(this).attr('aria-controls');
+            guardaEtapa = pegaId.split('Z');
+            etapaCount = parseInt(guardaEtapa[1]);
+            pegaId = $('#'+pegaId).children().first().attr('id');
+            pegaId = $('#'+pegaId).children().last().attr('id');
+            var ultimoInput = $('#'+pegaId).prev().prev().children().first().attr('data-value');
+            var retorno = ultimoInput.split('.');
+            atividadeCount = parseInt(retorno[1]);
+          }
         });
 
-         $('#accordion').on('click', '.add-passo', function(){
+        $('#accordion').on('click', '.add-passo', function(){
           atividadeCount = atividadeCount +1;
-          $(this).before("<div class='col-md-4'> <label data-value='"+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name=''> </div>");
+          $(this).before("<div class='col-md-4'> <label data-value='"+etapaCount+"."+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name='campo["+etapaCount+"]["+atividadeCount+"]'> </div>");
         });
 
-       });
-     </script>
-   </head>
-   <body>
+        $('#accordion').on('click', '.rmv-passo', function(){
+          if(atividadeCount <= 1){
+            return false;
+          } else{
+            atividadeCount = atividadeCount -1;
+            $(this).prev().prev().remove();
+          }
+        });
+
+        $('#nome-projeto').on('change', function(){
+          $('#nomeproj').html() = $('#nome-projeto').html();
+          alert($('#nomeproj').html());
+        });
+
+      });
+    </script>
+  </head>
+  <body>
 
     <?php
     include('templates/sidebar.php');
@@ -158,41 +192,42 @@ if(!isset($_SESSION['email'])){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-header" style="margin-left: 20px;">
+        <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
           <h3 class="modal-title">
             <div>
+              <form action="cadastrarprojeto_bd.php" method="post">
               <span id="nome-projeto">Novo Projeto</span>
               <button style="display: inline-block;" type="button" id="edita-projeto" class="btn-edicao">
                 <img class="img-edicao" src="img/edit-file.png">
               </button>
+              <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
             </div>
           </h3>
         </div>
 
         <div class="modal-body">
-          <form>
             <div class="col-left">
               <label for="nomecli">Nome do Cliente/Empresa</label>
-              <input type="text" class="text_field" id="nomecli" name="">
+              <input type="text" class="text_field" id="nomecli" name="nomecli">
             </div>
             <div class="col-right">
               <label for="tipopro">Tipo de Projeto</label>
-              <input type="text" class="text_field" id="tipopro" name="">
+              <input type="text" class="text_field" id="tipopro" name="tipopro">
             </div>
             <div class="col-cent">
               <label for="descri">Descrição do Projeto</label>
-              <textarea id="descri" maxlength="254" class="text_field"></textarea>
+              <textarea id="descri" maxlength="254" class="text_field" name="descripro"></textarea>
             </div>
             <div class="col-left">
               <label for="dataini">Data Início</label>
-              <input type="date" class="text_field" id="danaini" name="">
+              <input type="date" class="text_field" id="danaini" name="dataini">
             </div>
             <div class="col-right">
               <label for="dataent">Data Entrega</label>
-              <input type="date" class="text_field" id="dataent" name="">
+              <input type="date" class="text_field" id="dataent" name="dataterm">
             </div>
             <div class="col-md-12">
               <h3>O que vai ser feito?</h3>
@@ -204,7 +239,7 @@ if(!isset($_SESSION['email'])){
                   <div class="panel-heading" role="tab" id="heading1">
                     <h4 class="panel-title">
                       <div>
-                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1" id="nome-etapa1">
+                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZ1" aria-expanded="true" data-value="1" aria-controls="collapseZ1" id="nome-etapa1">
                           Etapa #1
                         </a>
                         <button type="button" id="edita-etapa1" class="btn-edicao edita-txt">
@@ -213,30 +248,35 @@ if(!isset($_SESSION['email'])){
                       </div>
                     </h4>
                   </div>
-                  <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
-                    <div class="acordion-st row">
+                  <div id="collapseZ1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                    <div id='acordion1' class="acordion-st row">
                       <div class="col-md-4">
-                        <label data-value='1'>Atividade #1 </label>
-                        <input type="text" name="">
+                        <label data-value='1.1'>Atividade #1 </label>
+                        <input type="text" name="campo[1][1]">
                       </div>
-                      <button type="button" class="btn-edicao add-passo" style="float: right;">
+                      <button type="button" id="btnc1" class="btn-edicao add-passo" style="float: right;">
                         <img class="img-edicao" src="img/add-circular-button.png">
+                      </button>
+                      <button type="button" id="btnr1" class="btn-edicao rmv-passo" style="float: right;">
+                        <img class="img-edicao" src="img/minus.png">
                       </button>
                     </div>
                   </div>
                 </div>
                 <button type="button" class="button -regular" id="add-etapa" style="float: right;">Mais etapas
                 </button>
+                <button type="button" class="button -regular" id="rmv-etapa" style="float: right;">Menos etapas
+                </button>
               </div>
             </div>
-          </form>
-        </div>
 
-        <div class="modal-footer" style="clear: both;">
-          <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-          <button type="button" class="button -regular">Criar</button>
-        </div>
+          </div>
 
+          <div class="modal-footer" style="clear: both;">
+            <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
+            <button type="submit" class="button -regular">Criar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div><!-- Fim Modal -->
