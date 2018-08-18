@@ -39,13 +39,8 @@ fieldset{
     border-radius: 4px;
     color: white;
     font-family: 'Droid Serif', serif;
-<<<<<<< HEAD
 
 }
-
-=======
-}
->>>>>>> 458c030a9daedd6f0413faf7db20ee597da4a906
 
 p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -673,7 +668,7 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .box{
-   background: rgba(255, 165, 0, 0.5)
+   background: rgba(255, 165, 0, 0.5);
    border: 1px solid #d9d9d9;
    padding: 20px;
    text-align: center;
@@ -686,26 +681,7 @@ FORMATAÇÕES ESPECIFICAS
    padding: 20px;
    text-align: center;
    margin-top: 30px;
-<<<<<<< HEAD
    border-radius: 2px;
-
-=======
-    background: rgba(255, 165, 0, 0.5)
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 30px;
-    width: 500px;
-    box-shadow: 0 1px 3px rgba(255, 69, 0, 0.7);
-    margin-left: 70px;
-    background-color: white;
-    border: 1px solid #ffa500;
-    border-radius: 25px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 30px;
->>>>>>> 458c030a9daedd6f0413faf7db20ee597da4a906
 }
 
 .hide{
