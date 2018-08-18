@@ -20,8 +20,9 @@ if($stmt->execute()){
 	$stmt->fetch();
 	if(isset($jemailusu)){
 		if(password_verify($senha, $jsenhausu)){
+
 			$_SESSION['email'] = $jemailusu;
-			$_SESSION['id_usuario'] = $jidusu;
+			$_SESSION['id_jusuario'] = $jidusu;
 			$_SESSION['nome_fantasia'] = $nomeFantasia;
 			
 			header('Location: homepage.php');
@@ -48,7 +49,7 @@ if($stmt->execute()){
 	if(isset($femailusu)){
 		if(password_verify($senha, $fsenhausu)){
 			$_SESSION['email'] = $femailusu;
-			$_SESSION['id_usuario'] = $fidusu;
+			$_SESSION['id_fusuario'] = $fidusu;
 			$_SESSION['nome'] = $nome;
 
 			header('Location: homepage.php');

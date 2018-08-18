@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=5" rel="stylesheet">
+  <link href="css/estilo.css?ver=7" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -29,106 +29,6 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script type="text/javascript">
-      var etapaCount = 1;
-      var count = 1;
-      var atividadeCount = 1;
-      $(document).ready( function(){
-
-        $('#edita-projeto').on('click', function(){
-          $('#nome-projeto').attr('contenteditable', 'true');
-          $('#nome-projeto').focus();
-        });
-
-        $('#nome-projeto').on('blur', function(){
-          $('#nome-projeto').attr('contenteditable', 'false');
-        });
-
-        $('#accordion').on('click', '.edita-txt', function(){
-          $(this).prev().attr('contenteditable', 'true');
-          $(this).prev().focus();
-          $(this).prev().attr('data-toggle', '');
-        });      
-
-        $('#nome-projeto').on('keydown', function(e){
-          if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('keydown', '.nome-etapa', function(e){
-         if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('blur', '.nome-etapa', function(){
-          $(this).attr('contenteditable', 'false');
-          $(this).attr('data-toggle', 'collapse');
-        });
-        
-        $('#add-etapa').on('click', function(){
-          count = count + 1;
-          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseZ"+count+"' aria-expanded='false' aria-controls='collapseZ"+count+"' data-value='0' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapseZ"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row' id='acordion"+count+"'> <div class='col-md-4'> <label data-value='"+count+".1'>Atividade #1</label> <input type='text' name='campo["+count+"][1]'> </div> <button type='button' id='btnc"+count+"' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'> </button> <button type='button' id='btnr"+count+"' class='btn-edicao rmv-passo' style='float: right;'> <img class='img-edicao' src='img/minus.png'> </button> </div> </div> </div>");
-        });
-
-        $('#rmv-etapa').on('click', function(){
-          if(count <= 1){
-            return false;
-          }else{
-            count = count -1;
-            $(this).prev().prev().remove();
-          }
-        });
-
-        $('#accordion').on('click', '.nome-etapa', function(){
-          setTimeout(function(){
-            $('.nome-etapa').each(function(){ //checando se as etapas estão com o data-value certo pela classe collapsed, e se não, arruma eles, pois o codigo abaixo não funciona quando a etapa é fechada automaticamente
-              if($(this).hasClass('collapsed')){
-                $(this).attr('data-value', 0);
-              }
-            });
-          }, 350);
-          if($(this).attr('data-value') == 1){ //reseta o contador toda vez que uma etapa é fechada manualmente
-            $(this).attr('data-value', 0);
-            atividadeCount = 1;
-          } else{ //grava o numero da atividade pelo data-value da ultima etapa
-            $(this).attr('data-value', 1);
-            var pegaId = $(this).attr('aria-controls');
-            guardaEtapa = pegaId.split('Z');
-            etapaCount = parseInt(guardaEtapa[1]);
-            pegaId = $('#'+pegaId).children().first().attr('id');
-            pegaId = $('#'+pegaId).children().last().attr('id');
-            var ultimoInput = $('#'+pegaId).prev().prev().children().first().attr('data-value');
-            var retorno = ultimoInput.split('.');
-            atividadeCount = parseInt(retorno[1]);
-          }
-        });
-
-        $('#accordion').on('click', '.add-passo', function(){
-          atividadeCount = atividadeCount +1;
-          $(this).before("<div class='col-md-4'> <label data-value='"+etapaCount+"."+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name='campo["+etapaCount+"]["+atividadeCount+"]'> </div>");
-        });
-
-        $('#accordion').on('click', '.rmv-passo', function(){
-          if(atividadeCount <= 1){
-            return false;
-          } else{
-            atividadeCount = atividadeCount -1;
-            $(this).prev().prev().remove();
-          }
-        });
-
-        $('#nome-projeto').on('change', function(){
-          $('#nomeproj').html() = $('#nome-projeto').html();
-          alert($('#nomeproj').html());
-        });
-
-      });
-    </script>
   </head>
   <body>
 
@@ -141,7 +41,7 @@ if(!isset($_SESSION['email'])){
      <?php
      include('templates/navbarinterna.php');
      ?>
-     <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
+     <button type="button" id="criaproj" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
      <div class="section">
       <div class="row">
         <div class="col-md-12">
@@ -223,11 +123,15 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class="col-left">
               <label for="dataini">Data Início</label>
-              <input type="date" class="text_field" id="danaini" name="dataini">
+              <input type="date" class="text_field" id="danaini" max="<?= date('Y-m-d')?>" name="dataini">
             </div>
             <div class="col-right">
               <label for="dataent">Data Entrega</label>
-              <input type="date" class="text_field" id="dataent" name="dataterm">
+              <input type="date" class="text_field" id="dataent" max="<?= date('Y-m-d')?>" name="dataterm">
+            </div>
+            <div class="col-md-offset-4 col-md-4 input-icon">
+              <label for="precoest">Preço Estabelecido</label>
+              <input type="text" max="999999999" class="text_field" id="precoest" name="precoest"><i>R$</i>
             </div>
             <div class="col-md-12">
               <h3>O que vai ser feito?</h3>
@@ -239,12 +143,11 @@ if(!isset($_SESSION['email'])){
                   <div class="panel-heading" role="tab" id="heading1">
                     <h4 class="panel-title">
                       <div>
-                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZ1" aria-expanded="true" data-value="1" aria-controls="collapseZ1" id="nome-etapa1">
-                          Etapa #1
-                        </a>
+                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZ1" aria-expanded="true" data-value="1" aria-controls="collapseZ1" id="nome-etapa1">Etapa #1</a>
                         <button type="button" id="edita-etapa1" class="btn-edicao edita-txt">
                           <img class="img-etapa-edicao" src="img/edit-file.png">
                         </button>
+                        <input class="nomeetp" id="input-etapa1" type="text" name="nomeetapa[1]" style="display: none;">
                       </div>
                     </h4>
                   </div>
@@ -273,6 +176,7 @@ if(!isset($_SESSION['email'])){
           </div>
 
           <div class="modal-footer" style="clear: both;">
+            <button type="button" id="testando">+</button>
             <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
             <button type="submit" class="button -regular">Criar</button>
           </div>
@@ -298,8 +202,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-
-
+  <script src="js/script1.js?ver=2"></script>
 
 </body>
 </html>

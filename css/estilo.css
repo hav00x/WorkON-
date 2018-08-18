@@ -427,8 +427,8 @@ ESTILO SIDEBAR
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
     background:linear-gradient(#ffd633,#ffd633) left
 }
-    /* left or right or else */ no-repeat;
-    background-size: 100% 100%;
+/* left or right or else */ no-repeat;
+background-size: 100% 100%;
 }
 
 #sidebar ul li a#request:hover, #sidebar ul li a#request[aria-expanded="true"], #sidebar ul li.active2.request{
@@ -1115,4 +1115,31 @@ h1, h2, h3, h4, h5, h6{
 
 ul{
     list-style-type: square;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  font-size: 18px;
+  transform: translate(0, -50%);
+  top: 66%;
+  left: 6.2%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input[type=text]:focus {
+    font-weight: 400;
+}
+
+.input-icon > input{
+  padding-left: 25px;
+  padding-right: 0;
+  font-size: 17px;
 }
