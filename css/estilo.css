@@ -673,39 +673,16 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .box{
-   background: rgba(255, 165, 0, 0.5)
-   border: 1px solid #d9d9d9;
+   border: 1px solid #FFA500;
    padding: 20px;
    text-align: center;
-   margin-top: 30px;
+   margin-top: 10px;
    width: 500px;
-   box-shadow: 0 1px 3px, rgba(255, 165, 0, 0.5);
+   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
    margin-left: 70px;
-   background-color: white;
-   border: 1px solid #ffa500;
-   padding: 20px;
-   text-align: center;
-   margin-top: 30px;
-<<<<<<< HEAD
+   background-color: rgba(255, 255, 255, 0.5);
    border-radius: 2px;
 
-=======
-    background: rgba(255, 165, 0, 0.5)
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 30px;
-    width: 500px;
-    box-shadow: 0 1px 3px rgba(255, 69, 0, 0.7);
-    margin-left: 70px;
-    background-color: white;
-    border: 1px solid #ffa500;
-    border-radius: 25px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 30px;
->>>>>>> 458c030a9daedd6f0413faf7db20ee597da4a906
 }
 
 .hide{
@@ -731,10 +708,8 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .container-margin{
- margin-top: 70px;
- margin-bottom: 70px;
- margin-left: 70px;
- margin-right: 70px; 
+ margin: 70px;
+
 }
 
 .img-conteudo{
@@ -1088,9 +1063,10 @@ h1, h2, h3, h4, h5, h6{
     font-weight: 400;
 }
 
-#conteudo{
+#quem-somos{
     margin-top: -180px;
     background-color:rgba(255, 165, 0, 0.5);
+    padding: 20px;
 }
 
 #header-index1{
@@ -1099,7 +1075,7 @@ h1, h2, h3, h4, h5, h6{
     font-family:'Lemon/Milk';
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #000;
-    color: transparent;
+    color: rgba(255, 255, 255, 0.2);
 }
 
 #header-index2{
@@ -1110,7 +1086,7 @@ h1, h2, h3, h4, h5, h6{
     -webkit-text-stroke-color: #000;
     color: transparent;
     text-align: center;
-    margin-top: 2px;
+    margin-top: 30px;
 }
 
 
@@ -1121,9 +1097,8 @@ h1, h2, h3, h4, h5, h6{
 
 #img-index{
     padding: 10px;
-    width: 500px;
-    margin-left: 30px; 
-    margin-top: 12px;
+    width: 570px;
+    
 }
 
 .h4index{
@@ -1138,5 +1113,6 @@ h1, h2, h3, h4, h5, h6{
 }
 
 ul{
-    list-style-type: square;
+    list-style-image: url(../img/bulb.png);
+    text-align: justify;
 }

@@ -79,13 +79,11 @@ if(!isset($_SESSION['email'])){
         $('#accordion').on('click', '.nome-etapa', function(){
             check = $(this).attr('aria-expanded');
             alert(check);
-            if(check == false){
+            if(check){
               var pegaCollapse = $(this).attr('aria-controls');
               alert(pegaCollapse);
             }
-            setTimeout(function(){
-              alert(check);
-            }, 3000);
+            
         });
 
          $('#accordion').on('click', '.add-passo', function(){
