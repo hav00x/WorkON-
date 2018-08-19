@@ -39,13 +39,8 @@ fieldset{
     border-radius: 4px;
     color: white;
     font-family: 'Droid Serif', serif;
-<<<<<<< HEAD
 
 }
-
-=======
-}
->>>>>>> 458c030a9daedd6f0413faf7db20ee597da4a906
 
 p, input, label, select, textarea, label{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -432,8 +427,8 @@ ESTILO SIDEBAR
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
     background:linear-gradient(#ffd633,#ffd633) left
 }
-    /* left or right or else */ no-repeat;
-    background-size: 100% 100%;
+/* left or right or else */ no-repeat;
+background-size: 100% 100%;
 }
 
 #sidebar ul li a#request:hover, #sidebar ul li a#request[aria-expanded="true"], #sidebar ul li.active2.request{
@@ -673,16 +668,30 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .box{
+<<<<<<< HEAD
    border: 1px solid #FFA500;
+=======
+   background: rgba(255, 165, 0, 0.5);
+   border: 1px solid #d9d9d9;
+>>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
    padding: 20px;
    text-align: center;
    margin-top: 10px;
    width: 500px;
    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
    margin-left: 70px;
+<<<<<<< HEAD
    background-color: rgba(255, 255, 255, 0.5);
    border-radius: 2px;
 
+=======
+   background-color: white;
+   border: 1px solid #ffa500;
+   padding: 20px;
+   text-align: center;
+   margin-top: 30px;
+   border-radius: 2px;
+>>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
 }
 
 .hide{
@@ -1113,6 +1122,37 @@ h1, h2, h3, h4, h5, h6{
 }
 
 ul{
+<<<<<<< HEAD
     list-style-image: url(../img/bulb.png);
     text-align: justify;
+=======
+    list-style-type: square;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  font-size: 18px;
+  transform: translate(0, -50%);
+  top: 66%;
+  left: 6.2%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input[type=text]:focus {
+    font-weight: 400;
+}
+
+.input-icon > input{
+  padding-left: 25px;
+  padding-right: 0;
+  font-size: 17px;
+>>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
 }

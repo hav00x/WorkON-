@@ -23,6 +23,7 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
@@ -37,6 +38,20 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
     </script>
   </head>
 
+=======
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var erro_login = '<?= $erro_login ?>';
+      if(erro_login == 1){
+        $('#loginModal .modal-body p').html('Login e/ou senha incorretos');
+        $('#loginModal .modal-body p').css({'color':'red'});
+        $('#loginModal').modal('show');
+      }
+    });
+  </script>
+>>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

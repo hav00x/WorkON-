@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=5" rel="stylesheet">
+  <link href="css/estilo.css?ver=7" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -29,6 +29,7 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<<<<<<< HEAD
 
     <script type="text/javascript">
       var check;
@@ -95,6 +96,10 @@ if(!isset($_SESSION['email'])){
      </script>
    </head>
    <body>
+=======
+  </head>
+  <body>
+>>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
 
     <?php
     include('templates/sidebar.php');
@@ -105,7 +110,7 @@ if(!isset($_SESSION['email'])){
      <?php
      include('templates/navbarinterna.php');
      ?>
-     <button type="button" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
+     <button type="button" id="criaproj" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
      <div class="section">
       <div class="row">
         <div class="col-md-12">
@@ -156,41 +161,46 @@ if(!isset($_SESSION['email'])){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-header" style="margin-left: 20px;">
+        <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
           <h3 class="modal-title">
             <div>
+              <form action="cadastrarprojeto_bd.php" method="post">
               <span id="nome-projeto">Novo Projeto</span>
               <button style="display: inline-block;" type="button" id="edita-projeto" class="btn-edicao">
                 <img class="img-edicao" src="img/edit-file.png">
               </button>
+              <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
             </div>
           </h3>
         </div>
 
         <div class="modal-body">
-          <form>
             <div class="col-left">
               <label for="nomecli">Nome do Cliente/Empresa</label>
-              <input type="text" class="text_field" id="nomecli" name="">
+              <input type="text" class="text_field" id="nomecli" name="nomecli">
             </div>
             <div class="col-right">
               <label for="tipopro">Tipo de Projeto</label>
-              <input type="text" class="text_field" id="tipopro" name="">
+              <input type="text" class="text_field" id="tipopro" name="tipopro">
             </div>
             <div class="col-cent">
               <label for="descri">Descrição do Projeto</label>
-              <textarea id="descri" maxlength="254" class="text_field"></textarea>
+              <textarea id="descri" maxlength="254" class="text_field" name="descripro"></textarea>
             </div>
             <div class="col-left">
               <label for="dataini">Data Início</label>
-              <input type="date" class="text_field" id="danaini" name="">
+              <input type="date" class="text_field" id="danaini" max="<?= date('Y-m-d')?>" name="dataini">
             </div>
             <div class="col-right">
               <label for="dataent">Data Entrega</label>
-              <input type="date" class="text_field" id="dataent" name="">
+              <input type="date" class="text_field" id="dataent" max="<?= date('Y-m-d')?>" name="dataterm">
+            </div>
+            <div class="col-md-offset-4 col-md-4 input-icon">
+              <label for="precoest">Preço Estabelecido</label>
+              <input type="text" max="999999999" class="text_field" id="precoest" name="precoest"><i>R$</i>
             </div>
             <div class="col-md-12">
               <h3>O que vai ser feito?</h3>
@@ -202,39 +212,44 @@ if(!isset($_SESSION['email'])){
                   <div class="panel-heading" role="tab" id="heading1">
                     <h4 class="panel-title">
                       <div>
-                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1" id="nome-etapa1">
-                          Etapa #1
-                        </a>
+                        <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZ1" aria-expanded="true" data-value="1" aria-controls="collapseZ1" id="nome-etapa1">Etapa #1</a>
                         <button type="button" id="edita-etapa1" class="btn-edicao edita-txt">
                           <img class="img-etapa-edicao" src="img/edit-file.png">
                         </button>
+                        <input class="nomeetp" id="input-etapa1" type="text" name="nomeetapa[1]" style="display: none;">
                       </div>
                     </h4>
                   </div>
-                  <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
-                    <div class="acordion-st row">
+                  <div id="collapseZ1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+                    <div id='acordion1' class="acordion-st row">
                       <div class="col-md-4">
-                        <label data-value='1'>Atividade #1 </label>
-                        <input type="text" name="">
+                        <label data-value='1.1'>Atividade #1 </label>
+                        <input type="text" name="campo[1][1]">
                       </div>
-                      <button type="button" class="btn-edicao add-passo" style="float: right;">
+                      <button type="button" id="btnc1" class="btn-edicao add-passo" style="float: right;">
                         <img class="img-edicao" src="img/add-circular-button.png">
+                      </button>
+                      <button type="button" id="btnr1" class="btn-edicao rmv-passo" style="float: right;">
+                        <img class="img-edicao" src="img/minus.png">
                       </button>
                     </div>
                   </div>
                 </div>
                 <button type="button" class="button -regular" id="add-etapa" style="float: right;">Mais etapas
                 </button>
+                <button type="button" class="button -regular" id="rmv-etapa" style="float: right;">Menos etapas
+                </button>
               </div>
             </div>
-          </form>
-        </div>
 
-        <div class="modal-footer" style="clear: both;">
-          <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-          <button type="button" class="button -regular">Criar</button>
-        </div>
+          </div>
 
+          <div class="modal-footer" style="clear: both;">
+            <button type="button" id="testando">+</button>
+            <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
+            <button type="submit" class="button -regular">Criar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div><!-- Fim Modal -->
@@ -256,8 +271,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-
-
+  <script src="js/script1.js?ver=2"></script>
 
 </body>
 </html>
