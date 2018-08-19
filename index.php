@@ -15,7 +15,7 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=23" rel="stylesheet">
+  <link href="css/estilo.css?ver=26" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,7 +23,6 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
@@ -38,7 +37,6 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
     </script>
   </head>
 
-=======
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <script type="text/javascript">
@@ -51,7 +49,6 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       }
     });
   </script>
->>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -152,6 +149,41 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
             </div>
           </div>
         </div>
+      </div>
+      <div id="contato">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 id="header-index3"> Contato </h3>
+            </div>
+          </div>
+          <div class="row">
+            <form method="post" name="form">
+              <div class="col-md-6">
+      <div class="form-group"> 
+          <label>Nome</label>
+          <input class="form-control" type="text" name="nome" placeholder="Digite seu nome">  
+          </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" type="email" name="email" placeholder="Digite seu e-mail">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <label>Mensagem:</label>
+      <textarea class="form-control" type="text" name="mensagem" placeholder="Digite sua mensagem"></textarea>
+      <br> 
+    </div>
+    <button class="btn btn-index">Enviar</button>
+  </div>
+    </form>
+</div>
+
+      </div>
 
 
 
