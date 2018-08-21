@@ -148,21 +148,46 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
       </div>
     </div>
 
-    <div id="contato">
-      <div class="container-fluid">
-        <div class="row">
-          <h1 id="header-index3">Contato</h1>
+  <div id="contato">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 id="header-index3">Contato</h3>
+      </div>    
+    </div>
+    <div class="row">
+      <form method="post" name="form">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="pindex">Nome</label>
+            <input type="text" name="">
+          </div>
         </div>
-        <div class="row">
-          
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="pindex">E-mail</label>
+            <input type="email" name="">
+          </div>
         </div>
-
+      </form>
+    </div>
+    <div class="row">
+      <form>
+        <div class="col-md-12">
+          <label class="pindex">Mensagem</label>
+          <textarea class="form-control" type="text" name="mensagem" placeholder="Digite sua mensagem"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-index">Enviar</button>
       </div>
     </div>
+  </div>
+  </div>
 
-
-
-
+    
 
 
     <?php 
