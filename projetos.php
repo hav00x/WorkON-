@@ -29,77 +29,12 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<<<<<<< HEAD
 
-    <script type="text/javascript">
-      var check;
-      var count = 1;
-      var atividadeCount = 1;
-      $(document).ready( function(){
-
-        $('#edita-projeto').on('click', function(){
-          $('#nome-projeto').attr('contenteditable', 'true');
-          $('#nome-projeto').focus();
-        });
-
-        $('#nome-projeto').on('blur', function(){
-          $('#nome-projeto').attr('contenteditable', 'false');
-        });
-
-        $('#accordion').on('click', '.edita-txt', function(){
-          $(this).prev().attr('contenteditable', 'true');
-          $(this).prev().focus();
-          $(this).prev().attr('data-toggle', '');
-        });      
-
-        $('#nome-projeto').on('keydown', function(e){
-          if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('keydown', '.nome-etapa', function(e){
-         if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('blur', '.nome-etapa', function(){
-          $(this).attr('contenteditable', 'false');
-          $(this).attr('data-toggle', 'collapse');
-        });
-        
-        $('#add-etapa').on('click', function(){
-          count = count + 1;
-          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse"+count+"' aria-expanded='false' aria-controls='collapse"+count+"' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapse"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row'> <div class='col-md-4'> <label data-value='1'>Atividade #1</label> <input type='text'name=''> </div> <button type='button' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'></button> </div> </div> </div>"
-            );
-        });
-
-        $('#accordion').on('click', '.nome-etapa', function(){
-            check = $(this).attr('aria-expanded');
-            alert(check);
-            if(check){
-              var pegaCollapse = $(this).attr('aria-controls');
-              alert(pegaCollapse);
-            }
-            
-        });
-
-         $('#accordion').on('click', '.add-passo', function(){
-          atividadeCount = atividadeCount +1;
-          $(this).before("<div class='col-md-4'> <label data-value='"+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name=''> </div>");
-        });
-
-       });
-     </script>
+   
    </head>
    <body>
-=======
   </head>
   <body>
->>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
 
     <?php
     include('templates/sidebar.php');

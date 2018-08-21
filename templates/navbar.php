@@ -21,8 +21,8 @@
     <!-- navbar -->
     <div class="collapse navbar-collapse" id="barra-navegacao">
       <ul class="nav navbar-nav navbar-right">
-        <li ><a href="#">Quem somos</a></li>
         <li><a data-target="#loginModal" class="loginM" data-toggle="modal" href="#loginModal">Entrar</a>
+          <li class="divisor" role="separator"></li>
           <li><a href="cadastro-choice.php">Cadastrar</a></li>
         </ul>
       </div>
