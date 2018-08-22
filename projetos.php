@@ -29,77 +29,8 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<<<<<<< HEAD
-
-    <script type="text/javascript">
-      var check;
-      var count = 1;
-      var atividadeCount = 1;
-      $(document).ready( function(){
-
-        $('#edita-projeto').on('click', function(){
-          $('#nome-projeto').attr('contenteditable', 'true');
-          $('#nome-projeto').focus();
-        });
-
-        $('#nome-projeto').on('blur', function(){
-          $('#nome-projeto').attr('contenteditable', 'false');
-        });
-
-        $('#accordion').on('click', '.edita-txt', function(){
-          $(this).prev().attr('contenteditable', 'true');
-          $(this).prev().focus();
-          $(this).prev().attr('data-toggle', '');
-        });      
-
-        $('#nome-projeto').on('keydown', function(e){
-          if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('keydown', '.nome-etapa', function(e){
-         if(e.which === 13){
-            e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-            return false;
-          }
-        });
-
-        $('#accordion').on('blur', '.nome-etapa', function(){
-          $(this).attr('contenteditable', 'false');
-          $(this).attr('data-toggle', 'collapse');
-        });
-        
-        $('#add-etapa').on('click', function(){
-          count = count + 1;
-          $('#accordion #add-etapa').before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapse"+count+"' aria-expanded='false' aria-controls='collapse"+count+"' id='nome-etapa"+count+"'>Etapa #"+count+" </a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button> </div> </h4> </div> <div id='collapse"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row'> <div class='col-md-4'> <label data-value='1'>Atividade #1</label> <input type='text'name=''> </div> <button type='button' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'></button> </div> </div> </div>"
-            );
-        });
-
-        $('#accordion').on('click', '.nome-etapa', function(){
-            check = $(this).attr('aria-expanded');
-            alert(check);
-            if(check){
-              var pegaCollapse = $(this).attr('aria-controls');
-              alert(pegaCollapse);
-            }
-            
-        });
-
-         $('#accordion').on('click', '.add-passo', function(){
-          atividadeCount = atividadeCount +1;
-          $(this).before("<div class='col-md-4'> <label data-value='"+atividadeCount+"'>Atividade #"+atividadeCount+"</label> <input type='text'name=''> </div>");
-        });
-
-       });
-     </script>
-   </head>
-   <body>
-=======
   </head>
   <body>
->>>>>>> 8908a2ce410f9bc6990b1e205f8e435a9f511eb4
 
     <?php
     include('templates/sidebar.php');
@@ -113,44 +44,8 @@ if(!isset($_SESSION['email'])){
      <button type="button" id="criaproj" style="float: right;" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro"> + Novo Projeto</button>
      <div class="section">
       <div class="row">
-        <div class="col-md-12">
-          <ul class="nav nav-tabs edit-tabs">
-            <li role="presentation" class="active tab-descri"><a href="#andamento" aria-controls="andamento" role="tab" data-toggle="tab">Em Andamento</a></li>
-            <li role="presentation"><a href="#concluido" class="tab-descri" aria-controls="concluido" role="tab" data-toggle="tab">Concluído</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="andamento">
-              <div class="col-md-6 projdiv">
-                <h2>Nome projeto</h2>
-                <div class="subproj">
-                  <p>Tipo:</p>
-                  <p>Solicitante:</p>
-                  <p>Data de entrega:</p>
-                  <p>Progresso:</p>
-                  <button class="btn btn-info">Atualizar</button>
-                </div>
-              </div>
-              <div class="col-md-6 projdiv">
-                <h2>Nome projeto</h2>
-                <div class="subproj">
-                  <p>Tipo:</p>
-                  <p>Solicitante:</p>
-                  <p>Data de entrega:</p>
-                  <p>Progresso:</p>
-                  <button class="btn btn-info">Atualizar</button>
-                </div>
-              </div>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="concluido">
-
-            </div>
-
-          </div>
+        <div class="col-md-offset-4 col-md-4" style="text-align: center;">
+          <h1>Projetos</h1>
         </div>
       </div>
     </div>
@@ -160,24 +55,24 @@ if(!isset($_SESSION['email'])){
   <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+        <form action="cadastrarprojeto_bd.php" method="post">
+          <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title">
+              <div>
 
-        <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title">
-            <div>
-              <form action="cadastrarprojeto_bd.php" method="post">
-              <span id="nome-projeto">Novo Projeto</span>
-              <button style="display: inline-block;" type="button" id="edita-projeto" class="btn-edicao">
-                <img class="img-edicao" src="img/edit-file.png">
-              </button>
-              <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
-            </div>
-          </h3>
-        </div>
+                <span id="nome-projeto">Novo Projeto</span>
+                <button style="display: inline-block;" type="button" id="edita-projeto" class="btn-edicao">
+                  <img class="img-edicao" src="img/edit-file.png">
+                </button>
+                <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
+              </div>
+            </h3>
+          </div>
 
-        <div class="modal-body">
+          <div class="modal-body">
             <div class="col-left">
               <label for="nomecli">Nome do Cliente/Empresa</label>
               <input type="text" class="text_field" id="nomecli" name="nomecli">
@@ -192,11 +87,11 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class="col-left">
               <label for="dataini">Data Início</label>
-              <input type="date" class="text_field" id="danaini" max="<?= date('Y-m-d')?>" name="dataini">
+              <input type="date" class="text_field" id="danaini" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="dataini">
             </div>
             <div class="col-right">
               <label for="dataent">Data Entrega</label>
-              <input type="date" class="text_field" id="dataent" max="<?= date('Y-m-d')?>" name="dataterm">
+              <input type="date" class="text_field" id="dataent" min="<?=date('Y-m-d')?>" max="<?='2038-01-19'?>" name="dataterm">
             </div>
             <div class="col-md-offset-4 col-md-4 input-icon">
               <label for="precoest">Preço Estabelecido</label>
@@ -216,7 +111,7 @@ if(!isset($_SESSION['email'])){
                         <button type="button" id="edita-etapa1" class="btn-edicao edita-txt">
                           <img class="img-etapa-edicao" src="img/edit-file.png">
                         </button>
-                        <input class="nomeetp" id="input-etapa1" type="text" name="nomeetapa[1]" style="display: none;">
+                        <input class="nomeetp" id="input-etapa1" type="text" name="nome_etapa[1]" style="display: none;">
                       </div>
                     </h4>
                   </div>
@@ -271,7 +166,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js?ver=2"></script>
+  <script src="js/script1.js?ver=3"></script>
 
 </body>
 </html>
