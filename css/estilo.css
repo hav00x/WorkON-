@@ -1156,3 +1156,10 @@ ul{
     color: transparent;
     text-align: center;
 }
+
+.divisor{
+    width: 1px;
+    height: 16px;
+    background: black;
+    margin: 16px 10px;
+}

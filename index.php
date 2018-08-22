@@ -15,7 +15,7 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=26" rel="stylesheet">
+  <link href="css/estilo.css?ver=27" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,26 +80,24 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
         </div>
       </div>
     </div>
+    <!--capa-->
 
-<div id="quem-somos" >
+  <div id="quem-somos" >
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-            <h1 id="header-index1">O que é o WorkOn!</h1>
-            <p id="description">O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente projetada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
-            <p id="description">Você está pronto para fazer parte dessa experiência? Cadastre-se já!</p>
+          <h1 id="header-index1">O que é o WorkOn!</h1>
+          <p id="description">O WorkOn! é uma plataforma pensada para desenvolvedores e clientes e foi totalmente projetada para facilitar a contratação e comunicação durante todo o projeto, desde a elaboração ao produto final.</p>
+          <p id="description">Você está pronto para fazer parte dessa experiência? Cadastre-se já!</p>
         </div>
-         <div class="container">
         <div class="col-md-6" id="img-index">
-            <img src="img/index2.jpeg" class="img-responsive img-thumbnail" >
-          </div>
+          <img src="img/index2.jpeg" class="img-responsive img-thumbnail" >
         </div>
       </div>
       <div class="row">
         <div class="col-md-6" id="img-index">
           <img src="img/index3.jpg" class="img-responsive img-thumbnail">
         </div>
-        <div class="container">
           <div class="col-md-6">
             <h1 id="header-index1">Descomplique e encante</h1>
             <p id="description">Acompanhe o projeto de uma maneira fácil e intuitiva, aqui no WorkOn! você consegue se comunicar da melhor forma possível!</p>
@@ -107,22 +105,20 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
           </div>
         </div>
       </div>
-    </div>
   </div>
-
+<!--quem somos-->
 
     <div id="como-funciona">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="container">
-            <h1 class="page-header" id="header-index2">Como funciona?</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 id="header-index2">Como funciona?</h1>
           </div>
         </div>
-      </div>
         <div class="row">
           <div class="col-md-6">
             <div class="box">
-              <img src="img/devico.png" class="img-cd img-responsive">
+            <img src="img/devico.png" class="img-cd img-responsive">
               <h4 class="h4index">Desenvolvedor</h4>
               <p class="pindex">O WorkOn! foi pensado para facilitar sua rotina de comunicação com o cliente no decorrer do projeto, aqui você pode manter seu cliente informado sobre etapas e atividades implementadas através da plataforma de maneira simples e intuitiva.  </p>
               <p class="pindex">Com o WorkOn! você pode:</p>
@@ -132,11 +128,11 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
                 <li>Atualizar o projeto informando quais etapas foram concluidas</li>
                 <li>E muito mais!</li>
               </ul>
-            </div>
           </div>
-          <div class="col-md-6">
-            <div class="box">
-              <img src="img/userico.png" class="img-cd img-responsive">
+        </div>
+          <div class="col-md-6" >
+          <div class="box">
+             <img src="img/userico.png" class="img-cd img-responsive">
               <h4 class="h4index">Clientes</h4>
               <p class="pindex">Para você que apenas quer um projeto, mas não entende as rotinas de desenvolvimento e os termos utilizados, essa plataforma tem o intuito de te ajudar a compreender de maneira simples as etapas feitas no seu projeto.</p>
               <p class="pindex">Com o WorkOn! você pode:</p>
@@ -146,46 +142,52 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
                 <li>Enviar feedbacks sobre o projeto para ajudar o desenvolvedor</li>
                 <li>E muito mais!</li>
               </ul>  
-            </div>
+          </div>
           </div>
         </div>
       </div>
-      <div id="contato">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 id="header-index3"> Contato </h3>
-            </div>
-          </div>
-          <div class="row">
-            <form method="post" name="form">
-              <div class="col-md-6">
-      <div class="form-group"> 
-          <label>Nome</label>
-          <input class="form-control" type="text" name="nome" placeholder="Digite seu nome">  
-          </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label>E-mail</label>
-        <input class="form-control" type="email" name="email" placeholder="Digite seu e-mail">
+
+  <div id="contato">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 id="header-index3">Contato</h3>
+      </div>    
+    </div>
+    <div class="row">
+      <form method="post" name="form">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="pindex">Nome</label>
+            <input type="text" name="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="pindex">E-mail</label>
+            <input type="email" name="">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <form>
+        <div class="col-md-12">
+          <label class="pindex">Mensagem</label>
+          <textarea class="form-control" type="text" name="mensagem" placeholder="Digite sua mensagem"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-index">Enviar</button>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <label>Mensagem:</label>
-      <textarea class="form-control" type="text" name="mensagem" placeholder="Digite sua mensagem"></textarea>
-      <br> 
-    </div>
-    <button class="btn btn-index">Enviar</button>
   </div>
-    </form>
-</div>
 
-      </div>
-
-
+    
 
 
     <?php 
