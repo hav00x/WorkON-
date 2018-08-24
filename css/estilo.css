@@ -335,13 +335,9 @@ ESTILO SIDEBAR
 }
 
 #sidebar .sidebar-header {
-<<<<<<< HEAD
+
    text-align: center;
    color: #FFA500;
-=======
- text-align: center;
- color: #FF7F50;
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
 }
 
 #sidebar ul.components {
@@ -439,13 +435,8 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
-<<<<<<< HEAD
     background:linear-gradient(#FFA500,#FFA500) left
         /* left or right or else */ no-repeat;
-=======
-    background:linear-gradient(#ffd633,#ffd633) left
-    /* left or right or else */ no-repeat;
->>>>>>> b4cddaf23552c868830fa61db7adeb73d4565888
     background-size: 100% 100%;
 }
 
@@ -595,11 +586,8 @@ ESTILO CONTEUDO
     border-radius: 50%;
     height: 40px;
     width: 40px;
-<<<<<<< HEAD
     background-color: rgba(255, 165, 0, 0.5);;
-=======
     background-color: #ffd1c1;
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
     box-shadow: 1px 1px 1px 0;
 }
 
@@ -625,7 +613,6 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .box{
-<<<<<<< HEAD
    border: 1px solid #FFA500;
    padding: 20px;
    text-align: center;
@@ -1145,16 +1132,16 @@ ul{
     margin: 16px 10px;
 }
 
-<<<<<<< HEAD
 
 .perfil-data{
     font-family: 'Abel';
     color: black;
     font-size: 14px;
     margin: 1px;
-=======
+}
+
 .inside{
-    background-color: #fff6e5;
+    background-image: url('../img/back-interna.png');
 }
 
 .headerpag{
@@ -1167,13 +1154,42 @@ ul{
 }
 
 .colsproj{
-    background-color: #fff1d9;
     padding: 1px 0 20px 0;
     margin: 10px 8%;
 }
 
 .formatarow{
     margin: 0 5px;
+}
+
+
+
+#header-proj{
+    font-size: 50px;
+    color: #000;
+    text-align: center;
+    font-family: 'Alpha'
+
+}
+
+#ficha-projeto{
+    width: 40%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+#ficha-projeto h3{
+    font-family: 'Alpha';
+    text-align:center;
+}
+
+
+#img-projetos{
+    width: 120px;
+    height: 120px;
+    border:1px solid black;
+    margin-left: 35px;
+
 }
 
 /* ---------------------------------------------------
@@ -1253,5 +1269,5 @@ MEDIAQUERIES
     .divcriaproj{
         text-align: center;
     }
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
+
 }

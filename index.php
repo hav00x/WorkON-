@@ -185,11 +185,11 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
         <div class="box">
           <img src="img/devico.png" class="img-cd img-responsive">
           <h4 class="h4index">Desenvolvedor</h4>
-          <p class="pindex">O WorkOn! foi pensado para facilitar sua rotina de comunicação com o cliente no decorrer do projeto, aqui você pode manter seu cliente informado sobre etapas e atividades implementadas através da plataforma de maneira simples e intuitiva.  </p>
+          <p class="pindex">Para você que desenvolve, aqui sua rotina de comunicação com o cliente fica bem mais fácil, você pode manter seu cliente informado sobre etapas e atividades implementadas através da plataforma de maneira intuitiva.  </p>
           <p class="pindex">Com o WorkOn! você pode:</p>
           <ul>
             <li>Preencher seu currículo e receber propostas de projetos</li>
-            <li>Colocar as informações do projeto de maneira fácil e intuitiva para o usuário</li>
+            <li>Colocar as informações do projeto de maneira intuitiva para o usuário</li>
             <li>Atualizar o projeto informando quais etapas foram concluidas</li>
             <li>E muito mais!</li>
           </ul>
@@ -251,11 +251,6 @@ $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
     </div>
   </div>
 </div>
-
-<DIV>
-  NÃO VOU ESQUECER DA DIV AAAAAAAAAAAAAAAAAAAA
-</DIV>
-
 
 <?php 
 include('templates/footer.php');

@@ -46,30 +46,25 @@ if(!isset($_SESSION['email'])){
      <div class="section">
       <div class="row formatarow">
         <div class="col-md-4 headerpag">
-          <h1>Projetos</h1>
+          <h1 id="header-proj">Projetos</h1>
         </div>
         <div class="col-md-4 divcriaproj">
           <button type="button" id="criaproj" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">Novo Projeto</button>
         </div>
       </div>
-        <div class="row formatarow">
+        <div id="ficha-projeto" class="row formatarow">
         <div class="col-md-4 colsproj">
           <h3 style="margin-left: 30px;">Nome do Projeto</h3>
-          <div style="margin-left: 40px;">
-            Nome do cliente<br>
-            Preço estabelecido<br>
-            Data de entrega<br>
-          </div>
-        </div>
-        <div class="col-md-4 colsproj">
-          <h3 style="margin-left: 30px;">Nome do Projeto</h3>
-          <div style="margin-left: 40px;">
+          <img id="img-projetos" src="img/hog.jpg">
+          <div style="margin-left: 35px;">
             Nome do cliente<br>
             Preço estabelecido<br>
             Data de entrega<br>
           </div>
         </div>
       </div>
+
+      
     </div>
 
     <!-- Modal -->
