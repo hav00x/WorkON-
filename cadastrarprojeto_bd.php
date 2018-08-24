@@ -23,7 +23,8 @@ $numeroPassos = array();
 
 $stmt = $link->prepare("INSERT INTO intermediario(id_pfusu, id_pjusu) VALUES(?, ?)");
 
-if($_SESSION['id_fusuario']){
+if($_SESSION['id_fusuario'])
+{
 	$usuariopf = $_SESSION['id_fusuario'];
 	$usuariopj = null;
 } else if($_SESSION['id_jusuario']){
