@@ -41,8 +41,8 @@ if($stmt->execute()){
 
 $stmt->close();
 
-$stmt = $link->prepare("INSERT INTO projeto(nome_projeto, nome_cliente, tipo_projeto, descri_projeto, preco_estabelecido, data_inicio, data_entrega, id_intermediario) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssissi", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery);
+$stmt = $link->prepare("INSERT INTO projeto(nome_projeto, nome_cliente, tipo_projeto, descri_projeto, preco_estabelecido, data_inicio, data_entrega, id_intermediario, andamento) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssissii", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery, 1);
 if($stmt->execute()){
 	$idprojeto = mysqli_insert_id($link);
 } else{

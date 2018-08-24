@@ -272,19 +272,19 @@ a, a:hover, a:focus {
     padding: 15px 10px;
     background: #fff;
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
     margin-bottom: 40px;
     margin-left: -14px;
     margin-right: -14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background: #f7f7f7;
+    background: #fff;
 }
 
 .sectiontabs {
     padding: 15px 10px;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background: #f7f7f7;
+    background: #fff;
 }
 
 .navbar-btn {
@@ -305,14 +305,14 @@ ESTILO SIDEBAR
 ----------------------------------------------------- */
 
 #sidebar {
-    min-width: 220px;
-    max-width: 220px;
+    min-width: 160px;
+    max-width: 160px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #f7f7f7;
+    background: #fff;
     color: black;
     transition: all 0.3s;
     font-size: 16px;
@@ -320,14 +320,14 @@ ESTILO SIDEBAR
 }
 
 #sidebar.active2 {
-   min-width: 80px;
-   max-width: 80px;
-   text-align: center;
+ min-width: 80px;
+ max-width: 80px;
+ text-align: center;
 }
 
 #sidebar .sidebar-header {
-   text-align: center;
-   color: #FF7F50;
+ text-align: center;
+ color: #FF7F50;
 }
 
 #sidebar ul.components {
@@ -398,13 +398,13 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul p{
-   color: black;
-   padding: 10px;
-   font-family: Abel, sans-serif;
+ color: black;
+ padding: 10px;
+ font-family: Abel, sans-serif;
 }
 
 #sidebar.active2 ul p{
-   font-size: 0.85em;
+ font-size: 0.85em;
 }
 #sidebar ul li a#definition:hover, #sidebar ul li a#definition[aria-expanded="true"], #sidebar ul li.active2.definition{
     background:linear-gradient(#7300e6,#7300e6) left
@@ -496,41 +496,41 @@ ESTILO SIDEBAR
 }
 
 a[data-toggle="collapse"] {
-   position: relative;
+ position: relative;
 }
 
 #sidebar a[aria-expanded="false"]::before, #sidebar a[aria-expanded="true"]::before {
-   content: '\e259';
-   display: block;
-   position: absolute;
-   right: 20px;
-   top: 25px;
-   font-family: 'Glyphicons Halflings';
-   font-size: 0.6em;
+ content: '\e259';
+ display: block;
+ position: absolute;
+ right: 20px;
+ top: 25px;
+ font-family: 'Glyphicons Halflings';
+ font-size: 0.6em;
 }
 
 #sidebar a[aria-expanded="true"]::before {
-   content: '\e260';
+ content: '\e260';
 }
 
 ul.CTAs {
-   padding: 20px;
+ padding: 20px;
 }
 
 ul.CTAs a {
-   text-align: center;
-   font-size: 0.9em !important;
-   display: block;
-   border-radius: 5px;
-   margin-bottom: 5px;
+ text-align: center;
+ font-size: 0.9em !important;
+ display: block;
+ border-radius: 5px;
+ margin-bottom: 5px;
 }
 a.download {
-   background: #fff;
-   color: #7386D5;
+ background: #fff;
+ color: #7386D5;
 }
 a.article, a.article:hover {
-   background: #6d7fcc !important;
-   color: #fff !important;
+ background: #6d7fcc !important;
+ color: #fff !important;
 }
 
 
@@ -539,30 +539,30 @@ ESTILO CONTEUDO
 ----------------------------------------------------- */
 #content {
 
-   width: calc(100% - 220px);
-   padding: 3px 40px 40px 40px;
-   min-height: 100vh;
-   transition: all 0.3s;
-   position: absolute;
-   top: 0;
-   right: 0;
-   margin-top: 10px;
-   width: calc(100% - 220px);
-   padding: 3px 40px 40px 40px;
-   min-height: 100vh;
-   transition: all 0.3s;
-   position: absolute;
-   top: 0;
-   right: 0;
+ width: calc(100% - 160px);
+ padding: 3px 40px 40px 40px;
+ min-height: 100vh;
+ transition: all 0.3s;
+ position: absolute;
+ top: 0;
+ right: 0;
+ margin-top: 10px;
+ width: calc(100% - 160px);
+ padding: 3px 40px 40px 40px;
+ min-height: 100vh;
+ transition: all 0.3s;
+ position: absolute;
+ top: 0;
+ right: 0;
 
 }
 #content.active2 {
- width: calc(100% - 80px);
+   width: calc(100% - 80px);
 }
 #btnMenu{
     position: fixed;
     top: 30px;
-    left: 212px;
+    left: 152px;
     transition: all 0.3s;
 }
 
@@ -575,7 +575,7 @@ ESTILO CONTEUDO
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    background-color: #cbe6ef;
+    background-color: #ffd1c1;
     box-shadow: 1px 1px 1px 0;
 }
 
@@ -584,174 +584,108 @@ ESTILO CONTEUDO
 }
 
 /* ---------------------------------------------------
-MEDIAQUERIES
------------------------------------------------------ */
-@media (max-width: 768px) {
-    #sidebar {
-        min-width: 80px;
-        max-width: 80px;
-        text-align: center;
-        margin-left: -80px !important ;
-    }
-    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-        top: auto;
-        bottom: 5px;
-        right:50%;
-        -webkit-transform: translateX(50%);
-        -ms-transform: translateX(50%);
-        transform: translateX(50%);
-    }
-
-    #sidebar.active2 {
-        margin-left: 0 !important;
-    }
-
-    #btnMenu{
-        left: -10px;
-    }
-
-    #btnMenu #sidebarCollapse img{
-        content: url(../img/002-right-arrow.png);
-    }
-
-    #btnMenu.active2 #sidebarCollapse img{
-        content: url(../img/001-back.png);
-    }
-
-    #content{
-        width: 100%;
-    }
-
-    #sidebar ul li a {
-        padding: 20px 10px;
-    }
-
-    #sidebar ul li a span {
-        font-size: 0.85em;
-    }
-    #sidebar ul li a i {
-        margin-right:  0;
-        display: block;
-    }
-
-    #sidebar ul ul a {
-        padding: 10px !important;
-    }
-
-    #sidebar ul li a i {
-        font-size: 1.3em;
-    }
-    #sidebar {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
-}
-
-/* ---------------------------------------------------
 FORMATAÇÕES ESPECIFICAS
 ----------------------------------------------------- */
 .img-cd{
- width: 50px;
- margin: 0 auto;
+   width: 50px;
+   margin: 0 auto;
 }
 
 #WELCOME-SIGNIN{
- margin-top: 10px;
- margin-bottom: 10px;
- color: black;
- text-align: center;
- font-family: 'Abel';
- font-size: 50px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   color: black;
+   text-align: center;
+   font-family: 'Abel';
+   font-size: 50px;
 }
 
 .box{
-   border: 1px solid #FFA500;
-   padding: 20px;
-   text-align: center;
-   margin-top: 10px;
-   width: 500px;
-   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-   margin-left: 70px;
-   background-color: rgba(255, 255, 255, 0.5);
-   border-radius: 2px;
+ border: 1px solid #FFA500;
+ padding: 20px;
+ text-align: center;
+ margin-top: 10px;
+ width: 500px;
+ box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+ margin-left: 70px;
+ background-color: rgba(255, 255, 255, 0.5);
+ border-radius: 2px;
 }
 
 .hide{
- display: none;
+   display: none;
 }
 
 
 .ptxt{
- font-size: 19px;
+   font-size: 19px;
 }
 
 .h3txt{
- font-size: 30px;
- font-weight: 800;
+   font-size: 30px;
+   font-weight: 800;
 }
 .col-txt{
- text-align: right;
+   text-align: right;
 }
 
 .col-margin{
- margin-top: 120px;
- margin-bottom: 120px;
+   margin-top: 120px;
+   margin-bottom: 120px;
 }
 
 .container-margin{
- margin: 70px;
+   margin: 70px;
 
 }
 
 .img-conteudo{
- width: 400px;
- border: 1px solid black;
+   width: 400px;
+   border: 1px solid black;
 
 }
 
 @font-face{
- font-family: 'Abel';
+   font-family: 'Abel';
 }
 
 .espaco{
- height: 50px;
+   height: 50px;
 }
 
 .capa {
- width: 100%;
- display: table;
- margin-top: 100px;
+   width: 100%;
+   display: table;
+   margin-top: 100px;
 }
 
 .apresentacao{
- text-align: center;
- overflow: auto;
- background-color: white;
- text-align: center;
- padding: 100px 0 30px 0;
- height: 50px;
+   text-align: center;
+   overflow: auto;
+   background-color: white;
+   text-align: center;
+   padding: 100px 0 30px 0;
+   height: 50px;
 }
 
 .texto-capa{
- font-family: 'Abel';
- font-size: 100px;
- text-align: center;
+   font-family: 'Abel';
+   font-size: 100px;
+   text-align: center;
 }
 
 
 #descri{
- resize: none;
- height: 100px;
+   resize: none;
+   height: 100px;
 }
 
 .footerStyle{
- color: white;
+   color: white;
 }
 
 .footerLI:hover{
- background-color: transparent;
+   background-color: transparent;
 }
 
 .col-half-margin{
@@ -796,7 +730,7 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 #projetos h2{
-   color: #FF7F50;
+ color: #FF7F50;
 }
 
 #pedidos h2{
@@ -1162,4 +1096,106 @@ ul{
     height: 16px;
     background: black;
     margin: 16px 10px;
+}
+
+.inside{
+    background-color: #fff6e5;
+}
+
+.headerpag{
+    margin-left: 32%;
+    text-align: center;
+}
+
+.divcriaproj{
+    text-align: right;
+}
+
+.colsproj{
+    background-color: #fff1d9;
+    padding: 1px 0 20px 0;
+    margin: 10px 8%;
+}
+
+.formatarow{
+    margin: 0 5px;
+}
+
+/* ---------------------------------------------------
+MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+        margin-left: -80px !important ;
+    }
+    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+        top: auto;
+        bottom: 5px;
+        right:50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+
+    #sidebar.active2 {
+        margin-left: 0 !important;
+    }
+
+    #btnMenu{
+        left: -10px;
+    }
+
+    #btnMenu #sidebarCollapse img{
+        content: url(../img/002-right-arrow.png);
+    }
+
+    #btnMenu.active2 #sidebarCollapse img{
+        content: url(../img/001-back.png);
+    }
+
+    #content{
+        width: 100%;
+    }
+
+    #sidebar ul li a {
+        padding: 20px 10px;
+    }
+
+    #sidebar ul li a span {
+        font-size: 0.85em;
+    }
+    #sidebar ul li a i {
+        margin-right:  0;
+        display: block;
+    }
+
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+
+    #sidebar ul li a i {
+        font-size: 1.3em;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+
+}
+
+@media (max-width: 992px){
+
+    .headerpag{
+        margin-left: 0%;
+    }
+
+    
+    .divcriaproj{
+        text-align: center;
+    }
 }
