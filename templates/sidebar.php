@@ -1,14 +1,12 @@
       <!-- Sidebar Holder -->
       <nav id="sidebar">
         <div class="sidebar-header">
-          <a href="homepage.php">
-            <h3>WORKON!</h3>
-          </a>
+            <img class="img-responsive img-logo-sidebar" src='img/navlogo.png'>
         </div>
 
         <ul class="list-unstyled components">
           <p>Qualquer coisa pq aqui vai codigo dps</p>
-          <li class="home active2">
+          <li class="home">
             <a href="homepage.php" id="home">Página Principal</a>
           </li>
           <li class="chat">

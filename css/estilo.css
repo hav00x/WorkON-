@@ -304,6 +304,15 @@ a, a:hover, a:focus {
 ESTILO SIDEBAR
 ----------------------------------------------------- */
 
+.img-logo-sidebar {
+    height: 40px;
+    width: 110px;
+    display: block;
+    background-size: contain;
+    color: transparent;
+    margin: 0 auto;
+}
+
 #sidebar {
     min-width: 220px;
     max-width: 220px;
@@ -327,7 +336,7 @@ ESTILO SIDEBAR
 
 #sidebar .sidebar-header {
    text-align: center;
-   color: #FF7F50;
+   color: #FFA500;
 }
 
 #sidebar ul.components {
@@ -362,37 +371,37 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul li a#home{
-    background:linear-gradient(#ff1a1a,#ff1a1a) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
 
 #sidebar ul li a#chat{
-    background:linear-gradient(#ff8533,#ff8533) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
 
 #sidebar ul li a#project{
-    background:linear-gradient(#ffd633,#ffd633) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
 
 #sidebar ul li a#request {
-    background:linear-gradient(#00cc66,#00cc66) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
 
 #sidebar ul li a#payment {
-    background:linear-gradient(#3366ff,#3366ff) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
 
 #sidebar ul li a#definition {
-    background:linear-gradient(#7300e6,#7300e6) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 3px 100%;
 }
@@ -407,38 +416,38 @@ ESTILO SIDEBAR
    font-size: 0.85em;
 }
 #sidebar ul li a#definition:hover, #sidebar ul li a#definition[aria-expanded="true"], #sidebar ul li.active2.definition{
-    background:linear-gradient(#7300e6,#7300e6) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li a#home:hover, #sidebar ul li a#home[aria-expanded="true"], #sidebar ul li.active2.home{
-    background:linear-gradient(#ff1a1a,#ff1a1a) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li a#chat:hover, #sidebar ul li a#chat[aria-expanded="true"], #sidebar ul li.active2.chat{
-    background:linear-gradient(#ff8533,#ff8533) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
-    background:linear-gradient(#ffd633,#ffd633) left
-}
-/* left or right or else */ no-repeat;
-background-size: 100% 100%;
+    background:linear-gradient(#FFA500,#FFA500) left
+        /* left or right or else */ no-repeat;
+    background-size: 100% 100%;
 }
 
+
 #sidebar ul li a#request:hover, #sidebar ul li a#request[aria-expanded="true"], #sidebar ul li.active2.request{
-    background:linear-gradient(#00cc66,#00cc66) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li a#payment:hover, #sidebar ul li a#payment[aria-expanded="true"], #sidebar ul li.active2.payment{
-    background:linear-gradient(#3366ff,#3366ff) left
+    background:linear-gradient(#FFA500,#FFA500) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
@@ -460,25 +469,25 @@ background-size: 100% 100%;
 }
 
 #sidebar ul li ul#pageSubMenu li a:hover{
-    background:linear-gradient(rgba(255, 214, 51, 0.5),rgba(255, 214, 51, 0.5)) left
+    background:linear-gradient(rgba(255, 175, 26, 0.5),rgba(255, 175, 26, 0.5)) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li ul#pageSubMenu2 li a:hover{
-    background:linear-gradient(rgba(0, 204, 102, 0.5),rgba(0, 204, 102, 0.5)) left
+    background:linear-gradient(rgba(255, 175, 26, 0.5),rgba(255, 175, 26, 0.5)) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li ul#pageSubMenu3 li a:hover{
-    background:linear-gradient(rgba(51, 102, 255, 0.5),rgba(51, 102, 255, 0.5)) left
+    background:linear-gradient(rgba(255, 175, 26, 0.5),rgba(255, 175, 26, 0.5)) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
 
 #sidebar ul li ul#pageSubMenu4 li a:hover{
-    background:linear-gradient(rgba(115, 0, 230, 0.5),rgba(115, 0, 230, 0.5)) left
+    background:linear-gradient(rgba(255, 175, 26, 0.5),rgba(255, 175, 26, 0.5)) left
     /* left or right or else */ no-repeat;
     background-size: 100% 100%;
 }
@@ -576,7 +585,7 @@ ESTILO CONTEUDO
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    background-color: #cbe6ef;
+    background-color: rgba(255, 165, 0, 0.5);;
     box-shadow: 1px 1px 1px 0;
 }
 
@@ -672,7 +681,17 @@ FORMATAÇÕES ESPECIFICAS
    padding: 20px;
    text-align: center;
    margin-top: 10px;
-   width: 500px;
+   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+   background-color: rgba(255, 255, 255, 0.5);
+   border-radius: 2px;
+}
+
+.box-cadastro{
+   border: 1px solid #FFA500;
+   padding: 20px;
+   text-align: center;
+   margin-top: 10px;
+   width: 300px;
    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
    margin-left: 70px;
    background-color: rgba(255, 255, 255, 0.5);
@@ -816,7 +835,7 @@ FORMATAÇÕES ESPECIFICAS
     transition: all 0.15s;
     outline: none;
     font-weight: 12;
-    color: black;
+    color: black; 
 
 }
 
@@ -837,7 +856,7 @@ FORMATAÇÕES ESPECIFICAS
 
 .button-hp {
     float: right;
-    background-color: #FF7F50;
+    background-color: #FFA500;
     overflow: hidden;
     margin: 10px;
     padding: 12px 22px;
@@ -1068,7 +1087,7 @@ h1, h2, h3, h4, h5, h6{
     font-family:'Lemon/Milk';
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #000;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #header-index2{
@@ -1077,7 +1096,7 @@ h1, h2, h3, h4, h5, h6{
     font-family:'Lemon/Milk';
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #000;
-    color: transparent;
+    color: rgba(255, 165, 0, 0.5);
     text-align: center;
 }
 
@@ -1154,8 +1173,9 @@ ul{
     font-family:'Lemon/Milk';
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #000;
-    color: transparent;
+    color: rgba(255, 255, 255, 0.5);
     text-align: center;
+
 }
 
 .divisor{
@@ -1163,4 +1183,12 @@ ul{
     height: 16px;
     background: black;
     margin: 16px 10px;
+}
+
+
+.perfil-data{
+    font-family: 'Abel';
+    color: black;
+    font-size: 14px;
+    margin: 1px;
 }

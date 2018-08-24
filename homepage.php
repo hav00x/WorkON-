@@ -14,12 +14,12 @@ if(!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON. | abcde</title>
+  <title>WORKON! | Página Inicial</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver5" rel="stylesheet">
+  <link href="css/estilo.css?=ver6" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -43,6 +43,7 @@ if(!isset($_SESSION['email'])){
      include('templates/navbarinterna.php');
      ?>
 
+     <!--DIV PERFIL-->
      <div class="row section" id="div-perfil">
       <div class="col-md-4">
         <img src="img/eu-e-o-caminhao.jpg" style="width: 300px;">
@@ -58,7 +59,8 @@ if(!isset($_SESSION['email'])){
           <h4>Rede social 2:</h4>
         </div>
       </div>
-    </div>
+    </div><!--FIM PERFIL-->
+
     <div class="row section" id="projetos">
      <div class="col-md-12">
       <h2>PROJETOS</h2>

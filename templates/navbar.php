@@ -23,7 +23,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a data-target="#loginModal" class="loginM" data-toggle="modal" href="#loginModal">Entrar</a>
           <li class="divisor" role="separator"></li>
-          <li><a href="cadastro-choice.php">Cadastrar</a></li>
+          <li><a data-toggle="modal" data-target="#cadastrar">Cadastrar</a></li>
         </ul>
       </div>
     </div><!-- /container -->
