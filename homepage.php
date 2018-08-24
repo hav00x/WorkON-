@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=ver6" rel="stylesheet">
+  <link href="css/estilo.css?=ver7" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -46,7 +46,7 @@ if(!isset($_SESSION['email'])){
      <!--DIV PERFIL-->
      <div class="row section" id="div-perfil">
       <div class="col-md-4">
-        <img src="img/eu-e-o-caminhao.jpg" style="width: 300px;">
+        <img src="img/eu-e-o-caminhao.jpg" class="img-responsive" style="width: 300px;">
       </div>
       <div class="col-md-8 info-perfil">
         <!--INFO-PERFIL AINDA NÃO CRIADA E ESTILIZADA-->
