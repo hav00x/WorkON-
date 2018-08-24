@@ -1,11 +1,13 @@
 var etapaCount = 1;
 var count = 1;
 var atividadeCount = 1;
-
+var contador = 0;
+var vazio = false;
 
 $(document).ready(function () {
 	if ((window.location.href.indexOf("cadastro-choice") > -1) || (window.location.href.indexOf("cadastro-PF") > -1) || (window.location.href.indexOf("cadastro-PJ") > -1)) {
 		$('.loginM').addClass('hide');
+		$('.divisor').addClass('hide');
 	}
 
 	// Javascript to enable link to tab
@@ -47,6 +49,8 @@ $(document).ready(function () {
 	console.log(window.location.href.indexOf("localhost"));
 	console.log('1');
 });*/
+
+/*------------ Formulário de Projeto -----------------*/
 
 $('#edita-projeto').on('click', function(){
 	$('#nome-projeto').attr('contenteditable', 'true');
@@ -158,4 +162,154 @@ $('#testando').on('click', function(){
 	});
 });
 
+/*------------ Formulário de Cadastro -----------------*/
+
+$(".submit_btn").click(function(event) {
+// For Loop To Count Blank Inputs
+$('.regform input').each(function(){
+	if ($(this).val() == ''){
+		var id = $(this).attr('id');
+
+		if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb'){
+			contador = contador;
+		} else{
+			vazio = true;
+			contador = contador +1;
+		}
+	} 
+
+	if (contador == 0){
+		vazio = false;
+	}
+
 });
+
+$('.regform textarea').each(function(){
+	if ($(this).val() == ''){
+		vazio = true;
+		contador = contador +1;
+	} 
+
+	if (contador == 0){
+		vazio = false;
+	}
+
+});
+
+contador = 0;
+
+if(vazio == true){
+	$('#modalErro .modal-body p').append('Preencha todos os campos');
+	$('#modalErro').modal('show');
+	event.preventDefault();
+}
+
+});
+
+/*---------------------------------------------------------*/
+
+$(".next_btn").click(function() { // Function Runs On NEXT Button Click
+	$(this).closest('fieldset').next().fadeIn('slow');
+	$(this).closest('fieldset').css({
+		'display': 'none'
+	});
+// Adding Class Active To Show Steps Forward;
+$('.active1').next().addClass('active1');
+});
+$(".pre_btn").click(function() { // Function Runs On PREVIOUS Button Click
+	$(this).closest('fieldset').prev().fadeIn('slow');
+	$(this).closest('fieldset').css({
+		'display': 'none'
+	});
+// Removing Class Active To Show Steps Backward;
+$('.active1:last').removeClass('active1');
+});
+
+//preview da imagem
+function readURL(input) {
+
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function(e) {
+			$('#blah').attr('src', e.target.result);
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+$("#imgInp").change(function() {
+	readURL(this);
+});
+
+// Impede o usuário de dar enter para enviar o formulário
+$('.pagcadastro input').keypress(function (e) {
+	var code = null;
+	code = (e.keyCode ? e.keyCode : e.which);                
+	return (code == 13) ? false : true;
+});
+
+function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+                //$("#ibge").val("");
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+                        //$("#ibge").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                        	if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                                //$("#ibge").val(dados.ibge);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        $('#modalErro .modal-body p').append('Formato de CEP inválido');
+                        $('#modalErro').modal('show');
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+
+        });

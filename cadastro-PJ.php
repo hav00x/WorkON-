@@ -24,7 +24,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=1" rel="stylesheet">
+  <link href="css/estilo.css?ver=2" rel="stylesheet">
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -47,8 +47,8 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
         var erro_campo_vazio = '<?= $erro_campo_vazio ?>'
         var erro_numero_errado = '<?= $erro_numero_errado ?>';
         var erro_cnpj_errado = '<?= $erro_cnpj_errado ?>';
-        var erro_senha_insegura = '<?= $erro_senha_insegura ?>'
-
+        var erro_senha_insegura = '<?= $erro_senha_insegura ?>';
+        var erro_email_invalido = '<?= $erro_email_invalido ?>';
         //se email/cnpj já estão cadastrados, o erro é mostrado
         if(erro_email == 1){
           $('#modalErro .modal-body p').append("- Esse email já está em uso<br>");
@@ -96,7 +96,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
     </script>
 
   </head>
-  <body>
+  <body class="pagcadastro">
 
     <?php  
     include('templates/navbar.php');
@@ -130,7 +130,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table">
-            <ul id="horizontal-list">
+            <ul style="text-align: center;">
               <li class="active1 list">Dados Pessoais</li>
               <li class="list">Dados Comerciais</li>
               <li class="list">Foto</li>
@@ -228,7 +228,8 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
           <div class="row">
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
-              <input type='file' id="imgInp" /><br>
+              <input type="file" name="Filedata" id="imgInp"><br>
+              <input type="text" name="arquivo" id="arquivo" style="display: none;">
               <img class="img-responsive img-cadastro" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
               <input class="submit_btn btn-alinha-direita" type="submit" value="Concluir">
@@ -243,9 +244,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
   </div>
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/script1.js"></script>
-  <script src="js/form.js?ver=1"></script>
-  <script src="js/cep.js"></script>
+  <script src="js/script1.js?ver=2"></script>
   
 </body>
 </html>
