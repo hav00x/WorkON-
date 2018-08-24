@@ -13,15 +13,14 @@ $descricao = $_POST['descripro'];
 $data_inicio = $_POST['dataini'];
 $data_entrega = $_POST['dataterm'];
 $passos = $_POST['campo'];
-$nome_etapa = $_POST['nomeetapa'];
+$nome_etapa = $_POST['nome_etapa'];
 $preco = $_POST['precoest'];
 $check = false;
 $usuariopj = 0;
 $usuariopf = 0;
+$idetapa = array();
+$numeroPassos = array();
 
-var_dump($nome_etapa);
-
-/*
 $stmt = $link->prepare("INSERT INTO intermediario(id_pfusu, id_pjusu) VALUES(?, ?)");
 
 if($_SESSION['id_fusuario']){
@@ -37,22 +36,62 @@ if($stmt->execute()){
 	$idquery = mysqli_insert_id($link);
 } else{
 	echo 'Ocorreu um erro no banco de dados';
+	die();
 }
 
 $stmt->close();
 
 $stmt = $link->prepare("INSERT INTO projeto(nome_projeto, nome_cliente, tipo_projeto, descri_projeto, preco_estabelecido, data_inicio, data_entrega, id_intermediario) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssiiii", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery);
+$stmt->bind_param("ssssissi", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery);
 if($stmt->execute()){
 	$idprojeto = mysqli_insert_id($link);
 } else{
 	echo 'Erro ao executar o formulário no banco de dados';
+	die();
 }
 
 $stmt->close();
 
-$stmt = $link->prepare("INSERT INTO etapas(etapa, ordem_etapa, id_projeto) VALUES(?, ?, ?)");
-$stmt->bind_param("sii", )
+for ($i = 1; $i < count($nome_etapa) +1; $i++)
+{
+	$stmt = $link->prepare("INSERT INTO etapas(etapa, ordem_etapa, id_projeto) VALUES(?, ?, ?)");
+	$stmt->bind_param("sii", $nome_etapa[$i], $i, $idprojeto);
+	if($stmt->execute()){
+		$idetapa[$i] = mysqli_insert_id($link);
+	} else{
+		echo 'Erro ao executar as etapas no banco de dados';
+		die();
+	}
 
-*/
+	$stmt->close();
+}
+
+$i = 1;
+foreach ($passos as $array1 => $array2) {
+	$numeroPassos[$i] = count($array2);
+	$i++;
+}
+$i = 0;
+
+for($i = 1; $i <= count($idetapa); $i++){
+
+	for($j = 1; $j <= $numeroPassos[$i]; $j++){
+		$stmt = $link->prepare("INSERT INTO passos(passo, ordem_passo, id_etapa) values(?, ?, ?)");
+		$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
+		if($stmt->execute()){
+			$check = true;
+		} else{
+			echo 'Erro ao executar as atividades no banco de dados';
+			die();
+		}
+	}
+
+}
+
+$stmt->close();
+
+if($check){
+	header('Location: projetos.php?projeto=1&');
+}
+
 ?>

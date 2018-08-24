@@ -434,8 +434,13 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
+<<<<<<< HEAD
     background:linear-gradient(#FFA500,#FFA500) left
         /* left or right or else */ no-repeat;
+=======
+    background:linear-gradient(#ffd633,#ffd633) left
+    /* left or right or else */ no-repeat;
+>>>>>>> b4cddaf23552c868830fa61db7adeb73d4565888
     background-size: 100% 100%;
 }
 

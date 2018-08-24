@@ -13,11 +13,7 @@
             <a href="chat.php" id="chat">Chat</a>
           </li>
           <li class="project">
-            <a href="#pageSubmenu" id="project" data-toggle="collapse" aria-expanded="false">Projetos</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="projetos.php#andamento">Em andamento</a></li>
-              <li><a href="projetos.php#concluido">Concluidos</a></li>
-            </ul>
+            <a href="projetos.php" id="project">Projetos</a>
           </li>
           <li class="request">
             <a href="#pageSubMenu2" id="request" data-toggle="collapse" aria-expanded="false">Pedidos</a>
