@@ -330,14 +330,14 @@ ESTILO SIDEBAR
 }
 
 #sidebar.active2 {
-   min-width: 80px;
-   max-width: 80px;
-   text-align: center;
+ min-width: 80px;
+ max-width: 80px;
+ text-align: center;
 }
 
 #sidebar .sidebar-header {
- text-align: center;
- color: #FFA500;
+   text-align: center;
+   color: #FFA500;
 }
 
 #sidebar ul.components {
@@ -408,13 +408,13 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul p{
-   color: black;
-   padding: 10px;
-   font-family: Abel, sans-serif;
+ color: black;
+ padding: 10px;
+ font-family: Abel, sans-serif;
 }
 
 #sidebar.active2 ul p{
-   font-size: 0.85em;
+ font-size: 0.85em;
 }
 #sidebar ul li a#definition:hover, #sidebar ul li a#definition[aria-expanded="true"], #sidebar ul li.active2.definition{
     background:linear-gradient(#FFA500,#FFA500) left
@@ -507,41 +507,41 @@ ESTILO SIDEBAR
 }
 
 a[data-toggle="collapse"] {
-   position: relative;
+ position: relative;
 }
 
 #sidebar a[aria-expanded="false"]::before, #sidebar a[aria-expanded="true"]::before {
-   content: '\e259';
-   display: block;
-   position: absolute;
-   right: 20px;
-   top: 25px;
-   font-family: 'Glyphicons Halflings';
-   font-size: 0.6em;
+ content: '\e259';
+ display: block;
+ position: absolute;
+ right: 20px;
+ top: 25px;
+ font-family: 'Glyphicons Halflings';
+ font-size: 0.6em;
 }
 
 #sidebar a[aria-expanded="true"]::before {
-   content: '\e260';
+ content: '\e260';
 }
 
 ul.CTAs {
-   padding: 20px;
+ padding: 20px;
 }
 
 ul.CTAs a {
-   text-align: center;
-   font-size: 0.9em !important;
-   display: block;
-   border-radius: 5px;
-   margin-bottom: 5px;
+ text-align: center;
+ font-size: 0.9em !important;
+ display: block;
+ border-radius: 5px;
+ margin-bottom: 5px;
 }
 a.download {
-   background: #fff;
-   color: #7386D5;
+ background: #fff;
+ color: #7386D5;
 }
 a.article, a.article:hover {
-   background: #6d7fcc !important;
-   color: #fff !important;
+ background: #6d7fcc !important;
+ color: #fff !important;
 }
 
 
@@ -550,25 +550,25 @@ ESTILO CONTEUDO
 ----------------------------------------------------- */
 #content {
 
-   width: calc(100% - 160px);
-   padding: 3px 40px 40px 40px;
-   min-height: 100vh;
-   transition: all 0.3s;
-   position: absolute;
-   top: 0;
-   right: 0;
-   margin-top: 10px;
-   width: calc(100% - 160px);
-   padding: 3px 40px 40px 40px;
-   min-height: 100vh;
-   transition: all 0.3s;
-   position: absolute;
-   top: 0;
-   right: 0;
+ width: calc(100% - 160px);
+ padding: 3px 40px 40px 40px;
+ min-height: 100vh;
+ transition: all 0.3s;
+ position: absolute;
+ top: 0;
+ right: 0;
+ margin-top: 10px;
+ width: calc(100% - 160px);
+ padding: 3px 40px 40px 40px;
+ min-height: 100vh;
+ transition: all 0.3s;
+ position: absolute;
+ top: 0;
+ right: 0;
 
 }
 #content.active2 {
- width: calc(100% - 80px);
+   width: calc(100% - 80px);
 }
 #btnMenu{
     position: fixed;
@@ -599,17 +599,17 @@ ESTILO CONTEUDO
 FORMATAÇÕES ESPECIFICAS
 ----------------------------------------------------- */
 .img-cd{
- width: 50px;
- margin: 0 auto;
+   width: 50px;
+   margin: 0 auto;
 }
 
 #WELCOME-SIGNIN{
- margin-top: 10px;
- margin-bottom: 10px;
- color: black;
- text-align: center;
- font-family: 'Abel';
- font-size: 50px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   color: black;
+   text-align: center;
+   font-family: 'Abel';
+   font-size: 50px;
 }
 
 .box{
@@ -623,91 +623,91 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 .box-cadastro{
- border: 1px solid #FFA500;
- padding: 20px;
- text-align: center;
- margin-top: 10px;
- width: 300px;
- box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
- margin-left: 70px;
- background-color: rgba(255, 255, 255, 0.5);
- border-radius: 2px;
+   border: 1px solid #FFA500;
+   padding: 20px;
+   text-align: center;
+   margin-top: 10px;
+   width: 300px;
+   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+   margin-left: 70px;
+   background-color: rgba(255, 255, 255, 0.5);
+   border-radius: 2px;
 }
 
 .hide{
- display: none;
+   display: none;
 }
 
 
 .ptxt{
- font-size: 19px;
+   font-size: 19px;
 }
 
 .h3txt{
- font-size: 30px;
- font-weight: 800;
+   font-size: 30px;
+   font-weight: 800;
 }
 .col-txt{
- text-align: right;
+   text-align: right;
 }
 
 .col-margin{
- margin-top: 120px;
- margin-bottom: 120px;
+   margin-top: 120px;
+   margin-bottom: 120px;
 }
 
 .container-margin{
- margin: 70px;
+   margin: 70px;
 
 }
 
 .img-conteudo{
- width: 400px;
- border: 1px solid black;
+   width: 400px;
+   border: 1px solid black;
 
 }
 
 @font-face{
- font-family: 'Abel';
+   font-family: 'Abel';
 }
 
 .espaco{
- height: 50px;
+   height: 50px;
 }
 
 .capa {
- width: 100%;
- display: table;
- margin-top: 100px;
+   width: 100%;
+   display: table;
+   margin-top: 100px;
 }
 
 .apresentacao{
- text-align: center;
- overflow: auto;
- background-color: white;
- text-align: center;
- padding: 100px 0 30px 0;
- height: 50px;
+   text-align: center;
+   overflow: auto;
+   background-color: white;
+   text-align: center;
+   padding: 100px 0 30px 0;
+   height: 50px;
 }
 
 .texto-capa{
- font-family: 'Abel';
- font-size: 100px;
- text-align: center;
+   font-family: 'Abel';
+   font-size: 100px;
+   text-align: center;
 }
 
 
 #descri{
- resize: none;
- height: 100px;
+   resize: none;
+   height: 100px;
 }
 
 .footerStyle{
- color: white;
+   color: white;
 }
 
 .footerLI:hover{
- background-color: transparent;
+   background-color: transparent;
 }
 
 .col-half-margin{
@@ -752,7 +752,7 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 #projetos h2{
-   color: #FF7F50;
+ color: #FF7F50;
 }
 
 #pedidos h2{
@@ -1129,7 +1129,7 @@ ul{
 }
 
 .inside{
-    background-color: #fff6e5;
+    background-image: url('../img/back-interna.png');
 }
 
 .headerpag{
@@ -1142,13 +1142,42 @@ ul{
 }
 
 .colsproj{
-    background-color: #fff1d9;
     padding: 1px 0 20px 0;
     margin: 10px 8%;
 }
 
 .formatarow{
     margin: 0 5px;
+}
+
+
+
+#header-proj{
+    font-size: 50px;
+    color: #000;
+    text-align: center;
+    font-family: 'Alpha'
+
+}
+
+#ficha-projeto{
+    width: 40%;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+#ficha-projeto h3{
+    font-family: 'Alpha';
+    text-align:center;
+}
+
+
+#img-projetos{
+    width: 120px;
+    height: 120px;
+    border:1px solid black;
+    margin-left: 35px;
+
 }
 
 /* ---------------------------------------------------
