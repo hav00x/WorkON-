@@ -97,7 +97,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
     </script>
 
   </head>
-  <body>
+  <body class="pagcadastro">
 
     <?php 
     include('templates/navbar.php');
@@ -241,8 +241,6 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
     </div>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script1.js?ver=1"></script>
-    <script src="js/form.js?ver=1"></script>
-    <script src="js/cep.js?ver=1"></script>
+    <script src="js/script1.js"></script>
   </body>
   </html>

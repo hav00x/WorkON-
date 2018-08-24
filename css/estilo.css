@@ -6,6 +6,7 @@ FORMATAÇÕES GERAIS
 ----------------------------------------------------- */
 
 .table{
+
 	text-align: center;
 	display: inline-block;
 }
@@ -305,12 +306,12 @@ ESTILO SIDEBAR
 ----------------------------------------------------- */
 
 .img-logo-sidebar {
-    height: 40px;
-    width: 110px;
+    height: 45px;
+    width: 70%;
     display: block;
     background-size: contain;
     color: transparent;
-    margin: 0 auto;
+    margin: 10 auto 0 auto;
 }
 
 #sidebar {
@@ -329,19 +330,14 @@ ESTILO SIDEBAR
 }
 
 #sidebar.active2 {
- min-width: 80px;
- max-width: 80px;
- text-align: center;
+   min-width: 80px;
+   max-width: 80px;
+   text-align: center;
 }
 
 #sidebar .sidebar-header {
-<<<<<<< HEAD
-   text-align: center;
-   color: #FFA500;
-=======
  text-align: center;
- color: #FF7F50;
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
+ color: #FFA500;
 }
 
 #sidebar ul.components {
@@ -412,13 +408,13 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul p{
- color: black;
- padding: 10px;
- font-family: Abel, sans-serif;
+   color: black;
+   padding: 10px;
+   font-family: Abel, sans-serif;
 }
 
 #sidebar.active2 ul p{
- font-size: 0.85em;
+   font-size: 0.85em;
 }
 #sidebar ul li a#definition:hover, #sidebar ul li a#definition[aria-expanded="true"], #sidebar ul li.active2.definition{
     background:linear-gradient(#FFA500,#FFA500) left
@@ -439,13 +435,8 @@ ESTILO SIDEBAR
 }
 
 #sidebar ul li a#project:hover, #sidebar ul li a#project[aria-expanded="true"], #sidebar ul li.active2.project{
-<<<<<<< HEAD
     background:linear-gradient(#FFA500,#FFA500) left
-        /* left or right or else */ no-repeat;
-=======
-    background:linear-gradient(#ffd633,#ffd633) left
     /* left or right or else */ no-repeat;
->>>>>>> b4cddaf23552c868830fa61db7adeb73d4565888
     background-size: 100% 100%;
 }
 
@@ -516,41 +507,41 @@ ESTILO SIDEBAR
 }
 
 a[data-toggle="collapse"] {
- position: relative;
+   position: relative;
 }
 
 #sidebar a[aria-expanded="false"]::before, #sidebar a[aria-expanded="true"]::before {
- content: '\e259';
- display: block;
- position: absolute;
- right: 20px;
- top: 25px;
- font-family: 'Glyphicons Halflings';
- font-size: 0.6em;
+   content: '\e259';
+   display: block;
+   position: absolute;
+   right: 20px;
+   top: 25px;
+   font-family: 'Glyphicons Halflings';
+   font-size: 0.6em;
 }
 
 #sidebar a[aria-expanded="true"]::before {
- content: '\e260';
+   content: '\e260';
 }
 
 ul.CTAs {
- padding: 20px;
+   padding: 20px;
 }
 
 ul.CTAs a {
- text-align: center;
- font-size: 0.9em !important;
- display: block;
- border-radius: 5px;
- margin-bottom: 5px;
+   text-align: center;
+   font-size: 0.9em !important;
+   display: block;
+   border-radius: 5px;
+   margin-bottom: 5px;
 }
 a.download {
- background: #fff;
- color: #7386D5;
+   background: #fff;
+   color: #7386D5;
 }
 a.article, a.article:hover {
- background: #6d7fcc !important;
- color: #fff !important;
+   background: #6d7fcc !important;
+   color: #fff !important;
 }
 
 
@@ -559,25 +550,25 @@ ESTILO CONTEUDO
 ----------------------------------------------------- */
 #content {
 
- width: calc(100% - 160px);
- padding: 3px 40px 40px 40px;
- min-height: 100vh;
- transition: all 0.3s;
- position: absolute;
- top: 0;
- right: 0;
- margin-top: 10px;
- width: calc(100% - 160px);
- padding: 3px 40px 40px 40px;
- min-height: 100vh;
- transition: all 0.3s;
- position: absolute;
- top: 0;
- right: 0;
+   width: calc(100% - 160px);
+   padding: 3px 40px 40px 40px;
+   min-height: 100vh;
+   transition: all 0.3s;
+   position: absolute;
+   top: 0;
+   right: 0;
+   margin-top: 10px;
+   width: calc(100% - 160px);
+   padding: 3px 40px 40px 40px;
+   min-height: 100vh;
+   transition: all 0.3s;
+   position: absolute;
+   top: 0;
+   right: 0;
 
 }
 #content.active2 {
-   width: calc(100% - 80px);
+ width: calc(100% - 80px);
 }
 #btnMenu{
     position: fixed;
@@ -595,11 +586,8 @@ ESTILO CONTEUDO
     border-radius: 50%;
     height: 40px;
     width: 40px;
-<<<<<<< HEAD
-    background-color: rgba(255, 165, 0, 0.5);;
-=======
+    background-color: rgba(255, 165, 0, 0.5);
     background-color: #ffd1c1;
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
     box-shadow: 1px 1px 1px 0;
 }
 
@@ -611,127 +599,115 @@ ESTILO CONTEUDO
 FORMATAÇÕES ESPECIFICAS
 ----------------------------------------------------- */
 .img-cd{
-   width: 50px;
-   margin: 0 auto;
+ width: 50px;
+ margin: 0 auto;
 }
 
 #WELCOME-SIGNIN{
-   margin-top: 10px;
-   margin-bottom: 10px;
-   color: black;
-   text-align: center;
-   font-family: 'Abel';
-   font-size: 50px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ color: black;
+ text-align: center;
+ font-family: 'Abel';
+ font-size: 50px;
 }
 
 .box{
-<<<<<<< HEAD
-   border: 1px solid #FFA500;
-   padding: 20px;
-   text-align: center;
-   margin-top: 10px;
-   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-   background-color: rgba(255, 255, 255, 0.5);
-   border-radius: 2px;
-}
-
-.box-cadastro{
-   border: 1px solid #FFA500;
-   padding: 20px;
-   text-align: center;
-   margin-top: 10px;
-   width: 300px;
-   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-   margin-left: 70px;
-   background-color: rgba(255, 255, 255, 0.5);
-   border-radius: 2px;
-=======
  border: 1px solid #FFA500;
  padding: 20px;
  text-align: center;
  margin-top: 10px;
- width: 500px;
+ box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+ background-color: rgba(255, 255, 255, 0.5);
+ border-radius: 2px;
+}
+
+.box-cadastro{
+ border: 1px solid #FFA500;
+ padding: 20px;
+ text-align: center;
+ margin-top: 10px;
+ width: 300px;
  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
  margin-left: 70px;
  background-color: rgba(255, 255, 255, 0.5);
  border-radius: 2px;
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
 }
 
 .hide{
-   display: none;
+ display: none;
 }
 
 
 .ptxt{
-   font-size: 19px;
+ font-size: 19px;
 }
 
 .h3txt{
-   font-size: 30px;
-   font-weight: 800;
+ font-size: 30px;
+ font-weight: 800;
 }
 .col-txt{
-   text-align: right;
+ text-align: right;
 }
 
 .col-margin{
-   margin-top: 120px;
-   margin-bottom: 120px;
+ margin-top: 120px;
+ margin-bottom: 120px;
 }
 
 .container-margin{
-   margin: 70px;
+ margin: 70px;
 
 }
 
 .img-conteudo{
-   width: 400px;
-   border: 1px solid black;
+ width: 400px;
+ border: 1px solid black;
 
 }
 
 @font-face{
-   font-family: 'Abel';
+ font-family: 'Abel';
 }
 
 .espaco{
-   height: 50px;
+ height: 50px;
 }
 
 .capa {
-   width: 100%;
-   display: table;
-   margin-top: 100px;
+ width: 100%;
+ display: table;
+ margin-top: 100px;
 }
 
 .apresentacao{
-   text-align: center;
-   overflow: auto;
-   background-color: white;
-   text-align: center;
-   padding: 100px 0 30px 0;
-   height: 50px;
+ text-align: center;
+ overflow: auto;
+ background-color: white;
+ text-align: center;
+ padding: 100px 0 30px 0;
+ height: 50px;
 }
 
 .texto-capa{
-   font-family: 'Abel';
-   font-size: 100px;
-   text-align: center;
+ font-family: 'Abel';
+ font-size: 100px;
+ text-align: center;
 }
 
 
 #descri{
-   resize: none;
-   height: 100px;
+ resize: none;
+ height: 100px;
 }
 
 .footerStyle{
-   color: white;
+ color: white;
 }
 
 .footerLI:hover{
-   background-color: transparent;
+ background-color: transparent;
 }
 
 .col-half-margin{
@@ -776,7 +752,7 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 #projetos h2{
- color: #FF7F50;
+   color: #FF7F50;
 }
 
 #pedidos h2{
@@ -1145,14 +1121,13 @@ ul{
     margin: 16px 10px;
 }
 
-<<<<<<< HEAD
-
 .perfil-data{
     font-family: 'Abel';
     color: black;
     font-size: 14px;
     margin: 1px;
-=======
+}
+
 .inside{
     background-color: #fff6e5;
 }
@@ -1253,5 +1228,4 @@ MEDIAQUERIES
     .divcriaproj{
         text-align: center;
     }
->>>>>>> 23219e0329fb4bf5347583d380cacd5de53021b9
 }
