@@ -5,8 +5,13 @@
 FORMATAÇÕES GERAIS
 ----------------------------------------------------- */
 
-.table{
+.break-out{
+  width: 98.8vw;
+  position: relative;
+  left: calc(-1 * (98.8vw - 100%) / 2);
+}
 
+.table{
 	text-align: center;
 	display: inline-block;
 }
@@ -52,7 +57,7 @@ textarea{
     outline-color: #BA7D3E;
 }
 
-html, body, .capa {
+html, body{
     height: 100%;
     overflow: auto;
     overflow-x: hidden;
@@ -625,11 +630,10 @@ FORMATAÇÕES ESPECIFICAS
 .box-cadastro{
    border: 1px solid #FFA500;
    padding: 20px;
+   margin: 0 4.16666667%;
    text-align: center;
    margin-top: 10px;
-   width: 300px;
    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-   margin-left: 70px;
    background-color: rgba(255, 255, 255, 0.5);
    border-radius: 2px;
 }
@@ -675,10 +679,13 @@ FORMATAÇÕES ESPECIFICAS
    height: 50px;
 }
 
-.capa {
+.capa{
    width: 100%;
-   display: table;
    margin-top: 100px;
+   overflow: auto;
+   overflow-x: hidden;
+   font-family: 'Abel';
+   margin-bottom: 100px;
 }
 
 .apresentacao{
@@ -929,7 +936,7 @@ body.modal-open {
 }
 
 .btn-index{
-    width: 100%;
+    display: block;
     height: 50px;
     background-color: rgba(255, 250, 250, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -1012,9 +1019,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 #quem-somos{
-    margin-top: -180px;
     background-color:rgba(255, 165, 0, 0.5);
-    padding: 20px;
+    padding: 30px;
 }
 
 #header-index1{
@@ -1156,7 +1162,7 @@ ul{
     font-size: 50px;
     color: #000;
     text-align: center;
-    font-family: 'Alpha'
+    font-family: 'Alpha';
 
 }
 
