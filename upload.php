@@ -10,7 +10,7 @@ $_UP['pasta'] = 'uploads/';
 	$_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
 
 	// Array com as extensões permitidas
-	$_UP['extensoes'] = array('pdf','doc','txt', 'jpg', 'docx', 'xls', 'xlsx');
+	$_UP['extensoes'] = array('png', 'jpg', 'jpeg', 'svg');
 
 	// Renomeia o arquivo? (Se true, o arquivo será salvo como .jpg e um nome único)
 	$_UP['renomeia'] = false;

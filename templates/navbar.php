@@ -76,7 +76,7 @@
     <div class="modal-body">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-5 col-md-offset-1 box-cadastro">
+          <div class="col-md-5 box-cadastro">
             <div id="btn-profile">
               <h2>PESSOA JÚRIDICA</h2>
               <img src="img/multiuser.png" class="img-responsive img-cd">
@@ -85,7 +85,7 @@
               <a class="btn btn-warning btn-lg" href="cadastro-PJ.php" role="button">Cadastrar</a>
             </div>
           </div>
-          <div class="col-md-5 col-md-offset-1 box-cadastro">
+          <div class="col-md-5 box-cadastro">
             <div id="btn-profile">
               <h2>PESSOA FÍSICA</h2>
               <img src="img/userico.png" class="img-responsive img-cd">

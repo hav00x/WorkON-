@@ -71,16 +71,16 @@ $('#nome-projeto').on('keydown', function(e){
 	if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
-        }
-    });
+          }
+        });
 
 $('#accordion').on('keydown', '.nome-etapa', function(e){
 	if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
-        }
-        $(this).next().next().val($(this).html());
-    });
+          }
+          $(this).next().next().val($(this).html());
+        });
 
 $('#accordion').on('blur', '.nome-etapa', function(){
 	$(this).attr('contenteditable', 'false');
@@ -109,7 +109,7 @@ $('#accordion').on('click', '.nome-etapa', function(){
             		$(this).attr('data-value', 0);
             	}
             });
-        }, 350);
+          }, 350);
           if($(this).attr('data-value') == 1){ //reseta o contador toda vez que uma etapa é fechada manualmente
           	$(this).attr('data-value', 0);
           	atividadeCount = 1;
@@ -124,7 +124,7 @@ $('#accordion').on('click', '.nome-etapa', function(){
           	var retorno = ultimoInput.split('.');
           	atividadeCount = parseInt(retorno[1]);
           }
-      });
+        });
 
 $('#accordion').on('click', '.add-passo', function(){
 	atividadeCount = atividadeCount +1;
@@ -154,7 +154,7 @@ $('#precoest').on('keyup', function(e){
     	// Filter non-digits from input value.
     	this.value = this.value.replace(/\D/g, '');
     }
-});
+  });
 
 $('#testando').on('click', function(){
 	$('.nomeetp').each(function(){
@@ -163,6 +163,10 @@ $('#testando').on('click', function(){
 });
 
 /*------------ Formulário de Cadastro -----------------*/
+
+$('.submit_btn').on('click', function(e){
+  $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
+});
 
 $(".submit_btn").click(function(event) {
 // For Loop To Count Blank Inputs
@@ -257,8 +261,8 @@ function limpa_formulário_cep() {
                 $("#cidade").val("");
                 $("#uf").val("");
                 //$("#ibge").val("");
-            }
-            
+              }
+
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
@@ -296,20 +300,19 @@ function limpa_formulário_cep() {
                                 //CEP pesquisado não foi encontrado.
                                 limpa_formulário_cep();
                                 alert("CEP não encontrado.");
-                            }
-                        });
+                              }
+                            });
                     } //end if.
                     else {
                         //cep é inválido.
                         limpa_formulário_cep();
                         $('#modalErro .modal-body p').append('Formato de CEP inválido');
                         $('#modalErro').modal('show');
-                    }
+                      }
                 } //end if.
                 else {
                     //cep sem valor, limpa formulário.
                     limpa_formulário_cep();
-                }
-            });
-
-        });
+                  }
+                });
+          });

@@ -9,6 +9,7 @@ $erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] :
 $erro_cnpj_errado = isset($_GET['erro_cnpjerrado']) ? $_GET['erro_cnpjerrado'] : 0;
 $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
 $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'] : 0;
+$erro_imagem_grande = isset($_GET['erro_imggrande']) ? $_GET['erro_imggrande'] : 0;
 
 ?>
 
@@ -49,6 +50,8 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
         var erro_cnpj_errado = '<?= $erro_cnpj_errado ?>';
         var erro_senha_insegura = '<?= $erro_senha_insegura ?>';
         var erro_email_invalido = '<?= $erro_email_invalido ?>';
+        var erro_imagem_grande = '<?= $erro_imagem_grande ?>';
+
         //se email/cnpj já estão cadastrados, o erro é mostrado
         if(erro_email == 1){
           $('#modalErro .modal-body p').append("- Esse email já está em uso<br>");
@@ -92,11 +95,16 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
           $('#modalErro .modal-body p').append("- Digite um email válido<br>");
           $('#modalErro').modal('show');
         }
+
+        if(erro_imagem_grande == 1){
+          $('#modalErro .modal-body p').append("- Coloque uma imagem com menos de 2mb<br>");
+          $('#modalErro').modal('show');
+        }
       });
     </script>
 
   </head>
-  <body class="pagcadastro">
+  <body class="pag-cadastro">
 
     <?php  
     include('templates/navbar.php');
@@ -120,16 +128,16 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div class="container">
+    <div class="container cadastro-upper">
       <h2 style="text-align: center; margin-bottom: 40px;">Pessoa Jurídica</h2>
     </div>
 
-    <div class="container conn">
+    <div class="container cadastro-lower">
       <!-- Multistep Form -->
-      <form action="cadastrarpj_bd.php" class="regform" method="post">
+      <form action="cadastrarpj_bd.php" enctype="multipart/form-data" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
-          <div class="col-md-12 table">
+          <div class="col-md-12 table cada-status">
             <ul style="text-align: center;">
               <li class="active1 list">Dados Pessoais</li>
               <li class="list">Dados Comerciais</li>
@@ -185,7 +193,7 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
               <input class="text_field" name="bairro" type="text" id="bairro" size="40" readonly="readonly"/>
               <label for="uf">Estado</label>
               <input class="text_field" name="uf" type="text" id="uf" size="2" readonly="readonly"/>
-              <input class="next_btn btn-alinha-direita" id="primeiro_next" name="next" type="button" value="Próximo">
+              <input class="next_btn btn-alinha-direita button -regular" id="primeiro_next" name="next" type="button" value="Próximo">
             </div>
           </div>
         </fieldset>
@@ -219,8 +227,8 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
             <div class="col-md-10 col-md-offset-1">
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
-              <input class="next_btn btn-alinha-direita" id="segundo_next" name="next" type="button" value="Próximo">
-              <input class="pre_btn btn-alinha-direita" name="previous" type="button" value="Anterior">    
+              <input class="next_btn button -regular btn-alinha-direita" id="segundo_next" name="next" type="button" value="Próximo">
+              <input class="pre_btn button -regular btn-alinha-direita" name="previous" type="button" value="Anterior">    
             </div>
           </div>
         </fieldset>
@@ -232,8 +240,8 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
               <input type="text" name="arquivo" id="arquivo" style="display: none;">
               <img class="img-responsive img-cadastro" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
-              <input class="submit_btn btn-alinha-direita" type="submit" value="Concluir">
-              <input class="pre_btn btn-alinha-direita" type="button" value="Anterior">
+              <input class="submit_btn button -regular btn-alinha-direita" type="submit" value="Concluir">
+              <input class="pre_btn button -regular btn-alinha-direita" type="button" value="Anterior">
             </div>
           </div>
         </fieldset>
