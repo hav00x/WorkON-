@@ -31,13 +31,58 @@ $cnpj_errado = false;
 $senha_insegura = false;
 $email_invalido = false;
 $imagem_grande = false;
+$erro_foto = false;
 
-//verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
+if(!isset($email, $senha, $razao_social, $cel, $nome_fantasia, $cnpj, $cidade, $estado, $segmento, $descricao)){
+	$campo_vazio = true;
+}
+
+if(strlen($cel) != 11){
+	$num_errado = true;
+} elseif(!is_numeric($cel)){
+	$num_errado = true;
+}
+
+if(strlen($_POST['senha']) < 8){
+	$senha_insegura = true;
+}
+
+if(!empty($comercial) && strlen($comercial) != 11){
+	$num_errado = true;
+}elseif(!empty($comercial) && !is_numeric($comercial)){
+	$num_errado = true;
+}
+
+if(strlen($cnpj) != 14){
+	$cnpj_errado = true;
+} elseif(!is_numeric($cnpj)){
+	$cnpj_errado = true;
+}
+
+if(!empty($fixo) && strlen($fixo) != 10){
+	$num_errado = true;
+}elseif(!empty($fixo) && !is_numeric($fixo)){
+	$num_errado = true;
+}
+
+if($email != $confirmaEmail){
+	$email_diferente = true;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	$email_invalido = true;
+}
+
+if($_POST['senha'] != $confirmaSenha){
+	$senha_diferente = true;
+}
+
+	//verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
 $RA = Trim( stripslashes( $_POST[ 'arquivo' ] ) ); 
 	//Filedata é a variável que o flex envia com o arquivo para upload
 $arquivo = $_FILES['Filedata'];
-	// Pasta onde o arquivo vai ser salvo
 
+	// Pasta onde o arquivo vai ser salvo
 $_UP['pasta'] = 'up-perfil/';
 
 // Tamanho máximo do arquivo (em Bytes)
@@ -58,16 +103,14 @@ $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 
 	// Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
 if ($_FILES['Filedata']['error'] != 0) {
-	die("Não foi possível fazer o upload, erro:<br />" .$_UP['erros'][$_FILES['Filedata']['error']]);// Para a execução do script
-	}
-
+	$erro_foto = true;
+} else{
 // Caso script chegue a este ponto, não houve erro com o processo de  upload  e o PHP pode continuar
 
 // Faz a verificação da extensão do arquivo
-//$extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
 	$arquivo = $_FILES['Filedata']['name'];
 	$extensao  = substr($arquivo,-4);
-	
+
 // Faz a verificação do tamanho do arquivo enviado
 	if ($_UP['tamanho'] < $_FILES['Filedata']['size']) {
 		echo "O arquivo enviado é muito grande, envie arquivos de até 2Mb.";
@@ -76,157 +119,116 @@ if ($_FILES['Filedata']['error'] != 0) {
 
 // O arquivo passou em todas as verificações, hora de tentar movê-lo para a pasta
 	else {
-		$nome_final = date("d.m.Y-H.i.s").'_'.$RA.".$extensao";
+		$nome_final = date("d.m.Y-H.i.s").'_'.$RA;
+		$caminho_imagem = "up-perfil/".$nome_final;
 
-	// Depois verifica se é possível mover o arquivo para a pasta escolhida
+// Depois verifica se é possível mover o arquivo para a pasta escolhida
 		if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $_UP['pasta'] . $nome_final)) {
 // Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
 			echo "Seu arquivo foi enviado com sucesso";
-//echo '<br /><a href="' . $_UP['pasta'] . $nome_final . '"> Clique aqui para acessar o arquivo</a>'
 		} else {
 // Não foi possível fazer o upload. Algum problema com a pasta
 			echo "Não foi possível enviar o seu arquivo";
 		}
 	}
+}
 
+$stmt = $link->prepare("SELECT cnpj FROM usuariopj WHERE cnpj = ?");
+$stmt->bind_param("i", $cnpj);
 
-	if(!isset($email, $senha, $razao_social, $cel, $nome_fantasia, $cnpj, $cidade, $estado, $segmento, $descricao)){
-		$campo_vazio = true;
-	}
-
-	if(strlen($cel) != 11){
-		$num_errado = true;
-	} elseif(!is_numeric($cel)){
-		$num_errado = true;
-	}
-
-	if(strlen($_POST['senha']) < 8){
-		$senha_insegura = true;
-	}
-
-	if(!empty($comercial) && strlen($comercial) != 11){
-		$num_errado = true;
-	}elseif(!empty($comercial) && !is_numeric($comercial)){
-		$num_errado = true;
-	}
-
-	if(strlen($cnpj) != 14){
-		$cnpj_errado = true;
-	} elseif(!is_numeric($cnpj)){
-		$cnpj_errado = true;
-	}
-
-	if(!empty($fixo) && strlen($fixo) != 10){
-		$num_errado = true;
-	}elseif(!empty($fixo) && !is_numeric($fixo)){
-		$num_errado = true;
-	}
-
-	if($email != $confirmaEmail){
-		$email_diferente = true;
-	}
-
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$email_invalido = true;
-	}
-
-	if($_POST['senha'] != $confirmaSenha){
-		$senha_diferente = true;
-	}
-
-/*
-	$stmt = $link->prepare("SELECT cnpj FROM usuariopj WHERE cnpj = ?");
-	$stmt->bind_param("i", $cnpj);
-
-	if($stmt->execute()){
-		$stmt->bind_result($buscacnpj);
-		while($stmt->fetch()) {
-			if(isset($buscacnpj)){
-				$cnpj_existe = true;
-			}
-			}else{
-				echo 'Erro ao executar a busca por usuario';
-			}
+if($stmt->execute()){
+	$stmt->bind_result($buscacnpj);
+	while($stmt->fetch()) {
+		if(isset($buscacnpj)){
+			$cnpj_existe = true;
 		}
+	}
+}else{
+	echo 'Erro ao executar a busca por usuario';
+}
 
-		$stmt->close();
+$stmt->close();
 
 	//verifica se o email já existe no bd
 
-		$stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
-		$stmt->bind_param("ss", $email, $email);
-		if($stmt->execute()){
-			$stmt->bind_result($buscaEmail);
-			while($stmt->fetch()){
-				if(isset($buscaEmail)){
-					$email_existe = true;
-				}
-			}
-			}else{
-				echo 'Erro ao executar a busca por email';
-			}
+$stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
+$stmt->bind_param("ss", $email, $email);
+if($stmt->execute()){
+	$stmt->bind_result($buscaEmail);
+	while($stmt->fetch()){
+		if(isset($buscaEmail)){
+			$email_existe = true;
+		}
+	}
+}else{
+	echo 'Erro ao executar a busca por email';
+}
 
-			$stmt->close();
+$stmt->close();
 
-			if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cnpj_errado || $senha_insegura || $email_invalido || $imagem_grande){
+if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cnpj_errado || $senha_insegura || $email_invalido || $imagem_grande || $erro_foto){
 
-				$retorno_get = '';
+	$retorno_get = '';
 
-				if($cnpj_existe){
-					$retorno_get.= "erro_cnpj=1&"; 
-				}
+	if($cnpj_existe){
+		$retorno_get.= "erro_cnpj=1&"; 
+	}
 
-				if($email_existe){
-					$retorno_get.= "erro_email=1&"; 
-				}
+	if($email_existe){
+		$retorno_get.= "erro_email=1&"; 
+	}
 
-				if($email_diferente){
-					$retorno_get.="erro_emaildif=1&";
-				}
+	if($email_diferente){
+		$retorno_get.="erro_emaildif=1&";
+	}
 
-				if($senha_diferente){
-					$retorno_get.="erro_senhadif=1&";
-				}
+	if($senha_diferente){
+		$retorno_get.="erro_senhadif=1&";
+	}
 
-				if($campo_vazio){
-					$retorno_get.="erro_camvazio=1&";
-				}
+	if($campo_vazio){
+		$retorno_get.="erro_camvazio=1&";
+	}
 
-				if($num_errado){
-					$retorno_get.="erro_numerrado=1&";
-				}
+	if($num_errado){
+		$retorno_get.="erro_numerrado=1&";
+	}
 
-				if($cnpj_errado){
-					$retorno_get.="erro_cnpjerrado=1&";
-				}
+	if($cnpj_errado){
+		$retorno_get.="erro_cnpjerrado=1&";
+	}
 
-				if($senha_insegura){
-					$retorno_get.="erro_senhainseg=1&";
-				}
+	if($senha_insegura){
+		$retorno_get.="erro_senhainseg=1&";
+	}
 
-				if($email_invalido){
-					$retorno_get.="erro_emailinval=1&";
-				}
+	if($email_invalido){
+		$retorno_get.="erro_emailinval=1&";
+	}
 
-				if($imagem_grande){
-					$retorno_get.="erro_imggrande=1&";
-				}
+	if($imagem_grande){
+		$retorno_get.="erro_imggrande=1&";
+	}
 
-				header('Location: cadastro-PJ.php?'.$retorno_get);
+	if($erro_foto){
+		$retorno_get.="erro_foto=1&";
+	}
 
-				die();
-			}
+	header('Location: cadastro-PJ.php?'.$retorno_get);
 
-			$stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	die();
+}
 
-			$stmt->bind_param("sssiisssssiisss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram);
+$stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-			if($stmt->execute()){
-				echo 'Usuário registrado com sucesso';
-				}else{
-					echo 'Erro ao cadastrar usuário';
-				}
+$stmt->bind_param("sssiisssssiissss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
 
-				$stmt->close();
-				*/
-				?>
+if($stmt->execute()){
+	header("Location: index.php?sucesso=1");
+}else{
+	echo 'Erro ao cadastrar usuário';
+}
+
+$stmt->close();
+
+?>
