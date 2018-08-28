@@ -14,12 +14,12 @@ if(!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON! | Página Inicial</title>
+  <title>WORKON! | PÁGINA INICIAL</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css" rel="stylesheet">
+  <link href="css/estilo.css?ver=3" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@ if(!isset($_SESSION['email'])){
     <![endif]-->
 
   </head>
-  <body>
+  <body class="inside">
 
     <?php
     include('templates/sidebar.php');
@@ -45,20 +45,51 @@ if(!isset($_SESSION['email'])){
 
      <!--DIV PERFIL-->
      <div class="row section" id="div-perfil">
+      <h1 style="text-align: center; font-family: 'Alpha-Regular';">Seu perfil</h1>
       <div class="col-md-4">
-        <img src="img/eu-e-o-caminhao.jpg" class="img-responsive" style="width: 300px;">
+        <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-thumbnail" style="width: 100%;">
       </div>
+
       <div class="col-md-8 info-perfil">
-        <!--INFO-PERFIL AINDA NÃO CRIADA E ESTILIZADA-->
-        <div id="perfil-data">
-          <h4>Nome:</h4>
-          <h4>Perfil:</h4>
-          <h4>Descrição:</h4>
-          <h4>Site:</h4>
-          <h4>Rede Social 1:</h4>
-          <h4>Rede social 2:</h4>
+        <div class="row">
+          <div id="perfil-data" class="col-md-12">
+              <h3>Quem é você:</h3>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p>NOME</p>
+          </div>
+
+          <div class="col-md-4">
+            <p>PJ/PF</p>
+          </div>
+
+          <div class="col-md-4">
+            <p>Localização</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h3>O que você faz</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p>SEGMENTO</p>
+          </div>
+          <div class="col-md-6">
+            <p>DESCRIÇÃO</p>
+          </div>
         </div>
       </div>
+
+
+
+
+
+
     </div><!--FIM PERFIL-->
 
     <div class="row section" id="projetos">

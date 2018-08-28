@@ -5,7 +5,7 @@
   </div>
   <div class="section row">
       <div class="col-md-4">
-        <h3 id="">Olá mundo</h3>
+        <h3 style="font-family: 'Alpha-Regular'" id="">Olá mundo</h3>
       </div>
       <div class="col-md-4">
         <form action="" method="">
