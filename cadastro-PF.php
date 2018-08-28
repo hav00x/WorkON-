@@ -9,6 +9,8 @@ $erro_numero_errado = isset($_GET['erro_numerrado']) ? $_GET['erro_numerrado'] :
 $erro_cpf_errado = isset($_GET['erro_cpferrado']) ? $_GET['erro_cpferrado'] : 0;
 $erro_senha_insegura = isset($_GET['erro_senhainseg']) ? $_GET['erro_senhainseg'] : 0;
 $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'] : 0;
+$erro_imagem_grande = isset($_GET['erro_imggrande']) ? $_GET['erro_imggrande'] : 0;
+$erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 
 ?>
 
@@ -45,8 +47,10 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
         var erro_campo_vazio = '<?= $erro_campo_vazio ?>'
         var erro_numero_errado = '<?= $erro_numero_errado ?>';
         var erro_cpf_errado = '<?= $erro_cpf_errado ?>';
-        var erro_senha_insegura = '<?= $erro_senha_insegura ?>'
-        var erro_email_invalido = '<?= $erro_email_invalido ?>'
+        var erro_senha_insegura = '<?= $erro_senha_insegura ?>';
+        var erro_email_invalido = '<?= $erro_email_invalido ?>';
+        var erro_imagem_grande = '<?= $erro_imagem_grande ?>';
+        var erro_foto = '<?= $erro_foto ?>';
 
         //tratativa de erros do usuário
 
@@ -90,6 +94,16 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
 
         if(erro_email_invalido == 1){
           $('#modalErro .modal-body p').append("- Digite um email válido<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_imagem_grande == 1){
+          $('#modalErro .modal-body p').append("- Coloque uma imagem com menos de 2mb<br>");
+          $('#modalErro').modal('show');
+        }
+
+        if(erro_foto == 1){
+          $('#modalErro .modal-body p').append("- Houve algum erro com sua imagem<br>");
           $('#modalErro').modal('show');
         }
       });

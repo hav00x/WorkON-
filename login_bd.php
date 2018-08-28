@@ -24,6 +24,7 @@ if($stmt->execute()){
 			$_SESSION['email'] = $jemailusu;
 			$_SESSION['id_jusuario'] = $jidusu;
 			$_SESSION['nome_fantasia'] = $nomeFantasia;
+			$_SESSION['id_fusuario'] = null;
 			
 			header('Location: homepage.php');
 
@@ -51,6 +52,7 @@ if($stmt->execute()){
 			$_SESSION['email'] = $femailusu;
 			$_SESSION['id_fusuario'] = $fidusu;
 			$_SESSION['nome'] = $nome;
+			$_SESSION['id_jusuario'] = null;
 
 			header('Location: homepage.php');
 
