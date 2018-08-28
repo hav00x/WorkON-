@@ -14,12 +14,12 @@ if(!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON. | abcde</title>
+  <title>WORKON! | PROJETOS</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=1" rel="stylesheet">
+  <link href="css/estilo.css?ver=3" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -46,26 +46,32 @@ if(!isset($_SESSION['email'])){
        <div class="section">
         <div class="row formatarow">
           <div class="col-md-4 headerpag">
-            <h1 id="header-proj">Projetos</h1>
+            <h1 id="header-proj" class="lead">Projetos</h1>
           </div>
           <div class="col-md-4 divcriaproj">
             <button type="button" id="criaproj" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">Novo Projeto</button>
           </div>
-        </div>
-        <div id="ficha-projeto" class="row formatarow">
-          <div class="col-md-4 colsproj">
-            <h3 style="margin-left: 30px;">Nome do Projeto</h3>
-            <img id="img-projetos" src="img/hog.jpg">
-            <div style="margin-left: 35px;">
-              Nome do cliente<br>
-              Preço estabelecido<br>
-              Data de entrega<br>
+        </div><!--fimformatarow-->
+        
+        <div class="row formatarow" id="ficha-projeto">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Projeto ódio</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <img id="img-projetos" src="img/hog.jpg">
+              <div id="info-proj">
+                Nome do cliente:<br>
+                Preço Estabelecido:<br>
+                Data de entrega:<br>
+              </div>
+              <button class="btn button-hp"">Atualizar</button>
             </div>
           </div>
         </div>
-
-
-      </div>
+      </div><!--section-->
 
       <!-- Modal -->
       <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
