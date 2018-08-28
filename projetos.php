@@ -20,7 +20,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=3" rel="stylesheet">
+  <link href="css/estilo.css?ver=4" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -33,9 +33,9 @@ if(!isset($_SESSION['email'])){
 
     <script type="text/javascript">
       $(document).ready(function(){
-        setInterval(function(){
-          $('#ficha-projeto').load('carrega_projetosbd.php');
-        }, 60000);
+          $('#ficha-projeto').load('carrega_projetosbd.php', function(data){
+            alert(data);
+          });
       });
     </script>
 
@@ -63,22 +63,7 @@ if(!isset($_SESSION['email'])){
       </div><!--fimformatarow-->
 
       <div class="row formatarow" id="ficha-projeto">
-        <div class="row">
-          <div class="col-md-12">
-            <h3>Projeto ódio</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <img id="img-projetos" src="img/hog.jpg">
-            <div id="info-proj">
-              Nome do cliente:<br>
-              Preço Estabelecido:<br>
-              Data de entrega:<br>
-            </div>
-            <button class="btn button-hp"">Atualizar</button>
-          </div>
-        </div>
+        
       </div>
     </div><!--section-->
 

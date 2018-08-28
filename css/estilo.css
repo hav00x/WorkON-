@@ -1172,8 +1172,7 @@ ul{
 
 }
 
-
-#img-projetos{
+.img-projetos{
     width: 40%;
     display: block;
     margin-left: auto;
@@ -1185,18 +1184,10 @@ ul{
     background-image: url('../img/backinternaa.png');
 }
 
-#info-proj{
+.info-proj{
     text-align: center;
     font-weight: bold;
 }
-
-
-
-
-
-
-
-
 
 /* ---------------------------------------------------
 CADASTRO
@@ -1228,15 +1219,6 @@ CADASTRO
     border-bottom: 1px solid #DFDCDC;
     padding-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
 
 /* ---------------------------------------------------
 MEDIAQUERIES
