@@ -762,6 +762,7 @@ FORMATAÇÕES ESPECIFICAS
     border-radius: 10px;
 }
 
+
 #input-homepage{
     background-color: #fff;
     border: solid 1px #fff;
@@ -778,6 +779,7 @@ FORMATAÇÕES ESPECIFICAS
     outline: none;
     font-weight: 12;
 }
+
 
 .img-cadastro{
     border:1px solid black;
@@ -1118,11 +1120,16 @@ ul{
     margin: 16px 10px;
 }
 
-.perfil-data{
+#perfil-data{
+    padding: 10px;
+    background-color: #E8E8E8;
+    width: 100%;
+}
+
+#perfil-data>h4{
     font-family: 'Abel';
     color: black;
-    font-size: 14px;
-    margin: 1px;
+    font-size: 20px;
 }
 
 .headerpag{
@@ -1162,16 +1169,34 @@ ul{
 #ficha-projeto h3{
     font-family: 'Alpha-Regular', Arial, sans-serif;
     text-align:center;
+
 }
 
 
 #img-projetos{
-    width: 120px;
-    height: 120px;
-    border:1px solid black;
-    margin-left: 35px;
-
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+.inside{
+    background-image: url('../img/backinternaa.png');
+}
+
+#info-proj{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
 
 /* ---------------------------------------------------
 CADASTRO
@@ -1203,6 +1228,15 @@ CADASTRO
     border-bottom: 1px solid #DFDCDC;
     padding-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
 
 /* ---------------------------------------------------
 MEDIAQUERIES
