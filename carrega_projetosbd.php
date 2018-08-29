@@ -32,21 +32,57 @@ if($stmt->execute()){
 	echo 'Ocorreu um erro ao recuperar os intermediarios';
 }
 
-$indiceProjeto[0] = $resultado; 
-
+$indiceProjeto = $resultado;
 $stmt->close();
 
 for($i = 0; $i < $contaProjetos; $i++){
-	$stmt = $link->prepare('SELECT nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_intermediario = ?');
-	$stmt->bind_param('i', $indiceProjeto[0][$i]);
+	$stmt = $link->prepare('SELECT id_projeto, nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_intermediario = ?');
+	$stmt->bind_param('i', $indiceProjeto[$i][0]);
 	if($stmt->execute()){
-		$resultSet = $stmt->get_result();
 
-		var_dump($resultSet);
-		if ($resultSet->num_rows>0) {
-			echo '1';
-			while($row = $resultSet->fetch_assoc()){
-				var_dump($row);
+		$stmt->store_result();
+		$stmt->bind_result($id_projeto, $nome_cliente, $preco, $nome_projeto, $data_entrega);
+		while($stmt->fetch()){
+			if($i % 2 == 0){
+				$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+
+				echo '<div class="col-md-4 divisor-projetos col-md-offset-1">
+				<form id="form'.$i.'">
+				<div class="col-md-12">
+				<h3>'.$nome_projeto.'</h3>
+				</div>		
+				<div class="col-md-12">
+				<img class="img-projetos" src="img/hog.jpg">
+				<div class="info-proj">
+				Nome do cliente: '.$nome_cliente.'<br>
+				Preço Estabelecido: R$'.$preco.'<br>
+				Data de entrega: '.$date->format('d-m-Y').'<br>
+				</div>
+				<button type="submit" class="btn button-hp btn-attproj" data-value="'.$id_projeto.'">Atualizar</button>
+				</div>
+				</form>
+				</div>';
+
+			}else{
+				$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+				
+
+				echo '<div class="col-md-4 divisor-projetos col-md-offset-2">
+				<form id="form'.$i.'">
+				<div class="col-md-12">
+				<h3>'.$nome_projeto.'</h3>
+				</div>		
+				<div class="col-md-12">
+				<img class="img-projetos" src="img/hog.jpg">
+				<div class="info-proj">
+				Nome do cliente: '.$nome_cliente.'<br>
+				Preço Estabelecido: R$'.$preco.'<br>
+				Data de entrega: '.$date->format('d-m-Y').'<br>
+				</div>
+				<button type="submit" class="btn button-hp btn-attproj" data-value="'.$id_projeto.'">Atualizar</button>
+				</div>
+				</form>
+				</div>';
 			}
 		}
 	}else{
@@ -54,20 +90,4 @@ for($i = 0; $i < $contaProjetos; $i++){
 	}
 }
 
-/*'<div class="row">
-				<div class="col-md-12">
-				<h3>'.$row['nome_projeto'].'</h3>
-				</div>
-				</div>
-				<div class="row">
-				<div class="col-md-12">
-				<img class="img-projetos" src="img/hog.jpg">
-				<div class="info-proj">
-				Nome do cliente: '.$row['nome_cliente'].'<br>
-				Preço Estabelecido: R$'.$row['preco_estabelecido'].'<br>
-				Data de entrega: '.$row['data_entrega'].'<br>
-				</div>
-				<button class="btn button-hp">Atualizar</button>
-				</div>
-				</div>';*/
 ?>

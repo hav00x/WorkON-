@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -20,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=4" rel="stylesheet">
+  <link href="css/estilo.css?ver=5" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -33,8 +32,10 @@ if(!isset($_SESSION['email'])){
 
     <script type="text/javascript">
       $(document).ready(function(){
-          $('#ficha-projeto').load('carrega_projetosbd.php', function(data){
-            alert(data);
+          $('#ficha-projeto').load('carrega_projetosbd.php');
+          $('#ficha-projeto').on('click', '.btn-attproj', function(){
+            var idproj = $(this).attr('data-value');
+            $.post('edita_projetosbd.php', {'idproj' : idproj});
           });
       });
     </script>
@@ -67,7 +68,7 @@ if(!isset($_SESSION['email'])){
       </div>
     </div><!--section-->
 
-    <!-- Modal -->
+    <!-- Modal Cadastro Projetos -->
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -103,7 +104,7 @@ if(!isset($_SESSION['email'])){
               </div>
               <div class="col-left">
                 <label for="dataini">Data Início</label>
-                <input type="date" class="text_field" id="danaini" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="dataini">
+                <input type="date" class="text_field" id="dataini" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="dataini">
               </div>
               <div class="col-right">
                 <label for="dataent">Data Entrega</label>
@@ -156,7 +157,6 @@ if(!isset($_SESSION['email'])){
             </div>
 
             <div class="modal-footer" style="clear: both;">
-              <button type="button" id="testando">+</button>
               <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
               <button type="submit" class="button -regular">Criar</button>
             </div>

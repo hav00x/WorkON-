@@ -710,6 +710,11 @@ FORMATAÇÕES ESPECIFICAS
 .col-half-margin{
     margin-right: 4.1666665%
 }
+
+.col-half-margin-left{
+    margin-left: 4.1666665%
+}
+
 .edit-tabs li{
     width: 50%;
     padding: 0;
@@ -1161,7 +1166,6 @@ ul{
 }
 
 #ficha-projeto{
-    width: 40%;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 
 }
@@ -1179,6 +1183,12 @@ ul{
     margin-right: auto;
 }
 
+.divisor-projetos{
+    border: 1px solid #DFDCDC;
+    box-shadow: 1px 1px 1px #c9c7c7;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
 .inside{
     background-image: url('../img/backinternaa.png');

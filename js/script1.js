@@ -156,12 +156,6 @@ $('#precoest').on('keyup', function(e){
     }
   });
 
-$('#testando').on('click', function(){
-	$('.nomeetp').each(function(){
-		alert($(this).val());
-	});
-});
-
 /*------------ Formulário de Cadastro -----------------*/
 
 $('.submit_btn').on('click', function(e){
