@@ -32,11 +32,23 @@ if(!isset($_SESSION['email'])){
 
     <script type="text/javascript">
       $(document).ready(function(){
-          $('#ficha-projeto').load('carrega_projetosbd.php');
-          $('#ficha-projeto').on('click', '.btn-attproj', function(){
-            var idproj = $(this).attr('data-value');
-            $.post('edita_projetosbd.php', {'idproj' : idproj});
-          });
+        $('#ficha-projeto').load('carrega_projetosbd.php');
+        $('#ficha-projeto').on('click', '.btn-attproj', function(){
+          var num_form = $(this).attr('data-value');
+          $.post('abre_projetosbd.php',
+            $('#form'+num_form).serialize(),
+            function(data){
+              $('#modalCadastro').before(data);
+              $.get('abre_projetosbd',
+                {check:1});
+              $('#modalEdit').modal('show');
+            });
+        });
+        $('#content').on('click', '#modal_edit_close', function(){
+          setTimeout(function(){
+            $('#modalEdit').remove();
+          }, 200);
+        });
       });
     </script>
 
@@ -49,6 +61,7 @@ if(!isset($_SESSION['email'])){
 
     <!-- Page Content Holder -->
     <div id="content">
+
      <?php
      include('templates/navbarinterna.php');
      ?>
@@ -64,12 +77,12 @@ if(!isset($_SESSION['email'])){
       </div><!--fimformatarow-->
 
       <div class="row formatarow" id="ficha-projeto">
-        
+
       </div>
     </div><!--section-->
 
-    <!-- Modal Cadastro Projetos -->
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Modal Cadastro Projetos -->
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <form action="cadastrarprojeto_bd.php" method="post">

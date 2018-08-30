@@ -20,7 +20,9 @@ if($stmt->execute()){
 $stmt->close();
 
 if($contaProjetos <= 0){
-	echo false;
+	echo '<div class="col-md-4 col-md-offset-4" style="text-align: center;">
+	<p>Você não possui nenhum projeto! Comece um agora usando o botão "Novo Projeto"</p>
+	</div>';
 }
 
 $stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?)");
@@ -47,18 +49,23 @@ for($i = 0; $i < $contaProjetos; $i++){
 				$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
 
 				echo '<div class="col-md-4 divisor-projetos col-md-offset-1">
-				<form id="form'.$i.'">
+				<form id="form'.$i.'" method="post">
 				<div class="col-md-12">
 				<h3>'.$nome_projeto.'</h3>
+				<input type="text" style="display: none;" name="nomeprojatt" value="'.$nome_projeto.'">
 				</div>		
 				<div class="col-md-12">
 				<img class="img-projetos" src="img/hog.jpg">
 				<div class="info-proj">
 				Nome do cliente: '.$nome_cliente.'<br>
+				<input type="text" style="display: none;" name="nomecliatt" value="'.$nome_cliente.'">
 				Preço Estabelecido: R$'.$preco.'<br>
+				<input type="text" style="display: none;" name="precoatt" value="'.$preco.'">
 				Data de entrega: '.$date->format('d-m-Y').'<br>
+				<input type="text" style="display: none;" name="dataentatt" value="'.$data_entrega.'">
 				</div>
-				<button type="submit" class="btn button-hp btn-attproj" data-value="'.$id_projeto.'">Atualizar</button>
+				<input type="text" style="display: none;" name="projatt" value="'.$id_projeto.'">
+				<button type="button" class="btn button-hp btn-attproj" data-value="'.$i.'">Atualizar</button>
 				</div>
 				</form>
 				</div>';
@@ -68,18 +75,23 @@ for($i = 0; $i < $contaProjetos; $i++){
 				
 
 				echo '<div class="col-md-4 divisor-projetos col-md-offset-2">
-				<form id="form'.$i.'">
+				<form id="form'.$i.'" method="post">
 				<div class="col-md-12">
 				<h3>'.$nome_projeto.'</h3>
+				<input type="text" style="display: none;" name="nomeprojatt" value="'.$nome_projeto.'">
 				</div>		
 				<div class="col-md-12">
 				<img class="img-projetos" src="img/hog.jpg">
 				<div class="info-proj">
 				Nome do cliente: '.$nome_cliente.'<br>
+				<input type="text" style="display: none;" name="nomecliatt" value="'.$nome_cliente.'">
 				Preço Estabelecido: R$'.$preco.'<br>
+				<input type="text" style="display: none;" name="precoatt" value="'.$preco.'">
 				Data de entrega: '.$date->format('d-m-Y').'<br>
+				<input type="text" style="display: none;" name="dataentatt" value="'.$data_entrega.'">
 				</div>
-				<button type="submit" class="btn button-hp btn-attproj" data-value="'.$id_projeto.'">Atualizar</button>
+				<input type="text" style="display: none;" name="projatt" value="'.$id_projeto.'">
+				<button type="button" class="btn button-hp btn-attproj" data-value="'.$i.'">Atualizar</button>
 				</div>
 				</form>
 				</div>';
