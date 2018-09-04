@@ -130,17 +130,9 @@ if($stmt->execute()){
 
 				$stmt->close();
 
-			} else{
-				echo "Erro ao recuperar as etapas";
 			}
-		} else{
-			echo "Erro ao recuperar o projeto";
 		}
-	} else{
-		echo "Erro na verificação do projeto";
 	}
-} else{
-	echo "Erro na comunicação com o banco de dados para a verificação do projeto";
 }
 
 ?>

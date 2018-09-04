@@ -1,96 +1,121 @@
-<!-- Modal Edição Projetos -->
-    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php
+
+require_once('db.class.php');
+
+session_start();
+
+$objdb = new db();
+$link = $objdb->connect();
+$id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
+$id_projatt = $_POST['projatt'];
+$nome_cliatt = $_POST['nomecliatt'];
+$nome_projatt = $_POST['nomeprojatt'];
+$dataatt = $_POST['dataentatt'];
+$precoatt = $_POST['precoatt'];
+$check = isset($_POST['check']) ? $_POST['check'] : 0;
+
+$stmt = $link->prepare('SELECT nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_projeto = ?');
+$stmt->bind_param('i', $id_projatt);
+if($stmt->execute()){
+  //execute
+  $stmt->store_result();
+  $stmt->bind_result($nome_cliente, $preco, $nome_projeto, $data_entrega);
+  $stmt->fetch();
+
+  if($nome_cliente == $nome_cliatt && $nome_projeto == $nome_projatt && $preco == $precoatt && $data_entrega == $dataatt){ //verifica se o usuário não mudou nada pelo devtool
+    //if1
+    $stmt->free_result();
+    $stmt->close();
+
+    $stmt = $link->prepare('SELECT * FROM projeto WHERE id_projeto = ?'); //query para pegar o projeto
+    $stmt->bind_param('i', $id_projatt);
+
+    if($stmt->execute()){
+      //if2
+      $resultP = $stmt->get_result();
+      $rowP = $resultP->fetch_assoc();
+      $stmt->close();
+
+      echo '<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Modal Edição Projetos -->
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <form action="" method="post">
-            <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h3 class="modal-title">
-                <div>
+      <div class="modal-content">
+      <form action="" method="post">
+      <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 class="modal-title">
+      <div>
 
-                  <span id="nome-projetoupd">Novo Projeto</span>
-                  <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
-                    <img class="img-edicao" src="img/edit-file.png">
-                  </button>
-                  <input id="nomeprojupd" type="text" name="nome_projetoupd" style="display: none;">
-                </div>
-              </h3>
-            </div>
-
-            <div class="modal-body">
-              <div class="col-left">
-                <label for="nomecli">Nome do Cliente/Empresa</label>
-                <input type="text" class="text_field" id="nomecliupd" name="nomecliupd">
-              </div>
-              <div class="col-right">
-                <label for="tipopro">Tipo de Projeto</label>
-                <input type="text" class="text_field" id="tipoproupd" name="tipoproupd">
-              </div>
-              <div class="col-cent">
-                <label for="descri">Descrição do Projeto</label>
-                <textarea id="descriupd" maxlength="254" class="text_field" name="descriproupd"></textarea>
-              </div>
-              <div class="col-left">
-                <label for="dataini">Data Início</label>
-                <input type="date" class="text_field" id="datainiupd" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="datainiupd">
-              </div>
-              <div class="col-right">
-                <label for="dataent">Data Entrega</label>
-                <input type="date" class="text_field" id="dataentupd" min="<?=date('Y-m-d')?>" max="<?='2038-01-19'?>" name="datatermupd">
-              </div>
-              <div class="col-md-offset-4 col-md-4 input-icon">
-                <label for="precoest">Preço Estabelecido</label>
-                <input type="text" max="999999999" class="text_field" id="precoestupd" name="precoestupd"><i>R$</i>
-              </div>
-              <div class="col-md-12">
-                <h3>O que vai ser feito?</h3>
-                <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separadas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
-              </div>
-              <div class="col-md-12">
-                <div class="panel-group" id="accordionupd" role="tablist" aria-multiselectable="true">
-                  <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="heading1upd">
-                      <h4 class="panel-title">
-                        <div>
-                          <a class="nome-etapa" role="button" data-toggle="collapse" data-parent="#accordionupd" href="#collapseupdZ1" aria-expanded="true" data-value="1" aria-controls="collapseupdZ1" id="nome-etapa1upd">Etapa #1</a>
-                          <button type="button" id="edita-etapa1upd" class="btn-edicao edita-txt">
-                            <img class="img-etapa-edicao" src="img/edit-file.png">
-                          </button>
-                          <input class="nomeetp" id="input-etapa1upd" type="text" name="nome_etapaupd[1]" style="display: none;">
-                        </div>
-                      </h4>
-                    </div>
-                    <div id="collapseupdZ1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
-                      <div id='acordion1upd' class="acordion-st row">
-                        <div class="col-md-4">
-                          <label data-value='1.1'>Atividade #1 </label>
-                          <input type="text" name="campoupd[1][1]">
-                        </div>
-                        <button type="button" id="btnc1" class="btn-edicao add-passo" style="float: right;">
-                          <img class="img-edicao" src="img/add-circular-button.png">
-                        </button>
-                        <button type="button" id="btnr1" class="btn-edicao rmv-passo" style="float: right;">
-                          <img class="img-edicao" src="img/minus.png">
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <button type="button" class="button -regular" id="add-etapa" style="float: right;">Mais etapas
-                  </button>
-                  <button type="button" class="button -regular" id="rmv-etapa" style="float: right;">Menos etapas
-                  </button>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="modal-footer" style="clear: both;">
-              <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-              <button type="submit" class="button -regular">Criar</button>
-            </div>
-          </form>
-        </div>
+      <span id="nome-projetoupd">'.$rowP['nome_projeto'].'</span>
+      <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
+      <img class="img-edicao" src="img/edit-file.png">
+      </button>
+      <input id="nomeprojupd" type="text" name="nome_projetoupd" style="display: none;" value="'.$rowP['nome_projeto'].'">
       </div>
-    </div><!-- Fim Modal -->
+      </h3>
+      </div>
+
+      <div class="modal-body">
+      <div class="col-left">
+      <label for="nomecli">Nome do Cliente/Empresa</label>
+      <input type="text" class="text_field" id="nomecliupd" name="nomecliupd" value="'.$rowP['nome_cliente'].'">
+      </div>
+      <div class="col-right">
+      <label for="tipopro">Tipo de Projeto</label>
+      <input type="text" class="text_field" id="tipoproupd" name="tipoproupd" value="'.$rowP['tipo_projeto'].'">
+      </div>
+      <div class="col-cent">
+      <label for="descri">Descrição do Projeto</label>
+      <textarea id="descriupd" maxlength="254" class="text_field" name="descriproupd">'.$rowP['descri_projeto'].'</textarea>
+      </div>
+      <div class="col-left">
+      <label for="dataini">Data Início</label>
+      <input type="date" class="text_field" id="datainiupd" min="1980-01-01" max="2038-01-19" name="datainiupd" value="'.$rowP['data_inicio'].'">
+      </div>
+      <div class="col-right">
+      <label for="dataent">Data Entrega</label>
+      <input type="date" class="text_field" id="dataentupd" min="date("Y-m-d")" max="2038-01-19" name="datatermupd" value="'.$rowP['data_entrega'].'">
+      </div>
+      <div class="col-md-offset-4 col-md-4 input-icon">
+      <label for="precoest">Preço Estabelecido</label>
+      <input type="text" max="999999999" class="text_field" id="precoestupd" name="precoestupd" value="'.$rowP['preco_estabelecido'].'"><i>R$</i>
+      </div>
+      <div class="col-md-12">
+      <h3>O que vai ser feito?</h3>
+      <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separadas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
+      </div>
+
+      </div>
+
+      <div class="modal-footer" style="clear: both;">
+      <button type="button" id="modal_edit_close" class="button -regular" data-dismiss="modal">Voltar</button>
+      <button type="submit" class="button -regular">Criar</button>
+      </div>
+      </form>
+      </div>
+      </div>
+      <!-- Fim Modal -->
+      </div>';
+
+      $stmt = $link->prepare('SELECT * FROM etapas WHERE id_projeto = ?'); //query para pegar as etapas do projeto
+      $stmt->bind_param('i', $id_projatt);
+
+if($stmt->execute()){
+        $resultE = $stmt->get_result();
+        $i = 0;
+        
+        while($rowE = $resultE->fetch_assoc()){
+          $arrayE['id_etapa'][$i] = $rowE['id_etapa'];
+          $arrayE['etapa'][$i] = $rowE['etapa'];
+          $arrayE['ordem_etapa'][$i] = $rowE['ordem_etapa'];
+          $i++;
+        }//fim while
+
+      }//fim if3
+    }//fim if2
+  }//fim if1
+}//fim execute1
+
+?>
