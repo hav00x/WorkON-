@@ -30,6 +30,8 @@ $num_errado = false;
 $cpf_errado = false;
 $senha_insegura = false;
 $email_invalido = false;
+$imagem_grande = false;
+$erro_foto = false;
 
 //verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
 
@@ -70,11 +72,67 @@ if($email != $confirmaEmail){
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $email_invalido = true;
+	$email_invalido = true;
 }
 
 if($_POST['senha'] != $confirmaSenha){
 	$senha_diferente = true;
+}
+
+	//verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
+$RA = Trim( stripslashes( $_POST[ 'arquivo' ] ) ); 
+	//Filedata é a variável que o flex envia com o arquivo para upload
+$arquivo = $_FILES['Filedata'];
+
+	// Pasta onde o arquivo vai ser salvo
+$_UP['pasta'] = 'up-perfil/';
+
+// Tamanho máximo do arquivo (em Bytes)
+$_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
+
+// Array com as extensões permitidas
+$_UP['extensoes'] = array('png', 'jpg', 'jpeg', 'svg');
+
+// Renomeia o arquivo? (Se true, o arquivo será salvo como .jpg e um nome único)
+$_UP['renomeia'] = false;
+
+// Array com os tipos de erros de upload do PHP
+$_UP['erros'][0] = 'Não houve erro';
+$_UP['erros'][1] = 'O arquivo no upload é maior do que o limite do PHP';
+$_UP['erros'][2] = 'O arquivo ultrapassa o limite de tamanho especifiado no HTML';
+$_UP['erros'][3] = 'O upload do arquivo foi feito parcialmente';
+$_UP['erros'][4] = 'Não foi feito o upload do arquivo';
+
+	// Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
+if ($_FILES['Filedata']['error'] != 0) {
+	$erro_foto = true;
+} else{
+// Caso script chegue a este ponto, não houve erro com o processo de  upload  e o PHP pode continuar
+
+// Faz a verificação da extensão do arquivo
+	$arquivo = $_FILES['Filedata']['name'];
+	$extensao  = substr($arquivo,-4);
+
+// Faz a verificação do tamanho do arquivo enviado
+	if ($_UP['tamanho'] < $_FILES['Filedata']['size']) {
+		echo "O arquivo enviado é muito grande, envie arquivos de até 2Mb.";
+		$imagem_grande = true;
+	}
+
+// O arquivo passou em todas as verificações, hora de tentar movê-lo para a pasta
+	else {
+		$nome_final = date("d.m.Y-H.i.s").'_'.$RA;
+		$caminho_imagem = "up-perfil/".$nome_final;
+
+// Depois verifica se é possível mover o arquivo para a pasta escolhida
+		if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $_UP['pasta'] . $nome_final)) {
+// Upload efetuado com sucesso, exibe uma mensagem e um link para o arquivo
+			echo "Seu arquivo foi enviado com sucesso";
+		} else {
+// Não foi possível fazer o upload. Algum problema com a pasta
+			echo "Não foi possível enviar o seu arquivo";
+		}
+	}
 }
 
 $stmt = $link->prepare("SELECT cpf FROM usuariopf WHERE cpf = ?");
@@ -110,7 +168,7 @@ if($stmt->execute()){
 
 $stmt->close();
 
-if($cpf_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cpf_errado || $senha_insegura || $email_invalido){
+if($cpf_existe || $email_existe || $email_diferente || $senha_diferente || $campo_vazio || $num_errado || $cpf_errado || $senha_insegura || $email_invalido || $imagem_grande || $erro_foto){
 
 	$retorno_get = '';
 
@@ -150,17 +208,25 @@ if($cpf_existe || $email_existe || $email_diferente || $senha_diferente || $camp
 		$retorno_get.="erro_emailinval=1&";
 	}
 
+	if($imagem_grande){
+		$retorno_get.="erro_imggrande=1&";
+	}
+
+	if($erro_foto){
+		$retorno_get.="erro_foto=1&";
+	}
+
 	header('Location: cadastro-PF.php?'.$retorno_get);
 
 	die();
 }
 
-$stmt = $link->prepare("INSERT INTO usuariopf(senha, nome, sobrenome, cpf, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $link->prepare("INSERT INTO usuariopf(senha, nome, sobrenome, cpf, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-$stmt->bind_param("sssiisssssiisss", $senha, $nome, $sobrenome, $cpf, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram);
+$stmt->bind_param("sssiisssssiissss", $senha, $nome, $sobrenome, $cpf, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
 
 if($stmt->execute()){
-	echo 'Usuário registrado com sucesso';
+	header("Location: index.php?sucesso=1");
 }else{
 	echo 'Erro ao cadastrar usuário';
 }
