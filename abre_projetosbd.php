@@ -78,11 +78,15 @@ if($stmt->execute()){
                       		$resultA = $stmt->get_result();
                       		$j = 0;
                       		while($rowA = $resultA->fetch_assoc()){
-                      			$arrayA['passo'][$j][$i] = $rowA['passo'];
-                      			$arrayA['ordem_passo'][$j][$i] = $rowA['ordem_passo'];
-                      			$arrayA['id_etapa'][$j][$i] = $rowA['id_etapa'];
+                      			$arrayA['passo'][$i][$j] = $rowA['passo'];
+                      			$arrayA['ordem_passo'][$i][$j] = $rowA['ordem_passo'];
+                      			$arrayA['id_etapa'][$i][$j] = $rowA['id_etapa'];
                       			$j++;
-                      		}						
+                      		}			
+
+                      		if($check == 2){
+                      			echo json_encode($arrayA);
+                      		}			
                       	} else{
                       		echo "Erro ao recuperar os passos";
                       	}

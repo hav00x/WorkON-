@@ -38,22 +38,30 @@ if(!isset($_SESSION['email'])){
           $.post('abre_projetosbd.php', // carrega primeiro o projeto
             $('#form'+num_form).serialize(),
             function(data){
-              $('#nome-projetoupd').val(data.rowP['nome_projeto']);
-              $('#nomeprojupd').val(data.rowP['nome_projeto']);
-              $('#nomecliupd').val(data.rowP['nome_cliente']);
-              $('#tipoproupd').val(data.rowP['tipo_projeto']);
-              $('#datainiupd').val(data.rowP['data_inicio']);
-              $('#dataentupd').val(data.rowP['data_entrega']);
-              $('#nomecliupd').val(data.rowP['nome_cliente']);
-              $('#precoestupd').val(data.rowP['preco_estabelecido']);
+
+              $('#nome-projetoupd').text(data['nome_projeto']);
+              $('#nomeprojupd').val(data['nome_projeto']);
+              $('#nomecliupd').val(data['nome_cliente']);
+              $('#tipoproupd').val(data['tipo_projeto']);
+              $('#datainiupd').val(data['data_inicio']);
+              $('#dataentupd').val(data['data_entrega']);
+              $('#nomecliupd').val(data['nome_cliente']);
+              $('#precoestupd').val(data['preco_estabelecido']);
+              $('#descriupd').val(data['descri_projeto']);
 
               $.post('abre_projetosbd.php', // depois as etapas
                $('#form'+num_form).serialize() + '&check=' + 1,
                function(data){
+                $('#accordionupd').contents().remove();
                 $('#accordionupd').append(data);
+                $.post('abre_projetosbd.php', // e os passos
+                  $('#form'+num_form).serialize() + '&check=' + 2,
+                  function(data){
+
+                  });
               });
               $('#modalEdit').modal('show');
-            });
+            }, "json");
         });
       });
     </script>
@@ -136,11 +144,12 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class='col-md-12'>
               <div class='panel-group' id='accordionupd' role='tablist' aria-multiselectable='true'>
-                <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
+                
+              </div>
+              <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
                 </button>
                 <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
                 </button>
-              </div>
             </div>
 
 

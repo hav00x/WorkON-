@@ -67,7 +67,7 @@ $('#accordion', '#accordionupd').on('click', '.edita-txt', function(){
 	$(this).prev().attr('data-toggle', '');
 });      
 
-$('#nome-projeto').on('keydown', function(e){
+$('#nome-projeto','#nome-projetoupd').on('keydown', function(e){
 	if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
