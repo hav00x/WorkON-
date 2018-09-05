@@ -737,30 +737,15 @@ FORMATAÇÕES ESPECIFICAS
     transition: 0.5s;
 }
 
-.info-perfil h4{
-    color: #000000;
-}
+
 
 #div-projetos{
     background-color: white;
     padding: 5px 15px 5px 15px;
-    border-radius: 10px;
-
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-#projetos h2{
-   color: #FF7F50;
-}
 
-#pedidos h2{
-    color: #FF7F50;
-}
-
-.div-pedidos{
-    background-color: white;
-    padding: 5px 7px 5px 15px;
-    border-radius: 10px;
-}
 
 
 #input-homepage{
@@ -1121,15 +1106,16 @@ ul{
 }
 
 #perfil-data{
-    padding: 10px;
-    background-color: #E8E8E8;
-    width: 100%;
+    background-color:rgba(255, 165, 0, 0.5);
+    height: 340px;
+    border-radius: 5px;
+
 }
 
-#perfil-data>h4{
-    font-family: 'Abel';
+#header-homepage{
+    font-family: 'Alpha-Regular';
     color: black;
-    font-size: 20px;
+    text-align: center;
 }
 
 .headerpag{
@@ -1193,11 +1179,25 @@ ul{
 
 
 
+.bulb{
+    background-image: url(../img/bulb.png);
+}
 
 
+#homepage-title{
+    text-align: center;
+    font-family: 'Alpha-Regular';
+    color: #000;
+}
 
+#homepage-title:hover{
+    color: #FFA500;
+    transition:  all 0.15s;
+}
 
-
+.infocard{
+     url('../img/infocard.png'); 
+}
 /* ---------------------------------------------------
 CADASTRO
 ----------------------------------------------------- */
@@ -1231,7 +1231,15 @@ CADASTRO
 
 
 
+#div-perfil{
+    text-align: center;
+    color: black
+}
 
+#div-perfil p{
+    margin: 15px;
+    font-size: 
+}
 
 
 

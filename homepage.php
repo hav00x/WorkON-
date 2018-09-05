@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=3" rel="stylesheet">
+  <link href="css/estilo.css?ver=7" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -45,44 +45,54 @@ if(!isset($_SESSION['email'])){
 
      <!--DIV PERFIL-->
      <div class="row section" id="div-perfil">
-      <h1 style="text-align: center; font-family: 'Alpha-Regular';">Seu perfil</h1>
+      <h1 id="homepage-title">Seu perfil</h1>
       <div class="col-md-4">
         <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-thumbnail" style="width: 100%;">
       </div>
 
-      <div class="col-md-8 info-perfil">
+      <div class="col-md-8 info-perfil" id="perfil-data">
         <div class="row">
-          <div id="perfil-data" class="col-md-12">
-              <h3>Quem é você:</h3>
+          <div  class="col-md-12">
+              <h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
             </div>
-        </div>
+        </div><!--fim row who-->
         <div class="row">
-          <div class="col-md-4">
-            <p>NOME</p>
-          </div>
 
           <div class="col-md-4">
             <p>PJ/PF</p>
+          </div>
+          <div class="col-md-4">
+          <span class="bulb"></span><p>NOME</p>
           </div>
 
           <div class="col-md-4">
             <p>Localização</p>
           </div>
-        </div>
+        </div><!--fim row who-info-->
 
         <div class="row">
           <div class="col-md-12">
-            <h3>O que você faz</h3>
+            <h3 id="header-homepage"><img src="img/werk.png"> O que você faz</h3>
           </div>
-        </div>
+        </div><!-- fim row what-->
+
         <div class="row">
-          <div class="col-md-6">
-            <p>SEGMENTO</p>
+          <div class="col-md-12">
+            <p>DESCRIÇÃOX</p>
           </div>
-          <div class="col-md-6">
-            <p>DESCRIÇÃO</p>
+        </div><!--fim row descrição-->
+
+        <div class="row">
+          <div class="col-md-4">
+            <p>FACEBOOK</p>
           </div>
-        </div>
+          <div class="col-md-4">
+            <p>INSTAGRAM</p>
+          </div>
+          <div  class="col-md-4">
+            <p>SITE</p>
+          </div>
+        </div><!--fim row social media-->
       </div>
 
 
@@ -92,70 +102,37 @@ if(!isset($_SESSION['email'])){
 
     </div><!--FIM PERFIL-->
 
-    <div class="row section" id="projetos">
-     <div class="col-md-12">
-      <h2>PROJETOS</h2>
-    </div>
-    <div class="col-md-4">
-      <div id="div-projetos">
-        <h4>Titulo:</h4>
-        <p>Descrição:</p>
-        <p>Cliente:</p>
-        <p>Tipo:</p>
-        <p>Data de entrega:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div id="div-projetos">
-        <h4>Titulo:</h4>
-        <p>Descrição:</p>
-        <p>Cliente:</p>
-        <p>Tipo:</p>
-        <p>Data de entrega:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div id="div-projetos">
-        <h4>Titulo:</h4>
-        <p>Descrição:</p>
-        <p>Cliente:</p>
-        <p>Tipo:</p>
-        <p>Data de entrega:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>  
-  </div>
-  <div class="row section" id="pedidos">
-    <div class="col-md-12">
-      <h2>PEDIDOS</h2>
-    </div>
-    <div class="col-md-4">
-      <div class="div-pedidos">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="div-pedidos">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="div-pedidos">
-        <h4>Pedido</h4>
-        <p>Tipo:</p>
-        <button class="btn btn-details">Ver detalhes</button>
-      </div>
-    </div>
-  </div>
+    <div class="section">
+     <div class="row">
+      <div class="col-md-12">
+       <h1 id="homepage-title">PROJETOS RECENTES</h1>
+      </div>       
+     </div>
 
-  <p style="font-size: 10px; text-align: center;">ROOT | sua plataforma de projetos - 2018</p>
-</div>
+    <div class="row">
+    <div class="col-md-4" id="ficha-projeto">
+      <h3>Projeto ódio</h3>
+        <div class="row">
+          <div class="col-md-12">
+            <img id="img-projetos" src="img/hog.jpg">
+            <div id="info-proj">
+                Nome do cliente:<br>
+                Preço Estabelecido:<br>
+                Data de entrega:<br>
+              </div>
+              <button class="btn button-hp"">Atualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+</div> <!-- FIM CONTENT -- >
+
+
+
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- jQuery Custom Scroller CDN -->
