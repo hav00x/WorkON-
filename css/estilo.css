@@ -694,7 +694,7 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 
-#descri{
+.descri{
  resize: none;
  height: 100px;
 }
@@ -856,7 +856,9 @@ PROJETO
     border-top: none;
 }
 
-#modalCadastro .modal-dialog{
+#modalCadastro .modal-dialog,
+#modalEdit .modal-dialog
+{
     width: 70%;
 }
 
