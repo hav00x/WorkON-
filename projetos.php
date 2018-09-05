@@ -65,6 +65,12 @@ if(!isset($_SESSION['email'])){
         });
       });
     </script>
+<<<<<<< HEAD
+    <script src="js/script1.js?ver=3"></script>
+
+  </body>
+  </html>
+=======
 
   </head>
   <body class="inside">
@@ -284,3 +290,4 @@ if(!isset($_SESSION['email'])){
 
 </body>
 </html>
+>>>>>>> f82beb8c57a9e9f7b406231aa619cb2b2ad1f361
