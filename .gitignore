@@ -1,0 +1,5 @@
+## Ignored Folders
+.vscode
+## Ignored Files
+*.zip
+*.txt

@@ -65,7 +65,7 @@ $('#accordion', '#accordionupd').on('click', '.edita-txt', function(){
 	$(this).prev().attr('contenteditable', 'true');
 	$(this).prev().focus();
 	$(this).prev().attr('data-toggle', '');
-});      
+});
 
 $('#nome-projeto','#nome-projetoupd').on('keydown', function(e){
 	if(e.which === 13){
@@ -174,7 +174,7 @@ $('.regform input').each(function(){
 			vazio = true;
 			contador = contador +1;
 		}
-	} 
+	}
 
 	if (contador == 0){
 		vazio = false;
@@ -186,7 +186,7 @@ $('.regform textarea').each(function(){
 	if ($(this).val() == ''){
 		vazio = true;
 		contador = contador +1;
-	} 
+	}
 
 	if (contador == 0){
 		vazio = false;
@@ -197,7 +197,8 @@ $('.regform textarea').each(function(){
 contador = 0;
 
 if(vazio == true){
-	$('#modalErro .modal-body p').append('Preencha todos os campos');
+  $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+	// $('#modalErro .modal-body p').append('Preencha todos os campos');
 	$('#modalErro').modal('show');
 	event.preventDefault();
 }
@@ -244,7 +245,7 @@ $("#imgInp").change(function() {
 // Impede o usuário de dar enter para enviar o formulário
 $('.pagcadastro input').keypress(function (e) {
 	var code = null;
-	code = (e.keyCode ? e.keyCode : e.which);                
+	code = (e.keyCode ? e.keyCode : e.which);
 	return (code == 13) ? false : true;
 });
 
