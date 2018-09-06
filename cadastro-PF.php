@@ -256,6 +256,6 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
     </div>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script1.js"></script>
+    <script src="js/script1.js?ver=1"></script>
   </body>
   </html>
