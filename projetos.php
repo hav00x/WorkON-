@@ -57,7 +57,7 @@ if(!isset($_SESSION['email'])){
                 $.post('abre_projetosbd.php', // e os passos
                   $('#form'+num_form).serialize() + '&check=' + 2,
                   function(data){
-
+                    console.log(data);
                   });
               });
               $('#modalEdit').modal('show');
@@ -65,12 +65,6 @@ if(!isset($_SESSION['email'])){
         });
       });
     </script>
-<<<<<<< HEAD
-    <script src="js/script1.js?ver=3"></script>
-
-  </body>
-  </html>
-=======
 
   </head>
   <body class="inside">
@@ -290,4 +284,3 @@ if(!isset($_SESSION['email'])){
 
 </body>
 </html>
->>>>>>> f82beb8c57a9e9f7b406231aa619cb2b2ad1f361

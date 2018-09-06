@@ -1179,9 +1179,8 @@ ul{
 }
 
 .inside{
- background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    background-image: linear-gradient(rgba(255, 165, 0, 0.7), rgba(255, 102, 0, 0.7)) ;
 }
-
 .info-proj{
     text-align: center;
     font-weight: bold;

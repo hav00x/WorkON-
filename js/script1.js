@@ -61,7 +61,7 @@ $('#nome-projeto').on('blur', function(){
 	$('#nome-projeto').attr('contenteditable', 'false');
 });
 
-$('#accordion', '#accordionupd').on('click', '.edita-txt', function(){
+$('#accordion, #accordionupd').on('click', '.edita-txt', function(){
 	$(this).prev().attr('contenteditable', 'true');
 	$(this).prev().focus();
 	$(this).prev().attr('data-toggle', '');
@@ -74,7 +74,7 @@ $('#nome-projeto','#nome-projetoupd').on('keydown', function(e){
           }
         });
 
-$('#accordion', '#accordionupd').on('keydown', '.nome-etapa', function(e){
+$('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
 	if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
@@ -87,13 +87,13 @@ $('#accordion', '#accordionupd').on('blur', '.nome-etapa', function(){
 	$(this).attr('data-toggle', 'collapse');
 });
 
-$('#accordion', '#accordionupd').on('click', '.add-etapa', function(){
+$('#accordion, #accordionupd').on('click', '.add-etapa', function(){
 	count = count + 1;
 	$(this).before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseZ"+count+"' aria-expanded='false' aria-controls='collapseZ"+count+"' data-value='0' id='nome-etapa"+count+"'>Etapa #"+count+"</a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button>  <input class='nomeetp' id='input-etapa"+count+"' type='text' name='nome_etapa["+count+"]' style='display: none;'> </div> </h4> </div> <div id='collapseZ"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row' id='acordion"+count+"'> <div class='col-md-4'> <label data-value='"+count+".1'>Atividade #1</label> <input type='text' name='campo["+count+"][1]'> </div> <button type='button' id='btnc"+count+"' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'> </button> <button type='button' id='btnr"+count+"' class='btn-edicao rmv-passo' style='float: right;'> <img class='img-edicao' src='img/minus.png'> </button> </div> </div> </div>");
 	$('#input-etapa'+count).val($('#nome-etapa'+count).text());
 });
 
-$('#accordion', '#accordionupd').on('click', '.rmv-etapa', function(){
+$('#accordion, #accordionupd').on('click', '.rmv-etapa', function(){
 	if(count <= 1){
 		return false;
 	}else{

@@ -78,20 +78,32 @@ if($stmt->execute()){
                       		$resultA = $stmt->get_result();
                       		$j = 0;
                       		while($rowA = $resultA->fetch_assoc()){
-                      			$arrayA['passo'][$i][$j] = $rowA['passo'];
-                      			$arrayA['ordem_passo'][$i][$j] = $rowA['ordem_passo'];
-                      			$arrayA['id_etapa'][$i][$j] = $rowA['id_etapa'];
+                      			$arrayA['passo'][$j][$i] = $rowA['passo'];
+                      			$arrayA['ordem_passo'][$j][$i] = $rowA['ordem_passo'];
+                      			$arrayA['id_etapa'][$j][$i] = $rowA['id_etapa'];
+                      			$arrayAtividade[$j][$i] = "<div id='acordion1upd' class='acordion-st row'>
+                      			<div class='col-md-4'>
+                      			<label data-value='1.1'>Atividade #".$rowA['ordem_passo']."</label>
+                      			<input type='text' name='campoupd[1][1]'>
+                      			</div>
+                      			<button type='button' id='btnc1' class='btn-edicao add-passo' style='float: right;'>
+                      			<img class='img-edicao' src='img/add-circular-button.png'>
+                      			</button>
+                      			<button type='button' id='btnr1' class='btn-edicao rmv-passo' style='float: right;'>
+                      			<img class='img-edicao' src='img/minus.png'>
+                      			</button>
+                      			</div>";
                       			$j++;
                       		}			
 
-                      		if($check == 2){
-                      			echo json_encode($arrayA);
-                      		}			
                       	} else{
                       		echo "Erro ao recuperar os passos";
-                      	}
+                      	}          
                       }
 
+                      if($check == 2){
+                      	echo var_dump($arrayA);
+                      }	
                       $stmt->close();
 
                   }
