@@ -1,5 +1,7 @@
 ## Ignored Folders
 .vscode
+node_modules
 ## Ignored Files
 *.zip
 *.txt
+.eslintrc.js
