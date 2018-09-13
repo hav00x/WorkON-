@@ -14,8 +14,7 @@ if($stmt->execute()){
 	$stmt->fetch();
 	if(isset($jemail)){
 		
-	echo' <div class="col-md-8 info-perfil" id="perfil-data">
-		<div class="row">
+		echo '<div class="row">
 		<div  class="col-md-12">
 		<h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
 		</div>
@@ -56,8 +55,7 @@ if($stmt->execute()){
 		<div  class="col-md-4">
 		<p>'.$site.'</p>
 		</div>
-		</div><!--fim row social media-->
-		</div>';
+		</div><!--fim row social media-->';
 
 	}
 }
@@ -72,7 +70,7 @@ if($stmt->execute()){
 	$stmt->fetch();
 	if(isset($femail)){
 		
-	echo' <div class="col-md-8 info-perfil" id="perfil-data">
+		echo' <div class="col-md-8 info-perfil" id="perfil-data">
 		<div class="row">
 		<div  class="col-md-12">
 		<h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
@@ -119,4 +117,4 @@ if($stmt->execute()){
 
 	}
 }
-	?>
+?>

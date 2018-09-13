@@ -105,7 +105,7 @@ if(!isset($_SESSION['email'])){
             <h3 class='modal-title'>
               <div>
                 <span id='nome-projetoupd'></span>
-                <button style='display: inline-block; margin-bottom: 10px;' type='button' id='edita-projeto' class='btn-edicao'>
+                <button style='display: inline-block; margin-bottom: 10px;' type='button' class='btn-edicao edita-projeto'>
                   <img class='img-edicao' src='img/edit-file.png'>
                 </button>
                 <input id='nomeprojupd' type='text' name='nome_projetoupd' style='display: none;'>
@@ -178,7 +178,7 @@ if(!isset($_SESSION['email'])){
               <div>
 
                 <span id="nome-projeto">Novo Projeto</span>
-                <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
+                <button style="display: inline-block; margin-bottom: 10px;" type="button" class="edita-projeto btn-edicao">
                   <img class="img-edicao" src="img/edit-file.png">
                 </button>
                 <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">

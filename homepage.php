@@ -33,7 +33,7 @@ if(!isset($_SESSION['email'])){
     <script type="text/javascript">
       $(document).ready(function(){
         $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
-        $('#div-perfil').last().after().load('carrega_infoperfil.php');
+        $('#perfil-data').load('carrega_infoperfil.php');
       });
     </script>
 
@@ -55,6 +55,8 @@ if(!isset($_SESSION['email'])){
       <h1 id="homepage-title">Seu perfil</h1>
       <div class="col-md-4">
         <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-thumbnail" style="width: 100%;">
+      </div>
+      <div class="col-md-8 info-perfil" id="perfil-data">
       </div>
     </div>
 

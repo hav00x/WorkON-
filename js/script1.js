@@ -52,9 +52,9 @@ $(document).ready(function () {
 
 /*------------ Formulário de Projeto -----------------*/
 
-$('#edita-projeto').on('click', function(){
-  $('#nome-projeto').attr('contenteditable', 'true');
-  $('#nome-projeto').focus();
+$('.edita-projeto').on('click', function(){
+  $(this).prev().attr('contenteditable', 'true');
+  $(this).prev().focus();
 });
 
 $('#nome-projeto').on('blur', function(){
