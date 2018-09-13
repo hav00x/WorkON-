@@ -48,45 +48,45 @@ if(!isset($_SESSION['email'])){
       <div class="row">
         <div class="col-md-12">
           <h3 class="modal-title">
-          <div>
+            <div>
              <span id="nome-projeto">Novo Projeto</span>
-            <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
+             <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
               <img class="img-edicao" src="img/edit-file.png">
             </button>
             <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
           </div>
         </h3>
-        </div>
-      </div><!--fim row-->
-<div class="col-left">
-              <label for="nomecli">Nome do Cliente/Empresa</label>
-              <input type="text" class="text_field" id="nomecli" name="nomecli">
-            </div>
-            <div class="col-right">
-              <label for="tipopro">Tipo de Projeto</label>
-              <input type="text" class="text_field" id="tipopro" name="tipopro">
-            </div>
-            <div class="col-cent">
-              <label for="descri">Descrição do Projeto</label>
-              <textarea id="descri" maxlength="254" class="text_field descri" name="descripro"></textarea>
-            </div>
-            <div class="col-left">
-              <label for="dataini">Data Início</label>
-              <input type="date" class="text_field" id="dataini" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="dataini">
-            </div>
-            <div class="col-right">
-              <label for="dataent">Data Entrega</label>
-              <input type="date" class="text_field" id="dataent" min="<?=date('Y-m-d')?>" max="<?='2038-01-19'?>" name="dataterm">
-            </div>
-            <div class="col-md-offset-4 col-md-4 input-icon">
-              <label for="precoest">Preço Estabelecido</label>
-              <input type="text" max="999999999" class="text_field" id="precoest" name="precoest"><i>R$</i>
-            </div>
-            <div class="col-md-12">
-              <h3>O que vai ser feito?</h3>
-              <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separadas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
-            </div>
-     </div>
+      </div>
+    </div><!--fim row-->
+    <div class="col-left">
+      <label for="nomecli">Nome do Cliente/Empresa</label>
+      <input type="text" class="text_field" id="nomecli" name="nomecli">
+    </div>
+    <div class="col-right">
+      <label for="tipopro">Tipo de Projeto</label>
+      <input type="text" class="text_field" id="tipopro" name="tipopro">
+    </div>
+    <div class="col-cent">
+      <label for="descri">Descrição do Projeto</label>
+      <textarea id="descri" maxlength="254" class="text_field descri" name="descripro"></textarea>
+    </div>
+    <div class="col-left">
+      <label for="dataini">Data Início</label>
+      <input type="date" class="text_field" id="dataini" min="<?='1980-01-01'?>" max="<?='2038-01-19'?>" name="dataini">
+    </div>
+    <div class="col-right">
+      <label for="dataent">Data Entrega</label>
+      <input type="date" class="text_field" id="dataent" min="<?=date('Y-m-d')?>" max="<?='2038-01-19'?>" name="dataterm">
+    </div>
+    <div class="col-md-offset-4 col-md-4 input-icon">
+      <label for="precoest">Preço Estabelecido</label>
+      <input type="text" max="999999999" class="text_field" id="precoest" name="precoest"><i>R$</i>
+    </div>
+    <div class="col-md-12">
+      <h3>O que vai ser feito?</h3>
+      <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separadas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
+    </div>
+  </div>
 
 
 
@@ -104,24 +104,24 @@ if(!isset($_SESSION['email'])){
 
 
 
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<!-- jQuery Custom Scroller CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#sidebar").mCustomScrollbar({
-      theme: "minimal"
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content, #btnMenu').toggleClass('active2');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
     });
-
-    $('#sidebarCollapse').on('click', function () {
-      $('#sidebar, #content, #btnMenu').toggleClass('active2');
-      $('.collapse.in').toggleClass('in');
-      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-  });
-</script>
-<script src="js/script1.js?ver=4"></script>
+  </script>
+  <script src="js/script1.js?ver=4"></script>
 
 </body>
 </html>

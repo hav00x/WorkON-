@@ -33,36 +33,7 @@ if(!isset($_SESSION['email'])){
     <script type="text/javascript">
       $(document).ready(function(){
         $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
-        $('#ficha-projeto').on('click', '.btn-attproj', function(){
-          var num_form = $(this).attr('data-value');
-          $.post('abre_projetosbd.php', // carrega primeiro o projeto
-            $('#form'+num_form).serialize(),
-            function(data){
-
-              $('#nome-projetoupd').text(data['nome_projeto']);
-              $('#nomeprojupd').val(data['nome_projeto']);
-              $('#nomecliupd').val(data['nome_cliente']);
-              $('#tipoproupd').val(data['tipo_projeto']);
-              $('#datainiupd').val(data['data_inicio']);
-              $('#dataentupd').val(data['data_entrega']);
-              $('#nomecliupd').val(data['nome_cliente']);
-              $('#precoestupd').val(data['preco_estabelecido']);
-              $('#descriupd').val(data['descri_projeto']);
-
-              $.post('abre_projetosbd.php', // depois as etapas
-               $('#form'+num_form).serialize() + '&check=' + 1,
-               function(data){
-                $('#accordionupd').contents().remove();
-                $('#accordionupd').append(data);
-                $.post('abre_projetosbd.php', // e os passos
-                  $('#form'+num_form).serialize() + '&check=' + 2,
-                  function(data){
-
-                  });
-              });
-              $('#modalEdit').modal('show');
-            }, "json");
-        });
+        $('#div-perfil').last().after().load('carrega_infoperfil.php');
       });
     </script>
 
@@ -85,65 +56,20 @@ if(!isset($_SESSION['email'])){
       <div class="col-md-4">
         <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-thumbnail" style="width: 100%;">
       </div>
-
-      <div class="col-md-8 info-perfil" id="perfil-data">
-        <div class="row">
-          <div  class="col-md-12">
-              <h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
-            </div>
-        </div><!--fim row who-->
-        <div class="row">
-
-          <div class="col-md-4">
-            <p>PJ/PF</p>
-          </div>
-          <div class="col-md-4">
-          <span class="bulb"></span><p>NOME</p>
-          </div>
-
-          <div class="col-md-4">
-            <p>Localização</p>
-          </div>
-        </div><!--fim row who-info-->
-
-        <div class="row">
-          <div class="col-md-12">
-            <h3 id="header-homepage"><img src="img/werk.png"> O que você faz</h3>
-          </div>
-        </div><!-- fim row what-->
-
-        <div class="row">
-          <div class="col-md-12">
-            <p>DESCRIÇÃOX</p>
-          </div>
-        </div><!--fim row descrição-->
-
-        <div class="row">
-          <div class="col-md-4">
-            <p>FACEBOOK</p>
-          </div>
-          <div class="col-md-4">
-            <p>INSTAGRAM</p>
-          </div>
-          <div  class="col-md-4">
-            <p>SITE</p>
-          </div>
-        </div><!--fim row social media-->
-      </div>
-    </div><!--FIM PERFIL-->
+    </div>
 
     <div class="section">
      <div class="row">
       <div class="col-md-12">
        <h1 id="homepage-title">PROJETOS RECENTES</h1>
-      </div>       
-     </div>
+     </div>       
+   </div>
 
-      <div class="row formatarow" id="ficha-projeto">
+   <div class="row formatarow" id="ficha-projeto">
 
-      </div>
+   </div>
 
-    </div>
+ </div>
 
 
 </div> <!-- FIM CONTENT -- >

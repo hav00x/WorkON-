@@ -280,12 +280,8 @@ if(!isset($_SESSION['email'])){
     });
   });
 </script>
-<script src="js/script1.js?ver=4"></script>
+<script src="js/script1.js?ver=5"></script>
 
 </body>
 </html>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> ef1a673c2274ee5595ad316624c0ff56eb001ad0
