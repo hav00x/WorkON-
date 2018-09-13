@@ -57,8 +57,8 @@ if(!isset($_SESSION['email'])){
                 $.post('abre_projetosbd.php', // e os passos
                   $('#form'+num_form).serialize() + '&check=' + 2,
                   function(data){
-                    console.log(data);
-                  });
+                    alert('oi');
+                  }, "json");
               });
               $('#modalEdit').modal('show');
             }, "json");
@@ -147,9 +147,9 @@ if(!isset($_SESSION['email'])){
                 
               </div>
               <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
-                </button>
-                <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
-                </button>
+              </button>
+              <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
+              </button>
             </div>
 
 

@@ -50,10 +50,10 @@ if($stmt->execute()){
 
 					if($check == 1){
 						echo "<div class='panel panel-default'>
-						<div class='panel-heading' role='tab' id='heading1upd'>
+						<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
 						<h4 class='panel-title'>
 						<div>
-						<a class='nome-etapa' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='true' data-value='1' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
+						<a class='nome-etapa' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='1' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
 						<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
 						<img class='img-etapa-edicao' src='img/edit-file.png'>
 						</button>
@@ -61,7 +61,18 @@ if($stmt->execute()){
 						</div>
 						</h4>
 						</div>
-						<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
+						<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
+						<div id='acordion".$rowE['ordem_etapa']."upd' class='acordion-st row'>
+						<div class='col-md-4'>
+
+						<button type='button' id='btnc".$rowE['ordem_etapa']."upd' class='btn-edicao add-passo' style='float: right;'>
+						<img class='img-edicao' src='img/add-circular-button.png'>
+						</button>
+						<button type='button' id='btnr".$rowE['ordem_etapa']."upd' class='btn-edicao rmv-passo' style='float: right;'>
+						<img class='img-edicao' src='img/minus.png'>
+						</button>
+						</div>
+						</div>
 						</div>
 						</div>";
 					}
@@ -81,18 +92,8 @@ if($stmt->execute()){
                       			$arrayA['passo'][$j][$i] = $rowA['passo'];
                       			$arrayA['ordem_passo'][$j][$i] = $rowA['ordem_passo'];
                       			$arrayA['id_etapa'][$j][$i] = $rowA['id_etapa'];
-                      			$arrayAtividade[$j][$i] = "<div id='acordion1upd' class='acordion-st row'>
-                      			<div class='col-md-4'>
-                      			<label data-value='1.1'>Atividade #".$rowA['ordem_passo']."</label>
-                      			<input type='text' name='campoupd[1][1]'>
-                      			</div>
-                      			<button type='button' id='btnc1' class='btn-edicao add-passo' style='float: right;'>
-                      			<img class='img-edicao' src='img/add-circular-button.png'>
-                      			</button>
-                      			<button type='button' id='btnr1' class='btn-edicao rmv-passo' style='float: right;'>
-                      			<img class='img-edicao' src='img/minus.png'>
-                      			</button>
-                      			</div>";
+                      			$arrayAtividade[$j][$i] = "<label data-value='".$rowA['id_etapa'].".".$rowA['ordem_passo']."'>".$rowA['passo']."</label>
+                      			<input type='text' id='ordem".$rowA['ordem_passo']."' name='campoupd[".$rowA['id_etapa']."][".$rowA['ordem_passo']."]'>";
                       			$j++;
                       		}			
 
@@ -100,15 +101,14 @@ if($stmt->execute()){
                       		echo "Erro ao recuperar os passos";
                       	}          
                       }
+                      
+                      echo json_encode($arrayAtividade);
+                  }	
+                  $stmt->close();
 
-                      if($check == 2){
-                      	echo var_dump($arrayA);
-                      }	
-                      $stmt->close();
-
-                  }
               }
           }
       }
+  }
 
-      ?>
+  ?>
