@@ -1179,7 +1179,7 @@ ul{
 }
 
 .inside{
-    background-image: linear-gradient(rgba(255, 165, 0, 0.7), rgba(255, 102, 0, 0.7)) ;
+    background-image: url('../img/unnamed.png');
 }
 .info-proj{
     text-align: center;
