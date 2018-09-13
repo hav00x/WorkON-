@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=6" rel="stylesheet">
+  <link href="css/estilo.css?ver=7" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -284,3 +284,8 @@ if(!isset($_SESSION['email'])){
 
 </body>
 </html>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ef1a673c2274ee5595ad316624c0ff56eb001ad0

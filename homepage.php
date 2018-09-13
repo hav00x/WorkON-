@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=9" rel="stylesheet">
+  <link href="css/estilo.css?ver=10" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -29,6 +29,42 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
+        $('#ficha-projeto').on('click', '.btn-attproj', function(){
+          var num_form = $(this).attr('data-value');
+          $.post('abre_projetosbd.php', // carrega primeiro o projeto
+            $('#form'+num_form).serialize(),
+            function(data){
+
+              $('#nome-projetoupd').text(data['nome_projeto']);
+              $('#nomeprojupd').val(data['nome_projeto']);
+              $('#nomecliupd').val(data['nome_cliente']);
+              $('#tipoproupd').val(data['tipo_projeto']);
+              $('#datainiupd').val(data['data_inicio']);
+              $('#dataentupd').val(data['data_entrega']);
+              $('#nomecliupd').val(data['nome_cliente']);
+              $('#precoestupd').val(data['preco_estabelecido']);
+              $('#descriupd').val(data['descri_projeto']);
+
+              $.post('abre_projetosbd.php', // depois as etapas
+               $('#form'+num_form).serialize() + '&check=' + 1,
+               function(data){
+                $('#accordionupd').contents().remove();
+                $('#accordionupd').append(data);
+                $.post('abre_projetosbd.php', // e os passos
+                  $('#form'+num_form).serialize() + '&check=' + 2,
+                  function(data){
+
+                  });
+              });
+              $('#modalEdit').modal('show');
+            }, "json");
+        });
+      });
+    </script>
 
   </head>
   <body class="inside">
@@ -94,12 +130,6 @@ if(!isset($_SESSION['email'])){
           </div>
         </div><!--fim row social media-->
       </div>
-
-
-
-
-
-
     </div><!--FIM PERFIL-->
 
     <div class="section">
@@ -109,21 +139,8 @@ if(!isset($_SESSION['email'])){
       </div>       
      </div>
 
-    <div class="row">
-    <div class="col-md-4" id="ficha-projeto">
-      <h3>Projeto ódio</h3>
-        <div class="row">
-          <div class="col-md-12">
-            <img id="img-projetos" src="img/hog.jpg">
-            <div id="info-proj">
-                Nome do cliente:<br>
-                Preço Estabelecido:<br>
-                Data de entrega:<br>
-              </div>
-              <button class="btn button-hp"">Atualizar</button>
-            </div>
-          </div>
-        </div>
+      <div class="row formatarow" id="ficha-projeto">
+
       </div>
 
     </div>
