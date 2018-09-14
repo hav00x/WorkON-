@@ -38,7 +38,6 @@ if(!isset($_SESSION['email'])){
           $.post('abre_projetosbd.php', // carrega primeiro o projeto
             $('#form'+num_form).serialize(),
             function(data){
-
               $('#nome-projetoupd').text(data['nome_projeto']);
               $('#nomeprojupd').val(data['nome_projeto']);
               $('#nomecliupd').val(data['nome_cliente']);
@@ -49,6 +48,8 @@ if(!isset($_SESSION['email'])){
               $('#precoestupd').val(data['preco_estabelecido']);
               $('#descriupd').val(data['descri_projeto']);
 
+            }, 'json');
+
               $.post('abre_projetosbd.php', // depois as etapas
                $('#form'+num_form).serialize() + '&check=' + 1,
                function(data){
@@ -57,12 +58,23 @@ if(!isset($_SESSION['email'])){
                 $.post('abre_projetosbd.php', // e os passos
                   $('#form'+num_form).serialize() + '&check=' + 2,
                   function(data){
-                    alert('oi');
-                  }, "json");
+                    var numEtapas = $('.cntetap').length;
+                    for(i = 0; i < numEtapas; i++){
+                      var k = i+1;
+                      for(var index in data) {
+                        if(data[index][i] != undefined){
+                          $('#acordion'+k+'upd').append(data[index][i]);
+                          console.log(index+":"+data[index][i]);
+                        }
+                      }
+                    }
+                    console.log(numEtapas);
+                  }, 'json');
               });
+
               $('#modalEdit').modal('show');
-            }, "json");
-        });
+
+            });
       });
     </script>
 
@@ -144,7 +156,7 @@ if(!isset($_SESSION['email'])){
             </div>
             <div class='col-md-12'>
               <div class='panel-group' id='accordionupd' role='tablist' aria-multiselectable='true'>
-                
+
               </div>
               <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
               </button>
