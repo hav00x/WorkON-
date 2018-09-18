@@ -27,7 +27,7 @@ if($stmt->execute()){
 		<p>'.$jemail.'</p>
 		</div>
 
-		<div class="col-md-4"> <label> E-mail</label>
+		<div class="col-md-4"> <label class="label-perfil">Localização</label>
 		<p>'.$estado.'</p>
 		</div>
 		</div><!--fim row who-info-->
@@ -39,19 +39,20 @@ if($stmt->execute()){
 		</div><!-- fim row what-->
 
 		<div class="row">
-		<div class="col-md-12"> <label> E-mail</label>
+		<div class="col-md-12"> <label class="label-perfil"> Descrição</label>
 		<p>'.$descr.'</p>
 		</div>
 		</div><!--fim row descrição-->
 
 		<div class="row">
-		<div class="col-md-4"> <label> E-mail</label>
+		<div class="col-md-4"> <label class="label-perfil"> Facebook</label>
 		<p>'.$facebook.'</p>
 		</div>
-		<div class="col-md-4"> <label> E-mail</label>
+		<div class="col-md-4"> <label class="label-perfil"> Instagram</label>
 		<p>'.$instagram.'</p>
 		</div>
-		<div  class="col-md-4"> <label> E-mail</label>
+		<div  class="col-md-4"> 
+		<label class="label-perfil">Site</label>
 		<p>'.$site.'</p>
 		</div>
 		</div><!--fim row social media-->';
