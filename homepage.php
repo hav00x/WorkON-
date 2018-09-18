@@ -96,5 +96,6 @@ if(!isset($_SESSION['email'])){
     });
   });
 </script>
+<script src="js/script1.js?ver=6"></script>
 </body>
 </html>

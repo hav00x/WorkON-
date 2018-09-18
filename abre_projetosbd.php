@@ -63,7 +63,7 @@ if($stmt->execute()){
 						</div>
 						<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
 						<div id='acordion".$rowE['ordem_etapa']."upd' class='acordion-st row'>
-
+						
 						<button type='button' id='btnc".$rowE['ordem_etapa']."upd' class='btn-edicao add-passo' style='float: right;'>
 						<img class='img-edicao' src='img/add-circular-button.png'>
 						</button>
