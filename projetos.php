@@ -63,8 +63,7 @@ if(!isset($_SESSION['email'])){
                       var k = i+1;
                       for(var index in data) {
                         if(data[index][i] != undefined){
-                          $('#acordion'+k+'upd').append(data[index][i]);
-                          console.log(index+":"+data[index][i]);
+                          $('#acordion'+k+'upd').prepend(data[index][i]);
                         }
                       }
                     }
@@ -158,10 +157,12 @@ if(!isset($_SESSION['email'])){
               <div class='panel-group' id='accordionupd' role='tablist' aria-multiselectable='true'>
 
               </div>
-              <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
-              </button>
-              <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
-              </button>
+              <div style="display: inline-block;">
+                <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
+                </button>
+                <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
+                </button>
+              </div>
             </div>
 
 
@@ -256,10 +257,12 @@ if(!isset($_SESSION['email'])){
                     </div>
                   </div>
                 </div>
+                
                 <button type="button" class="button -regular add-etapa" style="float: right;">Mais etapas
                 </button>
                 <button type="button" class="button -regular rmv-etapa" style="float: right;">Menos etapas
                 </button>
+                
               </div>
             </div>
 
@@ -292,8 +295,7 @@ if(!isset($_SESSION['email'])){
     });
   });
 </script>
-<script src="js/script1.js?ver=5"></script>
+<script src="js/script1.js?ver=6"></script>
 
 </body>
 </html>
-

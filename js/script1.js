@@ -10,46 +10,6 @@ $(document).ready(function () {
     $('.divisor').addClass('hide');
   }
 
-  // Javascript to enable link to tab
-  var url = document.location.toString();
-  if (url.match('#')) {
-    $('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
-  }
-
-  // Change hash for page-reload
-  $('.nav-tabs a').on('shown.bs.tab', function (e) {
-  	window.location.hash = e.target.hash;
-  });
-
-  // Fix hash links
-  $('a[href^="#"]').click(function (e) {
-  	var url = this.href;
-  	if (url.match('#')) {
-  		$('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
-  	}
-  });
-
-  // Fix popstate
-  window.addEventListener('popstate', function(e) {
-  	$('.nav-tabs a[href="' + location.hash + '"]').tab('show');
-  });
-
-
-  /*$(document).ready(function () {
-	$("#sidebar").mCustomScrollbar({
-		theme: "minimal"
-	});
-
-	$('#sidebarCollapse').on('click', function () {
-		$('#sidebar, #content').toggleClass('active');
-		$('.collapse.in').toggleClass('in');
-		$('a[aria-expanded=true]').attr('aria-expanded', 'false');
-	});
-
-	console.log(window.location.href.indexOf("localhost"));
-	console.log('1');
-});*/
-
 /*------------ Formulário de Projeto -----------------*/
 
 $('.edita-projeto').on('click', function(){
@@ -102,7 +62,7 @@ $('#accordion, #accordionupd').on('click', '.rmv-etapa', function(){
 	}
 });
 
-$('#accordion').on('click', '.nome-etapa', function(){
+$('#accordion, #accordionupd').on('click', '.nome-etapa', function(){
 	setTimeout(function(){
             $('.nome-etapa').each(function(){ //checando se as etapas estão com o data-value certo pela classe collapsed, e se não, arruma eles, pois o codigo abaixo não funciona quando a etapa é fechada automaticamente
               if($(this).hasClass('collapsed')){
@@ -126,12 +86,12 @@ $('#accordion').on('click', '.nome-etapa', function(){
    }
  });
 
-$('#accordion').on('click', '.add-passo', function(){
+$('#accordion, #accordionupd').on('click', '.add-passo', function(){
   atividadeCount = atividadeCount +1;
   $(this).before('<div class=\'col-md-4\'> <label data-value=\''+etapaCount+'.'+atividadeCount+'\'>Atividade #'+atividadeCount+'</label> <input type=\'text\'name=\'campo['+etapaCount+']['+atividadeCount+']\'> </div>');
 });
 
-$('#accordion').on('click', '.rmv-passo', function(){
+$('#accordion, #accordionupd').on('click', '.rmv-passo', function(){
   if(atividadeCount <= 1){
     return false;
   } else{

@@ -69,8 +69,7 @@ if($stmt->execute()){
 	$stmt->fetch();
 	if(isset($femail)){
 		
-		echo'
-		<div class="row">
+		echo '<div class="row">
 		<div  class="col-md-12">
 		<h3 id="header-homepage"> Sobre você</h3>
 		</div>
