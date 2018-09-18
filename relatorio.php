@@ -53,7 +53,7 @@ if(!isset($_SESSION['email'])){
              <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
               <img class="img-edicao" src="img/edit-file.png">
             </button>
-            <input id="nomeproj" type="text" name="nome_projeto" style="display: none;">
+            <input id="nomeproj" type="text" name="nome_projeto" class="hide">
           </div>
         </h3>
       </div>

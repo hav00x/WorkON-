@@ -750,9 +750,6 @@ FORMATAÇÕES ESPECIFICAS
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
 #input-homepage{
     background-color: #fff;
     border: solid 1px #fff;
@@ -913,6 +910,13 @@ body.modal-open {
     padding: 15px;
 }
 
+.divalerta{
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #DFDCDC;
+    text-align: center;
+}
 
 .acordion-st{
     margin: 2px;

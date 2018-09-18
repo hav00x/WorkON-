@@ -9,6 +9,11 @@ $link = $objdb->connect();
 $id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
 
 $stmt = $link->prepare("SELECT COUNT(id_intermediario) FROM intermediario WHERE (id_pfusu = ? OR id_pjusu = ?)");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
+
 $stmt->bind_param('ii', $id_usuario, $id_usuario);
 if($stmt->execute()){
 	$stmt->bind_result($contaProjetos);
@@ -26,6 +31,11 @@ if($contaProjetos <= 0){
 }
 
 $stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?)");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
+
 $stmt->bind_param('ii', $id_usuario, $id_usuario);
 if($stmt->execute()){
 	$resultSet = $stmt->get_result();
@@ -39,6 +49,11 @@ $stmt->close();
 
 for($i = 0; $i < $contaProjetos; $i++){
 	$stmt = $link->prepare('SELECT id_projeto, nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_intermediario = ?');
+	if ($stmt === false) {
+		trigger_error($this->mysqli->error, E_USER_ERROR);
+		return;
+	}
+
 	$stmt->bind_param('i', $indiceProjeto[$i][0]);
 	if($stmt->execute()){
 
@@ -52,20 +67,20 @@ for($i = 0; $i < $contaProjetos; $i++){
 				<form id="form'.$i.'" method="post">
 				<div class="col-md-12">
 				<h3>'.$nome_projeto.'</h3>
-				<input type="text" style="display: none;" name="nomeprojatt" value="'.$nome_projeto.'">
+				<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 				</div>		
 				<div class="col-md-12">
 				<img class="img-projetos" src="img/hog.jpg">
 				<div class="info-proj">
 				Nome do cliente: '.$nome_cliente.'<br>
-				<input type="text" style="display: none;" name="nomecliatt" value="'.$nome_cliente.'">
+				<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
 				Preço Estabelecido: R$'.$preco.'<br>
-				<input type="text" style="display: none;" name="precoatt" value="'.$preco.'">
+				<input type="text" class="hide" name="precoatt" value="'.$preco.'">
 				Data de entrega: '.$date->format('d-m-Y').'<br>
-				<input type="text" style="display: none;" name="dataentatt" value="'.$data_entrega.'">
+				<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
 				</div>
-				<input type="text" style="display: none;" name="projatt" value="'.$id_projeto.'">
-				<button type="button" class="btn button-hp btn-attproj" data-value="'.$i.'">Atualizar</button>
+				<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
+				<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
 				</div>
 				</form>
 				</div>';
@@ -78,20 +93,20 @@ for($i = 0; $i < $contaProjetos; $i++){
 				<form id="form'.$i.'" method="post">
 				<div class="col-md-12">
 				<h3>'.$nome_projeto.'</h3>
-				<input type="text" style="display: none;" name="nomeprojatt" value="'.$nome_projeto.'">
+				<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 				</div>		
 				<div class="col-md-12">
 				<img class="img-projetos" src="img/hog.jpg">
 				<div class="info-proj">
 				Nome do cliente: '.$nome_cliente.'<br>
-				<input type="text" style="display: none;" name="nomecliatt" value="'.$nome_cliente.'">
+				<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
 				Preço Estabelecido: R$'.$preco.'<br>
-				<input type="text" style="display: none;" name="precoatt" value="'.$preco.'">
+				<input type="text" class="hide" name="precoatt" value="'.$preco.'">
 				Data de entrega: '.$date->format('d-m-Y').'<br>
-				<input type="text" style="display: none;" name="dataentatt" value="'.$data_entrega.'">
+				<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
 				</div>
-				<input type="text" style="display: none;" name="projatt" value="'.$id_projeto.'">
-				<button type="button" class="btn button-hp btn-attproj" data-value="'.$i.'">Atualizar</button>
+				<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
+				<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
 				</div>
 				</form>
 				</div>';

@@ -245,7 +245,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
             <div class="central col-md-10 col-md-offset-1">
               <label for="perfil">Foto de Perfil</label>
               <input type="file" name="Filedata" id="imgInp"><br>
-              <input type="text" name="arquivo" id="arquivo" style="display: none;">
+              <input type="text" name="arquivo" id="arquivo" class="hide">
               <img class="img-responsive img-cadastro" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
               <input class="submit_btn button -regular btn-alinha-direita" type="submit" value="Concluir">

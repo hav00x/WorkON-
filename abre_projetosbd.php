@@ -53,11 +53,11 @@ if($stmt->execute()){
 						<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
 						<h4 class='panel-title'>
 						<div>
-						<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='1' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
+						<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='0' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
 						<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
 						<img class='img-etapa-edicao' src='img/edit-file.png'>
 						</button>
-						<input class='nomeetp' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' style='display: none;'>
+						<input class='nomeetp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]''>
 						</div>
 						</h4>
 						</div>
@@ -92,8 +92,8 @@ if($stmt->execute()){
                       			$arrayA['ordem_passo'][$j][$i] = $rowA['ordem_passo'];
                       			$arrayA['id_etapa'][$j][$i] = $rowA['id_etapa'];
                       			$arrayAtividade[$j][$i] = "<div class='col-md-4'>
-                      			<label data-value='".$k.".".$rowA['ordem_passo']."'>".$rowA['passo']."</label>
-                      			<input type='text' id='ordem".$rowA['ordem_passo']."' name='campoupd[".$k."][".$rowA['ordem_passo']."]' value='".$rowA['passo']."'>
+                      			<label data-value='".$k.".".$rowA['ordem_passo']."'>Atividade #".$rowA['ordem_passo']."</label>
+                      			<input type='text' id='ordem".$rowA['ordem_passo']."' name='campo[".$k."][".$rowA['ordem_passo']."]' value='".$rowA['passo']."'>
                       			</div>";
                       			$j++;
                       		}			

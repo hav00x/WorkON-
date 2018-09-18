@@ -30,13 +30,6 @@ if(!isset($_SESSION['email'])){
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
-        $('#perfil-data').load('carrega_infoperfil.php');
-      });
-    </script>
-
   </head>
   <body class="inside">
 
@@ -73,11 +66,7 @@ if(!isset($_SESSION['email'])){
 
  </div>
 
-
 </div> <!-- FIM CONTENT -- >
-
-
-
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- jQuery Custom Scroller CDN -->
@@ -96,6 +85,6 @@ if(!isset($_SESSION['email'])){
     });
   });
 </script>
-<script src="js/script1.js?ver=6"></script>
+<script src="js/script1.js?ver=7"></script>
 </body>
 </html>
