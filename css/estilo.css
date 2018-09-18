@@ -1113,8 +1113,8 @@ ul{
 }
 
 #perfil-data{
-    background-color:rgba(255, 165, 0, 0.5);
-    height: 340px;
+   border: solid rgba(255, 165, 0);
+    height: 350px;
     border-radius: 5px;
 
 }
@@ -1155,7 +1155,6 @@ ul{
 
 #ficha-projeto{
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-
 }
 
 #ficha-projeto h3{
@@ -1172,7 +1171,7 @@ ul{
 }
 
 .divisor-projetos{
-    border: 1px solid #DFDCDC;
+    border: 1px solid #FFA500;
     box-shadow: 1px 1px 1px #c9c7c7;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -1326,4 +1325,12 @@ MEDIAQUERIES
     .divcriaproj{
         text-align: center;
     }
+}
+
+.label-perfil{
+  margin: -5px; 
+}
+
+#img-perfil{
+  height: 350px;
 }

@@ -48,7 +48,7 @@ if(!isset($_SESSION['email'])){
       <div class="row">
         <div class="col-md-12">
           <h3 class="modal-title">
-            <div>
+            <div>A
              <span id="nome-projeto">Novo Projeto</span>
              <button style="display: inline-block; margin-bottom: 10px;" type="button" id="edita-projeto" class="btn-edicao">
               <img class="img-edicao" src="img/edit-file.png">
