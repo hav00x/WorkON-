@@ -29,7 +29,7 @@ if(!isset($_SESSION['email'])){
     <![endif]-->
 
   </head>
-  <body>
+  <body class="inside">
 
     <?php
     include('templates/sidebar.php');

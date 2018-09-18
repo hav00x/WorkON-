@@ -18,14 +18,13 @@ if($stmt->execute()){
 		<div  class="col-md-12">
 		<h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
 		</div>
-		</div><!--fim row who-->
+		</div>
 		<div class="row">
-
 		<div class="col-md-4">
 		<p>'.$nomefant.'</p>
 		</div>
 		<div class="col-md-4">
-		<span class="bulb"></span><p>'.$jemail.'</p>
+		<p>'.$jemail.'</p>
 		</div>
 
 		<div class="col-md-4">
@@ -72,43 +71,50 @@ if($stmt->execute()){
 		
 		echo '<div class="row">
 		<div  class="col-md-12">
-		<h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
+		<h3 id="header-homepage"> Sobre você</h3>
 		</div>
 		</div><!--fim row who-->
 		<div class="row">
 
 		<div class="col-md-4">
+		<label class="label-perfil">Nome</label>
 		<p>'.$nome.'</p>
 		</div>
 		<div class="col-md-4">
-		<span class="bulb"></span><p>'.$femail.'</p>
+		<label class="label-perfil">E-mail</label>
+		<p>'.$femail.'</p>
 		</div>
 
 		<div class="col-md-4">
+		<label class="label-perfil">Localização</label>
 		<p>'.$estado.'</p>
 		</div>
 		</div><!--fim row who-info-->
 
 		<div class="row">
 		<div class="col-md-12">
-		<h3 id="header-homepage"><img src="img/werk.png"> O que você faz</h3>
+		<h3 id="header-homepage">O que você faz</h3>
 		</div>
 		</div><!-- fim row what-->
 
 		<div class="row">
 		<div class="col-md-12">
+		<label class="label-perfil">Descrição</label>
 		<p>'.$descr.'</p>
 		</div>
 		</div><!--fim row descrição-->
 
 		<div class="row">
 		<div class="col-md-4">
+		<label class="label-perfil">Facebook</label>
 		<p>'.$facebook.'</p>
 		</div>
 		<div class="col-md-4">
+		<label class="label-perfil">Instagram</label>
 		<p>'.$instagram.'</p>
 		</div>
 		<div  class="col-md-4">
+		<label class="label-perfil">Site</label>
 		<p>'.$site.'</p>
 		</div>
 		</div><!--fim row social media-->';
