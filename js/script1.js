@@ -39,6 +39,9 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
          function(data){
           $('#accordionupd').contents().remove();
           $('#accordionupd').append(data);
+          $('#accordionupd').append("<button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas</button> <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas</button>");
+          count = $('#accordionupd').children('div').last().data('value');
+          
           $.post('abre_projetosbd.php', // e os passos
             $('#form'+num_form).serialize() + '&check=' + 2,
             function(data){
@@ -55,14 +58,16 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
         });
 
         $('#modalEdit').modal('show');
+        
 
       });
 
-  $('#btn-attproj').on('click', function(){
+  $('#btn-attproj').on('click', function(e){
+    e.preventDefault();
     $.post('atualiza_projetosbd.php',
       $('#atualiza-projetos').serialize(),
       function(data){
-        var lol = lol;
+        console.log(data);
       });
   });
 
@@ -79,7 +84,7 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
 
   $('btn-excluiproj').on('click', function(){
     $.post('atualiza_projetosbd.php',
-      $('#atualiza-projetos').serialize()  + '&check=' + 1,
+      $('#atualiza-projetos').serialize()  + '&delete=' + 1,
       function(data){
         var lol = lol;
       });
@@ -178,6 +183,8 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
   $('#criaproj').on('click', function(){
     $('#nomeproj').val($('#nome-projeto').text());
     $('#input-etapa1').val($('#nome-etapa1').html());
+    holder = $('#accordion').children('div').last().children().attr('id').split('g');
+    count = parseInt(holder[1]);
   });
 
   $('#nome-projeto').on('keyup', function(){

@@ -49,8 +49,9 @@ if($stmt->execute()){
 					$i++;
 
 					if($check == 1){
-						echo "<div class='panel panel-default'>
+						echo "<div class='panel panel-default' data-value='".$rowE['ordem_etapa']."'>
 						<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
+						<input class='hide' id='etapa".$rowE['id_etapa']."' name='etapa[".$rowE['ordem_etapa']."]' value='".$rowE['id_etapa']."'>
 						<h4 class='panel-title'>
 						<div>
 						<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='0' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>

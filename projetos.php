@@ -108,12 +108,9 @@ if(!isset($_SESSION['email'])){
               <div class='col-md-12'>
                 <div class='panel-group' id='accordionupd' role='tablist' aria-multiselectable='true'>
 
+                  <!-- etapas -->
+
                 </div>  
-                <button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas
-                </button>
-                <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas
-                </button>
-                
               </div>
               <div id="divalerta" class="col-md-12 hide divalerta">
                 <h3>Confirme a exclusão do projeto</h3>
@@ -189,7 +186,7 @@ if(!isset($_SESSION['email'])){
               </div>
               <div class="col-md-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                  <div class="panel panel-default">
+                  <div class="panel panel-default" data-value="1">
                     <div class="panel-heading" role="tab" id="heading1">
                       <h4 class="panel-title">
                         <div>
@@ -254,7 +251,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js?ver=8"></script>
+  <script src="js/script1.js"></script>
 
 </body>
 </html>
