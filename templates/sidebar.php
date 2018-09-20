@@ -18,8 +18,8 @@
           <li class="request">
             <a href="#pageSubMenu2" id="request" data-toggle="collapse" aria-expanded="false">Pedidos</a>
             <ul class="collapse list-unstyled" id="pageSubMenu2">
-              <li><a href="pedidos.php">Recebidos</a></li>
-              <li><a href="pedidos.php">Enviados</a></li>
+              <li><a href="perfis.php">Perfis</a></li>
+              <li><a href="pedidos.php">Solicitações</a></li>
             </ul>
           </li>
           <li class="payment">
