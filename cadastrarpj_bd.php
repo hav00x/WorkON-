@@ -134,6 +134,10 @@ if ($_FILES['Filedata']['error'] != 0) {
 }
 
 $stmt = $link->prepare("SELECT cnpj FROM usuariopj WHERE cnpj = ?");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 $stmt->bind_param("i", $cnpj);
 
 if($stmt->execute()){
@@ -152,6 +156,10 @@ $stmt->close();
 	//verifica se o email já existe no bd
 
 $stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 $stmt->bind_param("ss", $email, $email);
 if($stmt->execute()){
 	$stmt->bind_result($buscaEmail);
@@ -220,6 +228,10 @@ if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $cam
 }
 
 $stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 
 $stmt->bind_param("sssiisssssiissss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
 

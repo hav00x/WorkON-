@@ -10,60 +10,140 @@ $(document).ready(function () {
     $('.divisor').addClass('hide');
   }
 
-/*------------ Formulário de Projeto -----------------*/
+$('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
 
-$('.edita-projeto').on('click', function(){
-  $(this).prev().attr('contenteditable', 'true');
-  $(this).prev().focus();
-});
+/*------------ Pegando projeto e atualizando projeto -----------------*/
 
-$('#nome-projeto').on('blur', function(){
-  $('#nome-projeto').attr('contenteditable', 'false');
-});
+  $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
+  $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
+    var num_form = $(this).attr('data-value');
+    $('#atualizando').val($(this).prev().val());
 
-$('#accordion, #accordionupd').on('click', '.edita-txt', function(){
-	$(this).prev().attr('contenteditable', 'true');
-	$(this).prev().focus();
-	$(this).prev().attr('data-toggle', '');
-});      
+      $.post('abre_projetosbd.php', // carrega primeiro o projeto
+        $('#form'+num_form).serialize(),
+        function(data){
+          $('#nome-projetoupd').text(data['nome_projeto']);
+          $('#nomeprojupd').val(data['nome_projeto']);
+          $('#nomecliupd').val(data['nome_cliente']);
+          $('#tipoproupd').val(data['tipo_projeto']);
+          $('#datainiupd').val(data['data_inicio']);
+          $('#dataentupd').val(data['data_entrega']);
+          $('#nomecliupd').val(data['nome_cliente']);
+          $('#precoestupd').val(data['preco_estabelecido']);
+          $('#descriupd').val(data['descri_projeto']);
 
-$('#nome-projeto, #nome-projetoupd').on('keydown', function(e){
-  if(e.which === 13){
+        }, 'json');
+
+        $.post('abre_projetosbd.php', // depois as etapas
+         $('#form'+num_form).serialize() + '&check=' + 1,
+         function(data){
+          $('#accordionupd').contents().remove();
+          $('#accordionupd').append(data);
+          $('#accordionupd').append("<button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas</button> <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas</button>");
+          count = $('#accordionupd').children('div').last().data('value');
+          
+          $.post('abre_projetosbd.php', // e os passos
+            $('#form'+num_form).serialize() + '&check=' + 2,
+            function(data){
+              var numEtapas = $('.cntetap').length;
+              for(i = 0; i < numEtapas; i++){
+                var k = i+1;
+                for(var index in data) {
+                  if(data[index][i] != undefined){
+                    $('#btnc'+k+'upd').before(data[index][i]);
+                  }
+                }
+              }
+            }, 'json');
+        });
+
+        $('#modalEdit').modal('show');
+        
+
+      });
+
+  $('#btn-attproj').on('click', function(e){
+    e.preventDefault();
+    $.post('atualiza_projetosbd.php',
+      $('#atualiza-projetos').serialize(),
+      function(data){
+        console.log(data);
+      });
+  });
+
+  $('#btn-atencao').on('click', function(){
+    $('#divalerta').removeClass('hide');
+    setTimeout(function(){
+      $('#divalerta').addClass('hide');
+    }, 5000)
+  });
+
+  $('#btn-cancelar').on('click', function(){
+    $('#divalerta').addClass('hide');
+  });
+
+  $('btn-excluiproj').on('click', function(){
+    $.post('atualiza_projetosbd.php',
+      $('#atualiza-projetos').serialize()  + '&delete=' + 1,
+      function(data){
+        var lol = lol;
+      });
+  });
+
+  /*------------ Formulário de Projeto -----------------*/
+
+  $('.edita-projeto').on('click', function(){
+    $(this).prev().attr('contenteditable', 'true');
+    $(this).prev().focus();
+  });
+
+  $('#nome-projeto').on('blur', function(){
+    $('#nome-projeto').attr('contenteditable', 'false');
+  });
+
+  $('#accordion, #accordionupd').on('click', '.edita-txt', function(){
+   $(this).prev().attr('contenteditable', 'true');
+   $(this).prev().focus();
+   $(this).prev().attr('data-toggle', '');
+ });      
+
+  $('#nome-projeto, #nome-projetoupd').on('keydown', function(e){
+    if(e.which === 13){
       e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
       return false;
     }
   });
 
-$('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
-	if(e.which === 13){
+  $('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
+   if(e.which === 13){
             e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
             return false;
           }
           $(this).next().next().val($(this).html());
         });
 
-$('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){
-	$(this).attr('contenteditable', 'false');
-	$(this).attr('data-toggle', 'collapse');
+  $('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){
+   $(this).attr('contenteditable', 'false');
+   $(this).attr('data-toggle', 'collapse');
+ });
+
+  $('#accordion, #accordionupd').on('click', '.add-etapa', function(){
+   count = count + 1;
+   $(this).before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseZ"+count+"' aria-expanded='false' aria-controls='collapseZ"+count+"' data-value='0' id='nome-etapa"+count+"'>Etapa #"+count+"</a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button>  <input class='nomeetp' id='input-etapa"+count+"' type='text' name='nome_etapa["+count+"]' style='display: none;'> </div> </h4> </div> <div id='collapseZ"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row' id='acordion"+count+"'> <div class='col-md-4'> <label data-value='"+count+".1'>Atividade #1</label> <input type='text' name='campo["+count+"][1]'> </div> <button type='button' id='btnc"+count+"' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'> </button> <button type='button' id='btnr"+count+"' class='btn-edicao rmv-passo' style='float: right;'> <img class='img-edicao' src='img/minus.png'> </button> </div> </div> </div>");
+   $('#input-etapa'+count).val($('#nome-etapa'+count).text());
+ });
+
+  $('#accordion, #accordionupd').on('click', '.rmv-etapa', function(){
+   if(count <= 1){
+    return false;
+  }else{
+    count = count -1;
+    $(this).prev().prev().remove();
+  }
 });
 
-$('#accordion, #accordionupd').on('click', '.add-etapa', function(){
-	count = count + 1;
-	$(this).before("<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+count+"'> <h4 class='panel-title'> <div> <a class='nome-etapa collapsed' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseZ"+count+"' aria-expanded='false' aria-controls='collapseZ"+count+"' data-value='0' id='nome-etapa"+count+"'>Etapa #"+count+"</a> <button type='button' id='edita-etapa"+count+"' class='btn-edicao edita-txt'> <img class='img-etapa-edicao' src='img/edit-file.png'> </button>  <input class='nomeetp' id='input-etapa"+count+"' type='text' name='nome_etapa["+count+"]' style='display: none;'> </div> </h4> </div> <div id='collapseZ"+count+"' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading"+count+"'> <div class='acordion-st row' id='acordion"+count+"'> <div class='col-md-4'> <label data-value='"+count+".1'>Atividade #1</label> <input type='text' name='campo["+count+"][1]'> </div> <button type='button' id='btnc"+count+"' class='btn-edicao add-passo' style='float: right;'> <img class='img-edicao' src='img/add-circular-button.png'> </button> <button type='button' id='btnr"+count+"' class='btn-edicao rmv-passo' style='float: right;'> <img class='img-edicao' src='img/minus.png'> </button> </div> </div> </div>");
-	$('#input-etapa'+count).val($('#nome-etapa'+count).text());
-});
-
-$('#accordion, #accordionupd').on('click', '.rmv-etapa', function(){
-	if(count <= 1){
-		return false;
-	}else{
-		count = count -1;
-		$(this).prev().prev().remove();
-	}
-});
-
-$('#accordion, #accordionupd').on('click', '.nome-etapa', function(){
-	setTimeout(function(){
+  $('#accordion, #accordionupd').on('click', '.nome-etapa', function(){
+   setTimeout(function(){
             $('.nome-etapa').each(function(){ //checando se as etapas estão com o data-value certo pela classe collapsed, e se não, arruma eles, pois o codigo abaixo não funciona quando a etapa é fechada automaticamente
               if($(this).hasClass('collapsed')){
                 $(this).attr('data-value', 0);
@@ -86,43 +166,45 @@ $('#accordion, #accordionupd').on('click', '.nome-etapa', function(){
    }
  });
 
-$('#accordion, #accordionupd').on('click', '.add-passo', function(){
-  atividadeCount = atividadeCount +1;
-  $(this).before('<div class=\'col-md-4\'> <label data-value=\''+etapaCount+'.'+atividadeCount+'\'>Atividade #'+atividadeCount+'</label> <input type=\'text\'name=\'campo['+etapaCount+']['+atividadeCount+']\'> </div>');
-});
+  $('#accordion, #accordionupd').on('click', '.add-passo', function(){
+    atividadeCount = atividadeCount +1;
+    $(this).before('<div class=\'col-md-4\'> <label data-value=\''+etapaCount+'.'+atividadeCount+'\'>Atividade #'+atividadeCount+'</label> <input type=\'text\'name=\'campo['+etapaCount+']['+atividadeCount+']\'> </div>');
+  });
 
-$('#accordion, #accordionupd').on('click', '.rmv-passo', function(){
-  if(atividadeCount <= 1){
-    return false;
-  } else{
-    atividadeCount = atividadeCount -1;
-    $(this).prev().prev().remove();
-  }
-});
+  $('#accordion, #accordionupd').on('click', '.rmv-passo', function(){
+    if(atividadeCount <= 1){
+      return false;
+    } else{
+      atividadeCount = atividadeCount -1;
+      $(this).prev().prev().remove();
+    }
+  });
 
-$('#criaproj').on('click', function(){
-  $('#nomeproj').val($('#nome-projeto').text());
-  $('#input-etapa1').val($('#nome-etapa1').html());
-});
+  $('#criaproj').on('click', function(){
+    $('#nomeproj').val($('#nome-projeto').text());
+    $('#input-etapa1').val($('#nome-etapa1').html());
+    holder = $('#accordion').children('div').last().children().attr('id').split('g');
+    count = parseInt(holder[1]);
+  });
 
-$('#nome-projeto').on('keyup', function(){
-  $('#nomeproj').val($('#nome-projeto').text());
-});
+  $('#nome-projeto').on('keyup', function(){
+    $('#nomeproj').val($('#nome-projeto').text());
+  });
 
-$('#precoest').on('keyup', function(e){
-  if (/\D/g.test(this.value)){
+  $('#precoest').on('keyup', function(e){
+    if (/\D/g.test(this.value)){
     	// Filter non-digits from input value.
     	this.value = this.value.replace(/\D/g, '');
     }
   });
 
-/*------------ Formulário de Cadastro Conta -----------------*/
+  /*------------ Formulário de Cadastro Conta -----------------*/
 
-$('.submit_btn').on('click', function(e){
-  $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
-});
+  $('.submit_btn').on('click', function(e){
+    $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
+  });
 
-$('.submit_btn').click(function(event) {
+  $('.submit_btn').click(function(event) {
     // For Loop To Count Blank Inputs
     $('.regform input').each(function(){
       if ($(this).val() == ''){
@@ -165,7 +247,7 @@ $('.submit_btn').click(function(event) {
 
   });
 
-/*---------------------------------------------------------*/
+  /*---------------------------------------------------------*/
 
   $('.next_btn').click(function() { // Function Runs On NEXT Button Click
     $(this).closest('fieldset').next().fadeIn('slow');

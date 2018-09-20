@@ -136,6 +136,10 @@ if ($_FILES['Filedata']['error'] != 0) {
 }
 
 $stmt = $link->prepare("SELECT cpf FROM usuariopf WHERE cpf = ?");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 $stmt->bind_param("i", $cpf);
 
 if($stmt->execute()){
@@ -154,6 +158,10 @@ $stmt->close();
 	//verifica se o email já existe no bd
 
 $stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 $stmt->bind_param("ss", $email, $email);
 if($stmt->execute()){
 	$stmt->bind_result($buscaEmail);
@@ -222,6 +230,10 @@ if($cpf_existe || $email_existe || $email_diferente || $senha_diferente || $camp
 }
 
 $stmt = $link->prepare("INSERT INTO usuariopf(senha, nome, sobrenome, cpf, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+  return;
+}
 
 $stmt->bind_param("sssiisssssiissss", $senha, $nome, $sobrenome, $cpf, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
 
