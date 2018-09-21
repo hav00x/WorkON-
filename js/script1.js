@@ -67,7 +67,10 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
     $.post('atualiza_projetosbd.php',
       $('#atualiza-projetos').serialize(),
       function(data){
-        console.log(data);
+        $('#ficha-projeto').contents().remove();
+        $('#ficha-projeto').load('carrega_projetosbd.php');
+        $('#modal_edit_close').click();
+        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
       });
   });
 
@@ -82,11 +85,15 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
     $('#divalerta').addClass('hide');
   });
 
-  $('btn-excluiproj').on('click', function(){
+  $('btn-excluiproj').on('click', function(e){
+    e.preventDefault();
     $.post('atualiza_projetosbd.php',
       $('#atualiza-projetos').serialize()  + '&delete=' + 1,
       function(data){
-        var lol = lol;
+        $('#ficha-projeto').contents().remove();
+        $('#ficha-projeto').load('carrega_projetosbd.php');
+        $('#modal_edit_close').click();
+        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
       });
   });
 

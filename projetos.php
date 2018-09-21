@@ -57,6 +57,7 @@ if(!isset($_SESSION['email'])){
       <div class="row formatarow" id="ficha-projeto">
 
       </div>
+
     </div><!--section-->
 
     <div class='modal fade' id='modalEdit' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
@@ -251,7 +252,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js"></script>
+  <script src="js/script1.js?ver=1"></script>
 
 </body>
 </html>
