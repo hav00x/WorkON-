@@ -16,7 +16,7 @@ $sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=32" rel="stylesheet">
+  <link href="css/estilo.css?ver=33" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
