@@ -72,7 +72,7 @@ if(!isset($_SESSION['email'])){
                   <button style='display: inline-block; margin-bottom: 10px;' type='button' class='btn-edicao edita-projeto'>
                     <img class='img-edicao' src='img/edit-file.png'>
                   </button>
-                  <input id='nomeprojupd' class="hide" type='text' name='nome_projetoupd''>
+                  <input id='nomeprojupd' class="hide" type='text' name='nome_projetoupd'>
                 </div>
               </h3>
             </div>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['email'])){
               <div id="divalerta" class="col-md-12 hide divalerta">
                 <h3>Confirme a exclusão do projeto</h3>
                 <button type='button' id="btn-cancelar" class='button -regular'>Cancelar</button>
-                <button type='submit' id="btn-excluiproj" class='button -regular'>Excluir</button>
+                <button type='button' id="btn-excluiproj" class='button -regular'>Excluir</button>
               </div>
             </div>
 
@@ -252,7 +252,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js?ver=1"></script>
+  <script src="js/script1.js?ver=2"></script>
 
 </body>
 </html>
