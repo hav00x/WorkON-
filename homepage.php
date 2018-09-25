@@ -47,7 +47,7 @@ if(!isset($_SESSION['email'])){
      <div class="row section" id="div-perfil">
       <h1 id="homepage-title">Seu perfil</h1>
       <div class="col-md-4">
-        <img src="img/eu-e-o-caminhao.jpg" class="img-responsive img-thumbnail" id="img-perfil">
+        <img src="img/hog.jpg" class="img-responsive img-thumbnail" id="img-perfil">
       </div>
       <div class="col-md-8 info-perfil" id="perfil-data">
       </div>
