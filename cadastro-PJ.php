@@ -254,16 +254,13 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
               <input type="text" name="arquivo" id="arquivo" class="hide">
               <img class="img-responsive img-cadastro" id="blah" src="img/nenhumafoto.jpeg" alt="Sua imagem">
               <br>
-              <input class="submit_btn button -regular btn-alinha-direita" type="submit" value="Concluir">
+              <input class="submit_btn btn-alinha-direita button -regular" type="submit" value="Concluir">
               <input class="pre_btn button -regular btn-alinha-direita" type="button" value="Anterior">
             </div>
           </div>
         </fieldset>
-
       </form>
-
     </div>
-  </div>
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="js/script1.js?ver=2"></script>

@@ -135,9 +135,9 @@ if($delete == 0){
 			$stmt->free_result();
 			$stmt->close();
 		}
-
-		echo 'Atualizado com sucesso';
 	}
+
+	echo 'Atualizado com sucesso';
 
 } else if($delete == 1){
 	$stmt = $link->prepare('SELECT id_intermediario FROM projeto WHERE id_projeto=?');
@@ -209,7 +209,7 @@ if($delete == 0){
 
 	$stmt->close();
 
-	$stmt = $link->prepare('DELETE FROM intermediario WHERE id_intermediario');
+	$stmt = $link->prepare('DELETE FROM intermediario WHERE id_intermediario=?');
 		if ($stmt === false) {
 			trigger_error($this->mysqli->error, E_USER_ERROR);
 			return;
