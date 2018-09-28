@@ -236,7 +236,13 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
               <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
               <input class="next_btn button -regular btn-alinha-direita" id="segundo_next" name="next" type="button" value="Próximo">
-              <input class="pre_btn button -regular btn-alinha-direita" name="previous" type="button" value="Anterior">    
+              <input class="pre_btn button -regular btn-alinha-direita" name="previous" type="button" value="Anterior">
+
+              <div class="btn-group">
+                <label>Eu sou:</label> <br>
+                <input type="radio" name="choiceprof"> <img src="img/userico.png" style="width: 25px;"> Cliente <br>
+                <input type="radio" name="choiceprof"> <img src="img/devico.png" style="width: 25px;"> Desenvolvedor
+              </div> <!--fim dropdown-->   
             </div>
           </div>
         </fieldset>
