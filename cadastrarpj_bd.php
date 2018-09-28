@@ -33,6 +33,8 @@ $email_invalido = false;
 $imagem_grande = false;
 $erro_foto = false;
 
+//verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
+
 if(!isset($email, $senha, $razao_social, $cel, $nome_fantasia, $cnpj, $cidade, $estado, $segmento, $descricao)){
 	$campo_vazio = true;
 }

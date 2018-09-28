@@ -141,7 +141,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 
     <div class="container cadastro-lower">
       <!-- Multistep Form -->
-      <form action="cadastrarpf_bd.php" class="regform" method="post">
+      <form action="cadastrarpf_bd.php" enctype="multipart/form-data" class="regform" method="post">
         <!-- Progress Bar -->
         <div class="row">
           <div class="col-md-12 table cada-status">
@@ -256,6 +256,6 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
     </div>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script1.js?ver=1"></script>
+    <script src="js/script1.js?ver=2"></script>
   </body>
   </html>

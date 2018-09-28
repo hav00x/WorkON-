@@ -73,7 +73,7 @@
     </div>
 
     <!-- corpo -->
-    <div class="modal-body">
+    <div class="modal-body" style="margin-bottom: 15px;">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-5 box-cadastro">

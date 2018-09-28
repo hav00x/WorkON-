@@ -58,7 +58,7 @@ if($stmt->execute()){
 						<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
 						<img class='img-etapa-edicao' src='img/edit-file.png'>
 						</button>
-						<input class='nomeetp nome-edit-etp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' val='".$rowE['etapa']."'>
+						<input class='nomeetp nome-edit-etp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' value='".$rowE['etapa']."'>
 						</div>
 						</h4>
 						</div>

@@ -55,13 +55,12 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
                 }
               }
 
-              $('.nome-edit-etp').each(function(){
-                $(this).val($(this).before().before().text());
-              });
-
             }, 'json');
         });
 
+        $('.nome-edit-etp').each(function(){
+          $(this).attr('value', $(this).before().before().text());
+        });
         $('#modalEdit').modal('show');
         
       });
@@ -99,8 +98,28 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
         $('#ficha-projeto').contents().remove();
         $('#ficha-projeto').load('carrega_projetosbd.php');
         $('#modal_edit_close').click();
-        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+        setTimeout(function(){
+          $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+        }, 50);
       });
+  });
+
+  $('#accordionupd').on('click', '.rmv-etapa', function(){
+    if($(this).prev().prev().children().first().attr('id').indexOf("upd") >= 0){
+      if(count <= 1){
+        return false;
+      }else{
+        $.post('remove_etp_passobd.php',
+          $('#atualiza-projetos').serialize(),
+          function(data){
+           console.log(data);
+         });
+      }
+    }
+  });
+
+  $('#accordionupd').on('click', '.rmv-passo', function(){
+    console.log($(this).closest('div.panel-heading').find('a'));
   });
 
   /*------------ Formulário de Projeto -----------------*/
@@ -127,12 +146,20 @@ $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
     }
   });
 
+  $('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
+    if(e.which === 13){
+      e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
+      return false;
+    } 
+    $(this).next().next().attr('value', $(this).text());
+  });
+
   $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
     if(e.which === 13){
-      e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
+      e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
       return false;
-    }
-    $(this).next().next().val($(this).html());
+    } 
+    $(this).next().next().attr('value', $(this).text());
   });
 
   $('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){

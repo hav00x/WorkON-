@@ -252,7 +252,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js?ver=2"></script>
+  <script src="js/script1.js?ver=4"></script>
 
 </body>
 </html>
