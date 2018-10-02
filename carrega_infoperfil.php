@@ -7,16 +7,16 @@ $objdb = new db();
 $link = $objdb->connect();
 $email = $_SESSION['email'];
 
-$stmt = $link->prepare("SELECT nomefant, email, estado, descr, facebook, instagram, site FROM usuariopj WHERE email = ?");
+$stmt = $link->prepare("SELECT nomefant, email, estado, descr, facebook, instagram, site, foto FROM usuariopj WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($nomefant, $jemail, $estado, $descr, $facebook, $instagram, $site);
+	$stmt->bind_result($nomefant, $jemail, $estado, $descr, $facebook, $instagram, $site, $foto);
 	$stmt->fetch();
 	if(isset($jemail)){
 		
 		echo '<div class="row">
 		<div  class="col-md-12">
-		<h3 id="header-homepage"><img src="img/infocard.png"> Sobre você</h3>
+		<h3 id="header-homepage"><img src="'.$foto.'"> Sobre você</h3>
 		</div>
 		</div>
 		<div class="row">

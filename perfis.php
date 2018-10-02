@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>WorkOn! | Perfis</title>
+	<title>WorkOn! | PERFIS</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=9" rel="stylesheet">
+	<link href="css/estilo.css?ver=11" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -28,48 +28,51 @@
 		<?php
 		include('templates/navbarinterna.php');
 		?>
-
-		<div class="section">
+		<div class="section container">
 			<h1 id="homepage-title">busca</h1>
-
-			<div class="row">
-				<div class="col-md-12">
-					<div class="input-group"> 
-						<label>Nome</label><br>
-						<input type="text" name="">
-
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Escolha <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Site</a></li>
-							<li><a href="#">Aplicativo</a></li>
-							<li><a href="#">Software</a></li>
-							<li><a href="#">Outros</a></li>
-						</ul>
-						</div
+				<form>
+					<div class="form-group col-md-4">
+						<label for="nomesearch">Nome</label>
+						<input id="nomesearch" type="text" name="">
 					</div>
-				</div>
-			</div><!--fim row-->
+					<div class="form-group col-md-4">
+						<label for="produtosearch">Produto</label>
+						<select class="form-group">
+							<option>Site</option>
+							<option>Software</option>
+							<option>Aplicativo</option>
+							<option>Outros</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="localizacaosearch">Localização</label>
+						<input id="localizacaosearch" type="text" name="">
+					</div>	
+				</form>
+			</div>
 
-		</div><!--FIM CONTENT-->
 
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<!-- jQuery Custom Scroller CDN -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+			<div class="container">
+				
+			</div>
+			</div><!--FIM CONTENT-->
 
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$("#sidebar").mCustomScrollbar({
-					theme: "minimal"
-				})
+			<script src="bootstrap/js/bootstrap.min.js"></script>
+			<!-- jQuery Custom Scroller CDN -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-				$('#sidebarCollapse').on('click', function () {
-					$('#sidebar, #content, #btnMenu').toggleClass('active2');
-					$('.collapse.in').toggleClass('in');
-					$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			<script type="text/javascript">
+				$(document).ready(function () {
+					$("#sidebar").mCustomScrollbar({
+						theme: "minimal"
+					})
+
+					$('#sidebarCollapse').on('click', function () {
+						$('#sidebar, #content, #btnMenu').toggleClass('active2');
+						$('.collapse.in').toggleClass('in');
+						$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+					});
 				});
-			});
-		</script>
-	</body>
-	</html>
+			</script>
+		</body>
+		</html>
