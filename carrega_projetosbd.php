@@ -7,11 +7,12 @@ session_start();
 $objdb = new db();
 $link = $objdb->connect();
 $id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
+$url = isset($_POST['url']) ? $_POST['url'] : '';
 
 $stmt = $link->prepare("SELECT COUNT(id_intermediario) FROM intermediario WHERE (id_pfusu = ? OR id_pjusu = ?)");
 if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-  return;
+	trigger_error($this->mysqli->error, E_USER_ERROR);
+	return;
 }
 
 $stmt->bind_param('ii', $id_usuario, $id_usuario);
@@ -25,15 +26,21 @@ if($stmt->execute()){
 $stmt->close();
 
 if($contaProjetos <= 0){
-	echo '<div class="col-md-4 col-md-offset-4" style="text-align: center;">
-	<p>Você não possui nenhum projeto! Comece um agora usando o botão "Novo Projeto"</p>
-	</div>';
+	if($url == 'http://localhost/root2/homepage.php'){
+		echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
+		<p>Você não possui nenhum projeto!</p>
+		</div>';
+	} else{
+		echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
+		<p>Você não possui nenhum projeto! Comece um agora usando o botão "Novo Projeto"</p>
+		</div>';
+	}
 }
 
 $stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?)");
 if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-  return;
+	trigger_error($this->mysqli->error, E_USER_ERROR);
+	return;
 }
 
 $stmt->bind_param('ii', $id_usuario, $id_usuario);

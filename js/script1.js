@@ -11,10 +11,12 @@ $(document).ready(function () {
   }
 
 $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
+$('#img-perfil').load('carrega_infoperfil.php',
+  {foto:1});
 
 /*------------ Pegando projeto e atualizando projeto -----------------*/
 
-  $('#ficha-projeto').load('carrega_projetosbd.php');// carrega preview dos projetos
+  $('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href});// carrega preview dos projetos
   $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
     var num_form = $(this).attr('data-value');
     $('#atualizando').val($(this).prev().val());

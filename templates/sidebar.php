@@ -5,7 +5,16 @@
         </div>
 
         <ul class="list-unstyled components">
-          <p>Qualquer coisa pq aqui vai codigo dps</p>
+          <p id="local-atual">Você está em:
+           <?php
+           $url1 = explode('/', $_SERVER['REQUEST_URI']);
+           $url2 = explode('.', $url1[2]);
+           if($url2[0] == 'homepage'){
+            $url2[0] = 'página principal';
+           }
+           echo ucfirst($url2[0]);
+           ?>
+           </p>
           <li class="home">
             <a href="homepage.php" id="home">Página Principal</a>
           </li>

@@ -766,7 +766,7 @@ FORMATAÇÕES ESPECIFICAS
 */
 
 .img-cadastro{
-    border:1px solid black;
+    border: 1px solid #DFDCDC;
     width: 500px;
     height: 400px;
     margin: 0 auto;
@@ -1332,6 +1332,6 @@ MEDIAQUERIES
   margin: -5px; 
 }
 
-#img-perfil{
+.img-perfil{
   height: 350px;
 }
