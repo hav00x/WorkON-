@@ -73,7 +73,6 @@ if($foto == 0){
 		}
 	}
 
-
 	$stmt->close();
 
 	$stmt = $link->prepare("SELECT nome, email, estado, descr, facebook, instagram, site FROM usuariopf WHERE email = ?");
