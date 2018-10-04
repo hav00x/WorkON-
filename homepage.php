@@ -14,7 +14,7 @@ if(!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON! | PÁGINA INICIAL</title>
+  <title>WORKON! | Página Inicial</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->

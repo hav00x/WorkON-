@@ -33,10 +33,10 @@ if($foto == 0){
 			</div>
 			</div>
 			<div class="row">
-			<div class="col-md-4"><label> Nome </label>
+			<div class="col-md-4"><label class="label-perfil"> Nome </label>
 			<p>'.$nomefant.'</p>
 			</div>
-			<div class="col-md-4"> <label> E-mail</label>
+			<div class="col-md-4"> <label class="label-perfil"> E-mail</label>
 			<p>'.$jemail.'</p>
 			</div>
 

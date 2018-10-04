@@ -37,7 +37,7 @@ if($contaProjetos <= 0){
 	}
 }
 
-$stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?)");
+$stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?) ORDER BY id_intermediario DESC LIMIT 6");
 if ($stmt === false) {
 	trigger_error($this->mysqli->error, E_USER_ERROR);
 	return;
@@ -55,7 +55,7 @@ $indiceProjeto = $resultado;
 $stmt->close();
 
 for($i = 0; $i < $contaProjetos; $i++){
-	$stmt = $link->prepare('SELECT id_projeto, nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_intermediario = ?');
+	$stmt = $link->prepare('SELECT id_projeto, nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_intermediario=? ');
 	if ($stmt === false) {
 		trigger_error($this->mysqli->error, E_USER_ERROR);
 		return;
@@ -67,56 +67,96 @@ for($i = 0; $i < $contaProjetos; $i++){
 		$stmt->store_result();
 		$stmt->bind_result($id_projeto, $nome_cliente, $preco, $nome_projeto, $data_entrega);
 		while($stmt->fetch()){
-			if($i % 2 == 0){
-				$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+			if($url == 'http://localhost/root2/homepage.php'){
+				if($i % 2 == 0){
+					$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
 
-				echo '<div class="col-md-4 divisor-projetos col-md-offset-1">
-				<form id="form'.$i.'" method="post">
-				<div class="col-md-12">
-				<h3>'.$nome_projeto.'</h3>
-				<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
-				</div>		
-				<div class="col-md-12">
-				<img class="img-projetos" src="img/hog.jpg">
-				<div class="info-proj">
-				Nome do cliente: '.$nome_cliente.'<br>
-				<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
-				Preço Estabelecido: R$'.$preco.'<br>
-				<input type="text" class="hide" name="precoatt" value="'.$preco.'">
-				Data de entrega: '.$date->format('d-m-Y').'<br>
-				<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
-				</div>
-				<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
-				<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
-				</div>
-				</form>
-				</div>';
+					echo '<div class="col-md-4 divisor-projetos col-md-offset-1">
+					<div class="col-md-12">
+					<h3>'.$nome_projeto.'</h3>					
+					</div>		
+					<div class="col-md-12">
+					<img class="img-projetos" src="img/hog.jpg">
+					<div class="info-proj">
+					Nome do cliente: '.$nome_cliente.'<br>				
+					Preço Estabelecido: R$'.$preco.'<br>
+					<p>Data de entrega: '.$date->format('d-m-Y').'</p><br>					
+					</div>					
+					</div>
+					</div>';
 
-			}else{
-				$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
-				
+				}else{
+					$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+					
 
-				echo '<div class="col-md-4 divisor-projetos col-md-offset-2">
-				<form id="form'.$i.'" method="post">
-				<div class="col-md-12">
-				<h3>'.$nome_projeto.'</h3>
-				<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
-				</div>		
-				<div class="col-md-12">
-				<img class="img-projetos" src="img/hog.jpg">
-				<div class="info-proj">
-				Nome do cliente: '.$nome_cliente.'<br>
-				<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
-				Preço Estabelecido: R$'.$preco.'<br>
-				<input type="text" class="hide" name="precoatt" value="'.$preco.'">
-				Data de entrega: '.$date->format('d-m-Y').'<br>
-				<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
-				</div>
-				<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
-				<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
-				</div>
-				</form>
-				</div>';
+					echo '<div class="col-md-4 divisor-projetos col-md-offset-2">
+					<div class="col-md-12">
+					<h3>'.$nome_projeto.'</h3>
+					</div>		
+					<div class="col-md-12">
+					<img class="img-projetos" src="img/hog.jpg">
+					<div class="info-proj">
+					Nome do cliente: '.$nome_cliente.'<br>
+					Preço Estabelecido: R$'.$preco.'<br>
+					<p>Data de entrega: '.$date->format('d-m-Y').'</p><br>
+					</div>
+					</div>
+					</div>';
+				}
+
+			} else{
+
+				if($i % 2 == 0){
+					$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+
+					echo '<div class="col-md-4 divisor-projetos col-md-offset-1">
+					<form id="form'.$i.'" method="post">
+					<div class="col-md-12">
+					<h3>'.$nome_projeto.'</h3>
+					<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
+					</div>		
+					<div class="col-md-12">
+					<img class="img-projetos" src="img/hog.jpg">
+					<div class="info-proj">
+					Nome do cliente: '.$nome_cliente.'<br>
+					<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
+					Preço Estabelecido: R$'.$preco.'<br>
+					<input type="text" class="hide" name="precoatt" value="'.$preco.'">
+					Data de entrega: '.$date->format('d-m-Y').'<br>
+					<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
+					</div>
+					<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
+					<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
+					</div>
+					</form>
+					</div>';
+
+				}else{
+					$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
+
+
+					echo '<div class="col-md-4 divisor-projetos col-md-offset-2">
+					<form id="form'.$i.'" method="post">
+					<div class="col-md-12">
+					<h3>'.$nome_projeto.'</h3>
+					<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
+					</div>		
+					<div class="col-md-12">
+					<img class="img-projetos" src="img/hog.jpg">
+					<div class="info-proj">
+					Nome do cliente: '.$nome_cliente.'<br>
+					<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
+					Preço Estabelecido: R$'.$preco.'<br>
+					<input type="text" class="hide" name="precoatt" value="'.$preco.'">
+					Data de entrega: '.$date->format('d-m-Y').'<br>
+					<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
+					</div>
+					<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
+					<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
+					</div>
+					</form>
+					</div>';
+				}
 			}
 		}
 	}else{

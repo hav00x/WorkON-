@@ -20,6 +20,18 @@ $usuariopj = 0;
 $usuariopf = 0;
 $idetapa = array();
 $numeroPassos = array();
+$campo_vazio = false;
+
+if(!isset($nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $data_inicio, $data_entrega, $passos, $nome_etapa, $preco)){
+	$campo_vazio = true;
+}
+
+if($campo_vazio){
+	$retorno_get.= 'erro_vazio=1&';
+
+	header("Location: projetos.php?".$retorno_get);
+	die();
+}
 
 $stmt = $link->prepare("INSERT INTO intermediario(id_pfusu, id_pjusu) VALUES(?, ?)");
 if ($stmt === false) {
