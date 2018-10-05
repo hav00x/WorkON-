@@ -69,7 +69,9 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       <div class="row formatarow" id="ficha-projeto">
 
       </div>
-        
+      <div id="div-mais" style="text-align: center;">
+        <button id="mais-proj" class="hide"></button>
+      </div>
     </div><!--section-->
 
     <div id="modalErroProj" class="modal fade" tabindex="-1" role="dialog">
@@ -281,7 +283,7 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=7"></script>
+  <script src="js/script1.js?ver=8"></script>
 
 </body>
 </html>

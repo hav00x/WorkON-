@@ -5,7 +5,7 @@ var contador = 0;
 var vazio = false;
 var projetos = 0;
 
-$(document).ready(function () {
+$(document).ready(function(){
   if ((window.location.href.indexOf('cadastro-choice') > -1) || (window.location.href.indexOf('cadastro-PF') > -1) || (window.location.href.indexOf('cadastro-PJ') > -1)) {
     $('.loginM').addClass('hide');
     $('.divisor').addClass('hide');
@@ -17,64 +17,66 @@ $('#img-perfil').load('carrega_infoperfil.php',
 
 /*------------ Pegando projeto e atualizando projeto -----------------*/
 
-$('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href}, function(){
+$('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href}, function(){// carrega preview dos projetos
   $('#corpo-proj #ficha-projeto .divisor-projetos').each(function(){
     projetos = projetos +1;
   });
 
   if(projetos >= 6){
-    $('#corpo-proj #ficha-projeto').append('<button type="button" style="margin: 10px auto;" class="button -regular" id="mais-proj">Mais Projetos</button>');
+    $('<button type="button" style="margin: 25px auto 10px auto;" class="button -regular" id="mais-proj">Mais Projetos</button>').replaceAll('#mais-proj');
   }
-  });// carrega preview dos projetos
+
+});
+
 $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
   var num_form = $(this).attr('data-value');
   $('#atualizando').val($(this).prev().val());
 
-      $.post('abre_projetosbd.php', // carrega primeiro o projeto
-        $('#form'+num_form).serialize(),
-        function(data){
-          $('#nome-projetoupd').text(data['nome_projeto']);
-          $('#nomeprojupd').val(data['nome_projeto']);
-          $('#nomecliupd').val(data['nome_cliente']);
-          $('#tipoproupd').val(data['tipo_projeto']);
-          $('#datainiupd').val(data['data_inicio']);
-          $('#dataentupd').val(data['data_entrega']);
-          $('#nomecliupd').val(data['nome_cliente']);
-          $('#precoestupd').val(data['preco_estabelecido']);
-          $('#descriupd').val(data['descri_projeto']);
+  $.post('abre_projetosbd.php', // carrega primeiro o projeto
+    $('#form'+num_form).serialize(),
+    function(data){
+      $('#nome-projetoupd').text(data['nome_projeto']);
+      $('#nomeprojupd').val(data['nome_projeto']);
+      $('#nomecliupd').val(data['nome_cliente']);
+      $('#tipoproupd').val(data['tipo_projeto']);
+      $('#datainiupd').val(data['data_inicio']);
+      $('#dataentupd').val(data['data_entrega']);
+      $('#nomecliupd').val(data['nome_cliente']);
+      $('#precoestupd').val(data['preco_estabelecido']);
+      $('#descriupd').val(data['descri_projeto']);
 
-        }, 'json');
+    }, 'json');
 
-        $.post('abre_projetosbd.php', // depois as etapas
-         $('#form'+num_form).serialize() + '&check=' + 1,
-         function(data){
-          $('#accordionupd').contents().remove();
-          $('#accordionupd').append(data);
-          $('#accordionupd').append("<button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas</button> <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas</button>");
-          count = $('#accordionupd').children('div').last().data('value');
-          
-          $.post('abre_projetosbd.php', // e os passos
-            $('#form'+num_form).serialize() + '&check=' + 2,
-            function(data){
-              var numEtapas = $('.cntetap').length;
-              for(i = 0; i < numEtapas; i++){
-                var k = i+1;
-                for(var index in data) {
-                  if(data[index][i] != undefined){
-                    $('#btnc'+k+'upd').before(data[index][i]);
-                  }
-                }
-              }
+  $.post('abre_projetosbd.php', // depois as etapas
+   $('#form'+num_form).serialize() + '&check=' + 1,
+   function(data){
+    $('#accordionupd').contents().remove();
+    $('#accordionupd').append(data);
+    $('#accordionupd').append("<button type='button' class='button -regular add-etapa' style='float: right;'>Mais etapas</button> <button type='button' class='button -regular rmv-etapa' style='float: right;'>Menos etapas</button>");
+    count = $('#accordionupd').children('div').last().data('value');
 
-            }, 'json');
-        });
+    $.post('abre_projetosbd.php', // e os passos
+      $('#form'+num_form).serialize() + '&check=' + 2,
+      function(data){
+        var numEtapas = $('.cntetap').length;
+        for(i = 0; i < numEtapas; i++){
+          var k = i+1;
+          for(var index in data) {
+            if(data[index][i] != undefined){
+              $('#btnc'+k+'upd').before(data[index][i]);
+            }
+          }
+        }
 
-        $('.nome-edit-etp').each(function(){
-          $(this).attr('value', $(this).before().before().text());
-        });
-        $('#modalEdit').modal('show');
-        
-      });
+      }, 'json');
+  });
+
+  $('.nome-edit-etp').each(function(){
+    $(this).attr('value', $(this).before().before().text());
+  });
+  $('#modalEdit').modal('show');
+
+});
 
 $('#btn-attproj').on('click', function(e){
   e.preventDefault();
@@ -329,6 +331,13 @@ $('.submit-proj').on('click', function(){
       event.preventDefault();
     }
   });
+
+$('#mais-proj').on('click', function(){
+  $('#ficha-projeto').load('carrega_projetosbd.php',
+    {qtdprojetos:projetos}, function(data){
+      console.log(data);
+    });
+});
 
 /*------------ Formulário de Cadastro Conta -----------------*/
 
