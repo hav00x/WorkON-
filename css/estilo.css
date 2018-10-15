@@ -1198,8 +1198,8 @@ ul{
     transition:  all 0.15s;
 }
 
-.infocard{
-     url('../img/infocard.png'); 
+.alinha-meio{
+    text-align: center;
 }
 
 /* ---------------------------------------------------
@@ -1233,8 +1233,6 @@ CADASTRO
     padding-bottom: 20px;
 }
 
-
-
 #div-perfil{
     text-align: center;
     color: black
@@ -1242,11 +1240,7 @@ CADASTRO
 
 #div-perfil p{
     margin: 15px;
-    font-size: 
 }
-
-
-
 
 /* ---------------------------------------------------
 MEDIAQUERIES

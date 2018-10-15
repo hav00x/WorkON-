@@ -8,9 +8,12 @@ $objdb = new db();
 $link = $objdb->connect();
 $id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
 $url = isset($_POST['url']) ? $_POST['url'] : '';
-$qtd_projetos = isset($_POST['qtdprojetos']) ? $_POST['qtdprojetos'] : 0;
-$qtd_projetos = $qtd_projetos -1;
+$qtd_projetos = isset($_POST['qtdprojetos']) ? $_POST['qtdprojetos'] : '';
 
+if(!$qtd_projetos == ''){
+	$qtd_projetos = explode('-', $qtd_projetos);
+	$offset = ($qtd_projetos[1]-1)*6;
+}
 
 $stmt = $link->prepare("SELECT COUNT(id_intermediario) FROM intermediario WHERE (id_pfusu = ? OR id_pjusu = ?)");
 if ($stmt === false) {
@@ -40,7 +43,7 @@ if($contaProjetos <= 0){
 	}
 }
 
-if($qtd_projetos <= 0){
+if($qtd_projetos == ''){
 	$stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?) ORDER BY id_intermediario DESC LIMIT 6");
 
 	if ($stmt === false) {
@@ -56,8 +59,21 @@ if($qtd_projetos <= 0){
 		echo 'Ocorreu um erro ao recuperar os intermediarios';
 	}
 
-} else if($qtd_projetos > 0){
-	echo 'oi';
+} else if($qtd_projetos >= 0){
+	$stmt = $link->prepare("SELECT id_intermediario FROM intermediario where (id_pfusu = ? OR id_pjusu = ?) ORDER BY id_intermediario DESC LIMIT 6 OFFSET ?");
+
+	if ($stmt === false) {
+		trigger_error($this->mysqli->error, E_USER_ERROR);
+		return;
+	}
+
+	$stmt->bind_param('iii', $id_usuario, $id_usuario, $offset);
+	if($stmt->execute()){
+		$resultSet = $stmt->get_result();
+		$resultado = $resultSet->fetch_all();
+	} else{
+		echo 'Ocorreu um erro ao recuperar os intermediarios';
+	}
 }
 
 $indiceProjeto = $resultado;

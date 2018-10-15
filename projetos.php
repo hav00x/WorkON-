@@ -21,7 +21,7 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=9" rel="stylesheet">
+  <link href="css/estilo.css?ver=10" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -69,9 +69,24 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       <div class="row formatarow" id="ficha-projeto">
 
       </div>
-      <div id="div-mais" style="text-align: center;">
-        <button id="mais-proj" class="hide"></button>
+      <div id="navega-pag" class="alinha-meio">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li id="anterior">
+              <a id="primeira-pag" href="#corpo-proj" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+
+            <li>
+              <a id="ultima-pag" href="#corpo-proj" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
+
     </div><!--section-->
 
     <div id="modalErroProj" class="modal fade" tabindex="-1" role="dialog">
@@ -283,7 +298,7 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=8"></script>
+  <script src="js/script1.js?ver=12"></script>
 
 </body>
 </html>

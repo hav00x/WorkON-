@@ -17,15 +17,38 @@ $('#img-perfil').load('carrega_infoperfil.php',
 
 /*------------ Pegando projeto e atualizando projeto -----------------*/
 
-$('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href}, function(){// carrega preview dos projetos
-  $('#corpo-proj #ficha-projeto .divisor-projetos').each(function(){
-    projetos = projetos +1;
+if (window.location.href.indexOf('projetos')){
+  $(window).load('qtd_projetosbd.php', function(data){
+    projetos = data;
+    if(projetos <= 0){
+      $('#navega-pag').remove();
+    }
   });
+}
+
+$('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href}, function(){// carrega preview dos projetos
 
   if(projetos >= 6){
-    $('<button type="button" style="margin: 25px auto 10px auto;" class="button -regular" id="mais-proj">Mais Projetos</button>').replaceAll('#mais-proj');
+    var pg = Math.ceil(projetos/6); // sempre arredonda o número pra cima
+    for(var i = pg; i > 0; i--){
+      $('#anterior').after('<li><a href="#corpo-proj" class="pag-projetos" id="pag-'+i+'">'+ i +'</a></li>');
+    }
   }
 
+});
+
+$('#corpo-proj').on('click', '.pag-projetos', function(){
+  selecao = this.id;
+  $('#ficha-projeto').load('carrega_projetosbd.php', {qtdprojetos:selecao});
+});
+
+$('#corpo-proj').on('click', '#primeira-pag', function(){
+  $('#ficha-projeto').load('carrega_projetosbd.php');
+});
+
+$('#corpo-proj').on('click', '#ultima-pag', function(){
+  selecao = $(this).parent().prev().children().attr('id');
+  $('#ficha-projeto').load('carrega_projetosbd.php', {qtdprojetos:selecao});
 });
 
 $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
@@ -331,13 +354,6 @@ $('.submit-proj').on('click', function(){
       event.preventDefault();
     }
   });
-
-$('#mais-proj').on('click', function(){
-  $('#ficha-projeto').load('carrega_projetosbd.php',
-    {qtdprojetos:projetos}, function(data){
-      console.log(data);
-    });
-});
 
 /*------------ Formulário de Cadastro Conta -----------------*/
 
