@@ -16,7 +16,7 @@ if($stmt->execute()){
 		
 		echo '<div class="row">
 		<div  class="col-md-12">
-		<h3 id="header-homepage"><img src="'.$foto.'"> Sobre você</h3>
+		<h3 id="header-homepage"> Sobre você</h3>
 		</div>
 		</div>
 		<div class="row">
@@ -63,10 +63,10 @@ if($stmt->execute()){
 
 $stmt->close();
 
-$stmt = $link->prepare("SELECT nome, email, estado, descr, facebook, instagram, site FROM usuariopf WHERE email = ?");
+$stmt = $link->prepare("SELECT nome, email, estado, descr, facebook, instagram, site, foto FROM usuariopf WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($nome, $femail, $estado, $descr, $facebook, $instagram, $site);
+	$stmt->bind_result($nome, $femail, $estado, $descr, $facebook, $instagram, $site, $foto);
 	$stmt->fetch();
 	if(isset($femail)){
 		
