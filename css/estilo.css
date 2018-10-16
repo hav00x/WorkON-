@@ -766,7 +766,7 @@ FORMATAÇÕES ESPECIFICAS
 */
 
 .img-cadastro{
-    border:1px solid black;
+    border: 1px solid #DFDCDC;
     width: 500px;
     height: 400px;
     margin: 0 auto;
@@ -1198,8 +1198,8 @@ ul{
     transition:  all 0.15s;
 }
 
-.infocard{
-     url('../img/infocard.png'); 
+.alinha-meio{
+    text-align: center;
 }
 
 /* ---------------------------------------------------
@@ -1233,8 +1233,6 @@ CADASTRO
     padding-bottom: 20px;
 }
 
-
-
 #div-perfil{
     text-align: center;
     color: black
@@ -1242,14 +1240,16 @@ CADASTRO
 
 #div-perfil p{
     margin: 15px;
-    font-size: 
 }
 
+<<<<<<< HEAD
 
 #perfil{
   border:1px solid black;
   width: 100px;
 }
+=======
+>>>>>>> 67ddba981db8f378f2fa200dd902767409f10dd3
 /* ---------------------------------------------------
 MEDIAQUERIES
 ----------------------------------------------------- */
@@ -1334,6 +1334,6 @@ MEDIAQUERIES
   margin: -5px; 
 }
 
-#img-perfil{
+.img-perfil{
   height: 350px;
 }

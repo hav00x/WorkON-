@@ -21,12 +21,12 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON. | abcde</title>
+  <title>WORKON! | Cadastro Pessoa Física</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=3" rel="stylesheet">
+  <link href="css/estilo.css?ver=4" rel="stylesheet">
 
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -236,8 +236,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
               <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
               <input class="next_btn btn-alinha-direita button -regular" name="next" type="button" value="Próximo">
               <input class="pre_btn btn-alinha-direita button -regular" name="previous" type="button" value="Anterior">
-
-                            <div class="btn-group">
+              <div class="btn-group">
                 <label>Eu sou:</label> <br>
                 <input type="radio" name="choiceprof"> <img src="img/userico.png" style="width: 25px;"> Cliente <br>
                 <input type="radio" name="choiceprof"> <img src="img/devico.png" style="width: 25px;"> Desenvolvedor

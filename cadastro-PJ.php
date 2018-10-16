@@ -21,12 +21,12 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>wORKON. | abcde</title>
+  <title>WORKON! | Cadastro Pessoa Jurídica</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=2" rel="stylesheet">
+  <link href="css/estilo.css?ver=4" rel="stylesheet">
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"

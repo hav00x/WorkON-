@@ -6,6 +6,8 @@ if(!isset($_SESSION['email'])){
   header('Location: index.php?acessoinval=1&');
 }
 
+$erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
+
 ?>
 
 <html>
@@ -14,17 +16,27 @@ if(!isset($_SESSION['email'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>WORKON! | PROJETOS</title>
+  <title>WORKON! | Projetos</title>
   <link rel="icon" href="imagens/favicon.png">
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=9" rel="stylesheet">
+  <link href="css/estilo.css?ver=10" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <!-- IE 9 ou menor -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+     var erro_vazio = '<?= $erro_vazio ?>';
+     if(erro_vazio == 1){
+      $('#modalErroProj .modal-body p').append('<p>Preencha todos os campos</p>');
+      $('#modalErroProj').modal('show');
+    }
+  });
+</script>
+
+<!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -44,7 +56,7 @@ if(!isset($_SESSION['email'])){
      include('templates/navbarinterna.php');
      ?>
 
-     <div class="section">
+     <div class="section" id="corpo-proj">
       <div class="row formatarow">
         <div class="col-md-4 headerpag">
           <h1 id="header-proj" class="lead">Projetos</h1>
@@ -57,8 +69,42 @@ if(!isset($_SESSION['email'])){
       <div class="row formatarow" id="ficha-projeto">
 
       </div>
+      <div id="navega-pag" class="alinha-meio">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li id="anterior">
+              <a id="primeira-pag" href="#corpo-proj" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+
+            <li>
+              <a id="ultima-pag" href="#corpo-proj" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
     </div><!--section-->
+
+    <div id="modalErroProj" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="margin: 0 auto;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Erro</h4>
+          </div>
+          <div class="modal-body">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <div class='modal fade' id='modalEdit' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
       <!-- Modal Edição Projetos -->
@@ -127,7 +173,7 @@ if(!isset($_SESSION['email'])){
               <input type="text" class="hide" name="atualizando" id="atualizando">
               <button type='button' id='modal_edit_close' class='button -regular' data-dismiss='modal'>Voltar</button>
               <button type='button' id="btn-atencao" class='button -regular'>Excluir</button>
-              <button type='submit' id="btn-attproj" class='button -regular'>Atualizar</button>
+              <button type='submit' id="btn-attproj" class='submit-projatt button -regular'>Atualizar</button>
             </div>
           </form>
         </div>
@@ -139,7 +185,7 @@ if(!isset($_SESSION['email'])){
       <!-- Modal Cadastro Projetos -->
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form action="cadastrarprojeto_bd.php" method="post">
+          <form id="formcadastro" action="cadastrarprojeto_bd.php" method="post">
             <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -227,7 +273,7 @@ if(!isset($_SESSION['email'])){
 
             <div class="modal-footer" style="clear: both;">
               <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-              <button type="submit" class="button -regular">Criar</button>
+              <button type="submit" class="submit-proj button -regular">Criar</button>
             </div>
           </form>
         </div>
@@ -252,7 +298,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
-  <script src="js/script1.js?ver=4"></script>
+  <script src="js/script1.js?ver=12"></script>
 
 </body>
 </html>
