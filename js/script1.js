@@ -4,6 +4,7 @@ var atividadeCount = 1;
 var contador = 0;
 var vazio = false;
 var projetos = 0;
+var data_erro = 0;
 
 $(document).ready(function(){
   if ((window.location.href.indexOf('cadastro-choice') > -1) || (window.location.href.indexOf('cadastro-PF') > -1) || (window.location.href.indexOf('cadastro-PJ') > -1)) {
@@ -303,18 +304,32 @@ $('.submit-projatt').on('click', function(){
 
   });
 
+  if(contador != 0){
+
+    $('#modalErroProj .modal-body p').remove();
+
+    if(vazio == true){
+      $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p><br>');
+    }
+
+    var dataent = $('#dataentupd').val();
+    var dataini = $('#datainiupd').val();
+
+    if(dataini > dataent){
+      $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p><br>');
+    }
+
+    $('#modalCadastro').modal('hide');
+    setTimeout(function(){
+      $('#modalErroProj').modal('show');
+    }, 200);
+    event.preventDefault();
+
+  }
+
   contador = 0;
 
-  if(vazio == true){
-    $('<p>Preencha todos os campos</p>').replaceAll('#modalErroProj .modal-body p');
-      // $('#modalErro .modal-body p').append('Preencha todos os campos');
-      $('#modalEdit').modal('hide');
-      setTimeout(function(){
-        $('#modalErroProj').modal('show');
-      }, 200);
-      event.preventDefault();
-    }
-  });
+});
 
 
 $('.submit-proj').on('click', function(){
@@ -342,18 +357,32 @@ $('.submit-proj').on('click', function(){
 
   });
 
+  if(contador != 0){
+
+    $('#modalErroProj .modal-body p').remove();
+
+    if(vazio == true){
+      $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p><br>');
+    }
+
+    var dataent = $('#dataent').val();
+    var dataini = $('#dataini').val();
+
+    if(dataini > dataent){
+      $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p><br>');
+    }
+
+    $('#modalCadastro').modal('hide');
+    setTimeout(function(){
+      $('#modalErroProj').modal('show');
+    }, 200);
+    event.preventDefault();
+
+  }
+
   contador = 0;
 
-  if(vazio == true){
-    $('<p>Preencha todos os campos</p>').replaceAll('#modalErroProj .modal-body p');
-      // $('#modalErro .modal-body p').append('Preencha todos os campos');
-      $('#modalCadastro').modal('hide');
-      setTimeout(function(){
-        $('#modalErroProj').modal('show');
-      }, 200);
-      event.preventDefault();
-    }
-  });
+});
 
 /*------------ Formulário de Cadastro Conta -----------------*/
 

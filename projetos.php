@@ -298,7 +298,7 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=12"></script>
+  <script src="js/script1.js?ver=13"></script>
 
 </body>
 </html>
