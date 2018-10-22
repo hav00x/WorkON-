@@ -26,8 +26,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=4" rel="stylesheet">
-
+  <link href="css/estilo.css?ver=6" rel="stylesheet">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -205,44 +204,53 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
           </div>
         </fieldset>
         <fieldset>
+
           <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <label for="segmento">Qual é o segmento do seu negócio?</label>
-              <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="res-negocio">
+            <div style="text-align: center; margin-bottom: 5px;">
+              <label>Eu sou:</label> <br>
+            </div>
+            <div class="col-md-1 col-md-offset-5">
+              <input type="radio" class="radiobtncad" id="checkcli" name="choiceprof" value="1"> <img src="img/userico.png" style="width: 25px;"> Cliente
+            </div>
+            <div class="col-md-1 col-half-margin">
+              <input type="radio" class="radiobtncad" id="checkdev" name="choiceprof" value="2"> <img src="img/devico.png" style="width: 25px;"> Desenvolvedor
+            </div>
+          </div><!--fim choice-->
+          <div id="segunda-parte" class="hide">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <label for="segmento">Qual é o segmento do seu negócio?</label>
+                <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="res-negocio">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h4>Redes sociais do seu comércio</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-md-offset-1 col-half-margin">
+                <label for="fb">Facebook *</label>
+                <input class="text_field" id="fb" type="text" name="facebook">
+              </div>
+              <div class="col-md-3 col-half-margin">
+                <label for="insta">Instagram *</label>
+                <input class="text_field" id="insta" type="text" name="instagram">
+              </div>
+              <div class="col-md-3">
+                <label for="site">Site *</label>
+                <input class="text_field" id="site" type="text" name="site1">
+              </div>     
+            </div>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
+                <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <h4>Redes sociais do seu comércio</h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 col-md-offset-1 col-half-margin">
-              <label for="fb">Facebook *</label>
-              <input class="text_field" id="fb" type="text" name="facebook">
-            </div>
-            <div class="col-md-3 col-half-margin">
-              <label for="insta">Instagram *</label>
-              <input class="text_field" id="insta" type="text" name="instagram">
-            </div>
-            <div class="col-md-3">
-              <label for="site">Site *</label>
-              <input class="text_field" id="site" type="text" name="site1">
-            </div>     
-          </div>
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
-              <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
-              <input class="next_btn btn-alinha-direita button -regular" name="next" type="button" value="Próximo">
-              <input class="pre_btn btn-alinha-direita button -regular" name="previous" type="button" value="Anterior">
-              <div class="btn-group">
-                <label>Eu sou:</label> <br>
-                <input type="radio" name="choiceprof"> <img src="img/userico.png" style="width: 25px;"> Cliente <br>
-                <input type="radio" name="choiceprof"> <img src="img/devico.png" style="width: 25px;"> Desenvolvedor
-              </div> <!--fim choice--> 
-            </div>
-          </div>
+          <input class="next_btn btn-alinha-direita button -regular" name="next" type="button" value="Próximo">
+          <input class="pre_btn btn-alinha-direita button -regular" name="previous" type="button" value="Anterior">
         </fieldset>
         <fieldset>
           <div class="row">
@@ -261,6 +269,6 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
     </div>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script1.js?ver=2"></script>
+    <script src="js/script1.js?ver=6"></script>
   </body>
   </html>

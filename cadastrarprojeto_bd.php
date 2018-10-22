@@ -21,14 +21,26 @@ $usuariopf = 0;
 $idetapa = array();
 $numeroPassos = array();
 $campo_vazio = false;
+$data_errada = false;
+$retorno_get = '';
 
 if(!isset($nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $data_inicio, $data_entrega, $passos, $nome_etapa, $preco)){
 	$campo_vazio = true;
 }
 
-if($campo_vazio){
-	$retorno_get.= 'erro_vazio=1&';
+if($data_inicio > $data_entrega){	
+	$data_errada = true;
+}
 
+if($campo_vazio || $data_errada){
+	if($campo_vazio){
+		$retorno_get.= 'erro_vazio=1&';
+	}
+
+	if($data_errada){
+		$retorno_get.= 'erro_data=1&';
+	}
+	
 	header("Location: projetos.php?".$retorno_get);
 	die();
 }
