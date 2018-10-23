@@ -7,7 +7,7 @@ if(!isset($_SESSION['email'])){
 }
 
 $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
-
+$data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
 ?>
 
 <html>
@@ -29,10 +29,18 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
   <script type="text/javascript">
     $(document).ready(function(){
      var erro_vazio = '<?= $erro_vazio ?>';
+     var erro_data = '<?= $erro_data ?>';
+
      if(erro_vazio == 1){
-      $('#modalErroProj .modal-body p').append('<p>Preencha todos os campos</p>');
+      $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p>');
       $('#modalErroProj').modal('show');
     }
+
+    if(erro_data == 1){
+      $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p>');
+      $('#modalErroProj').modal('show');
+    }
+    
   });
 </script>
 
@@ -268,7 +276,6 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
 
                 </div>
               </div>
-
             </div>
 
             <div class="modal-footer" style="clear: both;">
@@ -298,7 +305,7 @@ $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=12"></script>
+  <script src="js/script1.js?ver=13"></script>
 
 </body>
 </html>

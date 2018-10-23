@@ -20,6 +20,7 @@ $segmento = $_POST['res-negocio'];
 $descricao = $_POST['descricao'];
 $facebook = $_POST['facebook'];
 $instagram = $_POST['instagram'];
+$cli_ou_dev = $_POST['choiceprof'];
 $site = $_POST['site1'];
 $email_existe = false;
 $cpf_existe = false;
@@ -34,9 +35,16 @@ $imagem_grande = false;
 $erro_foto = false;
 
 //verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
-
-if(!isset($email, $senha, $nome, $cel, $sobrenome, $cpf, $cidade, $estado, $segmento, $descricao)){
+if(empty($cli_ou_dev)){
 	$campo_vazio = true;
+}else if($cli_ou_dev == 1){
+	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado)){
+		$campo_vazio = true;
+	}
+} else if($cli_ou_dev == 2){
+	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado) || empty($segmento) || empty($descricao)){
+		$campo_vazio = true;
+	}
 }
 
 if(strlen($cel) != 11){
@@ -71,7 +79,7 @@ if($email != $confirmaEmail){
 	$email_diferente = true;
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	$email_invalido = true;
 }
 
@@ -137,8 +145,8 @@ if ($_FILES['Filedata']['error'] != 0) {
 
 $stmt = $link->prepare("SELECT cpf FROM usuariopf WHERE cpf = ?");
 if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-  return;
+	trigger_error($this->mysqli->error, E_USER_ERROR);
+	return;
 }
 $stmt->bind_param("i", $cpf);
 
@@ -159,8 +167,8 @@ $stmt->close();
 
 $stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
 if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-  return;
+	trigger_error($this->mysqli->error, E_USER_ERROR);
+	return;
 }
 $stmt->bind_param("ss", $email, $email);
 if($stmt->execute()){
@@ -229,13 +237,13 @@ if($cpf_existe || $email_existe || $email_diferente || $senha_diferente || $camp
 	die();
 }
 
-$stmt = $link->prepare("INSERT INTO usuariopf(senha, nome, sobrenome, cpf, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $link->prepare("INSERT INTO usuariopf(senha, nome, sobrenome, cpf, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto, cli_ou_dev) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-  return;
+	trigger_error($this->mysqli->error, E_USER_ERROR);
+	return;
 }
 
-$stmt->bind_param("sssiisssssiissss", $senha, $nome, $sobrenome, $cpf, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
+$stmt->bind_param("sssiisssssiissssi", $senha, $nome, $sobrenome, $cpf, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem, $cli_ou_dev);
 
 if($stmt->execute()){
 	header("Location: index.php?sucesso=1");

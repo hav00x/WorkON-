@@ -4,6 +4,7 @@ var atividadeCount = 1;
 var contador = 0;
 var vazio = false;
 var projetos = 0;
+var data_erro = 0;
 
 $(document).ready(function(){
   if ((window.location.href.indexOf('cadastro-choice') > -1) || (window.location.href.indexOf('cadastro-PF') > -1) || (window.location.href.indexOf('cadastro-PJ') > -1)) {
@@ -303,18 +304,32 @@ $('.submit-projatt').on('click', function(){
 
   });
 
+  if(contador != 0){
+
+    $('#modalErroProj .modal-body p').remove();
+
+    if(vazio == true){
+      $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p><br>');
+    }
+
+    var dataent = $('#dataentupd').val();
+    var dataini = $('#datainiupd').val();
+
+    if(dataini > dataent){
+      $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p><br>');
+    }
+
+    $('#modalCadastro').modal('hide');
+    setTimeout(function(){
+      $('#modalErroProj').modal('show');
+    }, 200);
+    event.preventDefault();
+
+  }
+
   contador = 0;
 
-  if(vazio == true){
-    $('<p>Preencha todos os campos</p>').replaceAll('#modalErroProj .modal-body p');
-      // $('#modalErro .modal-body p').append('Preencha todos os campos');
-      $('#modalEdit').modal('hide');
-      setTimeout(function(){
-        $('#modalErroProj').modal('show');
-      }, 200);
-      event.preventDefault();
-    }
-  });
+});
 
 
 $('.submit-proj').on('click', function(){
@@ -342,18 +357,32 @@ $('.submit-proj').on('click', function(){
 
   });
 
+  if(contador != 0){
+
+    $('#modalErroProj .modal-body p').remove();
+
+    if(vazio == true){
+      $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p><br>');
+    }
+
+    var dataent = $('#dataent').val();
+    var dataini = $('#dataini').val();
+
+    if(dataini > dataent){
+      $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p><br>');
+    }
+
+    $('#modalCadastro').modal('hide');
+    setTimeout(function(){
+      $('#modalErroProj').modal('show');
+    }, 200);
+    event.preventDefault();
+
+  }
+
   contador = 0;
 
-  if(vazio == true){
-    $('<p>Preencha todos os campos</p>').replaceAll('#modalErroProj .modal-body p');
-      // $('#modalErro .modal-body p').append('Preencha todos os campos');
-      $('#modalCadastro').modal('hide');
-      setTimeout(function(){
-        $('#modalErroProj').modal('show');
-      }, 200);
-      event.preventDefault();
-    }
-  });
+});
 
 /*------------ Formulário de Cadastro Conta -----------------*/
 
@@ -363,48 +392,92 @@ $('.submit_btn').on('click', function(e){
 
 $('.submit_btn').click(function(event) {
     // For Loop To Count Blank Inputs
-    $('.regform input').each(function(){
-      if ($(this).val() == ''){
-        var id = $(this).attr('id');
+    if(document.getElementById('checkcli').checked || document.getElementById('checkdev').checked){
 
-        if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb'){
-          contador = contador;
-        } else{
-          vazio = true;
-          contador = contador +1;
+      if(document.getElementById('checkcli').checked){
+
+        $('.regform input').each(function(){
+          if ($(this).val() == ''){
+            var id = $(this).attr('id');
+            var checando = checando + $(this).attr('id');
+            if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'segmento' || id == 'checkdev'){
+              contador = contador;
+            } else{
+              vazio = true;
+              contador = contador +1;
+            }
+          }
+
+          if (contador == 0){
+            vazio = false;
+          }
+
+        });
+
+        contador = 0;
+
+        if(vazio == true){
+          $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+          $('#modalErro').modal('show');
+          event.preventDefault();
         }
+
+      } else if(document.getElementById('checkdev').checked){
+
+        $('.regform input').each(function(){
+          if ($(this).val() == ''){
+            var id = $(this).attr('id');
+
+            if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'checkcli'){
+              contador = contador;
+            } else{
+              vazio = true;
+              contador = contador +1;
+            }
+          }
+
+          if (contador == 0){
+            vazio = false;
+          }
+
+        });
+
+        $('.regform textarea').each(function(){
+          if ($(this).val() == ''){
+            vazio = true;
+            contador = contador +1;
+          }
+
+          if (contador == 0){
+            vazio = false;
+          }
+
+        });
+
+        contador = 0;
+
+        if(vazio == true){
+          $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+          $('#modalErro').modal('show');
+          event.preventDefault();
+        }
+
       }
-
-      if (contador == 0){
-        vazio = false;
-      }
-
-    });
-
-    $('.regform textarea').each(function(){
-      if ($(this).val() == ''){
-        vazio = true;
-        contador = contador +1;
-      }
-
-      if (contador == 0){
-        vazio = false;
-      }
-
-    });
-
-    contador = 0;
-
-    if(vazio == true){
+    } else{
       $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
-      // $('#modalErro .modal-body p').append('Preencha todos os campos');
       $('#modalErro').modal('show');
       event.preventDefault();
     }
-
   });
 
-/*---------------------------------------------------------*/
+$('.radiobtncad').on('click', function(){
+  var valor_radio = $(this).val();
+  if(valor_radio == 1){
+    $('#segunda-parte').addClass('hide');
+  } else if(valor_radio == 2){
+    $('#segunda-parte').removeClass('hide');
+  }
+})
 
   $('.next_btn').click(function() { // Function Runs On NEXT Button Click
     $(this).closest('fieldset').next().fadeIn('slow');

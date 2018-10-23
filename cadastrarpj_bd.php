@@ -20,6 +20,7 @@ $segmento = $_POST['res-negocio'];
 $descricao = $_POST['descricao'];
 $facebook = $_POST['facebook'];
 $instagram = $_POST['instagram'];
+$cli_ou_dev = $_POST['choiceprof'];
 $site = $_POST['site1'];
 $email_existe = false;
 $cnpj_existe = false;
@@ -35,10 +36,17 @@ $erro_foto = false;
 
 //verifica se os campos estão do jeito desejado e envia erros para a página caso contrário
 
-if(!isset($email, $senha, $razao_social, $cel, $nome_fantasia, $cnpj, $cidade, $estado, $segmento, $descricao)){
+if(empty($cli_ou_dev)){
 	$campo_vazio = true;
+}else if($cli_ou_dev == 1){
+	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado)){
+		$campo_vazio = true;
+	}
+} else if($cli_ou_dev == 2){
+	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado) || empty($segmento) || empty($descricao)){
+		$campo_vazio = true;
+	}
 }
-
 if(strlen($cel) != 11){
 	$num_errado = true;
 } elseif(!is_numeric($cel)){
@@ -229,13 +237,13 @@ if($cnpj_existe || $email_existe || $email_diferente || $senha_diferente || $cam
 	die();
 }
 
-$stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $link->prepare("INSERT INTO usuariopj(senha, razaosoci, nomefant, cnpj, cel, descr, site, estado, cidade, email, fixo, comercial, segmento, facebook, instagram, foto, cli_ou_dev) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 if ($stmt === false) {
   trigger_error($this->mysqli->error, E_USER_ERROR);
   return;
 }
 
-$stmt->bind_param("sssiisssssiissss", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem);
+$stmt->bind_param("sssiisssssiissssi", $senha, $razao_social, $nome_fantasia, $cnpj, $cel, $descricao, $site, $estado, $cidade, $email, $fixo, $comercial, $segmento, $facebook, $instagram, $caminho_imagem, $cli_ou_dev);
 
 if($stmt->execute()){
 	header("Location: index.php?sucesso=1");
