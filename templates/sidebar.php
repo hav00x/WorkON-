@@ -1,7 +1,9 @@
       <!-- Sidebar Holder -->
       <nav id="sidebar">
         <div class="sidebar-header">
+          <a href="homepage.php">
             <img class="img-responsive img-logo-sidebar" src='img/navlogo.png'>
+          </a>
         </div>
 
         <ul class="list-unstyled components">
@@ -31,19 +33,10 @@
               <li><a href="pedidos.php">Solicitações</a></li>
             </ul>
           </li>
-          <li class="payment">
-            <a href="#pageSubMenu3" id="payment" data-toggle="collapse" aria-expanded="false">Pagamentos</a>
-            <ul class="collapse list-unstyled" id="pageSubMenu3">
-              <li><a href="pagamentos.php">A Receber</a></li>
-              <li><a href="pagamentos.php">A Enviar</a></li>
-            </ul>
-          </li>
           <li class="definition">
             <a href="#pageSubMenu4" id="definition" data-toggle="collapse" aria-expanded="false">Definições</a>
             <ul class="collapse list-unstyled" id="pageSubMenu4">
               <li><a href="#">Sua Conta</a></li>
-              <li><a href="#">Chat</a></li>
-              <li><a href="#">Informações de Pagamento</a></li>
             </ul>
           </li>
         </ul>
