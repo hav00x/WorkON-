@@ -39,11 +39,11 @@ $erro_foto = false;
 if(empty($cli_ou_dev)){
 	$campo_vazio = true;
 }else if($cli_ou_dev == 1){
-	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado)){
+	if(empty($email) || empty($senha) || empty($nome_fantasia) || empty($cel) || empty($razao_social) || empty($cnpj) || empty($cidade) || empty($estado)){
 		$campo_vazio = true;
 	}
 } else if($cli_ou_dev == 2){
-	if(empty($email) || empty($senha) || empty($nome) || empty($cel) || empty($sobrenome) || empty($cpf) || empty($cidade) || empty($estado) || empty($segmento) || empty($descricao)){
+	if(empty($email) || empty($senha) || empty($nome_fantasia) || empty($cel) || empty($razao_social) || empty($cnpj) || empty($cidade) || empty($estado)){
 		$campo_vazio = true;
 	}
 }

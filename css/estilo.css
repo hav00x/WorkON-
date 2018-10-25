@@ -773,6 +773,13 @@ FORMATAÇÕES ESPECIFICAS
     display: block;
 }
 
+.img-perfil{
+    border: 1px solid #DFDCDC;
+    margin: 0 auto;
+    display: block;
+    width: 10px;
+}
+
 .button-hp {
     float: right;
     background-color: #FFA500;
@@ -804,6 +811,7 @@ FORMATAÇÕES ESPECIFICAS
     flex: 0 0 160px;
     box-shadow: 2px 5px 10px #e4e4e4;
 }
+
 .input {
   overflow: hidden;
   padding: 0 3px 0 0;
@@ -1334,9 +1342,14 @@ MEDIAQUERIES
 }
 
 .label-perfil{
-  margin: -5px; 
+  margin-left: -50px; 
 }
 
 .img-perfil{
-  height: 350px;
+  width: 200px;
+  }
+
+#perfil-d{
+    margin: 0 auto;
+    padding: 5px;
 }

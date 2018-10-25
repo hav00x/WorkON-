@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=13" rel="stylesheet">
+	<link href="css/estilo.css?ver=15" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -56,18 +56,22 @@ session_start();
 				</div>	
 			</form>
 			<button class="btn btn-block">OK</button>
-		</div><!--fim container1 -->
+		</div><!--fim SECTION -->
 
-		<div class="section">
-			<div class="col-md-12">
-				<div class="col-md-4">
-					<img src="img/hog.png">
-				</div>
-				<div class="col-md-8">
-					
-				</div>
+		<div class="section container">
+			<div id="perfil-d" class="col-md-12">
+					<div class="col-md-4 label-perfil">
+						<img class="img-thumbnail img-perfil" src="img/hog.jpg">
+					</div>
+					<div class="col-md-8">
+						<h4>Nome:</h4>
+						<h4>Localização:</h4>
+						<h4>Especialização:</h4>
+						
+						<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+					</div>
 			</div>
-		</div>
+		</div> <!--FIM SECTION -->
 	</div><!--FIM CONTENT-->
 
 	<script src="bootstrap/js/bootstrap.min.js"></script>

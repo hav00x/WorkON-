@@ -221,13 +221,13 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
           <div id="segunda-parte" class="hide">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <label for="segmento">Qual é o segmento do seu negócio?</label>
-                <input type="text" id="segmento" class="text_field" placeholder="ex: restaurante, loja de roupas, petshop, etc." name="res-negocio">
+                <label for="segmento">O que você desenvolve?</label>
+                <input type="text" id="segmento" class="text_field" placeholder="ex: Desenvolvimento de Sites, Softwares, Apps, etc." name="res-negocio">
               </div>
             </div>
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <h4>Redes sociais do seu comércio</h4>
+                <h4>Redes sociais</h4>
               </div>
             </div>
             <div class="row">
@@ -246,8 +246,8 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
             </div>
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <label for="descri">Faça um breve resumo sobre você e seu negócio</label>
-                <textarea id="descri" placeholder="Isso ajuda o desenvolvedor a entender mais as suas necessidades" maxlength="254" class="text_field" name="descricao"></textarea>
+                <label for="descri">Faça um breve resumo sobre você e suas qualificações</label>
+                <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
               </div>
             </div>
           </div>

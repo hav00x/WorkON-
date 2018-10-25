@@ -66,6 +66,7 @@ if(!isset($_SESSION['email'])){
 
  </div>
 
+
 </div> <!-- FIM CONTENT -- >
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
