@@ -13,10 +13,10 @@ $retorna_erro = '';
 
 //Checando primeiro na tabela PJ se há o usuário, e depois na PF. Se houver em alguma das duas, efetua login e termina a execução, se não, volta para a página inicial com uma mensagem de erro.
 
-$stmt = $link->prepare("SELECT email, senha, id_pjusu, nomefant FROM usuariopj WHERE email = ?");
+$stmt = $link->prepare("SELECT email, senha, id_pjusu, nomefant, cli_ou_dev FROM usuariopj WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($jemailusu, $jsenhausu, $jidusu, $nomeFantasia);
+	$stmt->bind_result($jemailusu, $jsenhausu, $jidusu, $nomeFantasia, $jclidev);
 	$stmt->fetch();
 	if(isset($jemailusu)){
 		if(password_verify($senha, $jsenhausu)){
@@ -24,6 +24,7 @@ if($stmt->execute()){
 			$_SESSION['email'] = $jemailusu;
 			$_SESSION['id_jusuario'] = $jidusu;
 			$_SESSION['nome_fantasia'] = $nomeFantasia;
+			$_SESSION['clidev'] = $jclidev;
 			$_SESSION['id_fusuario'] = null;
 			
 			header('Location: homepage.php');
@@ -42,16 +43,17 @@ if($stmt->execute()){
 
 $stmt->close();
 
-$stmt = $link->prepare("SELECT email, senha, id_pfusu, nome FROM usuariopf WHERE email = ?");
+$stmt = $link->prepare("SELECT email, senha, id_pfusu, nome, cli_ou_dev FROM usuariopf WHERE email = ?");
 $stmt->bind_param('s', $email);
 if($stmt->execute()){
-	$stmt->bind_result($femailusu, $fsenhausu, $fidusu, $nome);
+	$stmt->bind_result($femailusu, $fsenhausu, $fidusu, $nome, $fclidev);
 	$stmt->fetch();
 	if(isset($femailusu)){
 		if(password_verify($senha, $fsenhausu)){
 			$_SESSION['email'] = $femailusu;
 			$_SESSION['id_fusuario'] = $fidusu;
 			$_SESSION['nome'] = $nome;
+			$_SESSION['clidev'] = $fclidev;
 			$_SESSION['id_jusuario'] = null;
 
 			header('Location: homepage.php');

@@ -34,6 +34,7 @@ if(!isset($_SESSION['email'])){
     <?php
     include('templates/sidebar.php');
     ?>
+    
     <div ID="content">
       <?php
       include('templates/navbarinterna.php');

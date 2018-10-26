@@ -5,6 +5,9 @@ session_start();
 if(!isset($_SESSION['email'])){
   header('Location: index.php?acessoinval=1&');
 }
+if($_SESSION['clidev'] === 1){
+  header('Location: homepage.php?acessoinval=1&');
+}
 
 $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
 $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
