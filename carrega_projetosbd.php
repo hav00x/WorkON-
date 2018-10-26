@@ -9,10 +9,15 @@ $link = $objdb->connect();
 $id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
 $url = isset($_POST['url']) ? $_POST['url'] : '';
 $qtd_projetos = isset($_POST['qtdprojetos']) ? $_POST['qtdprojetos'] : '';
+$urlchk = false;
 
 if(!$qtd_projetos == ''){
 	$qtd_projetos = explode('-', $qtd_projetos);
 	$offset = ($qtd_projetos[1]-1)*6;
+}
+
+if(strpos($url, 'http://localhost/root2/homepage.php') !== false){
+	$urlchk = true;
 }
 
 $stmt = $link->prepare("SELECT COUNT(id_intermediario) FROM intermediario WHERE (id_pfusu = ? OR id_pjusu = ?)");
@@ -32,7 +37,7 @@ if($stmt->execute()){
 $stmt->close();
 
 if($contaProjetos <= 0){
-	if($url == 'http://localhost/root2/homepage.php'){
+	if($urlchk){
 		echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
 		<p>Você não possui nenhum projeto!</p>
 		</div>';
@@ -92,7 +97,7 @@ for($i = 0; $i < $contaProjetos; $i++){
 		$stmt->store_result();
 		$stmt->bind_result($id_projeto, $nome_cliente, $preco, $nome_projeto, $data_entrega);
 		while($stmt->fetch()){
-			if($url == 'http://localhost/root2/homepage.php'){
+			if($urlchk){
 				if($i % 2 == 0){
 					$date = DateTime::createFromFormat('Y-m-d', $data_entrega);
 

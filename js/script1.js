@@ -178,26 +178,26 @@ $('#accordion, #accordionupd').on('click', '.edita-txt', function(){
 
 $('#nome-projeto, #nome-projetoupd').on('keydown', function(e){
   if(e.which === 13){
-      e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
-      return false;
-    }
-  });
+    e.preventDefault();//previne o usuario de quebrar linhas no nome do projeto
+    return false;
+  }
+});
 
 $('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
   if(e.which === 13){
-      e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
-      return false;
-    } 
-    $(this).next().next().attr('value', $(this).text());
-  });
+    e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
+    return false;
+  } 
+  $(this).next().next().attr('value', $(this).text());
+});
 
 $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
   if(e.which === 13){
-      e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
-      return false;
-    } 
-    $(this).next().next().attr('value', $(this).text());
-  });
+     e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
+     return false;
+   } 
+   $(this).next().next().attr('value', $(this).text());
+ });
 
 $('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){
  $(this).attr('contenteditable', 'false');
@@ -274,10 +274,10 @@ $('#nome-projetoupd').on('keyup', function(){
 
 $('#precoest').on('keyup', function(e){
   if (/\D/g.test(this.value)){
-    	// Filter non-digits from input value.
-    	this.value = this.value.replace(/\D/g, '');
-    }
-  });
+    // Filter non-digits from input value.
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
 
 $('.submit-projatt').on('click', function(){
   $('#atualiza-projetos input').each(function(){
@@ -464,11 +464,11 @@ $('.submit_btn').click(function(event) {
 
       }
     } else{
-      $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
-      $('#modalErro').modal('show');
-      event.preventDefault();
-    }
-  });
+     $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+     $('#modalErro').modal('show');
+     event.preventDefault();
+   }
+ });
 
 $('.radiobtncad').on('click', function(){
   var valor_radio = $(this).val();
@@ -582,4 +582,8 @@ $('.radiobtncad').on('click', function(){
       limpa_formulário_cep();
     }
   });
+
+/*--------------------------------Sua Conta--------------------------------*/
+
+$('#sua-conta').load('carrega_contabd.php');
 });

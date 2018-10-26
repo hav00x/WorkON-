@@ -6,6 +6,8 @@ if(!isset($_SESSION['email'])){
   header('Location: index.php?acessoinval=1&');
 }
 
+$acessoinvalcli = isset($_GET['acessoinval']) ? $_GET['acessoinval'] : 0;
+
 ?>
 
 <html>
@@ -24,6 +26,13 @@ if(!isset($_SESSION['email'])){
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script type="text/javascript">
+    var acessoinvalcli = '<?= $acessoinvalcli ?>';
+    if(acessoinvalcli === 1){
+      $('#modalErroHome .modal-body p').append("- Esse email já está em uso<br>");
+      $('#modalErroHome').modal('show');
+    }
+  </script>
   <!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -43,11 +52,28 @@ if(!isset($_SESSION['email'])){
      include('templates/navbarinterna.php');
      ?>
 
-     <!--DIV PERFIL-->
-     <div class="row section" id="div-perfil">
+     <div id="modalErroHome" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="margin: 0 auto;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Erro</h4>
+          </div>
+          <div class="modal-body">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--DIV PERFIL-->
+    <div class="row section" id="div-perfil">
       <h1 id="homepage-title">Seu perfil</h1>
       <div class="col-md-4" id="img-perfil">
-        
+
       </div>
       <div class="col-md-8 info-perfil" id="perfil-data">
       </div>
