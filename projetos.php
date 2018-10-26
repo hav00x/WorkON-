@@ -21,7 +21,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=10" rel="stylesheet">
+  <link href="css/estilo.css?ver=11" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -70,7 +70,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
           <h1 id="header-proj" class="lead">Projetos</h1>
         </div>
         <div class="col-md-4 divcriaproj">
-          <button type="button" id="criaproj" class="button -regular backcolr" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">Novo Projeto</button>
+          <button type="button" id="criaproj" class="button -regular  button-hp" data-target="#modalCadastro" data-toggle="modal" href="#modalCadastro">Novo Projeto</button>
         </div>
       </div><!--fimformatarow-->
 
