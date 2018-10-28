@@ -1122,10 +1122,7 @@ ul{
 }
 
 #perfil-data{
- border: solid rgba(255, 165, 0);
  height: 350px;
- border-radius: 5px;
-
 }
 
 #header-homepage{
@@ -1199,6 +1196,7 @@ ul{
     text-align: center;
     font-family: 'Alpha-Regular';
     color: #000;
+    margin-bottom: 30px;
 }
 
 #homepage-title:hover{
@@ -1243,11 +1241,14 @@ CADASTRO
 
 #div-perfil{
     text-align: center;
-    color: black
+    color: black;
+    border: solid rgba(255, 165, 0);
+    border-radius: 5px;
 }
 
 #div-perfil p{
     margin: 15px;
+    word-wrap: break-word;
 }
 
 #perfil{
@@ -1341,15 +1342,12 @@ MEDIAQUERIES
     }
 }
 
-.label-perfil{
-  margin-left: -50px; 
-}
-
-.img-perfil{
-  width: 200px;
-  }
-
 #perfil-d{
     margin: 0 auto;
     padding: 5px;
+}
+
+#img-perfil{
+  position: relative;
+  top: 44.5px;
 }

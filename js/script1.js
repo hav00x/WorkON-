@@ -21,7 +21,7 @@ $('#img-perfil').load('carrega_infoperfil.php',
 if (window.location.href.indexOf('projetos')){
   $(window).load('qtd_projetosbd.php', function(data){
     projetos = data;
-    if(projetos <= 0){
+    if(projetos <= 0 || projetos < 7){
       $('#navega-pag').remove();
     }
   });

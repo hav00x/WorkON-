@@ -308,7 +308,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=13"></script>
+  <script src="js/script1.js?ver=14"></script>
 
 </body>
 </html>

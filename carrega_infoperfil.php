@@ -33,14 +33,14 @@ if($foto == 0){
 			</div>
 			</div>
 			<div class="row">
-			<div class="col-md-4"><label class="label-perfil"> Nome </label>
+			<div class="col-md-4"><label> Nome </label>
 			<p>'.$nomefant.'</p>
 			</div>
-			<div class="col-md-4"> <label class="label-perfil"> E-mail</label>
+			<div class="col-md-4"> <label> E-mail</label>
 			<p>'.$jemail.'</p>
 			</div>
 
-			<div class="col-md-4"> <label class="label-perfil">Localização</label>
+			<div class="col-md-4"> <label>Localização</label>
 			<p>'.$estado.'</p>
 			</div>
 			</div><!--fim row who-info-->
@@ -52,20 +52,20 @@ if($foto == 0){
 			</div><!-- fim row what-->
 
 			<div class="row">
-			<div class="col-md-12"> <label class="label-perfil"> Descrição</label>
+			<div class="col-md-12"> <label> Descrição</label>
 			<p>'.$descr.'</p>
 			</div>
 			</div><!--fim row descrição-->
 
 			<div class="row">
-			<div class="col-md-4"> <label class="label-perfil"> Facebook</label>
+			<div class="col-md-4"> <label> Facebook</label>
 			<p>'.$facebook.'</p>
 			</div>
-			<div class="col-md-4"> <label class="label-perfil"> Instagram</label>
+			<div class="col-md-4"> <label> Instagram</label>
 			<p>'.$instagram.'</p>
 			</div>
 			<div  class="col-md-4"> 
-			<label class="label-perfil">Site</label>
+			<label>Site</label>
 			<p>'.$site.'</p>
 			</div>
 			</div><!--fim row social media-->';
@@ -100,16 +100,16 @@ if($foto == 0){
 			<div class="row">
 
 			<div class="col-md-4">
-			<label class="label-perfil">Nome</label>
+			<label>Nome</label>
 			<p>'.$nome.'</p>
 			</div>
 			<div class="col-md-4">
-			<label class="label-perfil">E-mail</label>
+			<label>E-mail</label>
 			<p>'.$femail.'</p>
 			</div>
 
 			<div class="col-md-4">
-			<label class="label-perfil">Localização</label>
+			<label>Localização</label>
 			<p>'.$estado.'</p>
 			</div>
 			</div><!--fim row who-info-->
@@ -122,22 +122,22 @@ if($foto == 0){
 
 			<div class="row">
 			<div class="col-md-12">
-			<label class="label-perfil">Descrição</label>
+			<label>Descrição</label>
 			<p>'.$descr.'</p>
 			</div>
 			</div><!--fim row descrição-->
 
 			<div class="row">
 			<div class="col-md-4">
-			<label class="label-perfil">Facebook</label>
+			<label>Facebook</label>
 			<p>'.$facebook.'</p>
 			</div>
 			<div class="col-md-4">
-			<label class="label-perfil">Instagram</label>
+			<label>Instagram</label>
 			<p>'.$instagram.'</p>
 			</div>
 			<div  class="col-md-4">
-			<label class="label-perfil">Site</label>
+			<label>Site</label>
 			<p>'.$site.'</p>
 			</div>
 			</div><!--fim row social media-->';
@@ -156,7 +156,7 @@ if($foto == 1){
 		$stmt->bind_result($fotos, $jemail);
 		$stmt->fetch();
 		if(isset($jemail)){
-			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail img-perfil">';
+			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail">';
 		}
 	}
 
@@ -168,7 +168,7 @@ if($foto == 1){
 		$stmt->bind_result($fotos, $femail);
 		$stmt->fetch();
 		if(isset($femail)){
-			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail img-perfil">';
+			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail">';
 		}
 	}
 
