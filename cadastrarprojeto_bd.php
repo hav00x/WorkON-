@@ -133,8 +133,6 @@ for($i = 1; $i <= count($idetapa); $i++){
 
 $stmt->close();
 
-if($check){
-	header('Location: projetos.php?projeto=1&');
-}
+echo 'Projeto criado com sucesso';
 
 ?>

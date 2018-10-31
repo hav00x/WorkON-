@@ -68,7 +68,12 @@ $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
       $('#nomecliupd').val(data['nome_cliente']);
       $('#precoestupd').val(data['preco_estabelecido']);
       $('#descriupd').val(data['descri_projeto']);
-
+      if(data['andamento'] == 1){
+        $('#andamento').prop('checked', true);
+      } else{
+        $('#andamento').prop('checked', false);
+      }
+      
     }, 'json');
 
   $.post('abre_projetosbd.php', // depois as etapas
@@ -100,20 +105,6 @@ $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
   });
   $('#modalEdit').modal('show');
 
-});
-
-$('#btn-attproj').on('click', function(e){
-  e.preventDefault();
-  $.post('atualiza_projetosbd.php',
-    $('#atualiza-projetos').serialize(),
-    function(data){
-      $('#ficha-projeto').contents().remove();
-      $('#ficha-projeto').load('carrega_projetosbd.php');
-      $('#modal_edit_close').click();
-      setTimeout(function(){
-        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
-      }, 50);
-    });
 });
 
 $('#btn-atencao').on('click', function(){
@@ -261,7 +252,7 @@ $('#criaproj').on('click', function(){
   $('#nomeproj').val($('#nome-projeto').text());
   $('#input-etapa1').val($('#nome-etapa1').html());
   holder = $('#accordion').children('div').last().children().attr('id').split('g');
-  count = parseInt(holder[1]);
+  count = parseInt(holder[1])
 });
 
 $('#nome-projeto').on('keyup', function(){
@@ -280,6 +271,11 @@ $('#precoest').on('keyup', function(e){
 });
 
 $('.submit-projatt').on('click', function(){
+  var input = this;
+  input.disabled = true;
+  setTimeout(function() {
+   input.disabled = false;
+ }, 3000);
   $('#atualiza-projetos input').each(function(){
     if ($(this).val() == ''){
       vazio = true;
@@ -333,6 +329,11 @@ $('.submit-projatt').on('click', function(){
 
 
 $('.submit-proj').on('click', function(){
+  var input = this;
+  input.disabled = true;
+  setTimeout(function() {
+   input.disabled = false;
+ }, 3000);
   $('#formcadastro input').each(function(){
     if ($(this).val() == ''){
       vazio = true;
@@ -382,6 +383,34 @@ $('.submit-proj').on('click', function(){
 
   contador = 0;
 
+});
+
+$('#btn-enviaproj').on('click', function(e){
+e.preventDefault();
+  $.post('cadastrarprojeto_bd.php',
+    $('#formcadastro').serialize(),
+    function(data){
+      $('#ficha-projeto').contents().remove();
+      $('#ficha-projeto').load('carrega_projetosbd.php');
+      $('#modal-close').click();
+      setTimeout(function(){
+        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+      }, 50);
+    });
+});
+
+$('#btn-attproj').on('click', function(e){
+  e.preventDefault();
+  $.post('atualiza_projetosbd.php',
+    $('#atualiza-projetos').serialize(),
+    function(data){
+      $('#ficha-projeto').contents().remove();
+      $('#ficha-projeto').load('carrega_projetosbd.php');
+      $('#modal_edit_close').click();
+      setTimeout(function(){
+        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+      }, 50);
+    });
 });
 
 /*------------ Formulário de Cadastro Conta -----------------*/
@@ -583,7 +612,7 @@ $('.radiobtncad').on('click', function(){
     }
   });
 
-/*--------------------------------Sua Conta--------------------------------*/
+  /*--------------------------------Sua Conta--------------------------------*/
 
-$('#sua-conta').load('carrega_contabd.php');
+  $('#sua-conta').load('carrega_contabd.php');
 });

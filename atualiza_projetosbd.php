@@ -15,7 +15,7 @@ $data_entrega = $_POST['datatermupd'];
 $passos = $_POST['campo'];
 $nome_etapa = $_POST['nome_etapa'];
 $preco = $_POST['precoestupd'];
-$andamento = isset($_POST['andamento']) ? $_POST['andamento'] : 1;
+$andamento = isset($_POST['andamento']) ? $_POST['andamento'] : 0;
 $idproj = $_POST['atualizando'];
 $delete = isset($_POST['delete']) ? $_POST['delete'] : 0;
 $idetapa = $_POST['etapa'];
@@ -78,66 +78,92 @@ if($delete == 0){
 		die();
 	}
 
-	for($i = 1; $i <= count($idetapa); $i++){
+for($i = 1; $i <= count($idetapa); $i++){
 
-		for($j = 1; $j <= $numeroPassos[$i]; $j++){
-			$stmt = $link->prepare("SELECT passo FROM passos WHERE ordem_passo=? AND id_etapa=?");
+	$stmt = $link->prepare("SELECT COUNT(passo) FROM passos WHERE id_etapa=?");
+	if ($stmt === false) {
+		trigger_error($this->mysqli->error, E_USER_ERROR);
+		return;
+	}
+
+	$stmt->bind_param('i', $idetapa[$i]);
+	if($stmt->execute()){
+		$stmt->bind_result($qtdpassos);
+		$stmt->fetch();
+	}
+
+	$stmt->close();
+
+	if($qtdpassos > $numeroPassos[$i]){
+		$stmt = $link->prepare("DELETE FROM passos WHERE ordem_passo>? AND id_etapa=?");
+		if ($stmt === false) {
+			trigger_error($this->mysqli->error, E_USER_ERROR);
+			return;
+		}
+		$stmt->bind_param('ii', $numeroPassos[$i], $idetapa[$i]);
+		if(!$stmt->execute()){
+			echo 'Houve um erro na etapa de passos';
+		}
+	}
+
+	for($j = 1; $j <= $numeroPassos[$i]; $j++){
+		$stmt = $link->prepare("SELECT passo FROM passos WHERE ordem_passo=? AND id_etapa=?");
+		if ($stmt === false) {
+			trigger_error($this->mysqli->error, E_USER_ERROR);
+			return;
+		}
+
+		$stmt->bind_param('ii', $j, $idetapa[$i]);
+		if(!$stmt->execute()){
+			echo 'Erro ao executar a chamada no banco de dados';
+			die();
+		}
+
+		$stmt->store_result();
+		$stmt->bind_result($passo);
+		$stmt->fetch();
+		$stmt->close();
+
+		if(empty($passo)){
+
+			$stmt = $link->prepare("INSERT INTO passos(passo, ordem_passo, id_etapa) values(?, ?, ?)");
 			if ($stmt === false) {
 				trigger_error($this->mysqli->error, E_USER_ERROR);
 				return;
 			}
 
-			$stmt->bind_param('ii', $j, $idetapa[$i]);
-			if(!$stmt->execute()){
-				echo 'Erro ao executar a chamada no banco de dados';
+			$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
+			if($stmt->execute()){
+				$check = true;
+			} else{
+				echo 'Erro ao executar as atividades no banco de dados';
 				die();
 			}
 
-			$stmt->store_result();
-			$stmt->bind_result($passo);
-			$stmt->fetch();
-			$stmt->close();
 
-			if(empty($passo)){
+		} else if(isset($passo)){
 
-				$stmt = $link->prepare("INSERT INTO passos(passo, ordem_passo, id_etapa) values(?, ?, ?)");
-				if ($stmt === false) {
-					trigger_error($this->mysqli->error, E_USER_ERROR);
-					return;
-				}
-
-				$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
-				if($stmt->execute()){
-					$check = true;
-				} else{
-					echo 'Erro ao executar as atividades no banco de dados';
-					die();
-				}
-
-
-			} else if(isset($passo)){
-
-				$stmt = $link->prepare("UPDATE passos SET passo=? WHERE ordem_passo=? AND id_etapa=?");
-				if ($stmt === false) {
-					trigger_error($this->mysqli->error, E_USER_ERROR);
-					return;
-				}
-
-				$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
-				if($stmt->execute()){
-					$check = true;
-				} else{
-					echo 'Erro ao executar as atividades no banco de dados';
-					die();
-				}
+			$stmt = $link->prepare("UPDATE passos SET passo=? WHERE ordem_passo=? AND id_etapa=?");
+			if ($stmt === false) {
+				trigger_error($this->mysqli->error, E_USER_ERROR);
+				return;
 			}
 
-			$stmt->free_result();
-			$stmt->close();
+			$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
+			if($stmt->execute()){
+				$check = true;
+			} else{
+				echo 'Erro ao executar as atividades no banco de dados';
+				die();
+			}
 		}
-	}
 
-	echo 'Atualizado com sucesso';
+		$stmt->free_result();
+		$stmt->close();
+	}
+}
+
+echo 'Atualizado com sucesso';
 
 } else if($delete == 1){
 	$stmt = $link->prepare('SELECT id_intermediario FROM projeto WHERE id_projeto=?');
@@ -210,17 +236,17 @@ if($delete == 0){
 	$stmt->close();
 
 	$stmt = $link->prepare('DELETE FROM intermediario WHERE id_intermediario=?');
-		if ($stmt === false) {
-			trigger_error($this->mysqli->error, E_USER_ERROR);
-			return;
-		}
-		$stmt->bind_param('i', $id_intermediario);
-		if(!$stmt->execute()){
-			echo 'Erro ao executar a chamada no banco de dados';
-			die();
-		}
+	if ($stmt === false) {
+		trigger_error($this->mysqli->error, E_USER_ERROR);
+		return;
+	}
+	$stmt->bind_param('i', $id_intermediario);
+	if(!$stmt->execute()){
+		echo 'Erro ao executar a chamada no banco de dados';
+		die();
+	}
 
-		$stmt->close();
+	$stmt->close();
 
 	echo 'Deletado com sucesso';
 }

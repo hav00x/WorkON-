@@ -32,7 +32,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
   <script type="text/javascript">
     $(document).ready(function(){
      var erro_vazio = '<?= $erro_vazio ?>';
-     var erro_data = '<?= $erro_data ?>';
+     var erro_data = '<?= $data_errada ?>';
 
      if(erro_vazio == 1){
       $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p>');
@@ -179,7 +179,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
 
             <div class='modal-footer' style='clear: both;'>
               <div style="position: absolute; left: 3%; bottom: 6%;">
-                <input type="checkbox" name="andamento" value="0">  O projeto ainda está em andamento?
+                <input type="checkbox" id="andamento" name="andamento" value="1"><span> O projeto ainda está em andamento?</span>
               </div>
               <input type="text" class="hide" name="atualizando" id="atualizando">
               <button type='button' id='modal_edit_close' class='button -regular' data-dismiss='modal'>Voltar</button>
@@ -196,7 +196,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       <!-- Modal Cadastro Projetos -->
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form id="formcadastro" action="cadastrarprojeto_bd.php" method="post">
+          <form id="formcadastro" method="post">
             <div class="modal-header" style="margin-left: 20px; padding-bottom: 0;">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -282,8 +282,8 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
             </div>
 
             <div class="modal-footer" style="clear: both;">
-              <button type="button" class="button -regular" data-dismiss="modal">Voltar</button>
-              <button type="submit" class="submit-proj button -regular">Criar</button>
+              <button type="button" id="modal-close" class="button -regular" data-dismiss="modal">Voltar</button>
+              <button type="submit" id="btn-enviaproj" class="submit-proj button -regular">Criar</button>
             </div>
           </form>
         </div>
@@ -308,7 +308,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=14"></script>
+  <script src="js/script1.js?ver=17"></script>
 
 </body>
 </html>
