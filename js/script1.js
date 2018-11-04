@@ -319,7 +319,6 @@ $('.submit-projatt').on('click', function(){
     setTimeout(function(){
       $('#modalErroProj').modal('show');
     }, 200);
-    event.preventDefault();
 
   }
 
@@ -377,7 +376,6 @@ $('.submit-proj').on('click', function(){
     setTimeout(function(){
       $('#modalErroProj').modal('show');
     }, 200);
-    event.preventDefault();
 
   }
 
