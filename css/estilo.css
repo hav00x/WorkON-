@@ -777,7 +777,10 @@ FORMATAÇÕES ESPECIFICAS
     border: 1px solid #DFDCDC;
     margin: 0 auto;
     display: block;
-    width: 10px;
+    width: 270px;
+    height: 200px;
+    position: relative;
+    top: 14.5px;
 }
 
 .button-hp {
@@ -1350,4 +1353,11 @@ MEDIAQUERIES
 #img-perfil{
   position: relative;
   top: 44.5px;
+}
+
+.perfil-busca{
+    box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.45);
+    margin: 40px 0;
+    border: 1px solid #DFDCDC;
+    border-radius: 10px;
 }

@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=15" rel="stylesheet">
+	<link href="css/estilo.css?ver=17" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -36,42 +36,33 @@ session_start();
 		?>
 		<div class="section container">
 			<h1 id="homepage-title">busca</h1>
-			<form>
+			<form id="form-pesquisa">
 				<div class="form-group col-md-4">
 					<label for="nomesearch">Nome</label>
-					<input id="nomesearch" type="text" name="">
+					<input id="nomesearch" type="text" name="nome-usu">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="produtosearch">Produto</label>
-					<select class="form-group">
-						<option>Site</option>
-						<option>Software</option>
-						<option>Aplicativo</option>
-						<option>Outros</option>
+					<select class="form-group" name="tipo-produto">
+						<option></option>
+						<option value="Sites">Site</option>
+						<option value="Softwares">Software</option>
+						<option value="Aplicativos">Aplicativo</option>
+						<option value="Outros">Outros</option>
 					</select>
 				</div>
 				<div class="form-group col-md-4">
 					<label for="localizacaosearch">Localização</label>
-					<input id="localizacaosearch" type="text" name="">
+					<input id="localizacaosearch" type="text" name="localizacao">
 				</div>	
-			</form>
-			<button class="btn btn-block">OK</button>
+				<button class="btn btn-block" id="pesquisar-devs">OK</button>
+			</form>	
 		</div><!--fim SECTION -->
-
-		<div class="section container">
+		<div class="section container hide" id="resultado-pesq">
 			<div id="perfil-d" class="col-md-12">
-					<div class="col-md-4 label-perfil">
-						<img class="img-thumbnail img-perfil" src="img/hog.jpg">
-					</div>
-					<div class="col-md-8">
-						<h4>Nome:</h4>
-						<h4>Localização:</h4>
-						<h4>Especialização:</h4>
-						
-						<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
-					</div>
+
 			</div>
-		</div> <!--FIM SECTION -->
+		</div>
 	</div><!--FIM CONTENT-->
 
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -91,5 +82,6 @@ session_start();
 			});
 		});
 	</script>
+	<script src="js/script1.js?ver=2"></script>
 </body>
 </html>

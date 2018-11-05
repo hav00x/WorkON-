@@ -384,7 +384,7 @@ $('.submit-proj').on('click', function(){
 });
 
 $('#btn-enviaproj').on('click', function(e){
-e.preventDefault();
+  e.preventDefault();
   $.post('cadastrarprojeto_bd.php',
     $('#formcadastro').serialize(),
     function(data){
@@ -610,7 +610,20 @@ $('.radiobtncad').on('click', function(){
     }
   });
 
-  /*--------------------------------Sua Conta--------------------------------*/
+  /*-------------------------------- Sua Conta --------------------------------*/
 
   $('#sua-conta').load('carrega_contabd.php');
+
+  /*-------------------------------- Pesquisar --------------------------------*/
+
+  $('#pesquisar-devs').on('click', function(e){
+    e.preventDefault();
+    $.post('pesquisarbd.php',
+     $('#form-pesquisa').serialize(),
+     function(data){
+      $('#perfil-d').contents().remove();
+      $('#perfil-d').append(data);
+      $('#resultado-pesq').removeClass('hide');
+    });
+  });
 });
