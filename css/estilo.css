@@ -1366,3 +1366,8 @@ MEDIAQUERIES
 #sua-conta{
     padding: 10px 30px;
 }
+
+#img-suaconta{
+    height: 250px;
+    width: 300px;
+}
