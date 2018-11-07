@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?=VER19" rel="stylesheet">
+	<link href="css/estilo.css?ver=21" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<!-- IE 9 ou menor -->
@@ -56,32 +56,32 @@ if(!isset($_SESSION['email'])){
 				</div>
 				<div class="col-md-8">
 					 <label for="nome">Nome</label>
-              <input type="text" id="nome" class="text_field" name="nome">
+              <input type="text" id="nome-suaconta" class="text_field" name="nome">
 				 <label for="cel">Telefone celular</label>
-              <input class="text_field" id="cel" type="tel" name="tel-cel" maxlength="11">
+              <input class="text_field" id="cel-suaconta" type="tel" name="tel-cel" maxlength="11">
                <label for="descri">Descrição</label>
-               <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
+               <textarea id="descri-suaconta" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
 				</div>
 
 			</div>
 			<div class="row">
 				<div class="col-md-4">
                 <label for="fb">Facebook *</label>
-                <input class="text_field" id="fb" type="text" name="facebook">
+                <input class="text_field" id="fb-suaconta" type="text" name="facebook">
               </div>
               <div class="col-md-4">
                 <label for="insta">Instagram *</label>
-                <input class="text_field" id="insta" type="text" name="instagram">
+                <input class="text_field" id="insta-suaconta" type="text" name="instagram">
               </div>
               <div class="col-md-4">
                 <label for="site">Site *</label>
-                <input class="text_field" id="site" type="text" name="site1">
+                <input class="text_field" id="site-suaconta" type="text" name="site1">
               </div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
-				<button class="btn btn-block">Salvar alterações</button>		
+				<button class="btn-block button -regular" id="att-usu">Salvar alterações</button>		
 				</div>
 			</div>
 			
@@ -109,5 +109,6 @@ if(!isset($_SESSION['email'])){
 			});
 		});
 	</script>
+	<script src="js/script1.js?ver=3"></script>
 </body>
 </html>

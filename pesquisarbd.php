@@ -24,7 +24,7 @@ if($localizacao != ''){
 }
 
 if($check == 1){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $nome);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -39,13 +39,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $nome);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -60,13 +60,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 2){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE segmento=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -81,13 +81,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE segmento=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -102,13 +102,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 3){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome=? AND segmento=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome LIKE ? AND segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $nome, $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -123,13 +123,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant=? AND segmento=? cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant LIKE ? AND segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $nome, $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -144,13 +144,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 4){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -165,13 +165,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('s', $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -186,13 +186,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 5){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome=? AND estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome LIKE ? AND estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $nome, $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -207,13 +207,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant=? AND estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant LIKE ? AND estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $nome, $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -228,13 +228,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 6){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE segmento=? AND estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE segmento LIKE ? AND estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $produto, $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -249,13 +249,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE segmento=? AND estado=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE segmento LIKE ? AND estado LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('ss', $produto, $localizacao);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -270,13 +270,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 } else if($check == 7){
-	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome=? AND estado=? AND segmento=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nome, estado, segmento, foto FROM usuariopf WHERE nome LIKE ? AND estado LIKE ? AND segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('sss', $nome, $localizacao, $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -291,13 +291,13 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
 	}
 
-	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant=? AND estado=? AND segmento=? AND cli_ou_dev=2');
+	$stmt = $link->prepare('SELECT nomefant, estado, segmento, foto FROM usuariopj WHERE nomefant LIKE ? AND estado LIKE ? AND segmento LIKE ? AND cli_ou_dev=2');
 	$stmt->bind_param('sss', $nome, $localizacao, $produto);
 	if($stmt->execute()){
 		$stmt->store_result();
@@ -312,7 +312,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -332,7 +332,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -352,7 +352,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
 			</div>
 			</div>';
 		}

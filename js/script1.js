@@ -612,7 +612,28 @@ $('.radiobtncad').on('click', function(){
 
   /*-------------------------------- Sua Conta --------------------------------*/
 
-  $('#sua-conta').load('carrega_contabd.php');
+  if(window.location.href == 'http://localhost/root2/sua_conta.php'){
+    $.post('carrega_contabd.php', function(data){
+      console.log(data);
+      if(data['pjoupf'] == 'pf'){
+        console.log('oi');
+        $('#nome-suaconta').val(data['nome']);
+        $('#cel-suaconta').val(data['cel']);
+        $('#descri-suaconta').val(data['descr']);
+        $('#fb-suaconta').val(data['facebook']);
+        $('#insta-suaconta').val(data['instagram']);
+        $('#site-suaconta').val(data['site']);
+      } else if(data['pjoupf'] == 'pf'){
+        $('#nome-suaconta').val(data['nomefant']);
+        $('#cel-suaconta').val(data['cel']);
+        $('#descri-suaconta').val(data['descr']);
+        $('#fb-suaconta').val(data['facebook']);
+        $('#insta-suaconta').val(data['instagram']);
+        $('#site-suaconta').val(data['site']);
+      }
+
+    });
+  }
 
   /*-------------------------------- Pesquisar --------------------------------*/
 
@@ -621,9 +642,15 @@ $('.radiobtncad').on('click', function(){
     $.post('pesquisarbd.php',
      $('#form-pesquisa').serialize(),
      function(data){
-      $('#perfil-d').contents().remove();
-      $('#perfil-d').append(data);
-      $('#resultado-pesq').removeClass('hide');
+      if(data){
+        $('#perfil-d').contents().remove();
+        $('#perfil-d').append(data);
+        $('#resultado-pesq').removeClass('hide');
+      }else{
+        $('#perfil-d').contents().remove();
+        $('#perfil-d').append('<p style="text-align: center;">Nenhum resultado encontrado</p>');
+        $('#resultado-pesq').removeClass('hide');
+      }
     });
   });
 });
