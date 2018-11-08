@@ -12,6 +12,8 @@ $(document).ready(function(){
     $('.divisor').addClass('hide');
   }
 
+  $('[data-toggle="tooltip"]').tooltip(); 
+
 $('#perfil-data').load('carrega_infoperfil.php'); // pega o perfil do usuário
 $('#img-perfil').load('carrega_infoperfil.php',
   {foto:1});
@@ -531,6 +533,7 @@ $('.radiobtncad').on('click', function(){
 
       reader.onload = function(e) {
         $('#blah').attr('src', e.target.result);
+        $('#img-suaconta').attr('src', e.target.result);
       }
 
       reader.readAsDataURL(input.files[0]);
@@ -612,7 +615,38 @@ $('.radiobtncad').on('click', function(){
 
   /*-------------------------------- Sua Conta --------------------------------*/
 
-  $('#sua-conta').load('carrega_contabd.php');
+  if(window.location.href == 'http://localhost/root2/sua_conta.php'){
+    $.post('carrega_contabd.php', function(data){
+      var array = JSON.parse(data);
+      if(array['pjoupf'] == 'pf'){
+        $('#img-suaconta').attr('src', array.foto);
+        $('#nome-suaconta').val(array.nome);
+        $('#cel-suaconta').val(array.cel);
+        $('#descri-suaconta').val(array.descr);
+        $('#fb-suaconta').val(array.facebook);
+        $('#insta-suaconta').val(array.instagram);
+        $('#site-suaconta').val(array.site);
+      } else if(data['pjoupf'] == 'pf'){
+        $('#img-suaconta').attr('src', array.foto);
+        $('#nome-suaconta').val(array.nomefant);
+        $('#cel-suaconta').val(array.cel);
+        $('#descri-suaconta').val(array.descr);
+        $('#fb-suaconta').val(array.facebook);
+        $('#insta-suaconta').val(array.instagram);
+        $('#site-suaconta').val(array.site);
+      }
+
+    });
+  }
+
+  $('#att-usu').on('click', function(e){
+    e.preventDefault();
+    $.post('carrega_contabd.php',
+     $('#att-suaconta').serialize() + '&attconta=' +1,
+     function(){
+      location.reload();
+    });
+  });
 
   /*-------------------------------- Pesquisar --------------------------------*/
 
@@ -621,9 +655,15 @@ $('.radiobtncad').on('click', function(){
     $.post('pesquisarbd.php',
      $('#form-pesquisa').serialize(),
      function(data){
-      $('#perfil-d').contents().remove();
-      $('#perfil-d').append(data);
-      $('#resultado-pesq').removeClass('hide');
+      if(data){
+        $('#perfil-d').contents().remove();
+        $('#perfil-d').append(data);
+        $('#resultado-pesq').removeClass('hide');
+      }else{
+        $('#perfil-d').contents().remove();
+        $('#perfil-d').append('<p style="text-align: center;">Nenhum resultado encontrado</p>');
+        $('#resultado-pesq').removeClass('hide');
+      }
     });
   });
 });

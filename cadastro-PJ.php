@@ -222,7 +222,20 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <label for="segmento">O que você desenvolve?</label>
-                <input type="text" id="segmento" class="text_field" placeholder="ex: Desenvolvimento de Sites, Softwares, Apps, etc." name="res-negocio">
+                <select id="segmento" name="segmento">
+
+                  <option value="Analista de Sistemas">Analista de Sistemas</option>
+                  <option value="Back-end Web">Back-end Web</option>
+                  <option value="Back-end Desktop">Back-end Desktop</option>
+                  <option value="Desenvolvedor de Aplicativos">Desenvolvedor de Aplicativos</option>
+                  <option value="Designer">Designer</option>
+                  <option value="Programador Web">Front-end Web</option>
+                  <option value="Programador Desktop">Front-end Desktop</option>
+                  <option value="Fullstack Web">Fullstack Web</option>
+                  <option value="Fullstack Desktop">Fullstack Desktop</option>
+                  <option value="Outro">Outro (Dê mais detalhes na descrição)</option>
+
+                </select>
               </div>
             </div>
             <div class="row">
@@ -241,13 +254,13 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
               </div>
               <div class="col-md-3">
                 <label for="site">Site *</label>
-                <input class="text_field" id="site" type="text" name="site1">
+                <input class="text_field" id="site" data-toggle="tooltip" data-placement="bottom" title="Se não tiver um, mas tiver algo como github, recomendamos preencher com tal informação" type="text" name="site1">
               </div>     
             </div>
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <label for="descri">Faça um breve resumo sobre você e suas qualificações</label>
-                <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
+                <label for="descri">Faça uma breve descrição sobre você e suas qualificações</label>
+                <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer. Dê uma breve explicação sobre o que você faz, o que você sabe, etc." maxlength="1000" class="text_field" name="descricao"></textarea>
               </div>
             </div>
           </div>

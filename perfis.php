@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=17" rel="stylesheet">
+	<link href="css/estilo.css?ver=18" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -53,9 +53,40 @@ session_start();
 				</div>
 				<div class="form-group col-md-4">
 					<label for="localizacaosearch">Localização</label>
-					<input id="localizacaosearch" type="text" name="localizacao">
-				</div>	
-				<button class="btn btn-block" id="pesquisar-devs">OK</button>
+					<select class="form-group" name="localizacao">
+						<option></option>
+						<option value="AC">AC</option>
+						<option value="AL">AL</option>
+						<option value="AP">AP</option>
+						<option value="AM">AM</option>
+						<option value="BA">BA</option>
+						<option value="CE">CE</option>
+						<option value="DF">DF</option>
+						<option value="ES">ES</option>
+						<option value="GO">GO</option>
+						<option value="MA">MA</option>
+						<option value="MT">MT</option>
+						<option value="MS">MS</option>
+						<option value="MG">MG</option>
+						<option value="PA">PA</option>
+						<option value="PB">PB</option>
+						<option value="PR">PR</option>
+						<option value="PE">PE</option>
+						<option value="PI">PI</option>
+						<option value="RJ">RJ</option>
+						<option value="RN">RN</option>
+						<option value="RS">RS</option>
+						<option value="RO">RO</option>
+						<option value="RR">RR</option>
+						<option value="SC">SC</option>
+						<option value="SP">SP</option>
+						<option value="SE">SE</option>
+						<option value="TO">TO</option>
+					</select>
+				</div>
+				<div class="col-md-12"> 
+					<button class="btn-block button -regular" id="pesquisar-devs">OK</button>
+				</div>
 			</form>	
 		</div><!--fim SECTION -->
 		<div class="section container hide" id="resultado-pesq">
@@ -82,6 +113,6 @@ session_start();
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=2"></script>
+	<script src="js/script1.js?ver=3"></script>
 </body>
 </html>

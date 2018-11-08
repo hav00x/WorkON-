@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?=VER19" rel="stylesheet">
+	<link href="css/estilo.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<!-- IE 9 ou menor -->
@@ -43,48 +43,64 @@ if(!isset($_SESSION['email'])){
 
 		<div class="section" id="sua-conta">
 			<div class="row">
- 				<div class="col-md-12" style="text-align: center; margin-bottom: 20px;">
+				<div class="col-md-12" style="text-align: center; margin-bottom: 20px;">
 					<h1>Sua Conta</h1>
-						<p>Aqui você pode atualizar os seus dados de cadastro</p>
+					<p>Aqui você pode atualizar os seus dados de cadastro (campos com * são opcionais)</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<img src="img/aa.png" class="img-responsive img-thumbnail"><br><br>
+			<form id="att-suaconta" method="">
+				<div class="row">
+					<div class="col-md-4">	
+						<input type="text" name="arquivo" id="arquivo" class="hide">
+						<img class="img-responsive img-thumbnail" id="img-suaconta"><br><br>
+						<input type="file" name="Filedata" id="imgInp"><br>
+					</div>
+					<div class="col-md-8">
+						<label for="nome-suaconta">Nome</label>
+						<input type="text" id="nome-suaconta" class="text_field" name="nome">
+						<label for="sobrenome-suaconta">Sobrenome</label>
+						<input class="text_field" id="sobrenome-suaconta" type="text" name="sobrenome">
+						
+						<label for="descri-suaconta">Descrição</label>
+						<textarea id="descri-suaconta" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
+					</div>
 
-					  <input type="file" name="Filedata" id="imgInp"><br>
 				</div>
-				<div class="col-md-8">
-					 <label for="nome">Nome</label>
-              <input type="text" id="nome" class="text_field" name="nome">
-				 <label for="cel">Telefone celular</label>
-              <input class="text_field" id="cel" type="tel" name="tel-cel" maxlength="11">
-               <label for="descri">Descrição</label>
-               <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer" maxlength="254" class="text_field" name="descricao"></textarea>
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cel-suaconta">Telefone Celular</label>
+						<input class="text_field" id="cel-suaconta" type="tel" name="tel-cel" maxlength="11">
+					</div>
+					<div class="col-md-4">
+						<label for="fixo-suaconta">Telefone Fixo *</label>
+						<input class="text_field" id="fixo-suaconta" type="tel" name="fixo" maxlength="10">
+					</div>
+					<div class="col-md-4">
+						<label for="comercial-suaconta">Telefone Comercial *</label>
+						<input class="text_field" id="comercial-suaconta" type="tel" name="comercial" maxlength="11">
+					</div>
+
+					<div class="col-md-4">
+						<label for="insta-suaconta">Instagram *</label>
+						<input class="text_field" id="insta-suaconta" type="text" name="instagram">
+					</div>
+					<div class="col-md-4">
+						<label for="fb-suaconta">Facebook *</label>
+						<input class="text_field" id="fb-suaconta" type="text" name="facebook">
+					</div>
+					<div class="col-md-4">
+						<label for="site-suaconta">Site *</label>
+						<input class="text_field" id="site-suaconta" type="text" name="site1">
+					</div>
+
 				</div>
 
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-                <label for="fb">Facebook *</label>
-                <input class="text_field" id="fb" type="text" name="facebook">
-              </div>
-              <div class="col-md-4">
-                <label for="insta">Instagram *</label>
-                <input class="text_field" id="insta" type="text" name="instagram">
-              </div>
-              <div class="col-md-4">
-                <label for="site">Site *</label>
-                <input class="text_field" id="site" type="text" name="site1">
-              </div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-12">
-				<button class="btn btn-block">Salvar alterações</button>		
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn-block button -regular" id="att-usu">Salvar alterações</button>		
+					</div>
 				</div>
-			</div>
-			
+			</form>
 		</div>
 
 	</div>
@@ -109,5 +125,6 @@ if(!isset($_SESSION['email'])){
 			});
 		});
 	</script>
+	<script src="js/script1.js?ver=5"></script>
 </body>
 </html>
