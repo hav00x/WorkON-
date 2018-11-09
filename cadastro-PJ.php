@@ -28,10 +28,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estilo.css?ver=5" rel="stylesheet">
 
-  <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -229,8 +226,8 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
                   <option value="Back-end Desktop">Back-end Desktop</option>
                   <option value="Desenvolvedor de Aplicativos">Desenvolvedor de Aplicativos</option>
                   <option value="Designer">Designer</option>
-                  <option value="Programador Web">Front-end Web</option>
-                  <option value="Programador Desktop">Front-end Desktop</option>
+                  <option value="Front-end Web">Front-end Web</option>
+                  <option value="Front-end Desktop">Front-end Desktop</option>
                   <option value="Fullstack Web">Fullstack Web</option>
                   <option value="Fullstack Desktop">Fullstack Desktop</option>
                   <option value="Outro">Outro (Dê mais detalhes na descrição)</option>
@@ -283,8 +280,8 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
       </form>
     </div>
 
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/script1.js?ver=2"></script>
-  
-</body>
-</html>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/script1.js?ver=2"></script>
+    
+  </body>
+  </html>

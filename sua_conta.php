@@ -41,14 +41,32 @@ if(!isset($_SESSION['email'])){
 		include('templates/navbarinterna.php');
 		?>
 
+		<div id="modalErroSuaConta" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content" style="margin: 0 auto;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Erro</h4>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 		<div class="section" id="sua-conta">
 			<div class="row">
 				<div class="col-md-12" style="text-align: center; margin-bottom: 20px;">
 					<h1>Sua Conta</h1>
 					<p>Aqui você pode atualizar os seus dados de cadastro (campos com * são opcionais)</p>
+					<p style="margin-top: 20px;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
 				</div>
 			</div>
-			<form id="att-suaconta" method="">
+			<form id="att-suaconta">
 				<div class="row">
 					<div class="col-md-4">	
 						<input type="text" name="arquivo" id="arquivo" class="hide">
@@ -97,7 +115,7 @@ if(!isset($_SESSION['email'])){
 
 				<div class="row">
 					<div class="col-md-12">
-						<button class="btn-block button -regular" id="att-usu">Salvar alterações</button>		
+						<button class="btn-block button -regular" id="attdadousu">Salvar alterações</button>		
 					</div>
 				</div>
 			</form>
@@ -125,6 +143,6 @@ if(!isset($_SESSION['email'])){
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=5"></script>
+	<script src="js/script1.js?ver=10"></script>
 </body>
 </html>

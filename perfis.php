@@ -45,10 +45,16 @@ session_start();
 					<label for="produtosearch">Produto</label>
 					<select class="form-group" name="tipo-produto">
 						<option></option>
-						<option value="Sites">Site</option>
-						<option value="Softwares">Software</option>
-						<option value="Aplicativos">Aplicativo</option>
-						<option value="Outros">Outros</option>
+						<option value="Analista de Sistemas">Analista de Sistemas</option>
+						<option value="Back-end Web">Back-end Web</option>
+						<option value="Back-end Desktop">Back-end Desktop</option>
+						<option value="Desenvolvedor de Aplicativos">Desenvolvedor de Aplicativos</option>
+						<option value="Designer">Designer</option>
+						<option value="Front-end Web">Front-end Web</option>
+						<option value="Front-end Desktop">Front-end Desktop</option>
+						<option value="Fullstack Web">Fullstack Web</option>
+						<option value="Fullstack Desktop">Fullstack Desktop</option>
+						<option value="Outro">Outro (Dê mais detalhes na descrição)</option>
 					</select>
 				</div>
 				<div class="form-group col-md-4">

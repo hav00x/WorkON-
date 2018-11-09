@@ -621,7 +621,10 @@ $('.radiobtncad').on('click', function(){
       if(array['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
         $('#nome-suaconta').val(array.nome);
+        $('#sobrenome-suaconta').val(array.sobrenome);
         $('#cel-suaconta').val(array.cel);
+        $('#fixo-suaconta').val(array.fixo);
+        $('#comercial-suaconta').val(array.comercial);
         $('#descri-suaconta').val(array.descr);
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
@@ -629,23 +632,39 @@ $('.radiobtncad').on('click', function(){
       } else if(data['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
         $('#nome-suaconta').val(array.nomefant);
+        $('#sobrenome-suaconta').val(array.razaosoci);
         $('#cel-suaconta').val(array.cel);
+        $('#fixo-suaconta').val(array.fixo);
+        $('#comercial-suaconta').val(array.comercial);
         $('#descri-suaconta').val(array.descr);
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
       }
-
     });
   }
 
-  $('#att-usu').on('click', function(e){
+  $('#attdadousu').on('click', function(e){
     e.preventDefault();
-    $.post('carrega_contabd.php',
-     $('#att-suaconta').serialize() + '&attconta=' +1,
-     function(){
-      location.reload();
-    });
+    $.post('att_suaconta.php', $('#att-suaconta').serialize(), function(data){
+      var arrayErro = JSON.parse(data);
+      if(arrayErro['num_errado'] == 1 || arrayErro['campo_errado'] == 1){
+        if(arrayErro['num_errado'] == 1){
+          $('#modalErroSuaConta .modal-body p').remove();
+          $('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p><br>');
+          $('#modalErroSuaConta').modal('show');
+        } if(arrayErro['campo_errado'] == 1){
+         $('#modalErroSuaConta .modal-body p').remove();
+         $('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p>');
+         $('#modalErroSuaConta').modal('show');
+       }
+     } else{
+      $('#status-suaconta').removeClass('hide');
+      setTimeout(function(){
+        $('#status-suaconta').addClass('hide');
+      }, 10000);
+     }
+   });
   });
 
   /*-------------------------------- Pesquisar --------------------------------*/
