@@ -46,7 +46,7 @@ $acessoinvalcli = isset($_GET['acessoinval']) ? $_GET['acessoinval'] : 0;
   <body class="inside">
 
     <?php
-    include('templates/sidebar.php');
+      include('templates/sidebar.php');
     ?>
 
     <!-- Page Content Holder -->
