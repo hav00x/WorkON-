@@ -699,8 +699,11 @@ $('.radiobtncad').on('click', function(){
           $('#modalErroSuaContaPriv .modal-body').append('<p>Sua senha antiga foi preenchida errada, preencha-a novamente</p>');
         }
         $('#modalErroSuaContaPriv').modal('show');
-      } else if(resposta.sucesso){
-        console.log('oi');
+      } if(resposta.sucesso){
+        $('#status-senha').removeClass('hide');
+        setTimeout(function(){
+          $('#status-senha').addClass('hide');
+        }, 10000);
       }
     });
   });
@@ -708,7 +711,31 @@ $('.radiobtncad').on('click', function(){
   $('#attemail').on('click', function(e){
     e.preventDefault();
     $.post('att_priv.php', $('#formemail').serialize() + '&email=' +1, function(data){
-      console.log(data);
+      var resposta = JSON.parse(data);
+      if(resposta.campo_vazio || resposta.email_dif || resposta.email_invalido || resposta.email_existe || resposta.email_errado){
+        $('#modalErroSuaContaPriv .modal-body p').remove();
+        if(resposta.campo_vazio){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Preencha todos os campos corretamente</p>');
+        }
+        if(resposta.email_dif){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>O email novo e a confirmação estão diferentes, preencha-os iguais</p>');
+        }
+        if(resposta.email_invalido){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Use um email válido para preenchimento</p>');
+        }
+        if(resposta.email_existe){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Esse email já está em uso, use outro email</p>');
+        }
+        if(resposta.email_errado){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Seu email antigo foi preenchido errado, preencha-o novamente</p>');
+        }
+        $('#modalErroSuaContaPriv').modal('show');
+      } if(resposta.sucesso){
+        $('#status-email').removeClass('hide');
+        setTimeout(function(){
+          $('#status-email').addClass('hide');
+        }, 10000);
+      }
     })
   });
 

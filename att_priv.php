@@ -20,7 +20,9 @@ $nova_senha_diferente = true;
 $email_incorreto = true;
 $novo_email_diferente = true;
 $sucesso = true;
-$resposta = array('campo_vazio' => false, 'senha_dif' => false, 'senha_errada' => false, 'email_dif' => false, 'email_errado' => false,);
+$email_invalido = true;
+$email_existe = true;
+$resposta = array('campo_vazio' => false, 'senha_dif' => false, 'senha_errada' => false, 'email_dif' => false, 'email_errado' => false, 'sucesso' => false, 'email_invalido' => false, 'email_existe' => false);
 
 if(is_null($_SESSION['id_fusuario'])){
 	$idusu = $_SESSION['id_jusuario'];
@@ -45,7 +47,7 @@ if($senha == 1){
 
 	if($tabela == 1){
 		$stmt = $link->prepare("SELECT senha FROM usuariopj WHERE id_pjusu = ?");
-		$stmt->bind_param('s', $idusu);
+		$stmt->bind_param('i', $idusu);
 		if($stmt->execute()){
 			$stmt->bind_result($senhausu);
 			$stmt->fetch();
@@ -71,7 +73,7 @@ if($senha == 1){
 
 	} else if($tabela == 2){
 		$stmt = $link->prepare("SELECT senha FROM usuariopf WHERE id_pfusu = ?");
-		$stmt->bind_param('s', $idusu);
+		$stmt->bind_param('i', $idusu);
 		if($stmt->execute()){
 			$stmt->bind_result($senhausu);
 			$stmt->fetch();
@@ -100,8 +102,95 @@ if($senha == 1){
 
 if($email == 1){
 	if(empty($emailAntigo) || empty($emailNovo) || empty($emailConfirma)){
-		echo 'oi';
+		$resposta['campo_vazio'] = $campo_vazio;
+		echo json_encode($resposta);
+		die();
+	}
+
+	if($emailNovo != $emailConfirma){
+		$resposta['email_dif'] = $novo_email_diferente;
+		echo json_encode($resposta);
+		die();
+	}
+
+	if(!filter_var($emailNovo, FILTER_VALIDATE_EMAIL)) {
+		$resposta['email_invalido'] = $email_invalido;
+		echo json_encode($resposta);
+		die();
+	}
+
+	$stmt = $link->prepare("SELECT email FROM usuariopf WHERE email = ? UNION SELECT email FROM usuariopj WHERE email = ?");
+	if ($stmt === false) {
+		trigger_error($this->mysqli->error, E_USER_ERROR);
+		return;
+	}
+	$stmt->bind_param("ss", $emailNovo, $emailNovo);
+	if($stmt->execute()){
+		$stmt->bind_result($buscaEmail);
+		while($stmt->fetch()){
+			if(isset($buscaEmail)){
+				$resposta['email_existe'] = $email_existe;
+				echo json_encode($resposta);
+				die();
+			}
+		}
+	}else{
+		echo 'Erro ao executar a busca por email';
+	}
+
+	$stmt->close();
+
+	if($tabela == 1){
+		$stmt = $link->prepare("SELECT email FROM usuariopj WHERE id_pjusu = ?");
+		$stmt->bind_param('i', $idusu);
+		if($stmt->execute()){
+			$stmt->bind_result($emailusu);
+			$stmt->fetch();
+			if($emailAntigo != $emailusu){
+				$resposta['email_errado'] = $email_incorreto;
+				echo json_encode($resposta);
+				die();
+			}
+		}
+
+		$stmt->close();
+
+		$stmt = $link->prepare('UPDATE usuariopj SET email=? WHERE id_pjusu=?');
+		$stmt->bind_param('si', $emailNovo, $idusu);
+		if($stmt->execute()){
+			$resposta['sucesso'] = $sucesso;
+			echo json_encode($resposta);
+			die();
+		}
+
+		$stmt->close();
+
+	} else if($tabela == 2){
+		$stmt = $link->prepare("SELECT email FROM usuariopf WHERE id_pfusu = ?");
+		$stmt->bind_param('i', $idusu);
+		if($stmt->execute()){
+			$stmt->bind_result($emailusu);
+			$stmt->fetch();
+			if($emailAntigo != $emailusu){
+				$resposta['email_errado'] = $email_incorreto;
+				echo json_encode($resposta);
+				die();
+			}
+		}
+
+		$stmt->close();
+
+		$stmt = $link->prepare('UPDATE usuariopf SET email=? WHERE id_pfusu=?');
+		$stmt->bind_param('si', $emailNovo, $idusu);
+		if($stmt->execute()){
+			$resposta['sucesso'] = $sucesso;
+			echo json_encode($resposta);
+			die();
+		}
+
+		$stmt->close();
 	}
 }
+
 
 ?>

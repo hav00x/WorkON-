@@ -6,11 +6,6 @@ if(!isset($_SESSION['email'])){
 	header('Location: index.php?acessoinval=1&');
 }
 
-$num_errado = isset($_GET['num_errado']) ? $_GET['num_errado'] : 0;
-$campo_vazio = isset($_GET['campo_vazio']) ? $_GET['campo_vazio'] : 0;
-$img_grande = isset($_GET['img_grande']) ? $_GET['img_grande'] : 0;
-$erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
-
 ?>
 
 <html>
@@ -30,41 +25,6 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var num_errado = '<?= $num_errado ?>';
-			var campo_vazio = '<?= $campo_vazio ?>';
-			var img_grande = '<?= $img_grande ?>';
-			var erro_foto = '<?= $erro_foto ?>';
-
-			if(num_errado == 1 || campo_vazio == 1 || img_grande == 1 || erro_foto == 1){
-
-				$('#modalErroSuaConta .modal-body p').remove();
-
-				if(num_errado == 1){
-					$('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p>');
-					$('#modalErroSuaConta').modal('show');
-				}
-
-				if(campo_vazio == 1){
-					$('#modalErroSuaConta .modal-body').append('<p>Preencha os campos corretamente</p>');
-					$('#modalErroSuaConta').modal('show');
-				}
-
-				if(img_grande == 1){
-					$('#modalErroSuaConta .modal-body').append('<p>Imagem muito grande, por favor use uma imagem de 2mb ou menos</p>');
-					$('#modalErroSuaConta').modal('show');
-				}
-
-				if(erro_foto == 1){
-					$('#modalErroSuaConta .modal-body').append('<p>Ocorreu algum erro com sua imagem</p>');
-					$('#modalErroSuaConta').modal('show');
-				}
-			}
-		});
-		
-	</script>
 
 	<!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
@@ -107,7 +67,8 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 				<div class="col-md-12" style="text-align: center; margin-bottom: 20px;">
 					<h1>Definições Privados</h1>
 					<p>Aqui você pode atualizar os seus dados privados</p>
-					<p style="margin-top: 20px;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
+					<p style="margin-top: 20px; color: red;" id="status-senha" class="hide">Sua senha foi atualizada com sucesso!</p>
+					<p style="margin-top: 20px; color: red;" id="status-email" class="hide">Seu email foi atualizado com sucesso!</p>
 				</div>
 			</div>
 			<div class="row">

@@ -10,6 +10,7 @@ $num_errado = isset($_GET['num_errado']) ? $_GET['num_errado'] : 0;
 $campo_vazio = isset($_GET['campo_vazio']) ? $_GET['campo_vazio'] : 0;
 $img_grande = isset($_GET['img_grande']) ? $_GET['img_grande'] : 0;
 $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
+$sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
 
 ?>
 
@@ -37,6 +38,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 			var campo_vazio = '<?= $campo_vazio ?>';
 			var img_grande = '<?= $img_grande ?>';
 			var erro_foto = '<?= $erro_foto ?>';
+			var sucesso = '<?= $sucesso ?>';
 
 			if(num_errado == 1 || campo_vazio == 1 || img_grande == 1 || erro_foto == 1){
 
@@ -61,6 +63,13 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 					$('#modalErroSuaConta .modal-body').append('<p>Ocorreu algum erro com sua imagem</p>');
 					$('#modalErroSuaConta').modal('show');
 				}
+			}
+
+			if(sucesso == 1){
+				$('#status-suaconta').removeClass('hide');
+				setTimeout(function(){
+					$('#status-suaconta').addClass('hide');
+				}, 10000);
 			}
 		});
 		
@@ -107,7 +116,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 				<div class="col-md-12" style="text-align: center; margin-bottom: 20px;">
 					<h1>Sua Conta</h1>
 					<p>Aqui você pode atualizar os seus dados de cadastro (campos com * são opcionais)</p>
-					<p style="margin-top: 20px;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
+					<p style="margin-top: 20px; color: red;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
 				</div>
 			</div>
 			<form enctype="multipart/form-data" id="att-suaconta" method="post" action="att_suaconta.php">
