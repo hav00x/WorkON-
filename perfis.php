@@ -91,10 +91,70 @@ session_start();
 		</div><!--fim SECTION -->
 		<div class="section container hide" id="resultado-pesq">
 			<div id="perfil-d" class="col-md-12">
+			</div>
+		</div>
 
+
+		<div class="modal fade" id="detalheperf">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4>Detalhes do perfil</h4>
+					</div> <!--header-->
+					<div class="modal-body">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<h2>Larissa</h2> 
+								</div>	
+							</div>
+
+							<div class="row">
+							<div class="col-md-12">
+								<img class="img-thumbnail" style="width: 300px;" src="img/hog.jpg">
+							</div>
+							</div>
+
+							<div class="row">	
+							<div class="col-md-12">
+								<h3>O que o dev faz:</h3>
+								<p>AS VEZES CHORA NO BANHO PENSANDO SE ELE UM DIA VAI TER UMA CARREIRA DE SUCESSO E NAS HORAS VAGAS FAZ SITES PRA SENHORAS INGRATAS.</p>
+							</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-6">
+									<h4>ATUAÇÃO</h4>
+								</div>
+								<div class="col-md-6">
+									<h4>Localização</h4>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-4">
+									<h4>facebook</h4>
+								</div>
+								<div class="col-md-4">
+									<h4>INSTA</h4>
+								</div>
+								<div class="col-md-4">
+									<h4>SITE</h4>
+								</div>
+							</div>
+							<br>
+							<div class="modal-footer">
+								<button class="btn btn-lg">ENVIAR MENSAGEM</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div><!--FIM CONTENT-->
+
+
 
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<!-- jQuery Custom Scroller CDN -->

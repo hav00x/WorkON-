@@ -39,7 +39,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf" >Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -60,7 +60,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -81,7 +81,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -102,7 +102,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -123,7 +123,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -144,7 +144,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -165,7 +165,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -186,7 +186,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -207,7 +207,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -228,7 +228,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -249,7 +249,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -270,7 +270,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -291,7 +291,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -312,7 +312,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -332,7 +332,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
@@ -352,7 +352,7 @@ if($check == 1){
 			<h4>Localização: '.$estado.'</h4>
 			<h4>Especialização: '.$segmento.'</h4>
 
-			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp">Ver mais</button>
+			<button style="margin-top: 60px; margin-bottom: 20px;" class="btn btn-block button-hp" data-toggle="modal" data-target="#detalheperf">Ver mais</button>
 			</div>
 			</div>';
 		}
