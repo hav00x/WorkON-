@@ -617,9 +617,12 @@ $('.radiobtncad').on('click', function(){
 
   if(window.location.href == 'http://localhost/root2/sua_conta.php'){
     $.post('carrega_contabd.php', function(data){
+
       var array = JSON.parse(data);
+
       if(array['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
+        $('#arquivo').val(array.foto);
         $('#nome-suaconta').val(array.nome);
         $('#sobrenome-suaconta').val(array.sobrenome);
         $('#cel-suaconta').val(array.cel);
@@ -629,8 +632,10 @@ $('.radiobtncad').on('click', function(){
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
+        $("#segmento").val(array.segmento);
       } else if(data['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
+        $('#arquivo').val(array.foto);
         $('#nome-suaconta').val(array.nomefant);
         $('#sobrenome-suaconta').val(array.razaosoci);
         $('#cel-suaconta').val(array.cel);
@@ -640,31 +645,37 @@ $('.radiobtncad').on('click', function(){
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
+        $("#segmento").val(array.segmento);
       }
     });
   }
 
+  function isJson(item) {
+    item = typeof item !== "string"
+    ? JSON.stringify(item)
+    : item;
+
+    try {
+      item = JSON.parse(item);
+    } catch (e) {
+      return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+      return true;
+    }
+
+    return false;
+  }
+
   $('#attdadousu').on('click', function(e){
     e.preventDefault();
+
+    $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
+
     $.post('att_suaconta.php', $('#att-suaconta').serialize(), function(data){
-      var arrayErro = JSON.parse(data);
-      if(arrayErro['num_errado'] == 1 || arrayErro['campo_errado'] == 1){
-        if(arrayErro['num_errado'] == 1){
-          $('#modalErroSuaConta .modal-body p').remove();
-          $('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p><br>');
-          $('#modalErroSuaConta').modal('show');
-        } if(arrayErro['campo_errado'] == 1){
-         $('#modalErroSuaConta .modal-body p').remove();
-         $('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p>');
-         $('#modalErroSuaConta').modal('show');
-       }
-     } else{
-      $('#status-suaconta').removeClass('hide');
-      setTimeout(function(){
-        $('#status-suaconta').addClass('hide');
-      }, 10000);
-     }
-   });
+      console.log(data);
+    });
   });
 
   /*-------------------------------- Pesquisar --------------------------------*/

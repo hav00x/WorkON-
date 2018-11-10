@@ -36,7 +36,10 @@ echo '
 </ul>
 </li>
 <li class="definition">
-<a href="sua_conta.php" id="definition">Sua Conta</a>
+<a href="#pageSubMenu3" id="request" data-toggle="collapse" aria-expanded="false">Sua Conta</a>
+<ul class="collapse list-unstyled" id="pageSubMenu3">
+<li><a href="sua_conta.php">Minhas Definições</a></li>
+<li><a href="sua_contacnf.php">Definições Privadas</a></li>
 </ul>
 </li>
 </ul>
@@ -85,7 +88,10 @@ echo '
 </ul>
 </li>
 <li class="definition">
-<a href="sua_conta.php" id="definition">Sua Conta</a>
+<a href="#pageSubMenu3" id="request" data-toggle="collapse" aria-expanded="false">Sua Conta</a>
+<ul class="collapse list-unstyled" id="pageSubMenu3">
+<li><a href="sua_conta.php">Minhas Definições</a></li>
+<li><a href="sua_contacnf.php">Definições Privadas</a></li>
 </ul>
 </li>
 </ul>

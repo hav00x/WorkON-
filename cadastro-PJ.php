@@ -218,7 +218,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
           <div id="segunda-parte" class="hide">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <label for="segmento">O que você desenvolve?</label>
+                <label for="segmento">Qual é sua área de atuação?</label>
                 <select id="segmento" name="segmento">
 
                   <option value="Analista de Sistemas">Analista de Sistemas</option>
