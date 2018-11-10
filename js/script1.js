@@ -420,84 +420,83 @@ $('.submit_btn').on('click', function(e){
 });
 
 $('.submit_btn').click(function(event) {
-    // For Loop To Count Blank Inputs
-    if(document.getElementById('checkcli').checked || document.getElementById('checkdev').checked){
+  if(document.getElementById('checkcli').checked || document.getElementById('checkdev').checked){
 
-      if(document.getElementById('checkcli').checked){
+    if(document.getElementById('checkcli').checked){
 
-        $('.regform input').each(function(){
-          if ($(this).val() == ''){
-            var id = $(this).attr('id');
-            var checando = checando + $(this).attr('id');
-            if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'segmento' || id == 'checkdev'){
-              contador = contador;
-            } else{
-              vazio = true;
-              contador = contador +1;
-            }
-          }
-
-          if (contador == 0){
-            vazio = false;
-          }
-
-        });
-
-        contador = 0;
-
-        if(vazio == true){
-          $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
-          $('#modalErro').modal('show');
-          event.preventDefault();
-        }
-
-      } else if(document.getElementById('checkdev').checked){
-
-        $('.regform input').each(function(){
-          if ($(this).val() == ''){
-            var id = $(this).attr('id');
-
-            if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'checkcli'){
-              contador = contador;
-            } else{
-              vazio = true;
-              contador = contador +1;
-            }
-          }
-
-          if (contador == 0){
-            vazio = false;
-          }
-
-        });
-
-        $('.regform textarea').each(function(){
-          if ($(this).val() == ''){
+      $('.regform input').each(function(){
+        if ($(this).val() == ''){
+          var id = $(this).attr('id');
+          var checando = checando + $(this).attr('id');
+          if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'segmento' || id == 'checkdev'){
+            contador = contador;
+          } else{
             vazio = true;
             contador = contador +1;
           }
-
-          if (contador == 0){
-            vazio = false;
-          }
-
-        });
-
-        contador = 0;
-
-        if(vazio == true){
-          $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
-          $('#modalErro').modal('show');
-          event.preventDefault();
         }
 
+        if (contador == 0){
+          vazio = false;
+        }
+
+      });
+
+      contador = 0;
+
+      if(vazio == true){
+        $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+        $('#modalErro').modal('show');
+        event.preventDefault();
       }
-    } else{
-     $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
-     $('#modalErro').modal('show');
-     event.preventDefault();
-   }
- });
+
+    } else if(document.getElementById('checkdev').checked){
+
+      $('.regform input').each(function(){
+        if ($(this).val() == ''){
+          var id = $(this).attr('id');
+
+          if(id == 'telcom' || id == 'tel' || id == 'site' || id == 'insta' || id == 'fb' || id == 'checkcli'){
+            contador = contador;
+          } else{
+            vazio = true;
+            contador = contador +1;
+          }
+        }
+
+        if (contador == 0){
+          vazio = false;
+        }
+
+      });
+
+      $('.regform textarea').each(function(){
+        if ($(this).val() == ''){
+          vazio = true;
+          contador = contador +1;
+        }
+
+        if (contador == 0){
+          vazio = false;
+        }
+
+      });
+
+      contador = 0;
+
+      if(vazio == true){
+        $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+        $('#modalErro').modal('show');
+        event.preventDefault();
+      }
+
+    }
+  } else{
+   $('<p>Preencha todos os campos</p>').replaceAll('#modalErro .modal-body p');
+   $('#modalErro').modal('show');
+   event.preventDefault();
+ }
+});
 
 $('.radiobtncad').on('click', function(){
   var valor_radio = $(this).val();
@@ -506,7 +505,7 @@ $('.radiobtncad').on('click', function(){
   } else if(valor_radio == 2){
     $('#segunda-parte').removeClass('hide');
   }
-})
+});
 
   $('.next_btn').click(function() { // Function Runs On NEXT Button Click
     $(this).closest('fieldset').next().fadeIn('slow');
@@ -615,7 +614,7 @@ $('.radiobtncad').on('click', function(){
 
   /*-------------------------------- Sua Conta --------------------------------*/
 
-  if(window.location.href == 'http://localhost/root2/sua_conta.php'){
+  if(window.location.href.indexOf('http://localhost/root2/sua_conta.php') > -1){
     $.post('carrega_contabd.php', function(data){
 
       var array = JSON.parse(data);
@@ -668,14 +667,49 @@ $('.radiobtncad').on('click', function(){
     return false;
   }
 
-  $('#attdadousu').on('click', function(e){
+  $('#attdadousu').on('click', function(){
+    $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
+  });
+
+  $('.radiopriv').on('click', function(){
+    var valor_radio = $(this).val();
+    if(valor_radio == 1){
+      $('#divemail').removeClass('hide');
+      $('#divsenha').addClass('hide');
+    } else if(valor_radio == 2){
+      $('#divsenha').removeClass('hide');
+      $('#divemail').addClass('hide');
+    }
+  });
+
+  $('#attsenha').on('click', function(e){
     e.preventDefault();
 
-    $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
-
-    $.post('att_suaconta.php', $('#att-suaconta').serialize(), function(data){
-      console.log(data);
+    $.post('att_priv.php', $('#formpass').serialize() + '&senha=' +1, function(data){
+      var resposta = JSON.parse(data);
+      if(resposta.campo_vazio || resposta.senha_dif || resposta.senha_errada){
+        $('#modalErroSuaContaPriv .modal-body p').remove();
+        if(resposta.campo_vazio){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Preencha todos os campos corretamente</p>');
+        }
+        if(resposta.senha_dif){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>A senha nova e a confirmação estão diferentes, preencha-as iguais</p>');
+        }
+        if(resposta.senha_errada){
+          $('#modalErroSuaContaPriv .modal-body').append('<p>Sua senha antiga foi preenchida errada, preencha-a novamente</p>');
+        }
+        $('#modalErroSuaContaPriv').modal('show');
+      } else if(resposta.sucesso){
+        console.log('oi');
+      }
     });
+  });
+
+  $('#attemail').on('click', function(e){
+    e.preventDefault();
+    $.post('att_priv.php', $('#formemail').serialize() + '&email=' +1, function(data){
+      console.log(data);
+    })
   });
 
   /*-------------------------------- Pesquisar --------------------------------*/

@@ -6,6 +6,11 @@ if(!isset($_SESSION['email'])){
 	header('Location: index.php?acessoinval=1&');
 }
 
+$num_errado = isset($_GET['num_errado']) ? $_GET['num_errado'] : 0;
+$campo_vazio = isset($_GET['campo_vazio']) ? $_GET['campo_vazio'] : 0;
+$img_grande = isset($_GET['img_grande']) ? $_GET['img_grande'] : 0;
+$erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
+
 ?>
 
 <html>
@@ -21,6 +26,45 @@ if(!isset($_SESSION['email'])){
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/estilo.css?ver=2" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var num_errado = '<?= $num_errado ?>';
+			var campo_vazio = '<?= $campo_vazio ?>';
+			var img_grande = '<?= $img_grande ?>';
+			var erro_foto = '<?= $erro_foto ?>';
+
+			if(num_errado == 1 || campo_vazio == 1 || img_grande == 1 || erro_foto == 1){
+
+				$('#modalErroSuaConta .modal-body p').remove();
+
+				if(num_errado == 1){
+					$('#modalErroSuaConta .modal-body').append('<p>Preencha o número de telefone corretamente</p>');
+					$('#modalErroSuaConta').modal('show');
+				}
+
+				if(campo_vazio == 1){
+					$('#modalErroSuaConta .modal-body').append('<p>Preencha os campos corretamente</p>');
+					$('#modalErroSuaConta').modal('show');
+				}
+
+				if(img_grande == 1){
+					$('#modalErroSuaConta .modal-body').append('<p>Imagem muito grande, por favor use uma imagem de 2mb ou menos</p>');
+					$('#modalErroSuaConta').modal('show');
+				}
+
+				if(erro_foto == 1){
+					$('#modalErroSuaConta .modal-body').append('<p>Ocorreu algum erro com sua imagem</p>');
+					$('#modalErroSuaConta').modal('show');
+				}
+			}
+		});
+		
+	</script>
 
 	<!-- IE 9 ou menor -->
     <!--[if lt IE 9]>
@@ -66,7 +110,7 @@ if(!isset($_SESSION['email'])){
 					<p style="margin-top: 20px;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
 				</div>
 			</div>
-			<form id="att-suaconta" enctype="multipart/form-data" class="regform" method="post">
+			<form enctype="multipart/form-data" id="att-suaconta" method="post" action="att_suaconta.php">
 				<div class="row">
 					<div class="col-md-4">	
 						<input type="text" name="arquivo" id="arquivo" class="hide">
@@ -135,7 +179,7 @@ if(!isset($_SESSION['email'])){
 
 				<div class="row">
 					<div class="col-md-12">
-						<button class="btn-block button -regular" id="attdadousu">Salvar alterações</button>		
+						<button class="btn-block button -regular" id="attdadousu">Salvar alterações</button>
 					</div>
 				</div>
 			</form>
@@ -143,10 +187,6 @@ if(!isset($_SESSION['email'])){
 
 	</div>
 
-
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<!-- jQuery Custom Scroller CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
@@ -163,6 +203,6 @@ if(!isset($_SESSION['email'])){
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=3"></script>
+	<script src="js/script1.js?ver=20"></script>
 </body>
 </html>

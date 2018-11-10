@@ -210,7 +210,7 @@ BOTÕES
 	box-shadow: 2px 5px 10px #e4e4e4;
 }
 
-.button#pesquisar-devs, .button#att-usu, .button#attdadousu{
+.button#pesquisar-devs, .button#att-usu, .button#attdadousu, .button#attsenha, .button#attemail{
     margin: 0 0 10px 0;
 }
 
@@ -1246,7 +1246,7 @@ CADASTRO
 #div-perfil{
     text-align: center;
     color: black;
-    border: solid rgba(255, 165, 0);
+    border: 1px solid rgba(255, 165, 0);
     border-radius: 5px;
 }
 
@@ -1363,11 +1363,19 @@ MEDIAQUERIES
     border-radius: 10px;
 }
 
+/* ---------------------------------------------------
+SUA CONTA
+----------------------------------------------------- */
+
 #sua-conta{
     padding: 10px 30px;
 }
 
-#img-suaconta{
+#img-suaconta, .img-perfilhp{
     height: 250px;
     width: 300px;
+}
+
+#divemail, #divsenha{
+    margin-top: 30px;
 }

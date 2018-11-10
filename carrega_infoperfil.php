@@ -156,7 +156,7 @@ if($foto == 1){
 		$stmt->bind_result($fotos, $jemail);
 		$stmt->fetch();
 		if(isset($jemail)){
-			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail">';
+			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail img-perfilhp">';
 		}
 	}
 
@@ -168,7 +168,7 @@ if($foto == 1){
 		$stmt->bind_result($fotos, $femail);
 		$stmt->fetch();
 		if(isset($femail)){
-			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail">';
+			echo '<img src="'.$fotos.'" class="img-responsive img-thumbnail img-perfilhp">';
 		}
 	}
 
