@@ -210,7 +210,7 @@ BOTÕES
 	box-shadow: 2px 5px 10px #e4e4e4;
 }
 
-.button#pesquisar-devs, .button#att-usu{
+.button#pesquisar-devs, .button#att-usu, .button#attdadousu{
     margin: 0 0 10px 0;
 }
 

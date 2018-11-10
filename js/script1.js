@@ -617,34 +617,64 @@ $('.radiobtncad').on('click', function(){
 
   if(window.location.href == 'http://localhost/root2/sua_conta.php'){
     $.post('carrega_contabd.php', function(data){
+
       var array = JSON.parse(data);
+
       if(array['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
+        $('#arquivo').val(array.foto);
         $('#nome-suaconta').val(array.nome);
+        $('#sobrenome-suaconta').val(array.sobrenome);
         $('#cel-suaconta').val(array.cel);
+        $('#fixo-suaconta').val(array.fixo);
+        $('#comercial-suaconta').val(array.comercial);
         $('#descri-suaconta').val(array.descr);
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
+        $("#segmento").val(array.segmento);
       } else if(data['pjoupf'] == 'pf'){
         $('#img-suaconta').attr('src', array.foto);
+        $('#arquivo').val(array.foto);
         $('#nome-suaconta').val(array.nomefant);
+        $('#sobrenome-suaconta').val(array.razaosoci);
         $('#cel-suaconta').val(array.cel);
+        $('#fixo-suaconta').val(array.fixo);
+        $('#comercial-suaconta').val(array.comercial);
         $('#descri-suaconta').val(array.descr);
         $('#fb-suaconta').val(array.facebook);
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
+        $("#segmento").val(array.segmento);
       }
-
     });
   }
 
-  $('#att-usu').on('click', function(e){
+  function isJson(item) {
+    item = typeof item !== "string"
+    ? JSON.stringify(item)
+    : item;
+
+    try {
+      item = JSON.parse(item);
+    } catch (e) {
+      return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+      return true;
+    }
+
+    return false;
+  }
+
+  $('#attdadousu').on('click', function(e){
     e.preventDefault();
-    $.post('carrega_contabd.php',
-     $('#att-suaconta').serialize() + '&attconta=' +1,
-     function(){
-      location.reload();
+
+    $('#arquivo').val($('#imgInp').val().replace(/C:\\fakepath\\/i, ''));
+
+    $.post('att_suaconta.php', $('#att-suaconta').serialize(), function(data){
+      console.log(data);
     });
   });
 

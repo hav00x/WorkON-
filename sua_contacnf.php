@@ -66,7 +66,7 @@ if(!isset($_SESSION['email'])){
 					<p style="margin-top: 20px;" id="status-suaconta" class="hide">Sua conta foi atualizada com sucesso!</p>
 				</div>
 			</div>
-			<form id="att-suaconta" enctype="multipart/form-data" class="regform" method="post">
+			<form id="att-suaconta">
 				<div class="row">
 					<div class="col-md-4">	
 						<input type="text" name="arquivo" id="arquivo" class="hide">
@@ -163,6 +163,6 @@ if(!isset($_SESSION['email'])){
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=3"></script>
+	<script src="js/script1.js?ver=2"></script>
 </body>
 </html>
