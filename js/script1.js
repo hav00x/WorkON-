@@ -758,3 +758,15 @@ $('.radiobtncad').on('click', function(){
     });
   });
 });
+
+
+/*------------------hide and show message----------*/
+
+function messageme() {
+    var x = document.getElementById("message-dev");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}

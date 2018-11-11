@@ -150,7 +150,15 @@ session_start();
 						</div>
 						<br>
 						<div class="modal-footer">
-							<button class="btn btn-lg">ENVIAR MENSAGEM</button>
+							<button onclick="messageme()" class="btn button-hp btn-block">FAZER PEDIDO</button>
+							<br>
+							<div class="" id="message-dev">
+								<form>
+									<p class="alinha-meio">Escreva abaixo para o desenvolvedor o que vc precisa e ele entrará em contato com você!</p>
+									<textarea></textarea>
+									<button class="btn btn-block">ENVIAR MENSAGEM</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
