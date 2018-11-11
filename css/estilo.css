@@ -1346,6 +1346,10 @@ MEDIAQUERIES
     }
 }
 
+/* ---------------------------------------------------
+PESQUISA
+----------------------------------------------------- */
+
 #perfil-d{
     margin: 0 auto;
     padding: 5px;
@@ -1361,6 +1365,10 @@ MEDIAQUERIES
     margin: 40px 0;
     border: 1px solid #DFDCDC;
     border-radius: 10px;
+}
+
+.row-perf{
+    margin: 10px 10px 5px 10px;
 }
 
 /* ---------------------------------------------------

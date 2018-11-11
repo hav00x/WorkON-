@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=18" rel="stylesheet">
+	<link href="css/estilo.css?ver=20" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -109,50 +109,48 @@ session_start();
 						<h4>Detalhes do perfil</h4>
 					</div> <!--header-->
 					<div class="modal-body">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12">
-									<h2>Larissa</h2> 
-								</div>	
-							</div>
+						<div class="row row-perf">
+							<div class="col-md-12 alinha-meio">
+								<h2>Larissa</h2> 
+							</div>	
+						</div>
 
-							<div class="row">
-							<div class="col-md-12">
+						<div class="row row-perf">
+							<div class="col-md-12 alinha-meio">
 								<img class="img-thumbnail" style="width: 300px;" src="img/hog.jpg">
 							</div>
-							</div>
+						</div>
 
-							<div class="row">	
+						<div class="row row-perf">	
 							<div class="col-md-12">
 								<h3>O que o dev faz:</h3>
 								<p>AS VEZES CHORA NO BANHO PENSANDO SE ELE UM DIA VAI TER UMA CARREIRA DE SUCESSO E NAS HORAS VAGAS FAZ SITES PRA SENHORAS INGRATAS.</p>
 							</div>
+						</div>
+						<br>
+						<div class="row row-perf">
+							<div class="col-md-6 alinha-meio">
+								<h4>ATUAÇÃO</h4>
 							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-6">
-									<h4>ATUAÇÃO</h4>
-								</div>
-								<div class="col-md-6">
-									<h4>Localização</h4>
-								</div>
+							<div class="col-md-6 alinha-meio">
+								<h4>Localização</h4>
 							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-4">
-									<h4>facebook</h4>
-								</div>
-								<div class="col-md-4">
-									<h4>INSTA</h4>
-								</div>
-								<div class="col-md-4">
-									<h4>SITE</h4>
-								</div>
+						</div>
+						<br>
+						<div class="row row-perf">
+							<div class="col-md-4 alinha-meio">
+								<h4>facebook</h4>
 							</div>
-							<br>
-							<div class="modal-footer">
-								<button class="btn btn-lg">ENVIAR MENSAGEM</button>
+							<div class="col-md-4 alinha-meio">
+								<h4>INSTA</h4>
 							</div>
+							<div class="col-md-4 alinha-meio" style="border: 1px solid red;">
+								<h4>SITE</h4>
+							</div>
+						</div>
+						<br>
+						<div class="modal-footer">
+							<button class="btn btn-lg">ENVIAR MENSAGEM</button>
 						</div>
 					</div>
 				</div>
