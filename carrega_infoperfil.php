@@ -142,8 +142,6 @@ if($foto == 0){
 			</div>
 			</div><!--fim row social media-->';
 
-
-
 		}
 	}
 

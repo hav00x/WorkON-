@@ -740,31 +740,11 @@ FORMATAÇÕES ESPECIFICAS
     transition: 0.5s;
 }
 
-
-
 #div-projetos{
     background-color: white;
     padding: 5px 15px 5px 15px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
-
-/*#input-homepage{
-    background-color: #fff;
-    border: solid 1px #fff;
-    transition: all 0.15s;
-    outline: none;
-    font-weight: 12;
-    color: black; 
-
-}
-
-#input-homepage:focus{
-    border: solid 1px #FF7F50;
-    transition: all 0.15s;
-    outline: none;
-    font-weight: 12;
-}
-*/
 
 .img-cadastro{
     border: 1px solid #DFDCDC;
@@ -778,8 +758,8 @@ FORMATAÇÕES ESPECIFICAS
     border: 1px solid #DFDCDC;
     margin: 0 auto;
     display: block;
-    width: 270px;
-    height: 200px;
+    width: 300px;
+    height: 250px;
     position: relative;
     top: 14.5px;
 }
@@ -788,7 +768,7 @@ FORMATAÇÕES ESPECIFICAS
     float: right;
     background-color: #FFA500;
     overflow: hidden;
-    margin: 10px;
+    margin: 10px auto;
     padding: 12px 22px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -1369,6 +1349,10 @@ PESQUISA
 
 .row-perf{
     margin: 10px 10px 5px 10px;
+}
+
+#btn-fazpedido{
+    margin: 20px auto;
 }
 
 /* ---------------------------------------------------
