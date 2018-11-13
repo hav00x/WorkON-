@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=20" rel="stylesheet">
+	<link href="css/estilo.css?ver=22" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -111,48 +111,53 @@ session_start();
 					<div class="modal-body">
 						<div class="row row-perf">
 							<div class="col-md-12 alinha-meio">
-								<h2>Larissa</h2> 
+								<h2 id="nome-detal"></h2>
 							</div>	
 						</div>
 
 						<div class="row row-perf">
 							<div class="col-md-12 alinha-meio">
-								<img class="img-thumbnail" style="width: 300px;" src="img/hog.jpg">
+								<img class="img-thumbnail" style="width: 300px;" id="img-detal">
 							</div>
 						</div>
 
 						<div class="row row-perf">	
 							<div class="col-md-12">
 								<h3>O que o dev faz:</h3>
-								<p>AS VEZES CHORA NO BANHO PENSANDO SE ELE UM DIA VAI TER UMA CARREIRA DE SUCESSO E NAS HORAS VAGAS FAZ SITES PRA SENHORAS INGRATAS.</p>
+								<p id="descri-detal"></p>
 							</div>
 						</div>
 						<br>
 						<div class="row row-perf">
 							<div class="col-md-6 alinha-meio">
-								<h4>ATUAÇÃO</h4>
+								<label>Atuação</label>
+								<p id="segmento-detal"></p>
 							</div>
 							<div class="col-md-6 alinha-meio">
-								<h4>Localização</h4>
+								<label>Localização</label>
+								<p id="local-detal"></p>
 							</div>
 						</div>
 						<br>
 						<div class="row row-perf">
 							<div class="col-md-4 alinha-meio">
-								<h4>facebook</h4>
+								<label>Facebook</label>
+								<p id="face-detal"></p>
 							</div>
 							<div class="col-md-4 alinha-meio">
-								<h4>INSTA</h4>
+								<label>Instagram</label>
+								<p id="insta-detal"></p>
 							</div>
-							<div class="col-md-4 alinha-meio" style="border: 1px solid red;">
-								<h4>SITE</h4>
+							<div class="col-md-4 alinha-meio">
+								<label>Site</label>
+								<p id="site-detal"></p>
 							</div>
 						</div>
 						<br>
 						<div class="modal-footer">
-							<button onclick="messageme()" class="btn button-hp btn-block">FAZER PEDIDO</button>
+							<button class="btn button-hp btn-block" id="btn-fazpedido">FAZER PEDIDO</button>
 							<br>
-							<div class="" id="message-dev">
+							<div class="hide" id="messagem-dev">
 								<form>
 									<p class="alinha-meio">Escreva abaixo para o desenvolvedor o que vc precisa e ele entrará em contato com você!</p>
 									<textarea></textarea>
@@ -185,6 +190,6 @@ session_start();
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=3"></script>
+	<script src="js/script1.js?ver=6"></script>
 </body>
 </html>

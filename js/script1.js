@@ -632,7 +632,7 @@ $('.radiobtncad').on('click', function(){
         $('#insta-suaconta').val(array.instagram);
         $('#site-suaconta').val(array.site);
         $("#segmento").val(array.segmento);
-      } else if(data['pjoupf'] == 'pf'){
+      } else if(array['pjoupf'] == 'pj'){
         $('#img-suaconta').attr('src', array.foto);
         $('#arquivo').val(array.foto);
         $('#nome-suaconta').val(array.nomefant);
@@ -758,14 +758,33 @@ $('.radiobtncad').on('click', function(){
   });
 });
 
+$('#btn-fazpedido').on('click', function(){
+  if($('#messagem-dev').hasClass('hide')){
+    $('#messagem-dev').removeClass('hide');
+  } else{
+    $('#messagem-dev').addClass('hide');
+  }
+});
 
-/*------------------hide and show message----------*/
-
-function messageme() {
-    var x = document.getElementById("message-dev");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+$('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
+  e.preventDefault();
+  var email = $(this).prev().val();
+  $.post('carrega_infopesquisa.php', {email:email}, function(data){
+    var dados = JSON.parse(data);
+    if(dados.nome){
+      $('#nome-detal').text(dados.nome);
+      console.log(dados.nome);
     } else {
-        x.style.display = "none";
+      $('#nome-detal').text(dados.nomefant);console.log('thcaui');
     }
-}
+    $('#img-detal').attr('src', dados.foto);
+    $('#descri-detal').text(dados.descr);
+    $('#segmento-detal').text(dados.segmento);
+    $('#local-detal').text(dados.estado);
+    $('#face-detal').text(dados.facebook);
+    $('#insta-detal').text(dados.instagram);
+    $('#site-detal').text(dados.site);
+
+  });
+
+});
