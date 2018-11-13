@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=VER19" rel="stylesheet">
+  <link href="css/estilo.css?=VER20" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -40,74 +40,80 @@ if(!isset($_SESSION['email'])){
       <?php
       include('templates/navbarinterna.php');
       ?>
-      <div class="section row">
-        <div class="col-md-4">
-          <h3>Pedido 1</h3>
-          <div class="div-pedidos">
-            <h4>Restaurante</h4>
-            <p>Tipo: Site</p>
-            <p>Solicitante: User1</p>
-            <p>Data de entrega: 31/12/2018</p>
-            <button class="btn btn-details">Enviar mensagem</button>
+
+      <div class="section" id="corpo-proj">
+        <div class="row formatarow">
+          <div class="col-md-4 headerpag">
+            <h2 id="header-proj" class="lead">Pedido pendentes</h2>
+            <p>Aqui vc encontra todas as solicitações feitas</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <h3>Pedido 2</h3>
-          <div class="div-pedidos">
-            <h4>Mercado</h4>
-            <p>Tipo: Software</p>
-            <p>Solicitante: User2</p>
-            <p>Data de entrega: 12/08/2018</p>
-            <button class="btn btn-details">Enviar mensagem</button>
-          </div>
         </div>
-        <div class="col-md-4">
-          <h3>Pedido 3</h3>
-          <div class="div-pedidos">
-            <h4>Tic-tac-toe</h4>
-            <p>Tipo: Jogo</p>
-            <p>Solicitante: User3</p>
-            <p>Data de entrega: 16/09/2018</p>
-            <button class="btn btn-details">Enviar mensagem</button>
+
+        <div class="section">
+          <div class="row">
+             <div class="col-md-6 divisor-pedidos" id="ficha-pedido">
+                <h3>NOME CLIENTE</h3>
+                <p>Praesent dictum tempus dolor, sit amet tempus mi dapibus eu. Nullam sit amet risus nec odio auctor iaculis. Pellentesque vestibulum aliquam felis, non vulputate ex commodo non. Nulla in tempus justo, at facilisis ex. Nunc efficitur tortor non odio sodales, sit amet lobortis ligula ultrices. Mauris nec venenatis ipsum. Nunc semper leo nec tellus sollicitudin, eu elementum ante consequat.</p>
+                <button class="btn button-hp" data-toggle="modal" data-target="#messagecli">Mais Informações</button>
+            </div>
           </div>
         </div>
 
-        <div class=" sectionrow">
-          <div class="col-md-4">
-            <h3>Pedido 4</h3>
-            <div class="div-pedidos">
-              <h4>Loja de roupas</h4>
-              <p>Tipo: Aplicativo</p>
-              <p>Solicitante: User1</p>
-              <p>Data de entrega: 31/12/2018</p>
-              <button class="btn btn-details">Enviar mensagem</button>
+
+    <div class="modal fade" id="messagecli">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4>CONTATO</h4>
+          </div> <!--header-->
+          <div class="modal-body">
+            <div class="row row-perf">
+              <div class="col-md-12 ">
+                <h3>Larissa disse:</h3>
+                <p>Praesent dictum tempus dolor, sit amet tempus mi dapibus eu. Nullam sit amet risus nec odio auctor iaculis. Pellentesque vestibulum aliquam felis, non vulputate ex commodo non. Nulla in tempus justo, at facilisis ex. Nunc efficitur tortor non odio sodales, sit amet lobortis ligula ultrices. Mauris nec venenatis ipsum. Nunc semper leo nec tellus sollicitudin, eu elementum ante consequat.</p>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <h3>Pedido 5</h3>
-            <div class="div-pedidos">
-              <h4>Escola</h4>
-              <p>Tipo: Site</p>
-              <p>Solicitante: User2</p>
-              <p>Data de entrega: 12/08/2018</p>
-              <button class="btn btn-details">Enviar mensagem</button>
+
+            <div class="row row-perf">  
+              <div class="col-md-12">
+                <h3>Você pode contatá-lo através dos seguintes meios:</h3>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>E-mail:</label><br>
+                    <input type="text" name="">
+                  </div>
+                  <div class="col-md-4">
+                    <label>Telefone 1:</label> <br>
+                    <input type="text" name="">
+                  </div>
+                  <div class="col-md-4">
+                    <label>Telefone 2:</label> <br>
+                    <input type="text" name="">
+                  </div>
+                </div>    
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <h3>Pedido 6</h3>
-            <div class="div-pedidos">
-              <h4>Hospital</h4>
-              <p>Tipo: Software</p>
-              <p>Solicitante: User3</p>
-              <p>Data de entrega: 16/09/2018</p>
-              <button class="btn btn-details">Enviar mensagem</button>
+
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn button-hp btn-block">Finalizar</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
+
+
+
+
+
+      </div>
+
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <!-- jQuery Custom Scroller CDN -->

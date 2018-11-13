@@ -752,7 +752,6 @@ $('.radiobtncad').on('click', function(){
         $('#resultado-pesq').removeClass('hide');
       }else{
         $('#perfil-d').contents().remove();
-        $('#perfil-d').append('<p style="text-align: center;">Nenhum resultado encontrado</p>');
         $('#resultado-pesq').removeClass('hide');
       }
     });
