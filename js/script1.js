@@ -809,17 +809,19 @@ $('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
             setTimeout(function(){
               $('#retorno-msg').addClass('hide');
             }, 10000);
+            $('#mensagem-cli').val('');
+            $('#messagem-dev').addClass('hide');
           } else{
             $('#retorno-msg').text(data);
             $('#retorno-msg').css('color', 'red');
             $('#retorno-msg').removeClass('hide');
-             setTimeout(function(){
+            setTimeout(function(){
               $('#retorno-msg').addClass('hide');
             }, 10000);
+            $('#mensagem-cli').val('');
+            $('#messagem-dev').addClass('hide');
           }
         });
-      $('#mensagem-cli').val('');
-      $('#messagem-dev').addClass('hide');
     }
   });
 
