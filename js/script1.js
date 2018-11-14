@@ -254,7 +254,7 @@ $('#criaproj').on('click', function(){
   $('#nomeproj').val($('#nome-projeto').text());
   $('#input-etapa1').val($('#nome-etapa1').html());
   holder = $('#accordion').children('div').last().children().attr('id').split('g');
-  count = parseInt(holder[1])
+  count = parseInt(holder[1]);
 });
 
 $('#nome-projeto').on('keyup', function(){
@@ -752,6 +752,7 @@ $('.radiobtncad').on('click', function(){
         $('#resultado-pesq').removeClass('hide');
       }else{
         $('#perfil-d').contents().remove();
+        $('#perfil-d').append('<p class="alinha-meio">Não foi encontrado nenhum profissional com esses critérios.</p>');
         $('#resultado-pesq').removeClass('hide');
       }
     });
@@ -773,9 +774,8 @@ $('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
     var dados = JSON.parse(data);
     if(dados.nome){
       $('#nome-detal').text(dados.nome);
-      console.log(dados.nome);
     } else {
-      $('#nome-detal').text(dados.nomefant);console.log('thcaui');
+      $('#nome-detal').text(dados.nomefant);
     }
     $('#img-detal').attr('src', dados.foto);
     $('#descri-detal').text(dados.descr);
@@ -784,7 +784,49 @@ $('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
     $('#face-detal').text(dados.facebook);
     $('#insta-detal').text(dados.instagram);
     $('#site-detal').text(dados.site);
+    $('#email-msg').val(dados.email);
 
+  });
+
+  $('#btn-mensagem').on('click', function(e){
+    e.preventDefault();
+    if(!$(this).prev().val()){
+      $('#modalErroPerfis .modal-body p').remove();
+      $('#modalErroPerfis .modal-body').append('<p>Preencha a mensagem corretamente</p>');
+      $('#detalheperf').modal('hide');
+      setTimeout(function(){
+        $('#modalErroPerfis').modal('show');
+      }, 200);
+    } else{
+      $.post('insere_mensagembd.php',
+        $('#form-mensagem').serialize(),
+        function(data){
+          $('#detalheperf').modal('hide');
+          if(data == 'Mensagem enviada com sucesso!'){
+            $('#retorno-msg').text(data);
+            $('#retorno-msg').css('color', 'green');
+            $('#retorno-msg').removeClass('hide');
+            setTimeout(function(){
+              $('#retorno-msg').addClass('hide');
+            }, 10000);
+          } else{
+            $('#retorno-msg').text(data);
+            $('#retorno-msg').css('color', 'red');
+            $('#retorno-msg').removeClass('hide');
+             setTimeout(function(){
+              $('#retorno-msg').addClass('hide');
+            }, 10000);
+          }
+        });
+      $('#mensagem-cli').val('');
+      $('#messagem-dev').addClass('hide');
+    }
+  });
+
+  $('.erro-msgfechar').on('click', function(){
+    setTimeout(function(){
+     $('#detalheperf').modal('show');
+   }, 350);
   });
 
 });

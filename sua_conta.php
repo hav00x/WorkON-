@@ -121,7 +121,7 @@ $sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
 			</div>
 			<form enctype="multipart/form-data" id="att-suaconta" method="post" action="att_suaconta.php">
 				<div class="row">
-					<div class="col-md-4">	
+					<div class="col-md-4 alinha-meio">	
 						<input type="text" name="arquivo" id="arquivo" class="hide">
 						<img class="img-responsive img-thumbnail" id="img-suaconta"><br><br>
 						<input type="file" name="Filedata" id="imgInp"><br>
