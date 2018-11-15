@@ -692,9 +692,9 @@ FORMATAÇÕES ESPECIFICAS
 }
 
 
-#descri, #descri-suaconta{
+#descri, #descri-suaconta, #mensagem-cli{
    resize: none;
-   height: 100px;
+   height: 150px;
 }
 
 .footerStyle{
@@ -758,7 +758,7 @@ FORMATAÇÕES ESPECIFICAS
     border: 1px solid #DFDCDC;
     margin: 0 auto;
     display: block;
-    width: 300px;
+    width: 250px;
     height: 250px;
     position: relative;
     top: 14.5px;
@@ -1388,6 +1388,10 @@ PESQUISA
     margin: 20px auto;
 }
 
+#foco-retorno{
+    outline: none;
+}
+
 /* ---------------------------------------------------
 SUA CONTA
 ----------------------------------------------------- */
@@ -1398,7 +1402,7 @@ SUA CONTA
 
 #img-suaconta, .img-perfilhp{
     height: 250px;
-    width: 300px;
+    width: 250px;
 }
 
 #divemail, #divsenha{

@@ -21,7 +21,7 @@ $acessoinvalcli = isset($_GET['acessoinval']) ? $_GET['acessoinval'] : 0;
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=14" rel="stylesheet">
+  <link href="css/estilo.css?ver=15" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 

@@ -13,7 +13,7 @@ session_start();
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=22" rel="stylesheet">
+	<link href="css/estilo.css?ver=24" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -96,6 +96,8 @@ session_start();
 			</form>	
 		</div><!--fim SECTION -->
 		<div class="section container hide" id="resultado-pesq">
+			<a href="#" id="foco-retorno"></a>
+			<h1 class="hide alinha-meio" id="retorno-msg"></h1>
 			<div id="perfil-d" class="col-md-12">
 			</div>
 		</div>
@@ -117,7 +119,7 @@ session_start();
 
 						<div class="row row-perf">
 							<div class="col-md-12 alinha-meio">
-								<img class="img-thumbnail" style="width: 300px;" id="img-detal">
+								<img class="img-thumbnail img-perfil" id="img-detal">
 							</div>
 						</div>
 
@@ -158,10 +160,11 @@ session_start();
 							<button class="btn button-hp btn-block" id="btn-fazpedido">FAZER PEDIDO</button>
 							<br>
 							<div class="hide" id="messagem-dev">
-								<form>
+								<form id="form-mensagem">
 									<p class="alinha-meio">Escreva abaixo para o desenvolvedor o que vc precisa e ele entrará em contato com você!</p>
-									<textarea></textarea>
-									<button class="btn btn-block">ENVIAR MENSAGEM</button>
+									<input type="text" name="email" id="email-msg" class="hide">
+									<textarea id="mensagem-cli" name="mensagem"></textarea>
+									<button class="btn btn-block" id="btn-mensagem">Enviar mensagem</button>
 								</form>
 							</div>
 						</div>
@@ -169,6 +172,24 @@ session_start();
 				</div>
 			</div>
 		</div>
+
+		<div id="modalErroPerfis" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content" style="margin: 0 auto;">
+					<div class="modal-header">
+						<button type="button" class="close erro-msgfechar" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Erro</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default erro-msgfechar" data-dismiss="modal">Ok</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 	</div><!--FIM CONTENT-->
 
 
@@ -190,6 +211,6 @@ session_start();
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=6"></script>
+	<script src="js/script1.js?ver=7"></script>
 </body>
 </html>

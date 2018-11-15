@@ -258,7 +258,7 @@ $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <label for="descri">Faça uma breve descrição sobre você e suas qualificações</label>
-                <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer. Dê uma breve explicação sobre o que você faz, o que você sabe, etc." maxlength="1000" class="text_field" name="descricao"></textarea>
+                <textarea id="descri" placeholder="Isso ajuda o cliente a entender mais sobre você e o que você tem a oferecer. Dê uma breve explicação sobre o que você faz, o que você sabe, etc." maxlength="2000" class="text_field" name="descricao"></textarea>
               </div>
             </div>
           </div>
