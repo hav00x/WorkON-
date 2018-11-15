@@ -1134,6 +1134,14 @@ ul{
 }
 
 
+#headergen{
+    color: #000;
+    text-align: center;
+    font-family: 'Alpha-Regular', Arial, sans-serif;
+    background-color: rgba(255, 165, 0, 0.7);
+    border-radius: 10px;
+}
+
 
 #header-proj{
     font-size: 50px;
@@ -1178,6 +1186,11 @@ ul{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.album{
+    margin: 0 auto;
+    padding: 20px 200px 20px 200px;
 }
 
 .divisor-projetos{
