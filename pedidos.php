@@ -98,8 +98,11 @@ if(!isset($_SESSION['email'])){
 
             <div class="modal-footer">
               <div class="row">
-                <div class="col-md-12">
-                  <button class="btn button-hp btn-block">Finalizar</button>
+                <div class="col-md-6">
+                  <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> Aceitar</button>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> Recusar</button>
                 </div>
               </div>
             </div>
