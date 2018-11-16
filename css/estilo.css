@@ -1161,26 +1161,6 @@ ul{
 
 }
 
-#ficha-pedido{
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    margin: 25px;
-    text-align: justify;
-    width: 500px;
-
-}
-
-#ficha-pedido h3{
-    font-family: 'Alpha-Regular', Arial, sans-serif;
-    text-align:center;
-
-}
-
-.divisor-pedidos{
-    border: 1px solid #FFA500;
-    box-shadow: 1px 1px 1px #c9c7c7;
-
-}
-
 .img-projetos{
     width: 40%;
     display: block;
@@ -1407,4 +1387,34 @@ SUA CONTA
 
 #divemail, #divsenha{
     margin-top: 30px;
+}
+
+/* ---------------------------------------------------
+PEDIDOS
+----------------------------------------------------- */
+
+.area-txt{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#ficha-pedido{
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 25px;
+    text-align: justify;
+    width: 500px;
+
+}
+
+#ficha-pedido h3{
+    font-family: 'Alpha-Regular', Arial, sans-serif;
+    text-align:center;
+
+}
+
+.divisor-pedidos{
+    border: 1px solid #FFA500;
+    box-shadow: 1px 1px 1px #c9c7c7;
+    margin-bottom: 20px;
 }

@@ -19,46 +19,43 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?=VER20" rel="stylesheet">
+  <link href="css/estilo.css?ver=27" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <!-- IE 9 ou menor -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-  </head>
-  <body class="inside">
+</head>
+<body class="inside">
 
+  <?php
+  include('templates/sidebar.php');
+  ?>
+
+  <div ID="content">
     <?php
-    include('templates/sidebar.php');
+    include('templates/navbarinterna.php');
     ?>
-    <div ID="content">
-      <?php
-      include('templates/navbarinterna.php');
-      ?>
 
-      <div class="section" id="corpo-proj">
-        <div class="row formatarow">
-          <div class="col-md-4 headerpag">
-            <h2 id="header-proj" class="lead">Pedido pendentes</h2>
-            <p>Aqui vc encontra todas as solicitações feitas</p>
-          </div>
+    <div class="section" id="corpo-proj">
+      <div class="row formatarow">
+        <div class="col-md-4 headerpag">
+          <h2 id="header-proj" class="lead">Pedido pendentes</h2>
+          <p>Aqui vc encontra todas as solicitações feitas</p>
         </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="section">
-          <div class="row">
-             <div class="col-md-6 divisor-pedidos" id="ficha-pedido">
-                <h3>NOME CLIENTE</h3>
-                <p>Praesent dictum tempus dolor, sit amet tempus mi dapibus eu. Nullam sit amet risus nec odio auctor iaculis. Pellentesque vestibulum aliquam felis, non vulputate ex commodo non. Nulla in tempus justo, at facilisis ex. Nunc efficitur tortor non odio sodales, sit amet lobortis ligula ultrices. Mauris nec venenatis ipsum. Nunc semper leo nec tellus sollicitudin, eu elementum ante consequat.</p>
-                <button class="btn button-hp" data-toggle="modal" data-target="#messagecli">Mais Informações</button>
-            </div>
-          </div>
-        </div>
+    <div class="section">
+      <div class="row formatarow" id="sessao-mensagens">
+
+      </div>
+    </div>
 
 
     <div class="modal fade" id="messagecli">
@@ -107,12 +104,7 @@ if(!isset($_SESSION['email'])){
         </div>
       </div>
     </div>
-
-
-
-
-
-      </div>
+  </div>
 
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -123,7 +115,7 @@ if(!isset($_SESSION['email'])){
     $(document).ready(function () {
       $("#sidebar").mCustomScrollbar({
         theme: "minimal"
-      });
+      })
 
       $('#sidebarCollapse').on('click', function () {
         $('#sidebar, #content, #btnMenu').toggleClass('active2');
@@ -132,5 +124,7 @@ if(!isset($_SESSION['email'])){
       });
     });
   </script>
+
+  <script src="js/script1.js?ver=4"></script>
 </body>
 </html>

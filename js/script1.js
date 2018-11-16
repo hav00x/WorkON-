@@ -757,35 +757,35 @@ $('.radiobtncad').on('click', function(){
       }
     });
   });
-});
 
-$('#btn-fazpedido').on('click', function(){
-  if($('#messagem-dev').hasClass('hide')){
-    $('#messagem-dev').removeClass('hide');
-  } else{
-    $('#messagem-dev').addClass('hide');
-  }
-});
-
-$('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
-  e.preventDefault();
-  var email = $(this).prev().val();
-  $.post('carrega_infopesquisa.php', {email:email}, function(data){
-    var dados = JSON.parse(data);
-    if(dados.nome){
-      $('#nome-detal').text(dados.nome);
-    } else {
-      $('#nome-detal').text(dados.nomefant);
+  $('#btn-fazpedido').on('click', function(){
+    if($('#messagem-dev').hasClass('hide')){
+      $('#messagem-dev').removeClass('hide');
+    } else{
+      $('#messagem-dev').addClass('hide');
     }
-    $('#img-detal').attr('src', dados.foto);
-    $('#descri-detal').text(dados.descr);
-    $('#segmento-detal').text(dados.segmento);
-    $('#local-detal').text(dados.estado);
-    $('#face-detal').text(dados.facebook);
-    $('#insta-detal').text(dados.instagram);
-    $('#site-detal').text(dados.site);
-    $('#email-msg').val(dados.email);
+  });
 
+  $('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
+    e.preventDefault();
+    var email = $(this).prev().val();
+    $.post('carrega_infopesquisa.php', {email:email}, function(data){
+      var dados = JSON.parse(data);
+      if(dados.nome){
+        $('#nome-detal').text(dados.nome);
+      } else {
+        $('#nome-detal').text(dados.nomefant);
+      }
+      $('#img-detal').attr('src', dados.foto);
+      $('#descri-detal').text(dados.descr);
+      $('#segmento-detal').text(dados.segmento);
+      $('#local-detal').text(dados.estado);
+      $('#face-detal').text(dados.facebook);
+      $('#insta-detal').text(dados.instagram);
+      $('#site-detal').text(dados.site);
+      $('#email-msg').val(dados.email);
+
+    });
   });
 
   $('#btn-mensagem').on('click', function(e){
@@ -829,6 +829,25 @@ $('#resultado-pesq').on('click', '.btn-maisdetal', function(e){
     setTimeout(function(){
      $('#detalheperf').modal('show');
    }, 350);
+  });
+
+  /*-------------------------------- Pedidos e Mensagens --------------------------------*/
+
+
+  function truncateText(selector, maxLength) {
+    var element = document.querySelector(selector),
+    truncated = element.innerText;
+
+    if (truncated.length > maxLength) {
+      truncated = truncated.substr(0,maxLength) + '...';
+    }
+    return truncated;
+  }
+
+  $('#sessao-mensagens').load('get_mensagem.php');
+
+  $('.section').on('click', '.btn-abremsg', function(){
+    $("#messagecli").modal('show');
   });
 
 });

@@ -212,6 +212,6 @@ $sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
 			});
 		});
 	</script>
-	<script src="js/script1.js?ver=21"></script>
+	<script src="js/script1.js?ver=22"></script>
 </body>
 </html>
