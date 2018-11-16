@@ -289,7 +289,36 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
         </div>
       </div>
     </div><!-- Fim Modal -->
-  </div>
+
+
+   <!-- Modal Mensagens -->
+      <div class="modal fade" id="chat">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4>Mensagem</h4>
+            </div> <!--fim modal-header-->
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  
+                </div>
+              </div>
+            </div><!--fim modal-body-->
+            <div class="modal-footer">
+              <p>Escreva sua mensagem abaixo:</p>
+              <textarea style="height: 30%"></textarea>
+              <button class="btn button-hp btn-block">Enviar</button>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+
+    </div><!--fim content-->
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <!-- jQuery Custom Scroller CDN -->
