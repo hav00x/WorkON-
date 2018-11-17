@@ -292,7 +292,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
 
 
    <!-- Modal Mensagens -->
-      <div class="modal fade" id="chat">
+      <div class="modal fade" id="modalChat">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -337,7 +337,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=17"></script>
+  <script src="js/script1.js?ver=18"></script>
 
 </body>
 </html>

@@ -152,6 +152,10 @@ $('#accordionupd').on('click', '.rmv-passo', function(){
   console.log($(this).closest('div.panel-heading').find('a'));
 });
 
+$('#ficha-projeto').on('click', '.btn-chatdev', function(){
+  $('#modalChat').modal('show');
+});
+
 /*------------ Formulário de Projeto -----------------*/
 
 $('.edita-projeto').on('click', function(){
@@ -848,13 +852,13 @@ $('.radiobtncad').on('click', function(){
       $('#email-ped').val(dados.mensagem.email_usuenvia);
       $('#cel-ped').val(dados.usuario.cel);
       $('#comercial-ped').val(dados.usuario.comercial);
-      $('btn-recusaproj').attr('data-value', msg);
+      $('#btn-recusaproj').attr('data-value', msg);
       $("#messagecli").modal('show');
 
     });
   });
 
-  $('.btn-recusaproj').on('click', function(e){
+  $('#btn-recusaproj').on('click', function(e){
     e.preventDefault();
     var msg = $(this).attr('data-value');
     $.post('resolve_pedido.php', {msg:msg, estado:2}, function(data){
@@ -864,6 +868,7 @@ $('.radiobtncad').on('click', function(){
          $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
        }
      });
+      $("#messagecli").modal('hide');
     });
   });
 

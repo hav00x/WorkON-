@@ -96,10 +96,10 @@ if(!isset($_SESSION['email'])){
             <div class="modal-footer">
               <div class="row">
                 <div class="col-md-6">
-                  <button class="btn btn-success btn-block btn-aceitaproj"><span class="glyphicon glyphicon-ok"></span> Aceitar</button>
+                  <button class="btn btn-success btn-block" id="btn-aceitaproj"><span class="glyphicon glyphicon-ok"></span> Aceitar</button>
                 </div>
                 <div class="col-md-6">
-                  <button class="btn btn-danger btn-block btn-recusaproj"><span class="glyphicon glyphicon-remove"></span> Recusar</button>
+                  <button class="btn btn-danger btn-block" id="btn-recusaproj"><span class="glyphicon glyphicon-remove"></span> Recusar</button>
                 </div>
               </div>
             </div>

@@ -162,7 +162,7 @@ for($i = 0; $i < $contaProjetos; $i++){
 							<button type="button" class="btn button-hp btn-maisdeta btn-block" data-value="'.$i.'">Mais Detalhes</button>
 						</div>
 						<div class="col-md-6">
-							<button type="button" class="btn button-hp btn-block">Mensagem</button>
+							<button type="button" class="btn button-hp btn-block btn-chatdev">Mensagem</button>
 						</div>
 					</div>
 
