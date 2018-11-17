@@ -833,21 +833,38 @@ $('.radiobtncad').on('click', function(){
 
   /*-------------------------------- Pedidos e Mensagens --------------------------------*/
 
-
-  function truncateText(selector, maxLength) {
-    var element = document.querySelector(selector),
-    truncated = element.innerText;
-
-    if (truncated.length > maxLength) {
-      truncated = truncated.substr(0,maxLength) + '...';
-    }
-    return truncated;
-  }
-
-  $('#sessao-mensagens').load('get_mensagem.php');
+  $('#sessao-mensagens').load('get_mensagem.php', function(data){
+    if(!data){
+     $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
+   }
+ });
 
   $('.section').on('click', '.btn-abremsg', function(){
-    $("#messagecli").modal('show');
+    var msg = $(this).attr('data-value');
+    $.post('get_mensagem.php', {check:1, msg:msg}, function(data){
+      var dados = JSON.parse(data);
+      $('#nome-ped').text(dados.mensagem.nomeusu_solicitacao);
+      $('#mensagem-ped').val(dados.mensagem.mensagem);
+      $('#email-ped').val(dados.mensagem.email_usuenvia);
+      $('#cel-ped').val(dados.usuario.cel);
+      $('#comercial-ped').val(dados.usuario.comercial);
+      $('btn-recusaproj').attr('data-value', msg);
+      $("#messagecli").modal('show');
+
+    });
+  });
+
+  $('.btn-recusaproj').on('click', function(e){
+    e.preventDefault();
+    var msg = $(this).attr('data-value');
+    $.post('resolve_pedido.php', {msg:msg, estado:2}, function(data){
+      $('#sessao-mensagens').contents().remove();
+      $('#sessao-mensagens').load('get_mensagem.php', function(data){
+        if(!data){
+         $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
+       }
+     });
+    });
   });
 
 });

@@ -19,7 +19,7 @@ if(!isset($_SESSION['email'])){
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=27" rel="stylesheet">
+  <link href="css/estilo.css?ver=28" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -46,7 +46,7 @@ if(!isset($_SESSION['email'])){
       <div class="row formatarow">
         <div class="col-md-4 headerpag">
           <h2 id="header-proj" class="lead">Pedido pendentes</h2>
-          <p>Aqui vc encontra todas as solicitações feitas</p>
+          <p>Aqui você encontra todas as solicitações feitas a você</p>
         </div>
       </div>
     </div>
@@ -68,8 +68,8 @@ if(!isset($_SESSION['email'])){
           <div class="modal-body">
             <div class="row row-perf">
               <div class="col-md-12 ">
-                <h3>Larissa disse:</h3>
-                <p>Praesent dictum tempus dolor, sit amet tempus mi dapibus eu. Nullam sit amet risus nec odio auctor iaculis. Pellentesque vestibulum aliquam felis, non vulputate ex commodo non. Nulla in tempus justo, at facilisis ex. Nunc efficitur tortor non odio sodales, sit amet lobortis ligula ultrices. Mauris nec venenatis ipsum. Nunc semper leo nec tellus sollicitudin, eu elementum ante consequat.</p>
+                <h3 id="nome-ped"></h3>
+                <p id="mensagem-ped">Praesent dictum tempus dolor, sit amet tempus mi dapibus eu. Nullam sit amet risus nec odio auctor iaculis. Pellentesque vestibulum aliquam felis, non vulputate ex commodo non. Nulla in tempus justo, at facilisis ex. Nunc efficitur tortor non odio sodales, sit amet lobortis ligula ultrices. Mauris nec venenatis ipsum. Nunc semper leo nec tellus sollicitudin, eu elementum ante consequat.</p>
               </div>
             </div>
 
@@ -79,15 +79,15 @@ if(!isset($_SESSION['email'])){
                 <div class="row">
                   <div class="col-md-4">
                     <label>E-mail:</label><br>
-                    <input type="text" name="">
+                    <input type="text" id="email-ped" name="email-ped">
                   </div>
                   <div class="col-md-4">
                     <label>Telefone 1:</label> <br>
-                    <input type="text" name="">
+                    <input type="text" id="cel-ped" name="cel-ped">
                   </div>
                   <div class="col-md-4">
                     <label>Telefone 2:</label> <br>
-                    <input type="text" name="">
+                    <input type="text" id="comercial-ped" name="comercial-ped">
                   </div>
                 </div>    
               </div>
@@ -96,10 +96,10 @@ if(!isset($_SESSION['email'])){
             <div class="modal-footer">
               <div class="row">
                 <div class="col-md-6">
-                  <button class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> Aceitar</button>
+                  <button class="btn btn-success btn-block btn-aceitaproj"><span class="glyphicon glyphicon-ok"></span> Aceitar</button>
                 </div>
                 <div class="col-md-6">
-                  <button class="btn btn-danger btn-block"><span class="glyphicon glyphicon-remove"></span> Recusar</button>
+                  <button class="btn btn-danger btn-block btn-recusaproj"><span class="glyphicon glyphicon-remove"></span> Recusar</button>
                 </div>
               </div>
             </div>
@@ -128,6 +128,6 @@ if(!isset($_SESSION['email'])){
     });
   </script>
 
-  <script src="js/script1.js?ver=4"></script>
+  <script src="js/script1.js?ver=8"></script>
 </body>
 </html>
