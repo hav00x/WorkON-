@@ -30,7 +30,10 @@ if (window.location.href.indexOf('projetos')){
   });
 }
 
-$('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href.indexOf('http://localhost/root2/homepage.php')}, function(){// carrega preview dos projetos
+var url = window.location.href.toLowerCase();
+url = url.indexOf('http://localhost/root2/homepage.php');
+
+$('#ficha-projeto').load('carrega_projetosbd.php', {url:url}, function(){// carrega preview dos projetos
   if(projetos >= 6){
     var pg = Math.ceil(projetos/6); // sempre arredonda o número pra cima
     for(var i = pg; i > 0; i--){
