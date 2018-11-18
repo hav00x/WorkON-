@@ -361,6 +361,8 @@ $('.submit-projatt').on('click', function(){
       });
   }
 
+  erro_executar = false;
+
 });
 
 $('.submit-proj').on('click', function(){
@@ -459,6 +461,8 @@ $('.submit-proj').on('click', function(){
 
       });
   }
+
+  erro_executar = false;
 
 });
 
