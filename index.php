@@ -144,42 +144,7 @@ if(isset($_SESSION['email'])){
         </div>
       </div>
 
-      <div id="contato" class="break-out">
-        <div class="row">
-          <div class="col-md-12">
-            <h3 id="header-index3">Contato</h3>
-          </div>    
-        </div>
-        <div class="row">
-          <form method="post" name="form">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="pindex">Nome</label>
-                <input id="nome-homepage" type="text" name="" placeholder="Digite seu nome">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="pindex">E-mail</label>
-                <input id="email-homepage" type="email" name="" placeholder="Digite seu e-mail">
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="row">
-          <form>
-            <div class="col-md-12">
-              <label class="pindex">Mensagem</label>
-              <textarea id="msg-homepage" class="form-control" type="text" name="mensagem" placeholder="Digite sua mensagem"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button class="btn btn-index">Enviar</button>
-          </div>
-        </div>
-      </div>
+
     </div>
 
     <?php 
