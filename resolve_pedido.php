@@ -1,6 +1,5 @@
 <?php
 
-
 require_once('db.class.php');
 
 session_start();
@@ -10,9 +9,7 @@ $link = $objdb->connect();
 $id_msg = isset($_POST['msg']) ? $_POST['msg'] : 0;
 $estado = isset($_POST['estado']) ? $_POST['estado'] : 0;
 
-if($estado == 1){
-
-} else if($estado == 2){
+if($estado == 2){
 	$stmt = $link->prepare('DELETE FROM solicitacao WHERE id_mensagem=?');
 	$stmt->bind_param('i', $id_msg);
 	if($stmt->execute()){

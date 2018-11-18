@@ -1423,3 +1423,7 @@ PEDIDOS
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
+#mensagem-ped{
+    word-wrap: break-word;
+}

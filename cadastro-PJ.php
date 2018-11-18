@@ -12,6 +12,11 @@ $erro_email_invalido = isset($_GET['erro_emailinval']) ? $_GET['erro_emailinval'
 $erro_imagem_grande = isset($_GET['erro_imggrande']) ? $_GET['erro_imggrande'] : 0;
 $erro_foto = isset($_GET['erro_foto']) ? $_GET['erro_foto'] : 0;
 
+session_start();
+
+if(isset($_SESSION['email'])){
+  header('Location: homepage.php');
+}
 ?>
 
 <!DOCTYPE html>

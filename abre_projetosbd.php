@@ -13,6 +13,7 @@ $nome_projatt = $_POST['nomeprojatt'];
 $dataatt = $_POST['dataentatt'];
 $precoatt = $_POST['precoatt'];
 $check = isset($_POST['check']) ? $_POST['check'] : 0;
+$cli_ou_dev = $_SESSION['clidev'];
 
 $stmt = $link->prepare('SELECT nome_cliente, preco_estabelecido, nome_projeto, data_entrega FROM projeto WHERE id_projeto = ?');
 $stmt->bind_param('i', $id_projatt);
@@ -49,31 +50,57 @@ if($stmt->execute()){
 					$i++;
 
 					if($check == 1){
-						echo "<div class='panel panel-default' data-value='".$rowE['ordem_etapa']."'>
-						<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
-						<input class='hide' id='etapa".$rowE['id_etapa']."' name='etapa[".$rowE['ordem_etapa']."]' value='".$rowE['id_etapa']."'>
-						<h4 class='panel-title'>
-						<div>
-						<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='0' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
-						<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
-						<img class='img-etapa-edicao' src='img/edit-file.png'>
-						</button>
-						<input class='nomeetp nome-edit-etp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' value='".$rowE['etapa']."'>
-						</div>
-						</h4>
-						</div>
-						<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
-						<div id='acordion".$rowE['ordem_etapa']."upd' class='acordion-st row'>
-						
-						<button type='button' id='btnc".$rowE['ordem_etapa']."upd' class='btn-edicao add-passo' style='float: right;'>
-						<img class='img-edicao' src='img/add-circular-button.png'>
-						</button>
-						<button type='button' id='btnr".$rowE['ordem_etapa']."upd' class='btn-edicao rmv-passo' style='float: right;'>
-						<img class='img-edicao' src='img/minus.png'>
-						</button>
-						</div>
-						</div>
-						</div>";
+						if($cli_ou_dev == 2){
+							echo "<div class='panel panel-default' data-value='".$rowE['ordem_etapa']."'>
+							<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
+							<input class='hide' id='etapa".$rowE['id_etapa']."' name='etapa[".$rowE['ordem_etapa']."]' value='".$rowE['id_etapa']."'>
+							<h4 class='panel-title'>
+							<div>
+							<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='0' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
+							<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
+							<img class='img-etapa-edicao' src='img/edit-file.png'>
+							</button>
+							<input class='nomeetp nome-edit-etp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' value='".$rowE['etapa']."'>
+							</div>
+							</h4>
+							</div>
+							<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
+							<div id='acordion".$rowE['ordem_etapa']."upd' class='acordion-st row'>
+
+							<button type='button' id='btnc".$rowE['ordem_etapa']."upd' class='btn-edicao add-passo' style='float: right;'>
+							<img class='img-edicao' src='img/add-circular-button.png'>
+							</button>
+							<button type='button' id='btnr".$rowE['ordem_etapa']."upd' class='btn-edicao rmv-passo' style='float: right;'>
+							<img class='img-edicao' src='img/minus.png'>
+							</button>
+							</div>
+							</div>
+							</div>";
+						} else if($cli_ou_dev == 1){
+							echo "<div class='panel panel-default' data-value='".$rowE['ordem_etapa']."'>
+							<div class='panel-heading' role='tab' id='heading".$rowE['ordem_etapa']."upd'>
+							<input class='hide' id='etapa".$rowE['id_etapa']."' name='etapa[".$rowE['ordem_etapa']."]' value='".$rowE['id_etapa']."'>
+							<h4 class='panel-title'>
+							<div>
+							<a class='nome-etapa cntetap' role='button' data-toggle='collapse' data-parent='#accordionupd' href='#collapseupdZ".$rowE['ordem_etapa']."' aria-expanded='false' data-value='0' aria-controls='collapseupdZ".$rowE['ordem_etapa']."' id='nome-etapa".$rowE['ordem_etapa']."upd'>".$rowE['etapa']."</a>
+							<button type='button' id='edita-etapa".$rowE['ordem_etapa']."upd' class='btn-edicao edita-txt'>
+							<img class='img-etapa-edicao' src='img/edit-file.png'>
+							</button>
+							<input class='nomeetp nome-edit-etp hide' id='input-etapa".$rowE['ordem_etapa']."upd' type='text' name='nome_etapa[".$rowE['ordem_etapa']."]' value='".$rowE['etapa']."'>
+							</div>
+							</h4>
+							</div>
+							<div id='collapseupdZ".$rowE['ordem_etapa']."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='heading".$rowE['ordem_etapa']."'>
+							<div id='acordion".$rowE['ordem_etapa']."upd' class='acordion-st row'>
+							<button type='button' id='btnc".$rowE['ordem_etapa']."upd' class='btn-edicao' style='float: right;' disabled>
+							</button>
+							<button type='button' id='btnr".$rowE['ordem_etapa']."upd' class='btn-edicao' style='float: right;' disabled>
+							</button>
+
+							</div>
+							</div>
+							</div>";
+						}
 					}
 				}
 

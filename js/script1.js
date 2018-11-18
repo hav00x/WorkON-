@@ -3,6 +3,7 @@ var count = 1;
 var atividadeCount = 1;
 var contador = 0;
 var vazio = false;
+var erro_executar = false;
 var projetos = 0;
 var data_erro = 0;
 
@@ -30,7 +31,6 @@ if (window.location.href.indexOf('projetos')){
 }
 
 $('#ficha-projeto').load('carrega_projetosbd.php', {url:window.location.href}, function(){// carrega preview dos projetos
-
   if(projetos >= 6){
     var pg = Math.ceil(projetos/6); // sempre arredonda o número pra cima
     for(var i = pg; i > 0; i--){
@@ -54,7 +54,7 @@ $('#corpo-proj').on('click', '#ultima-pag', function(){
   $('#ficha-projeto').load('carrega_projetosbd.php', {qtdprojetos:selecao});
 });
 
-$('#ficha-projeto').on('click', '.btn-maisdeta', function(){
+$('#ficha-projeto').on('click', '.btn-maisdeta, .btn-detacli', function(){
   var num_form = $(this).attr('data-value');
   $('#atualizando').val($(this).prev().val());
 
@@ -102,11 +102,24 @@ $('#ficha-projeto').on('click', '.btn-maisdeta', function(){
       }, 'json');
   });
 
+  $('#ficha-projeto').on('click', '.btn-detacli', function(){
+    setTimeout(function(){
+      $('.add-etapa').remove();
+      $('.rmv-etapa').remove();
+    }, 100);
+  });
+
   $('.nome-edit-etp').each(function(){
     $(this).attr('value', $(this).before().before().text());
   });
-  $('#modalEdit').modal('show');
 
+  if($(this).hasClass('btn-maisdeta')){
+    $('#modalEdit').modal('show');
+  } else if($(this).hasClass('btn-detacli')){
+    $('#modalEditCli').modal('show');
+  }
+
+  
 });
 
 $('#btn-atencao').on('click', function(){
@@ -254,7 +267,7 @@ $('#accordion, #accordionupd').on('click', '.rmv-passo', function(){
   }
 });
 
-$('#criaproj').on('click', function(){
+$('#criaproj, #btn-aceitaproj').on('click', function(){
   $('#nomeproj').val($('#nome-projeto').text());
   $('#input-etapa1').val($('#nome-etapa1').html());
   holder = $('#accordion').children('div').last().children().attr('id').split('g');
@@ -326,12 +339,27 @@ $('.submit-projatt').on('click', function(){
       $('#modalErroProj').modal('show');
     }, 200);
 
+    erro_executar = true;
+
   }
 
   contador = 0;
 
-});
+  if(erro_executar == false){
 
+    $.post('atualiza_projetosbd.php',
+      $('#atualiza-projetos').serialize(),
+      function(data){
+        $('#ficha-projeto').contents().remove();
+        $('#ficha-projeto').load('carrega_projetosbd.php');
+        $('#modal_edit_close').click();
+        setTimeout(function(){
+          $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+        }, 50);
+      });
+  }
+
+});
 
 $('.submit-proj').on('click', function(){
   var input = this;
@@ -343,6 +371,7 @@ $('.submit-proj').on('click', function(){
     if ($(this).val() == ''){
       vazio = true;
       contador = contador +1;
+      console.log(this.id);
     }
 
     if (contador == 0){
@@ -355,6 +384,7 @@ $('.submit-proj').on('click', function(){
     if ($(this).val() == ''){
       vazio = true;
       contador = contador +1;
+      console.log(this.id);
     }
 
     if (contador == 0){
@@ -383,38 +413,48 @@ $('.submit-proj').on('click', function(){
       $('#modalErroProj').modal('show');
     }, 200);
 
+    erro_executar = true;
+
   }
 
   contador = 0;
 
-});
+  if(erro_executar == false){
 
-$('#btn-enviaproj').on('click', function(e){
-  e.preventDefault();
-  $.post('cadastrarprojeto_bd.php',
-    $('#formcadastro').serialize(),
-    function(data){
-      $('#ficha-projeto').contents().remove();
-      $('#ficha-projeto').load('carrega_projetosbd.php');
-      $('#modal-close').click();
-      setTimeout(function(){
-        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
-      }, 50);
-    });
-});
+    $.post('cadastrarprojeto_bd.php',
+      $('#formcadastro').serialize(),
+      function(data){
+        $('#ficha-projeto').contents().remove();
+        $('#ficha-projeto').load('carrega_projetosbd.php');
+        $('#modal-close').click();
+        setTimeout(function(){
+          $('#ficha-projeto').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+          $('#mensagem-ok').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+        }, 50);
+        if(window.location.href.indexOf('http://localhost/root2/pedidos.php') > -1){
+          $('#formcadastro input').each(function(){
+            $(this).val('');
+          });
 
-$('#btn-attproj').on('click', function(e){
-  e.preventDefault();
-  $.post('atualiza_projetosbd.php',
-    $('#atualiza-projetos').serialize(),
-    function(data){
-      $('#ficha-projeto').contents().remove();
-      $('#ficha-projeto').load('carrega_projetosbd.php');
-      $('#modal_edit_close').click();
-      setTimeout(function(){
-        $('#ficha-projeto').prepend('<div class="col-md-12" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
-      }, 50);
-    });
+          $('#formcadastro textarea').each(function(){
+            $(this).val('');
+          });
+
+          if(data == 'Projeto criado com sucesso'){
+            var msg = $('#btn-aceitaproj').attr('data-value');
+            $.post('resolve_pedido.php', {msg:msg, estado:2});
+            $('#sessao-mensagens').contents().remove();
+            $('#sessao-mensagens').load('get_mensagem.php', function(data){
+              if(!data){
+               $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
+             }
+           });
+          }
+        }
+
+      });
+  }
+
 });
 
 /*------------ Formulário de Cadastro Conta -----------------*/
@@ -848,11 +888,12 @@ $('.radiobtncad').on('click', function(){
     $.post('get_mensagem.php', {check:1, msg:msg}, function(data){
       var dados = JSON.parse(data);
       $('#nome-ped').text(dados.mensagem.nomeusu_solicitacao);
-      $('#mensagem-ped').val(dados.mensagem.mensagem);
+      $('#mensagem-ped').text(dados.mensagem.mensagem);
       $('#email-ped').val(dados.mensagem.email_usuenvia);
       $('#cel-ped').val(dados.usuario.cel);
       $('#comercial-ped').val(dados.usuario.comercial);
       $('#btn-recusaproj').attr('data-value', msg);
+      $('#btn-aceitaproj').attr('data-value', msg);
       $("#messagecli").modal('show');
 
     });
@@ -870,6 +911,18 @@ $('.radiobtncad').on('click', function(){
      });
       $("#messagecli").modal('hide');
     });
+  });
+
+  $('#btn-aceitaproj').on('click', function(e){
+    e.preventDefault();
+    $('#nomecli').val($('#nome-ped').text());
+    $('#nomeclif').val($('#nome-ped').text());
+    $('#emailcli').val($('#email-ped').val());
+    $('#emailclif').val($('#email-ped').val());
+    $("#messagecli").modal('hide');
+    setTimeout(function(){
+      $('#modalCadastro').modal('show');
+    }, 500);
   });
 
 });

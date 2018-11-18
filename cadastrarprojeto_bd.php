@@ -15,6 +15,7 @@ $data_entrega = $_POST['dataterm'];
 $passos = $_POST['campo'];
 $nome_etapa = $_POST['nome_etapa'];
 $preco = $_POST['precoest'];
+$email_cli = isset($_POST['emailcli']) ? $_POST['emailcli'] : '';
 $check = false;
 $usuariopj = 0;
 $usuariopf = 0;
@@ -70,13 +71,13 @@ if($stmt->execute()){
 
 $stmt->close();
 
-$stmt = $link->prepare("INSERT INTO projeto(nome_projeto, nome_cliente, tipo_projeto, descri_projeto, preco_estabelecido, data_inicio, data_entrega, id_intermediario, andamento) VALUES(?, ?, ?, ?, ?, ?, ?, ?, 1)");
+$stmt = $link->prepare("INSERT INTO projeto(nome_projeto, nome_cliente, tipo_projeto, descri_projeto, preco_estabelecido, data_inicio, data_entrega, id_intermediario, email, andamento) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 if ($stmt === false) {
 	trigger_error($this->mysqli->error, E_USER_ERROR);
 	return;
 }
 
-$stmt->bind_param("ssssissi", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery);
+$stmt->bind_param("ssssissis", $nome_projeto, $nome_cliente, $tipo_projeto, $descricao, $preco, $data_inicio, $data_entrega, $idquery, $email_cli);
 if($stmt->execute()){
 	$idprojeto = mysqli_insert_id($link);
 } else{

@@ -5,12 +5,12 @@ session_start();
 if(!isset($_SESSION['email'])){
   header('Location: index.php?acessoinval=1&');
 }
-if($_SESSION['clidev'] === 1){
-  header('Location: homepage.php?acessoinval=1&');
-}
 
 $erro_vazio = isset($_GET['erro_vazio']) ? $_GET['erro_vazio'] : 0;
 $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
+
+$cli_ou_dev = $_SESSION['clidev'];
+
 ?>
 
 <html>
@@ -33,6 +33,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
     $(document).ready(function(){
      var erro_vazio = '<?= $erro_vazio ?>';
      var erro_data = '<?= $data_errada ?>';
+     var cli_ou_dev = '<?= $cli_ou_dev ?>';
 
      if(erro_vazio == 1){
       $('#modalErroProj .modal-body').append('<p>Preencha todos os campos</p>');
@@ -42,6 +43,19 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
     if(erro_data == 1){
       $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p>');
       $('#modalErroProj').modal('show');
+    }
+
+    if(cli_ou_dev == 1){
+      $('#modalEdit').remove();
+      $('#modalCadastro').remove();
+      $('#criaproj').remove();
+      setTimeout(function(){
+        $('.add-etapa').remove();
+        $('.rmv-etapa').remove();
+      }, 1200);
+      
+    } else if(cli_ou_dev == 2){
+      $('#modalEditCli').remove();
     }
     
   });
@@ -192,6 +206,71 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       <!-- Fim Modal -->
     </div>
 
+    <div class='modal fade' id='modalEditCli' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+      <!-- Modal Edição Projetos -->
+      <div class='modal-dialog modal-lg' role='document'>
+        <div class='modal-content'>
+          <form id="atualiza-projetos" method='post'>
+            <div class='modal-header' style='margin-left: 20px; padding-bottom: 0;'>
+              <h3 class='modal-title'>
+                <div>
+                  <span id='nome-projetoupd'></span>
+                  <button style='display: inline-block; margin-bottom: 10px;' type='button' class='btn-edicao edita-projeto'>
+                    <img class='img-edicao' src='img/edit-file.png'>
+                  </button>
+                  <input id='nomeprojupd' class="hide" type='text' name='nome_projetoupd'>
+                </div>
+              </h3>
+            </div>
+
+            <div class='modal-body'>
+              <div class='col-left'>
+                <label for='nomecli'>Nome do Cliente/Empresa</label>
+                <input type='text' class='text_field' id='nomecliupd' name='nomecliupd'>
+              </div>
+              <div class='col-right'>
+                <label for='tipopro'>Tipo de Projeto</label>
+                <input type='text' class='text_field' id='tipoproupd' name='tipoproupd'>
+              </div>
+              <div class='col-cent'>
+                <label for='descri'>Descrição do Projeto</label>
+                <textarea id='descriupd' maxlength='254' class='text_field descri' name='descriproupd'></textarea>
+              </div>
+              <div class='col-left'>
+                <label for='dataini'>Data Início</label>
+                <input type='date' class='text_field' id='datainiupd' min='1980-01-01' max='2038-01-19' name='datainiupd'>
+              </div>
+              <div class='col-right'>
+                <label for='dataent'>Data Entrega</label>
+                <input type='date' class='text_field' id='dataentupd' min='date('Y-m-d')' max='2038-01-19' name='datatermupd'>
+              </div>
+              <div class='col-md-offset-4 col-md-4 input-icon'>
+                <label for='precoest'>Preço Estabelecido</label>
+                <input type='text' max='999999999' class='text_field' id='precoestupd' name='precoestupd'><i>R$</i>
+              </div>
+              <div class='col-md-12'>
+                <h3>O que vai ser feito?</h3>
+                <p>Nesta seção, você deve informar tudo o que irá ser feito no projeto. Essas informações podem ser separadas por etapas para ajudar o cliente a saber o que irá ser feito e em que ordem será executado.</p>
+              </div>
+              <div class='col-md-12'>
+                <div class='panel-group' id='accordionupd' role='tablist' aria-multiselectable='true'>
+
+                  <!-- etapas -->
+
+                </div>  
+              </div>
+            </div>
+
+            <div class='modal-footer' style='clear: both;'>           
+              <input type="text" class="hide" name="atualizando" id="atualizando">
+              <button type='button' id='modal_edit_close' class='button -regular' data-dismiss='modal'>Voltar</button>          
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Fim Modal -->
+    </div>
+
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
       <!-- Modal Cadastro Projetos -->
       <div class="modal-dialog" role="document">
@@ -291,34 +370,34 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
     </div><!-- Fim Modal -->
 
 
-   <!-- Modal Mensagens -->
-      <div class="modal fade" id="modalChat">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4>Mensagem</h4>
-            </div> <!--fim modal-header-->
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-12">
-                  
-                </div>
-              </div>
-            </div><!--fim modal-body-->
-            <div class="modal-footer">
-              <p>Escreva sua mensagem abaixo:</p>
-              <textarea style="height: 30%"></textarea>
-              <button class="btn button-hp btn-block">Enviar</button>
-            </div>
-          </div>
-        
-        </div>
-      </div>
+    <!-- Modal Mensagens -->
+    <div class="modal fade" id="modalChat">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4>Mensagem</h4>
+          </div> <!--fim modal-header-->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
 
-    </div><!--fim content-->
+              </div>
+            </div>
+          </div><!--fim modal-body-->
+          <div class="modal-footer">
+            <p>Escreva sua mensagem abaixo:</p>
+            <textarea style="height: 30%"></textarea>
+            <button class="btn button-hp btn-block">Enviar</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div><!--fim content-->
 
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <!-- jQuery Custom Scroller CDN -->
@@ -337,7 +416,7 @@ $data_errada = isset($_GET['erro_data']) ? $_GET['erro_data'] : 0;
       });
     });
   </script>
-  <script src="js/script1.js?ver=18"></script>
+  <script src="js/script1.js?ver=23"></script>
 
 </body>
 </html>

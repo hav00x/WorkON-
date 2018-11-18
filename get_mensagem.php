@@ -28,7 +28,7 @@ if($check == 0){
 
 	$stmt->close();
 
-	$stmt = $link->prepare('SELECT id_mensagem, mensagem, email_usuenvia, data_envio, nomeusu_solicitacao FROM solicitacao WHERE email_usurecebe=?');
+	$stmt = $link->prepare('SELECT id_mensagem, mensagem, email_usuenvia, data_envio, nomeusu_solicitacao FROM solicitacao WHERE email_usurecebe=? ORDER BY id_mensagem DESC');
 	if ($stmt === false) {
 		trigger_error($this->mysqli->error, E_USER_ERROR);
 		return;

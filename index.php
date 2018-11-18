@@ -3,6 +3,12 @@
 $erro_login = isset($_GET['errologin']) ? $_GET['errologin'] : 0;
 $sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
 
+session_start();
+
+if(isset($_SESSION['email'])){
+  header('Location: homepage.php');
+}
+
 ?>
 
 <html>
@@ -181,7 +187,7 @@ $sucesso = isset($_GET['sucesso']) ? $_GET['sucesso'] : 0;
     ?>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script1.js?ver=1"></script>
+    <script src="js/script1.js?ver=2"></script>
 
   </body>
   </html>
