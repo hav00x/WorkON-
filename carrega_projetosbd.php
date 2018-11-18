@@ -225,15 +225,9 @@ if($cli_ou_dev == 2){
 	$stmt->close();
 
 	if($contaProjetos <= 0){
-		if($urlchk){
-			echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
-			<p>Você não possui nenhum projeto!</p>
-			</div>';
-		} else{
-			echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
-			<p>Você não possui nenhum projeto! Comece um agora usando o botão "Novo Projeto"</p>
-			</div>';
-		}
+		echo '<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 5px;">
+		<p>Você não possui nenhum projeto!</p>
+		</div>';
 	}
 
 	if($qtd_projetos == ''){
