@@ -114,6 +114,6 @@ $acessoinvalcli = isset($_GET['acessoinval']) ? $_GET['acessoinval'] : 0;
     });
   });
 </script>
-<script src="js/script1.js?ver=7"></script>
+<script src="js/script1.js?ver=8"></script>
 </body>
 </html>

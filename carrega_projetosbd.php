@@ -7,7 +7,7 @@ session_start();
 $objdb = new db();
 $link = $objdb->connect();
 $id_usuario = is_null($_SESSION['id_fusuario']) ? $_SESSION['id_jusuario'] : $_SESSION['id_fusuario'];
-$url = isset($_POST['url']) ? $_POST['url'] : '';
+$url = isset($_POST['url']) ? $_POST['url'] : -1;
 $qtd_projetos = isset($_POST['qtdprojetos']) ? $_POST['qtdprojetos'] : '';
 $cli_ou_dev = $_SESSION['clidev'];
 $email_logado = $_SESSION['email'];
@@ -18,7 +18,7 @@ if(!$qtd_projetos == ''){
 	$offset = ($qtd_projetos[1]-1)*6;
 }
 
-if(strpos($url, 'http://localhost/root2/homepage.php') !== false){
+if($url >= 0){
 	$urlchk = true;
 }
 
