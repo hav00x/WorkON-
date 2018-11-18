@@ -24,7 +24,7 @@ $cli_ou_dev = $_SESSION['clidev'];
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=11" rel="stylesheet">
+  <link href="css/estilo.css?ver=12" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -372,7 +372,7 @@ $cli_ou_dev = $_SESSION['clidev'];
 
     <!-- Modal Mensagens -->
     <div class="modal fade" id="modalChat">
-      <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -383,13 +383,30 @@ $cli_ou_dev = $_SESSION['clidev'];
           <div class="modal-body">
             <div class="row">
               <div class="col-md-12">
+                <p>Você está conversando com:Larissa</p>
+              </div>
+            </div>
 
+            <div class="row">
+              <div class="col-md-12">
+                <p class="usernamecli">Larissa:</p>
+                <div id="chatcli">
+                  <p>Suspendisse venenatis est eget libero pellentesque, non elementum nunc sodales. Vestibulum nec orci a est dapibus tempus et non ante. Aenean ut sem scelerisque, vestibulum justo quis, posuere ipsum.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p class="usernamedev">Você:</p>
+                <div id="chatdev">
+                  <p>Suspendisse venenatis est eget libero pellentesque, non elementum nunc sodales. Vestibulum nec orci a est dapibus tempus et non ante. Aenean ut sem scelerisque, vestibulum justo quis, posuere ipsum.</p>
+                </div>
               </div>
             </div>
           </div><!--fim modal-body-->
           <div class="modal-footer">
             <p>Escreva sua mensagem abaixo:</p>
-            <textarea style="height: 30%"></textarea>
+            <textarea style="height:100px"></textarea>
             <button class="btn button-hp btn-block">Enviar</button>
           </div>
         </div>
