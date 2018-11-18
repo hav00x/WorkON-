@@ -201,7 +201,6 @@ $('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
     return false;
   } 
   $(this).next().next().val($(this).text());
-  console.log($(this).next().next().val());
 });
 
 $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
@@ -210,7 +209,6 @@ $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
      return false;
    } 
    $(this).next().next().val($(this).text());
-   console.log($(this).next().next().val());
  });
 
 $('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){
