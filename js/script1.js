@@ -59,7 +59,7 @@ $('#corpo-proj').on('click', '#ultima-pag', function(){
 
 $('#ficha-projeto').on('click', '.btn-maisdeta, .btn-detacli', function(){
   var num_form = $(this).attr('data-value');
-  $('#atualizando').val($(this).prev().val());
+  $('#atualizando').val($(this).parent().parent().prev().val());
 
   $.post('abre_projetosbd.php', // carrega primeiro o projeto
     $('#form'+num_form).serialize(),
@@ -105,13 +105,6 @@ $('#ficha-projeto').on('click', '.btn-maisdeta, .btn-detacli', function(){
       }, 'json');
   });
 
-  $('#ficha-projeto').on('click', '.btn-detacli', function(){
-    setTimeout(function(){
-      $('.add-etapa').remove();
-      $('.rmv-etapa').remove();
-    }, 100);
-  });
-
   $('.nome-edit-etp').each(function(){
     $(this).attr('value', $(this).before().before().text());
   });
@@ -122,7 +115,13 @@ $('#ficha-projeto').on('click', '.btn-maisdeta, .btn-detacli', function(){
     $('#modalEditCli').modal('show');
   }
 
-  
+});
+
+$('#ficha-projeto').on('click', '.btn-detacli', function(){
+  setTimeout(function(){
+    $('.add-etapa').remove();
+    $('.rmv-etapa').remove();
+  }, 100);
 });
 
 $('#btn-atencao').on('click', function(){
@@ -337,7 +336,7 @@ $('.submit-projatt').on('click', function(){
       $('#modalErroProj .modal-body').append('<p>Data de início não pode vir depois da entrega</p><br>');
     }
 
-    $('#modalCadastro').modal('hide');
+    $('#modalEdit').modal('hide');
     setTimeout(function(){
       $('#modalErroProj').modal('show');
     }, 200);
@@ -418,11 +417,14 @@ $('.submit-proj').on('click', function(){
 
     erro_executar = true;
 
+    console.log('tchau');
+
   }
 
   contador = 0;
 
   if(erro_executar == false){
+    console.log('oi');
 
     $.post('cadastrarprojeto_bd.php',
       $('#formcadastro').serialize(),

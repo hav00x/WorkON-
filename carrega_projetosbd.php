@@ -170,7 +170,6 @@ if($cli_ou_dev == 2){
 						</div>
 						</div>
 
-
 						</div>
 						</form>
 						</div>';
@@ -195,7 +194,16 @@ if($cli_ou_dev == 2){
 						<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
 						</div>
 						<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
-						<button type="button" class="btn button-hp btn-maisdeta" data-value="'.$i.'">Mais Detalhes</button>
+						
+						<div class="row">
+						<div class="col-md-6">
+						<button type="button" class="btn button-hp btn-maisdeta btn-block" data-value="'.$i.'">Mais Detalhes</button>
+						</div>
+						<div class="col-md-6">
+						<button type="button" class="btn button-hp btn-block btn-chatdev">Mensagem</button>
+						</div>
+						</div>
+
 						</div>
 						</form>
 						</div>';

@@ -49,10 +49,6 @@ $cli_ou_dev = $_SESSION['clidev'];
       $('#modalEdit').remove();
       $('#modalCadastro').remove();
       $('#criaproj').remove();
-      setTimeout(function(){
-        $('.add-etapa').remove();
-        $('.rmv-etapa').remove();
-      }, 1200);
       
     } else if(cli_ou_dev == 2){
       $('#modalEditCli').remove();
