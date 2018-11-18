@@ -200,7 +200,8 @@ $('#accordion, #accordionupd').on('keydown', '.nome-etapa', function(e){
     e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
     return false;
   } 
-  $(this).next().next().attr('value', $(this).text());
+  $(this).next().next().val($(this).text());
+  console.log($(this).next().next().val());
 });
 
 $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
@@ -208,7 +209,8 @@ $('#accordion, #accordionupd').on('keyup', '.nome-etapa', function(e){
      e.preventDefault();//previne o usuario de quebrar linhas na etapa do projeto
      return false;
    } 
-   $(this).next().next().attr('value', $(this).text());
+   $(this).next().next().val($(this).text());
+   console.log($(this).next().next().val());
  });
 
 $('#accordion, #accordionupd').on('blur', '.nome-etapa', function(){

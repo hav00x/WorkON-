@@ -429,7 +429,7 @@ $cli_ou_dev = $_SESSION['clidev'];
       });
     });
   </script>
-  <script src="js/script1.js?ver=23"></script>
+  <script src="js/script1.js?ver=24"></script>
 
 </body>
 </html>
