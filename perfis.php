@@ -46,7 +46,7 @@ if(!isset($_SESSION['email'])){
 					<input id="nomesearch" type="text" name="nome-usu">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="produtosearch">Produto</label>
+					<label for="produtosearch">Especialização</label>
 					<select class="form-group" name="tipo-produto">
 						<option></option>
 						<option value="Analista de Sistemas">Analista de Sistemas</option>
