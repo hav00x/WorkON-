@@ -442,12 +442,14 @@ $('.submit-proj').on('click', function(){
           if(data == 'Projeto criado com sucesso'){
             var msg = $('#btn-aceitaproj').attr('data-value');
             $.post('resolve_pedido.php', {msg:msg, estado:2});
-            $('#sessao-mensagens').contents().remove();
-            $('#sessao-mensagens').load('get_mensagem.php', function(data){
-              if(!data){
-               $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
-             }
-           });
+            setTimeout(function(){
+              $('#sessao-mensagens').contents().remove();
+              $('#sessao-mensagens').load('get_mensagem.php', function(data){
+                if(!data){
+                 $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
+               }
+             });
+            }, 200);
           }
         }
 
@@ -926,7 +928,7 @@ $('.radiobtncad').on('click', function(){
     }, 500);
   });
 
-  /*-------------------------------- Pedidos e Mensagens --------------------------------*/
+  /*-------------------------------- Chat --------------------------------*/
 
   $('#ficha-projeto').on('click', '.btn-chatproj', function(e){
     e.preventDefault();
