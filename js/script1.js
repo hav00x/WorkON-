@@ -419,15 +419,11 @@ $('.submit-proj').on('click', function(){
 
     erro_executar = true;
 
-    console.log('tchau');
-
   }
 
   contador = 0;
 
   if(erro_executar == false){
-    console.log('oi');
-
     $.post('cadastrarprojeto_bd.php',
       $('#formcadastro').serialize(),
       function(data){
@@ -438,7 +434,7 @@ $('.submit-proj').on('click', function(){
           $('#ficha-projeto').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
           $('#mensagem-ok').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
         }, 50);
-        if(window.location.href.indexOf('http://localhost/root2/pedidos.php') > -1){
+        if(window.location.href.indexOf('pedidos.php') > -1){
           $('#formcadastro input').each(function(){
             $(this).val('');
           });
@@ -667,7 +663,7 @@ $('.radiobtncad').on('click', function(){
 
   /*-------------------------------- Sua Conta --------------------------------*/
 
-  if(window.location.href.indexOf('http://localhost/root2/sua_conta.php') > -1){
+  if(window.location.href.indexOf('sua_conta.php') > -1){
     $.post('carrega_contabd.php', function(data){
 
       var array = JSON.parse(data);
