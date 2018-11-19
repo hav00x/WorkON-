@@ -932,6 +932,7 @@ $('.radiobtncad').on('click', function(){
     e.preventDefault();
     $('#mensagemproj').val($(this).attr('data-value')); 
     $.post('get_msgchat.php', {chat:$(this).attr('data-value')}, function(data){
+      $('#chat-corpo').contents().remove();
       $('#chat-corpo').append(data);
       $('#modalChat').modal('show');
     });
@@ -943,7 +944,6 @@ $('.radiobtncad').on('click', function(){
       $.post('get_msgchat.php', {chat:$('#mensagemproj').val()}, function(data){
         $('#chat-corpo').contents().remove();
         $('#chat-corpo').append(data);
-        $('#modalChat').modal('show');
       });
     });
   });
