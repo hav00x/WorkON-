@@ -166,7 +166,7 @@ if($cli_ou_dev == 2){
 						<button type="button" class="btn button-hp btn-maisdeta btn-block" data-value="'.$i.'">Mais Detalhes</button>
 						</div>
 						<div class="col-md-6">
-						<button type="button" class="btn button-hp btn-block btn-chatdev">Mensagem</button>
+						<button type="button" class="btn button-hp btn-block btn-chatproj" data-value="'.$id_projeto.'">Mensagem</button>
 						</div>
 						</div>
 
@@ -200,7 +200,7 @@ if($cli_ou_dev == 2){
 						<button type="button" class="btn button-hp btn-maisdeta btn-block" data-value="'.$i.'">Mais Detalhes</button>
 						</div>
 						<div class="col-md-6">
-						<button type="button" class="btn button-hp btn-block btn-chatdev">Mensagem</button>
+						<button type="button" class="btn button-hp btn-block btn-chatproj" data-value="'.$id_projeto.'">Mensagem</button>
 						</div>
 						</div>
 
@@ -353,10 +353,9 @@ if($cli_ou_dev == 2){
 						<button type="button" class="btn button-hp btn-detacli btn-block" data-value="'.$i.'">Mais Detalhes</button>
 						</div>
 						<div class="col-md-6">
-						<button type="button" class="btn button-hp btn-block btn-chatdev">Mensagem</button>
+						<button type="button" class="btn button-hp btn-block btn-chatproj" data-value="'.$id_projeto.'">Mensagem</button>
 						</div>
 						</div>
-
 
 						</div>
 						</form>
@@ -382,7 +381,16 @@ if($cli_ou_dev == 2){
 						<input type="text" class="hide" name="dataentatt" value="'.$data_entrega.'">
 						</div>
 						<input type="text" class="hide" id="p'.$i.'" name="projatt" value="'.$id_projeto.'">
-						<button type="button" class="btn button-hp btn-detacli" data-value="'.$i.'">Mais Detalhes</button>
+
+						<div class="row">
+						<div class="col-md-6">
+						<button type="button" class="btn button-hp btn-detacli btn-block" data-value="'.$i.'">Mais Detalhes</button>
+						</div>
+						<div class="col-md-6">
+						<button type="button" class="btn button-hp btn-block btn-chatproj" data-value="'.$id_projeto.'">Mensagem</button>
+						</div>
+						</div>
+
 						</div>
 						</form>
 						</div>';

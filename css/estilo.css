@@ -1431,7 +1431,7 @@ PEDIDOS
 
 /*--------------CHAT-------------------*/
 
-#chatdev{
+.chatdev{
     border: 1px solid rgba(255, 165, 0);
     border-radius: 7px 0px 7px 7px;
     margin: 5px;
@@ -1448,7 +1448,7 @@ PEDIDOS
     text-align: right;
 }
 
-#chatcli{
+.chatcli{
     border: 1px solid rgba(255, 165, 0);
     border-radius: 0px 7px 7px 7px;
     margin: 5px;

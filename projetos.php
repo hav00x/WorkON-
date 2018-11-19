@@ -374,36 +374,17 @@ $cli_ou_dev = $_SESSION['clidev'];
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4>Mensagem</h4>
+            <h4>Chat</h4>
           </div> <!--fim modal-header-->
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-12">
-                <p>Você está conversando com:Larissa</p>
-              </div>
-            </div>
+          <div class="modal-body" id="chat-corpo">
 
-            <div class="row">
-              <div class="col-md-12">
-                <p class="usernamecli">Larissa:</p>
-                <div id="chatcli">
-                  <p>Suspendisse venenatis est eget libero pellentesque, non elementum nunc sodales. Vestibulum nec orci a est dapibus tempus et non ante. Aenean ut sem scelerisque, vestibulum justo quis, posuere ipsum.</p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <p class="usernamedev">Você:</p>
-                <div id="chatdev">
-                  <p>Suspendisse venenatis est eget libero pellentesque, non elementum nunc sodales. Vestibulum nec orci a est dapibus tempus et non ante. Aenean ut sem scelerisque, vestibulum justo quis, posuere ipsum.</p>
-                </div>
-              </div>
-            </div>
           </div><!--fim modal-body-->
           <div class="modal-footer">
-            <p>Escreva sua mensagem abaixo:</p>
-            <textarea style="height:100px"></textarea>
-            <button class="btn button-hp btn-block">Enviar</button>
+            <form id="chat-mensagem">
+              <textarea style="height:100px" name="mensagem" placeholder="Escreva sua mensagem:"></textarea>
+              <input type="text" id="mensagemproj" class="hide" name="mensagemproj">
+              <button class="btn button-hp btn-block btn-msgconversa">Enviar</button>
+            </form>
           </div>
         </div>
         
@@ -429,7 +410,7 @@ $cli_ou_dev = $_SESSION['clidev'];
       });
     });
   </script>
-  <script src="js/script1.js?ver=24"></script>
+  <script src="js/script1.js?ver=26"></script>
 
 </body>
 </html>

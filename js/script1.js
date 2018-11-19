@@ -167,10 +167,6 @@ $('#accordionupd').on('click', '.rmv-passo', function(){
   console.log($(this).closest('div.panel-heading').find('a'));
 });
 
-$('#ficha-projeto').on('click', '.btn-chatdev', function(){
-  $('#modalChat').modal('show');
-});
-
 /*------------ Formulário de Projeto -----------------*/
 
 $('.edita-projeto').on('click', function(){
@@ -928,6 +924,28 @@ $('.radiobtncad').on('click', function(){
     setTimeout(function(){
       $('#modalCadastro').modal('show');
     }, 500);
+  });
+
+  /*-------------------------------- Pedidos e Mensagens --------------------------------*/
+
+  $('#ficha-projeto').on('click', '.btn-chatproj', function(e){
+    e.preventDefault();
+    $('#mensagemproj').val($(this).attr('data-value')); 
+    $.post('get_msgchat.php', {chat:$(this).attr('data-value')}, function(data){
+      $('#chat-corpo').append(data);
+      $('#modalChat').modal('show');
+    });
+  });
+
+  $('.btn-msgconversa').on('click', function(e){
+    e.preventDefault();
+    $.post('envia_msgchat.php', $('#chat-mensagem').serialize(), function(data){
+      $.post('get_msgchat.php', {chat:$('#mensagemproj').val()}, function(data){
+        $('#chat-corpo').contents().remove();
+        $('#chat-corpo').append(data);
+        $('#modalChat').modal('show');
+      });
+    });
   });
 
 });
