@@ -935,6 +935,9 @@ $('.radiobtncad').on('click', function(){
       $('#chat-corpo').contents().remove();
       $('#chat-corpo').append(data);
       $('#modalChat').modal('show');
+      setTimeout(function(){
+        $("#chat-corpo").scrollTop($("#chat-corpo")[0].scrollHeight);
+      }, 200);
     });
   });
 
@@ -944,7 +947,12 @@ $('.radiobtncad').on('click', function(){
       $.post('get_msgchat.php', {chat:$('#mensagemproj').val()}, function(data){
         $('#chat-corpo').contents().remove();
         $('#chat-corpo').append(data);
+        $("#chat-corpo").scrollTop($("#chat-corpo")[0].scrollHeight);
       });
+      console.log(data);
+      if(data.indexOf('Mensagem enviada')){
+        $('#mensagem-chat').val('');
+      }
     });
   });
 

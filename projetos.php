@@ -24,7 +24,7 @@ $cli_ou_dev = $_SESSION['clidev'];
 
   <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo.css?ver=12" rel="stylesheet">
+  <link href="css/estilo.css?ver=14" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -368,7 +368,7 @@ $cli_ou_dev = $_SESSION['clidev'];
 
     <!-- Modal Mensagens -->
     <div class="modal fade" id="modalChat">
-      <div class="modal-dialog modal-md" role="document">
+      <div class="modal-dialog modal-md" id="chat-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -381,7 +381,7 @@ $cli_ou_dev = $_SESSION['clidev'];
           </div><!--fim modal-body-->
           <div class="modal-footer">
             <form id="chat-mensagem">
-              <textarea style="height:100px" name="mensagem" placeholder="Escreva sua mensagem:"></textarea>
+              <textarea style="height:100px" id="mensagem-chat" name="mensagem" placeholder="Escreva sua mensagem:"></textarea>
               <input type="text" id="mensagemproj" class="hide" name="mensagemproj">
               <button class="btn button-hp btn-block btn-msgconversa">Enviar</button>
             </form>
@@ -410,7 +410,7 @@ $cli_ou_dev = $_SESSION['clidev'];
       });
     });
   </script>
-  <script src="js/script1.js?ver=26"></script>
+  <script src="js/script1.js?ver=27"></script>
 
 </body>
 </html>

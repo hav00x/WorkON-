@@ -22,7 +22,7 @@ if($stmt->execute()){
 $stmt->close();
 
 if($contaMsg <= 0){
-	echo 'Você não possui nenhuma mensagem recebida ou escrita';
+	echo '<p class="alinha-meio" style="margin-top: 50px;">Você não possui nenhuma mensagem recebida ou escrita</p>';
 	die();
 }
 
@@ -38,7 +38,7 @@ if($stmt->execute()){
 			<div class="col-md-12">
 			<p class="usernamedev">Você:</p>
 			<div class="chatdev">
-			<p>'.$msg.'</p>
+			<p class="chatinside">'.$msg.'</p>
 			</div>
 			</div>
 			</div>';
@@ -47,7 +47,7 @@ if($stmt->execute()){
 			<div class="col-md-12">
 			<p class="usernamecli">'.$nome_envia.'</p>
 			<div class="chatcli">
-			<p>'.$msg.'</p>
+			<p class="chatinside">'.$msg.'</p>
 			</div>
 			</div>
 			</div>';
