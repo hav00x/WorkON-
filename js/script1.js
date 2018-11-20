@@ -428,6 +428,7 @@ $('.submit-proj').on('click', function(){
         $('#modal-close').click();
         setTimeout(function(){
           $('#ficha-projeto').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
+          $('#mensagem-ok').contents().remove();
           $('#mensagem-ok').prepend('<div class="col-md-12 alinha-meio" style="border-bottom: 1px solid #DFDCDC;" id="att-sucesso"><h3>'+data+'</h3></div>');
         }, 50);
         if(window.location.href.indexOf('pedidos.php') > -1){
