@@ -17,7 +17,7 @@ if(!isset($_SESSION['email'])){
 	<title>WorkOn! | Perfis</title>
 	<!-- Bootstrap -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/estilo.css?ver=24" rel="stylesheet">
+	<link href="css/estilo.css?ver=25" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -117,7 +117,7 @@ if(!isset($_SESSION['email'])){
 					<div class="modal-body">
 						<div class="row row-perf">
 							<div class="col-md-12 alinha-meio">
-								<h2 id="nome-detal"></h2>
+								<h2 class="headerperfis" id="nome-detal"></h2>
 							</div>	
 						</div>
 
@@ -128,34 +128,34 @@ if(!isset($_SESSION['email'])){
 						</div>
 
 						<div class="row row-perf">	
-							<div class="col-md-12">
-								<h3>O que o dev faz:</h3>
+							<div style="text-align: center;" class="col-md-12">
+								<h3 class=" backperf litleheader">O que o dev faz:</h3>
 								<p id="descri-detal"></p>
 							</div>
 						</div>
 						<br>
 						<div class="row row-perf">
 							<div class="col-md-6 alinha-meio">
-								<label>Atuação</label>
+								<label class="litleheader">Atuação</label>
 								<p id="segmento-detal"></p>
 							</div>
 							<div class="col-md-6 alinha-meio">
-								<label>Localização</label>
+								<label class="litleheader">Localização</label>
 								<p id="local-detal"></p>
 							</div>
 						</div>
 						<br>
 						<div class="row row-perf">
 							<div class="col-md-4 alinha-meio">
-								<label>Facebook</label>
+								<label class="litleheader">Facebook</label>
 								<p id="face-detal"></p>
 							</div>
 							<div class="col-md-4 alinha-meio">
-								<label>Instagram</label>
+								<label class="litleheader">Instagram</label>
 								<p id="insta-detal"></p>
 							</div>
 							<div class="col-md-4 alinha-meio">
-								<label>Site</label>
+								<label class="litleheader">Site</label>
 								<p id="site-detal"></p>
 							</div>
 						</div>
