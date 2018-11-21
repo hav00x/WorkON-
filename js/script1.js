@@ -910,7 +910,7 @@ $('.radiobtncad').on('click', function(){
       $('#sessao-mensagens').contents().remove();
       $('#sessao-mensagens').load('get_mensagem.php', function(data){
         if(!data){
-         $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>')
+         $('#sessao-mensagens').append('<p class="alinha-meio">Você não possui nenhum pedido</p>');
        }
      });
       $("#messagecli").modal('hide');
@@ -944,6 +944,16 @@ $('.radiobtncad').on('click', function(){
     });
   });
 
+  setInterval(function(){
+    if($('#modalChat').hasClass('in')){
+      $.post('get_msgchat.php', {chat:$('#mensagemproj').val()}, function(data){
+        $('#chat-corpo').contents().remove();
+        $('#chat-corpo').append(data);
+        $("#chat-corpo").scrollTop($("#chat-corpo")[0].scrollHeight);
+      });
+    }
+  }, 5000);
+
   $('.btn-msgconversa').on('click', function(e){
     e.preventDefault();
     $.post('envia_msgchat.php', $('#chat-mensagem').serialize(), function(data){
@@ -952,7 +962,6 @@ $('.radiobtncad').on('click', function(){
         $('#chat-corpo').append(data);
         $("#chat-corpo").scrollTop($("#chat-corpo")[0].scrollHeight);
       });
-      console.log(data);
       if(data == 'Mensagem enviada'){
         $('#mensagem-chat').val('');
       }
