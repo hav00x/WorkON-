@@ -110,7 +110,7 @@ if($cli_ou_dev == 2){
 						<h3>'.$nome_projeto.'</h3>					
 						</div>		
 						<div class="col-md-12">
-						<img class="img-projetos" src="img/hog.jpg">
+						<img class="img-projetos" src="img/workkk.png">
 						<div class="info-proj">
 						Nome do cliente: '.$nome_cliente.'<br>				
 						Preço Estabelecido: R$'.$preco.'<br>
@@ -128,7 +128,7 @@ if($cli_ou_dev == 2){
 						<h3>'.$nome_projeto.'</h3>
 						</div>		
 						<div class="col-md-12">
-						<img class="img-projetos" src="img/hog.jpg">
+						<img class="img-projetos" src="img/workkk.png">
 						<div class="info-proj">
 						Nome do cliente: '.$nome_cliente.'<br>
 						Preço Estabelecido: R$'.$preco.'<br>
@@ -151,7 +151,7 @@ if($cli_ou_dev == 2){
 							<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 							</div>		
 							<div class="col-md-12">
-							<img class="img-projetos" src="img/hog.jpg">
+							<img class="img-projetos" src="img/workkk.png">
 							<div class="info-proj">
 							Nome do cliente: '.$nome_cliente.'<br>
 							<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
@@ -184,7 +184,7 @@ if($cli_ou_dev == 2){
 							<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 							</div>		
 							<div class="col-md-12">
-							<img class="img-projetos" src="img/hog.jpg">
+							<img class="img-projetos" src="img/workkk.png">
 							<div class="info-proj">
 							Nome do cliente: '.$nome_cliente.'<br>
 							<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
@@ -217,7 +217,7 @@ if($cli_ou_dev == 2){
 							<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 							</div>		
 							<div class="col-md-12">
-							<img class="img-projetos" src="img/hog.jpg">
+							<img class="img-projetos" src="img/workkk.png">
 							<div class="info-proj">
 							Nome do cliente: '.$nome_cliente.'<br>
 							<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
@@ -250,7 +250,7 @@ if($cli_ou_dev == 2){
 							<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 							</div>		
 							<div class="col-md-12">
-							<img class="img-projetos" src="img/hog.jpg">
+							<img class="img-projetos" src="img/workkk.png">
 							<div class="info-proj">
 							Nome do cliente: '.$nome_cliente.'<br>
 							<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
@@ -362,7 +362,7 @@ if($cli_ou_dev == 2){
 					<h3>'.$nome_projeto.'</h3>					
 					</div>		
 					<div class="col-md-12">
-					<img class="img-projetos" src="img/hog.jpg">
+					<img class="img-projetos" src="img/workkk.png">
 					<div class="info-proj">
 					Nome do cliente: '.$nome_cliente.'<br>				
 					Preço Estabelecido: R$'.$preco.'<br>
@@ -380,7 +380,7 @@ if($cli_ou_dev == 2){
 					<h3>'.$nome_projeto.'</h3>
 					</div>		
 					<div class="col-md-12">
-					<img class="img-projetos" src="img/hog.jpg">
+					<img class="img-projetos" src="img/workkk.png">
 					<div class="info-proj">
 					Nome do cliente: '.$nome_cliente.'<br>
 					Preço Estabelecido: R$'.$preco.'<br>
@@ -402,7 +402,7 @@ if($cli_ou_dev == 2){
 					<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 					</div>		
 					<div class="col-md-12">
-					<img class="img-projetos" src="img/hog.jpg">
+					<img class="img-projetos" src="img/workkk.png">
 					<div class="info-proj">
 					Nome do cliente: '.$nome_cliente.'<br>
 					<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
@@ -436,7 +436,7 @@ if($cli_ou_dev == 2){
 					<input type="text" class="hide" name="nomeprojatt" value="'.$nome_projeto.'">
 					</div>		
 					<div class="col-md-12">
-					<img class="img-projetos" src="img/hog.jpg">
+					<img class="img-projetos" src="img/workkk.png">
 					<div class="info-proj">
 					Nome do cliente: '.$nome_cliente.'<br>
 					<input type="text" class="hide" name="nomecliatt" value="'.$nome_cliente.'">
