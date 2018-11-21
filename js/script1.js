@@ -953,7 +953,7 @@ $('.radiobtncad').on('click', function(){
         $("#chat-corpo").scrollTop($("#chat-corpo")[0].scrollHeight);
       });
       console.log(data);
-      if(data.indexOf('Mensagem enviada')){
+      if(data == 'Mensagem enviada'){
         $('#mensagem-chat').val('');
       }
     });
