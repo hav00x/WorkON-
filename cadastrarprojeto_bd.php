@@ -117,16 +117,25 @@ for($i = 1; $i <= count($idetapa); $i++){
 
 	for($j = 1; $j <= $numeroPassos[$i]; $j++){
 		$stmt = $link->prepare("INSERT INTO passos(passo, ordem_passo, id_etapa) values(?, ?, ?)");
+
 		if ($stmt === false) {
+
 			trigger_error($this->mysqli->error, E_USER_ERROR);
 			return;
+
 		}
+
 		$stmt->bind_param('sii', $passos[$i][$j], $j, $idetapa[$i]);
-		if($stmt->execute()){
+
+		if($stmt->execute()) {
+
 			$check = true;
-		} else{
+
+		} else {
+
 			echo 'Erro ao executar as atividades no banco de dados';
 			die();
+
 		}
 	}
 

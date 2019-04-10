@@ -165,9 +165,9 @@ $cli_ou_dev = $_SESSION['clidev'];
                 <label for='dataent'>Data Entrega</label>
                 <input type='date' class='text_field' id='dataentupd' min='date('Y-m-d')' max='2038-01-19' name='datatermupd'>
               </div>
-              <div class='col-md-offset-4 col-md-4 input-icon'>
+              <div class='col-md-offset-4 col-md-4'>
                 <label for='precoest'>Preço Estabelecido</label>
-                <input type='text' max='999999999' class='text_field' id='precoestupd' name='precoestupd'><i>R$</i>
+                <input type='text' max='999999999' class='text_field' id='precoestupd' name='precoestupd' placeholder="R$">
               </div>
               <div class='col-md-12'>
                 <h3>O que vai ser feito?</h3>
